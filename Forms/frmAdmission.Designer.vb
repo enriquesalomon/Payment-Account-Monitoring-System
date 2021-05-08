@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frmSchoolExpenses
+Partial Class frmAdmission
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -37,7 +37,7 @@ Partial Class frmSchoolExpenses
         Me.Panel4.Location = New System.Drawing.Point(0, 0)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(800, 26)
-        Me.Panel4.TabIndex = 580
+        Me.Panel4.TabIndex = 581
         '
         'btnClose
         '
@@ -62,19 +62,20 @@ Partial Class frmSchoolExpenses
         Me.Label5.ForeColor = System.Drawing.Color.White
         Me.Label5.Location = New System.Drawing.Point(6, 6)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(170, 16)
+        Me.Label5.Size = New System.Drawing.Size(127, 16)
         Me.Label5.TabIndex = 137
-        Me.Label5.Text = "MANAGE SCHOOL EXPENSES"
+        Me.Label5.Text = "STUDENT ADMISSION"
         '
-        'frmSchoolExpenses
+        'frmAdmission
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.Panel4)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "frmSchoolExpenses"
-        Me.Text = "frmSchoolExpenses"
+        Me.Name = "frmAdmission"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "frmAdmission"
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
         Me.ResumeLayout(False)

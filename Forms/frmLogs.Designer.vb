@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frmSchoolExpenses
+Partial Class frmLogs
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -36,8 +36,8 @@ Partial Class frmSchoolExpenses
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel4.Location = New System.Drawing.Point(0, 0)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(800, 26)
-        Me.Panel4.TabIndex = 580
+        Me.Panel4.Size = New System.Drawing.Size(590, 26)
+        Me.Panel4.TabIndex = 581
         '
         'btnClose
         '
@@ -45,7 +45,7 @@ Partial Class frmSchoolExpenses
         Me.btnClose.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClose.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnClose.ImageIndex = 1
-        Me.btnClose.Location = New System.Drawing.Point(769, 0)
+        Me.btnClose.Location = New System.Drawing.Point(559, 0)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(31, 26)
         Me.btnClose.TabIndex = 218
@@ -62,19 +62,20 @@ Partial Class frmSchoolExpenses
         Me.Label5.ForeColor = System.Drawing.Color.White
         Me.Label5.Location = New System.Drawing.Point(6, 6)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(170, 16)
+        Me.Label5.Size = New System.Drawing.Size(69, 16)
         Me.Label5.TabIndex = 137
-        Me.Label5.Text = "MANAGE SCHOOL EXPENSES"
+        Me.Label5.Text = "USER LOGS"
         '
-        'frmSchoolExpenses
+        'frmLogs
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(590, 450)
         Me.Controls.Add(Me.Panel4)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "frmSchoolExpenses"
-        Me.Text = "frmSchoolExpenses"
+        Me.Name = "frmLogs"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "frmLogs"
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
         Me.ResumeLayout(False)

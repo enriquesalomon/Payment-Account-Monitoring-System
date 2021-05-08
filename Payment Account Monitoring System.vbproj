@@ -74,11 +74,35 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\Login.vb" />
+    <Compile Include="Forms\frmAdmission.Designer.vb">
+      <DependentUpon>frmAdmission.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmAdmission.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmGradeLevel.Designer.vb">
+      <DependentUpon>frmGradeLevel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmGradeLevel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmLogs.Designer.vb">
+      <DependentUpon>frmLogs.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmLogs.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\frmMain.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\frmMain.Designer.vb">
       <DependentUpon>frmMain.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmPayments.Designer.vb">
+      <DependentUpon>frmPayments.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmPayments.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\frmSchoolExpenses.Designer.vb">
@@ -87,10 +111,34 @@
     <Compile Include="Forms\frmSchoolExpenses.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\frmSchoolFees.Designer.vb">
+      <DependentUpon>frmSchoolFees.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmSchoolFees.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSchoolYear.Designer.vb">
+      <DependentUpon>frmSchoolYear.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmSchoolYear.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSection.Designer.vb">
+      <DependentUpon>frmSection.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmSection.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\frmStudent.Designer.vb">
       <DependentUpon>frmStudent.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmStudent.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmUser.Designer.vb">
+      <DependentUpon>frmUser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmUser.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Module\modFunction.vb" />
@@ -111,14 +159,35 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\frmAdmission.resx">
+      <DependentUpon>frmAdmission.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmGradeLevel.resx">
+      <DependentUpon>frmGradeLevel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmLogs.resx">
+      <DependentUpon>frmLogs.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmPayments.resx">
+      <DependentUpon>frmPayments.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmSchoolExpenses.resx">
       <DependentUpon>frmSchoolExpenses.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSchoolFees.resx">
+      <DependentUpon>frmSchoolFees.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSchoolYear.resx">
+      <DependentUpon>frmSchoolYear.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmStudent.resx">
       <DependentUpon>frmStudent.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmUser.resx">
+      <DependentUpon>frmUser.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

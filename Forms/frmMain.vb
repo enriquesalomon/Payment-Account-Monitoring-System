@@ -48,4 +48,40 @@
     Private Sub ToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem3.Click
         frmStudent.ShowDialog()
     End Sub
+
+    Private Sub ToolStripMenuItem13_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem13.Click
+        frmSchoolExpenses.ShowDialog()
+    End Sub
+
+    Private Sub ToolStripMenuItem9_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem9.Click
+        frmUser.ShowDialog()
+    End Sub
+
+    Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem2.Click
+        frmPayments.ShowDialog()
+    End Sub
+
+    Private Sub ToolStripMenuItem17_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem17.Click
+        frmSchoolFees.ShowDialog()
+    End Sub
+
+    Private Sub ToolStripMenuItem4_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem4.Click
+        frmAdmission.ShowDialog()
+    End Sub
+
+    Private Sub UserLogsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UserLogsToolStripMenuItem.Click
+        frmLogs.ShowDialog()
+    End Sub
+
+    Private Sub UserManagementToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UserManagementToolStripMenuItem.Click
+        frmSchoolYear.ShowDialog()
+    End Sub
+
+    Private Sub ManageGradeLevelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ManageGradeLevelToolStripMenuItem.Click
+        frmGradeLevel.ShowDialog()
+    End Sub
+
+    Private Sub ManageSectionToolStripMenuItem_Click(sender As Object, e As EventArgs)
+        frmSection.ShowDialog()
+    End Sub
 End Class
