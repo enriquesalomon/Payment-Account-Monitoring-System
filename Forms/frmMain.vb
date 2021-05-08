@@ -1,6 +1,8 @@
 ﻿Public Class frmMain
     Private Sub ToolStripMenuItem5_Click(sender As Object, e As EventArgs) Handles tsMenuLogout.Click
-        Me.Close()
+        panelLogin.Visible = True
+        MenuStrip1.Enabled = False
+        lblDescLogin.Visible = False
     End Sub
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
@@ -39,7 +41,11 @@
         closeme()
     End Sub
 
-    Private Sub ToolStripMenuItem15_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem15.Click
+    Private Sub ToolStripMenuItem15_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub ToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem3.Click
         frmStudent.ShowDialog()
     End Sub
 End Class
