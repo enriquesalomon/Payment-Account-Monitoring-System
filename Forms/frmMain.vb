@@ -84,4 +84,8 @@
     Private Sub ManageSectionToolStripMenuItem_Click(sender As Object, e As EventArgs)
         frmSelectSYAdmission.ShowDialog()
     End Sub
+
+    Private Sub ToolStripMenuItem8_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem8.Click
+        frmLedger.ShowDialog()
+    End Sub
 End Class

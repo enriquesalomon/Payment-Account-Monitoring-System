@@ -24,33 +24,35 @@ Partial Class frmAdmission
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAdmission))
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
         Me.txtCode = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.txtPassword = New System.Windows.Forms.TextBox()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.txtUsername = New System.Windows.Forms.TextBox()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.cmbUserlevel = New System.Windows.Forms.ComboBox()
         Me.txtLastname = New System.Windows.Forms.TextBox()
         Me.asf = New System.Windows.Forms.Label()
         Me.txtMiddlename = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtFirstname = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.txtContactNo = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.txtAddress = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.dtgUserList = New System.Windows.Forms.DataGridView()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.cmbUserlevel = New System.Windows.Forms.ComboBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.btnEdit = New System.Windows.Forms.Button()
+        Me.btnSave = New System.Windows.Forms.Button()
+        Me.btnNew = New System.Windows.Forms.Button()
+        Me.bntClose = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.lblrecordcount = New System.Windows.Forms.Label()
         Me.Panel4.SuspendLayout()
         CType(Me.dtgUserList, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel4
@@ -61,7 +63,7 @@ Partial Class frmAdmission
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel4.Location = New System.Drawing.Point(0, 0)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(945, 26)
+        Me.Panel4.Size = New System.Drawing.Size(947, 26)
         Me.Panel4.TabIndex = 581
         '
         'btnClose
@@ -70,7 +72,7 @@ Partial Class frmAdmission
         Me.btnClose.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClose.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnClose.ImageIndex = 1
-        Me.btnClose.Location = New System.Drawing.Point(914, 0)
+        Me.btnClose.Location = New System.Drawing.Point(916, 0)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(31, 26)
         Me.btnClose.TabIndex = 218
@@ -84,23 +86,12 @@ Partial Class frmAdmission
         Me.Label5.AutoSize = True
         Me.Label5.BackColor = System.Drawing.Color.Transparent
         Me.Label5.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.ForeColor = System.Drawing.Color.White
+        Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label5.Location = New System.Drawing.Point(6, 6)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(127, 16)
         Me.Label5.TabIndex = 137
         Me.Label5.Text = "STUDENT ADMISSION"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.ForeColor = System.Drawing.Color.Green
-        Me.Label8.Location = New System.Drawing.Point(156, 318)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(142, 16)
-        Me.Label8.TabIndex = 622
-        Me.Label8.Text = "LOG IN CREDENTIALS"
         '
         'txtCode
         '
@@ -120,9 +111,9 @@ Partial Class frmAdmission
         Me.Label2.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(25, 88)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(78, 17)
+        Me.Label2.Size = New System.Drawing.Size(80, 17)
         Me.Label2.TabIndex = 621
-        Me.Label2.Text = "User Code:"
+        Me.Label2.Text = "ControlNo:"
         Me.Label2.Visible = False
         '
         'Label7
@@ -135,67 +126,6 @@ Partial Class frmAdmission
         Me.Label7.Size = New System.Drawing.Size(91, 16)
         Me.Label7.TabIndex = 619
         Me.Label7.Text = "USER DETAILS"
-        '
-        'txtPassword
-        '
-        Me.txtPassword.BackColor = System.Drawing.Color.White
-        Me.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtPassword.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPassword.Location = New System.Drawing.Point(102, 361)
-        Me.txtPassword.Name = "txtPassword"
-        Me.txtPassword.Size = New System.Drawing.Size(234, 22)
-        Me.txtPassword.TabIndex = 618
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(29, 363)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(73, 17)
-        Me.Label10.TabIndex = 617
-        Me.Label10.Text = "Password:"
-        '
-        'txtUsername
-        '
-        Me.txtUsername.BackColor = System.Drawing.Color.White
-        Me.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtUsername.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtUsername.Location = New System.Drawing.Point(102, 337)
-        Me.txtUsername.Name = "txtUsername"
-        Me.txtUsername.Size = New System.Drawing.Size(234, 22)
-        Me.txtUsername.TabIndex = 616
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(27, 342)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(75, 17)
-        Me.Label11.TabIndex = 615
-        Me.Label11.Text = "Username:"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(29, 279)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(74, 17)
-        Me.Label4.TabIndex = 614
-        Me.Label4.Text = "User Level:"
-        '
-        'cmbUserlevel
-        '
-        Me.cmbUserlevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbUserlevel.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbUserlevel.FormattingEnabled = True
-        Me.cmbUserlevel.Items.AddRange(New Object() {"Administrator", "Stock Clerk", "Cashier"})
-        Me.cmbUserlevel.Location = New System.Drawing.Point(103, 271)
-        Me.cmbUserlevel.Name = "cmbUserlevel"
-        Me.cmbUserlevel.Size = New System.Drawing.Size(234, 25)
-        Me.cmbUserlevel.TabIndex = 613
         '
         'txtLastname
         '
@@ -260,59 +190,26 @@ Partial Class frmAdmission
         Me.Label9.TabIndex = 608
         Me.Label9.Text = "Firstname:"
         '
-        'txtContactNo
-        '
-        Me.txtContactNo.BackColor = System.Drawing.Color.White
-        Me.txtContactNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtContactNo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtContactNo.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtContactNo.Location = New System.Drawing.Point(103, 246)
-        Me.txtContactNo.Name = "txtContactNo"
-        Me.txtContactNo.Size = New System.Drawing.Size(234, 22)
-        Me.txtContactNo.TabIndex = 607
-        '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(9, 251)
+        Me.Label6.Location = New System.Drawing.Point(12, 187)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(94, 17)
+        Me.Label6.Size = New System.Drawing.Size(90, 17)
         Me.Label6.TabIndex = 606
-        Me.Label6.Text = "Contact No.:"
-        '
-        'txtAddress
-        '
-        Me.txtAddress.BackColor = System.Drawing.Color.White
-        Me.txtAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtAddress.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtAddress.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAddress.Location = New System.Drawing.Point(103, 183)
-        Me.txtAddress.Multiline = True
-        Me.txtAddress.Name = "txtAddress"
-        Me.txtAddress.Size = New System.Drawing.Size(234, 60)
-        Me.txtAddress.TabIndex = 605
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(42, 203)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(61, 17)
-        Me.Label3.TabIndex = 604
-        Me.Label3.Text = "Address:"
+        Me.Label6.Text = "Grade Level:"
         '
         'Label12
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.ForeColor = System.Drawing.Color.Green
-        Me.Label12.Location = New System.Drawing.Point(338, 52)
+        Me.Label12.Location = New System.Drawing.Point(338, 57)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(72, 16)
+        Me.Label12.Size = New System.Drawing.Size(31, 16)
         Me.Label12.TabIndex = 624
-        Me.Label12.Text = "USERS LIST"
+        Me.Label12.Text = "LIST"
         '
         'dtgUserList
         '
@@ -334,7 +231,7 @@ Partial Class frmAdmission
         Me.dtgUserList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dtgUserList.EnableHeadersVisualStyles = False
         Me.dtgUserList.GridColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.dtgUserList.Location = New System.Drawing.Point(341, 71)
+        Me.dtgUserList.Location = New System.Drawing.Point(341, 81)
         Me.dtgUserList.MultiSelect = False
         Me.dtgUserList.Name = "dtgUserList"
         Me.dtgUserList.ReadOnly = True
@@ -352,37 +249,149 @@ Partial Class frmAdmission
         Me.dtgUserList.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White
         Me.dtgUserList.RowTemplate.Height = 25
         Me.dtgUserList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtgUserList.Size = New System.Drawing.Size(602, 345)
+        Me.dtgUserList.Size = New System.Drawing.Size(602, 516)
         Me.dtgUserList.TabIndex = 623
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(43, 213)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(59, 17)
+        Me.Label3.TabIndex = 626
+        Me.Label3.Text = "Section:"
+        '
+        'cmbUserlevel
+        '
+        Me.cmbUserlevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbUserlevel.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbUserlevel.FormattingEnabled = True
+        Me.cmbUserlevel.Items.AddRange(New Object() {"Administrator", "Stock Clerk", "Cashier"})
+        Me.cmbUserlevel.Location = New System.Drawing.Point(103, 183)
+        Me.cmbUserlevel.Name = "cmbUserlevel"
+        Me.cmbUserlevel.Size = New System.Drawing.Size(114, 25)
+        Me.cmbUserlevel.TabIndex = 627
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox1.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"Administrator", "Stock Clerk", "Cashier"})
+        Me.ComboBox1.Location = New System.Drawing.Point(103, 211)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(114, 25)
+        Me.ComboBox1.TabIndex = 628
+        '
+        'btnEdit
+        '
+        Me.btnEdit.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEdit.Image = CType(resources.GetObject("btnEdit.Image"), System.Drawing.Image)
+        Me.btnEdit.Location = New System.Drawing.Point(85, 250)
+        Me.btnEdit.Name = "btnEdit"
+        Me.btnEdit.Size = New System.Drawing.Size(81, 26)
+        Me.btnEdit.TabIndex = 632
+        Me.btnEdit.Text = "Edit"
+        Me.btnEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnEdit.UseVisualStyleBackColor = True
+        '
+        'btnSave
+        '
+        Me.btnSave.Enabled = False
+        Me.btnSave.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSave.Image = CType(resources.GetObject("btnSave.Image"), System.Drawing.Image)
+        Me.btnSave.Location = New System.Drawing.Point(165, 250)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(81, 26)
+        Me.btnSave.TabIndex = 630
+        Me.btnSave.Text = "Save"
+        Me.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnSave.UseVisualStyleBackColor = True
+        '
+        'btnNew
+        '
+        Me.btnNew.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNew.Image = CType(resources.GetObject("btnNew.Image"), System.Drawing.Image)
+        Me.btnNew.Location = New System.Drawing.Point(5, 250)
+        Me.btnNew.Name = "btnNew"
+        Me.btnNew.Size = New System.Drawing.Size(81, 26)
+        Me.btnNew.TabIndex = 629
+        Me.btnNew.Text = "New"
+        Me.btnNew.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnNew.UseVisualStyleBackColor = True
+        '
+        'bntClose
+        '
+        Me.bntClose.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bntClose.Image = CType(resources.GetObject("bntClose.Image"), System.Drawing.Image)
+        Me.bntClose.Location = New System.Drawing.Point(246, 250)
+        Me.bntClose.Name = "bntClose"
+        Me.bntClose.Size = New System.Drawing.Size(81, 26)
+        Me.bntClose.TabIndex = 631
+        Me.bntClose.Text = "Cancel"
+        Me.bntClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.bntClose.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(218, 80)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(53, 26)
+        Me.Button1.TabIndex = 633
+        Me.Button1.Text = "..."
+        Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.White
+        Me.Panel1.Controls.Add(Me.lblrecordcount)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel1.Location = New System.Drawing.Point(0, 600)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(947, 31)
+        Me.Panel1.TabIndex = 634
+        '
+        'lblrecordcount
+        '
+        Me.lblrecordcount.AutoSize = True
+        Me.lblrecordcount.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblrecordcount.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.lblrecordcount.Location = New System.Drawing.Point(774, 5)
+        Me.lblrecordcount.Name = "lblrecordcount"
+        Me.lblrecordcount.Size = New System.Drawing.Size(90, 17)
+        Me.lblrecordcount.TabIndex = 551
+        Me.lblrecordcount.Text = "Record Count"
         '
         'frmAdmission
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(945, 503)
+        Me.ClientSize = New System.Drawing.Size(947, 631)
+        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnEdit)
+        Me.Controls.Add(Me.btnSave)
+        Me.Controls.Add(Me.btnNew)
+        Me.Controls.Add(Me.bntClose)
+        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.cmbUserlevel)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.dtgUserList)
-        Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.txtCode)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.txtPassword)
-        Me.Controls.Add(Me.Label10)
-        Me.Controls.Add(Me.txtUsername)
-        Me.Controls.Add(Me.Label11)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.cmbUserlevel)
         Me.Controls.Add(Me.txtLastname)
         Me.Controls.Add(Me.asf)
         Me.Controls.Add(Me.txtMiddlename)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtFirstname)
         Me.Controls.Add(Me.Label9)
-        Me.Controls.Add(Me.txtContactNo)
         Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.txtAddress)
-        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Panel4)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmAdmission"
@@ -391,6 +400,8 @@ Partial Class frmAdmission
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
         CType(Me.dtgUserList, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -399,26 +410,26 @@ Partial Class frmAdmission
     Friend WithEvents Panel4 As Panel
     Friend WithEvents btnClose As Button
     Friend WithEvents Label5 As Label
-    Friend WithEvents Label8 As Label
     Friend WithEvents txtCode As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label7 As Label
-    Friend WithEvents txtPassword As TextBox
-    Friend WithEvents Label10 As Label
-    Friend WithEvents txtUsername As TextBox
-    Friend WithEvents Label11 As Label
-    Friend WithEvents Label4 As Label
-    Friend WithEvents cmbUserlevel As ComboBox
     Friend WithEvents txtLastname As TextBox
     Friend WithEvents asf As Label
     Friend WithEvents txtMiddlename As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents txtFirstname As TextBox
     Friend WithEvents Label9 As Label
-    Friend WithEvents txtContactNo As TextBox
     Friend WithEvents Label6 As Label
-    Friend WithEvents txtAddress As TextBox
-    Friend WithEvents Label3 As Label
     Friend WithEvents Label12 As Label
     Friend WithEvents dtgUserList As DataGridView
+    Friend WithEvents Label3 As Label
+    Friend WithEvents cmbUserlevel As ComboBox
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents btnEdit As Button
+    Friend WithEvents btnSave As Button
+    Friend WithEvents btnNew As Button
+    Friend WithEvents bntClose As Button
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents lblrecordcount As Label
 End Class

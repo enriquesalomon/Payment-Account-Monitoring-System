@@ -86,6 +86,12 @@
     <Compile Include="Forms\frmGradeLevel.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\frmLedger.Designer.vb">
+      <DependentUpon>frmLedger.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmLedger.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\frmLogs.Designer.vb">
       <DependentUpon>frmLogs.vb</DependentUpon>
     </Compile>
@@ -164,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmGradeLevel.resx">
       <DependentUpon>frmGradeLevel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmLedger.resx">
+      <DependentUpon>frmLedger.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmLogs.resx">
       <DependentUpon>frmLogs.vb</DependentUpon>

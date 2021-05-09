@@ -29,6 +29,8 @@ Partial Class frmMain
         Me.lblDescLogin = New System.Windows.Forms.Label()
         Me.lbltime = New System.Windows.Forms.Label()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.ToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem6 = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsMenuProfile = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsMenuAdmission = New System.Windows.Forms.ToolStripMenuItem()
@@ -63,16 +65,7 @@ Partial Class frmMain
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.lblbranchName = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.lblusername = New System.Windows.Forms.Label()
-        Me.lblposition = New System.Windows.Forms.Label()
-        Me.lbluserid = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.ToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem6 = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.panelLogin.SuspendLayout()
@@ -110,12 +103,12 @@ Partial Class frmMain
         '
         'lblDescLogin
         '
-        Me.lblDescLogin.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.lblDescLogin.AutoSize = True
         Me.lblDescLogin.BackColor = System.Drawing.Color.Transparent
+        Me.lblDescLogin.Dock = System.Windows.Forms.DockStyle.Right
         Me.lblDescLogin.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDescLogin.ForeColor = System.Drawing.Color.White
-        Me.lblDescLogin.Location = New System.Drawing.Point(700, 5)
+        Me.lblDescLogin.Location = New System.Drawing.Point(1035, 0)
         Me.lblDescLogin.Name = "lblDescLogin"
         Me.lblDescLogin.Size = New System.Drawing.Size(62, 17)
         Me.lblDescLogin.TabIndex = 229
@@ -147,6 +140,25 @@ Partial Class frmMain
         Me.MenuStrip1.Size = New System.Drawing.Size(1149, 40)
         Me.MenuStrip1.TabIndex = 244
         Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'ToolStripMenuItem5
+        '
+        Me.ToolStripMenuItem5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripMenuItem5.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem6})
+        Me.ToolStripMenuItem5.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ToolStripMenuItem5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.ToolStripMenuItem5.Image = CType(resources.GetObject("ToolStripMenuItem5.Image"), System.Drawing.Image)
+        Me.ToolStripMenuItem5.Name = "ToolStripMenuItem5"
+        Me.ToolStripMenuItem5.Size = New System.Drawing.Size(28, 36)
+        Me.ToolStripMenuItem5.Text = "PROFILE"
+        Me.ToolStripMenuItem5.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay
+        '
+        'ToolStripMenuItem6
+        '
+        Me.ToolStripMenuItem6.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ToolStripMenuItem6.Name = "ToolStripMenuItem6"
+        Me.ToolStripMenuItem6.Size = New System.Drawing.Size(204, 22)
+        Me.ToolStripMenuItem6.Text = "Student Information"
         '
         'tsMenuProfile
         '
@@ -280,21 +292,21 @@ Partial Class frmMain
         '
         Me.ToolStripMenuItem8.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStripMenuItem8.Name = "ToolStripMenuItem8"
-        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(130, 22)
-        Me.ToolStripMenuItem8.Text = "Report 1"
+        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(173, 22)
+        Me.ToolStripMenuItem8.Text = "Student Ledger"
         '
         'ToolStripMenuItem10
         '
         Me.ToolStripMenuItem10.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStripMenuItem10.Name = "ToolStripMenuItem10"
-        Me.ToolStripMenuItem10.Size = New System.Drawing.Size(130, 22)
+        Me.ToolStripMenuItem10.Size = New System.Drawing.Size(173, 22)
         Me.ToolStripMenuItem10.Text = "Report 2"
         '
         'ToolStripMenuItem11
         '
         Me.ToolStripMenuItem11.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStripMenuItem11.Name = "ToolStripMenuItem11"
-        Me.ToolStripMenuItem11.Size = New System.Drawing.Size(130, 22)
+        Me.ToolStripMenuItem11.Size = New System.Drawing.Size(173, 22)
         Me.ToolStripMenuItem11.Text = "Report 3"
         '
         'tsMenuSetting
@@ -457,13 +469,6 @@ Partial Class frmMain
         Me.Panel5.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.Panel5.Controls.Add(Me.Label3)
         Me.Panel5.Controls.Add(Me.lblbranchName)
-        Me.Panel5.Controls.Add(Me.Label2)
-        Me.Panel5.Controls.Add(Me.Label8)
-        Me.Panel5.Controls.Add(Me.Label9)
-        Me.Panel5.Controls.Add(Me.lblusername)
-        Me.Panel5.Controls.Add(Me.lblposition)
-        Me.Panel5.Controls.Add(Me.lbluserid)
-        Me.Panel5.Controls.Add(Me.Label11)
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel5.Location = New System.Drawing.Point(0, 421)
         Me.Panel5.Name = "Panel5"
@@ -478,7 +483,7 @@ Partial Class frmMain
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Gray
-        Me.Label3.Location = New System.Drawing.Point(533, 7)
+        Me.Label3.Location = New System.Drawing.Point(422, 5)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(572, 15)
         Me.Label3.TabIndex = 209
@@ -496,105 +501,9 @@ Partial Class frmMain
         Me.lblbranchName.Text = "lblbranchname"
         Me.lblbranchName.Visible = False
         '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(1108, 6)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(93, 15)
-        Me.Label2.TabIndex = 220
-        Me.Label2.Text = "BRANCH NAME:"
-        Me.Label2.Visible = False
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(0, 5)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(49, 15)
-        Me.Label8.TabIndex = 216
-        Me.Label8.Text = "USER ID:"
-        Me.Label8.Visible = False
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(380, 7)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(83, 15)
-        Me.Label9.TabIndex = 218
-        Me.Label9.Text = "DESIGNATION:"
-        Me.Label9.Visible = False
-        '
-        'lblusername
-        '
-        Me.lblusername.AutoSize = True
-        Me.lblusername.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblusername.Location = New System.Drawing.Point(184, 7)
-        Me.lblusername.Name = "lblusername"
-        Me.lblusername.Size = New System.Drawing.Size(82, 16)
-        Me.lblusername.TabIndex = 216
-        Me.lblusername.Text = "lblusername"
-        Me.lblusername.Visible = False
-        '
-        'lblposition
-        '
-        Me.lblposition.AutoSize = True
-        Me.lblposition.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblposition.Location = New System.Drawing.Point(462, 7)
-        Me.lblposition.Name = "lblposition"
-        Me.lblposition.Size = New System.Drawing.Size(63, 15)
-        Me.lblposition.TabIndex = 217
-        Me.lblposition.Text = "lblposition"
-        Me.lblposition.Visible = False
-        '
-        'lbluserid
-        '
-        Me.lbluserid.AutoSize = True
-        Me.lbluserid.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbluserid.Location = New System.Drawing.Point(45, 5)
-        Me.lbluserid.Name = "lbluserid"
-        Me.lbluserid.Size = New System.Drawing.Size(59, 16)
-        Me.lbluserid.TabIndex = 219
-        Me.lbluserid.Text = "lbluserid"
-        Me.lbluserid.Visible = False
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(112, 7)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(75, 15)
-        Me.Label11.TabIndex = 217
-        Me.Label11.Text = "USER  NAME:"
-        Me.Label11.Visible = False
-        '
         'Timer1
         '
         Me.Timer1.Enabled = True
-        '
-        'ToolStripMenuItem5
-        '
-        Me.ToolStripMenuItem5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripMenuItem5.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem6})
-        Me.ToolStripMenuItem5.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStripMenuItem5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.ToolStripMenuItem5.Image = CType(resources.GetObject("ToolStripMenuItem5.Image"), System.Drawing.Image)
-        Me.ToolStripMenuItem5.Name = "ToolStripMenuItem5"
-        Me.ToolStripMenuItem5.Size = New System.Drawing.Size(28, 36)
-        Me.ToolStripMenuItem5.Text = "PROFILE"
-        Me.ToolStripMenuItem5.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay
-        '
-        'ToolStripMenuItem6
-        '
-        Me.ToolStripMenuItem6.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStripMenuItem6.Name = "ToolStripMenuItem6"
-        Me.ToolStripMenuItem6.Size = New System.Drawing.Size(204, 22)
-        Me.ToolStripMenuItem6.Text = "Student Information"
         '
         'frmMain
         '
@@ -657,13 +566,6 @@ Partial Class frmMain
     Friend WithEvents Panel5 As Panel
     Friend WithEvents Label3 As Label
     Friend WithEvents lblbranchName As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label8 As Label
-    Friend WithEvents Label9 As Label
-    Friend WithEvents lblusername As Label
-    Friend WithEvents lblposition As Label
-    Friend WithEvents lbluserid As Label
-    Friend WithEvents Label11 As Label
     Friend WithEvents Timer1 As Timer
     Friend WithEvents tsMenuProfile As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem3 As ToolStripMenuItem

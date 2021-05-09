@@ -22,7 +22,7 @@
                 End While
             Else
                 password = password
-                frmMain.lblusername.Text = Username
+                'frmMain.lblusername.Text = Username
             End If
             If Trim(password) = Trim(frmMain.txtpassword.Text) And frmMain.txtusername.Text = Trim(Username) Then
                 MessageBox.Show("Access successfully Granted", "Validation Message", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
