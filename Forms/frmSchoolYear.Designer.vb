@@ -35,13 +35,13 @@ Partial Class frmSchoolYear
         Me.Label4 = New System.Windows.Forms.Label()
         Me.cmbUserlevel = New System.Windows.Forms.ComboBox()
         Me.panelSchoolYear = New System.Windows.Forms.Panel()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.btnSave = New System.Windows.Forms.Button()
-        Me.bntClose = New System.Windows.Forms.Button()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.btnClosePanel = New System.Windows.Forms.Button()
         Me.lblCode = New System.Windows.Forms.Label()
+        Me.btnSave = New System.Windows.Forms.Button()
+        Me.bntClose = New System.Windows.Forms.Button()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.dtgUserList = New System.Windows.Forms.DataGridView()
         Me.Label40 = New System.Windows.Forms.Label()
         Me.Panel4.SuspendLayout()
@@ -91,7 +91,7 @@ Partial Class frmSchoolYear
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Panel1.BackColor = System.Drawing.Color.White
         Me.Panel1.Controls.Add(Me.btnEdit)
         Me.Panel1.Controls.Add(Me.btnNew)
         Me.Panel1.Controls.Add(Me.btnDelete)
@@ -172,51 +172,6 @@ Partial Class frmSchoolYear
         Me.panelSchoolYear.Size = New System.Drawing.Size(205, 152)
         Me.panelSchoolYear.TabIndex = 597
         '
-        'ComboBox1
-        '
-        Me.ComboBox1.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Administrator", "Stock Clerk", "Cashier"})
-        Me.ComboBox1.Location = New System.Drawing.Point(53, 73)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(136, 25)
-        Me.ComboBox1.TabIndex = 597
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(24, 79)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(26, 17)
-        Me.Label1.TabIndex = 598
-        Me.Label1.Text = "To:"
-        '
-        'btnSave
-        '
-        Me.btnSave.Enabled = False
-        Me.btnSave.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSave.Image = CType(resources.GetObject("btnSave.Image"), System.Drawing.Image)
-        Me.btnSave.Location = New System.Drawing.Point(3, 124)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(100, 26)
-        Me.btnSave.TabIndex = 599
-        Me.btnSave.Text = "Save"
-        Me.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnSave.UseVisualStyleBackColor = True
-        '
-        'bntClose
-        '
-        Me.bntClose.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bntClose.Image = CType(resources.GetObject("bntClose.Image"), System.Drawing.Image)
-        Me.bntClose.Location = New System.Drawing.Point(103, 124)
-        Me.bntClose.Name = "bntClose"
-        Me.bntClose.Size = New System.Drawing.Size(100, 26)
-        Me.bntClose.TabIndex = 600
-        Me.bntClose.Text = "Cancel"
-        Me.bntClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.bntClose.UseVisualStyleBackColor = True
-        '
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.Color.Goldenrod
@@ -256,13 +211,59 @@ Partial Class frmSchoolYear
         Me.lblCode.Text = "code"
         Me.lblCode.Visible = False
         '
+        'btnSave
+        '
+        Me.btnSave.Enabled = False
+        Me.btnSave.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSave.Image = CType(resources.GetObject("btnSave.Image"), System.Drawing.Image)
+        Me.btnSave.Location = New System.Drawing.Point(3, 124)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(100, 26)
+        Me.btnSave.TabIndex = 599
+        Me.btnSave.Text = "Save"
+        Me.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnSave.UseVisualStyleBackColor = True
+        '
+        'bntClose
+        '
+        Me.bntClose.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bntClose.Image = CType(resources.GetObject("bntClose.Image"), System.Drawing.Image)
+        Me.bntClose.Location = New System.Drawing.Point(103, 124)
+        Me.bntClose.Name = "bntClose"
+        Me.bntClose.Size = New System.Drawing.Size(100, 26)
+        Me.bntClose.TabIndex = 600
+        Me.bntClose.Text = "Cancel"
+        Me.bntClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.bntClose.UseVisualStyleBackColor = True
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"Administrator", "Stock Clerk", "Cashier"})
+        Me.ComboBox1.Location = New System.Drawing.Point(53, 73)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(136, 25)
+        Me.ComboBox1.TabIndex = 597
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(24, 79)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(26, 17)
+        Me.Label1.TabIndex = 598
+        Me.Label1.Text = "To:"
+        '
         'dtgUserList
         '
         Me.dtgUserList.AllowUserToAddRows = False
         Me.dtgUserList.AllowUserToDeleteRows = False
         Me.dtgUserList.AllowUserToResizeColumns = False
         Me.dtgUserList.AllowUserToResizeRows = False
-        Me.dtgUserList.BackgroundColor = System.Drawing.Color.White
+        Me.dtgUserList.BackgroundColor = System.Drawing.Color.Gainsboro
+        Me.dtgUserList.BorderStyle = System.Windows.Forms.BorderStyle.None
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -275,7 +276,7 @@ Partial Class frmSchoolYear
         Me.dtgUserList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dtgUserList.EnableHeadersVisualStyles = False
         Me.dtgUserList.GridColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.dtgUserList.Location = New System.Drawing.Point(0, 60)
+        Me.dtgUserList.Location = New System.Drawing.Point(3, 60)
         Me.dtgUserList.MultiSelect = False
         Me.dtgUserList.Name = "dtgUserList"
         Me.dtgUserList.ReadOnly = True
@@ -311,6 +312,7 @@ Partial Class frmSchoolYear
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(307, 429)
         Me.Controls.Add(Me.Label40)
         Me.Controls.Add(Me.panelSchoolYear)

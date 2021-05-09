@@ -102,7 +102,7 @@ Partial Class frmUser
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Panel1.BackColor = System.Drawing.Color.White
         Me.Panel1.Controls.Add(Me.btnEdit)
         Me.Panel1.Controls.Add(Me.lblrecordcount)
         Me.Panel1.Controls.Add(Me.btnSave)
@@ -205,7 +205,8 @@ Partial Class frmUser
         Me.dtgUserList.AllowUserToDeleteRows = False
         Me.dtgUserList.AllowUserToResizeColumns = False
         Me.dtgUserList.AllowUserToResizeRows = False
-        Me.dtgUserList.BackgroundColor = System.Drawing.Color.White
+        Me.dtgUserList.BackgroundColor = System.Drawing.Color.Gainsboro
+        Me.dtgUserList.BorderStyle = System.Windows.Forms.BorderStyle.None
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -236,7 +237,7 @@ Partial Class frmUser
         Me.dtgUserList.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White
         Me.dtgUserList.RowTemplate.Height = 25
         Me.dtgUserList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtgUserList.Size = New System.Drawing.Size(633, 332)
+        Me.dtgUserList.Size = New System.Drawing.Size(633, 345)
         Me.dtgUserList.TabIndex = 603
         '
         'Label8
@@ -455,6 +456,7 @@ Partial Class frmUser
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(986, 450)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.dtgUserList)

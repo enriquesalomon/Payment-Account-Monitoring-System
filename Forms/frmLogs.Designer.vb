@@ -22,10 +22,15 @@ Partial Class frmLogs
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label40 = New System.Windows.Forms.Label()
+        Me.dtgUserList = New System.Windows.Forms.DataGridView()
         Me.Panel4.SuspendLayout()
+        CType(Me.dtgUserList, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel4
@@ -66,11 +71,66 @@ Partial Class frmLogs
         Me.Label5.TabIndex = 137
         Me.Label5.Text = "USER LOGS"
         '
+        'Label40
+        '
+        Me.Label40.AutoSize = True
+        Me.Label40.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label40.ForeColor = System.Drawing.Color.Green
+        Me.Label40.Location = New System.Drawing.Point(12, 37)
+        Me.Label40.Name = "Label40"
+        Me.Label40.Size = New System.Drawing.Size(31, 16)
+        Me.Label40.TabIndex = 609
+        Me.Label40.Text = "LIST"
+        '
+        'dtgUserList
+        '
+        Me.dtgUserList.AllowUserToAddRows = False
+        Me.dtgUserList.AllowUserToDeleteRows = False
+        Me.dtgUserList.AllowUserToResizeColumns = False
+        Me.dtgUserList.AllowUserToResizeRows = False
+        Me.dtgUserList.BackgroundColor = System.Drawing.Color.Gainsboro
+        Me.dtgUserList.BorderStyle = System.Windows.Forms.BorderStyle.None
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dtgUserList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.dtgUserList.ColumnHeadersHeight = 32
+        Me.dtgUserList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.dtgUserList.EnableHeadersVisualStyles = False
+        Me.dtgUserList.GridColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.dtgUserList.Location = New System.Drawing.Point(4, 56)
+        Me.dtgUserList.MultiSelect = False
+        Me.dtgUserList.Name = "dtgUserList"
+        Me.dtgUserList.ReadOnly = True
+        Me.dtgUserList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        Me.dtgUserList.RowHeadersVisible = False
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
+        Me.dtgUserList.RowsDefaultCellStyle = DataGridViewCellStyle2
+        Me.dtgUserList.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtgUserList.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
+        Me.dtgUserList.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.DodgerBlue
+        Me.dtgUserList.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White
+        Me.dtgUserList.RowTemplate.Height = 25
+        Me.dtgUserList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dtgUserList.Size = New System.Drawing.Size(581, 463)
+        Me.dtgUserList.TabIndex = 608
+        '
         'frmLogs
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(590, 450)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(590, 521)
+        Me.Controls.Add(Me.Label40)
+        Me.Controls.Add(Me.dtgUserList)
         Me.Controls.Add(Me.Panel4)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmLogs"
@@ -78,11 +138,15 @@ Partial Class frmLogs
         Me.Text = "frmLogs"
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
+        CType(Me.dtgUserList, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents Panel4 As Panel
     Friend WithEvents btnClose As Button
     Friend WithEvents Label5 As Label
+    Friend WithEvents Label40 As Label
+    Friend WithEvents dtgUserList As DataGridView
 End Class

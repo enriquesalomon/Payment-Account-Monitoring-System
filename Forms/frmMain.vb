@@ -66,7 +66,7 @@
     End Sub
 
     Private Sub ToolStripMenuItem4_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem4.Click
-        frmAdmission.ShowDialog()
+        frmSelectSYAdmission.ShowDialog()
     End Sub
 
     Private Sub UserLogsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UserLogsToolStripMenuItem.Click
@@ -82,6 +82,6 @@
     End Sub
 
     Private Sub ManageSectionToolStripMenuItem_Click(sender As Object, e As EventArgs)
-        frmSection.ShowDialog()
+        frmSelectSYAdmission.ShowDialog()
     End Sub
 End Class
