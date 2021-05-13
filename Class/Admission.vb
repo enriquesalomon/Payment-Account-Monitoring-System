@@ -51,19 +51,14 @@
         Try
             Call connect(condbPOS)
             mycommand = mysqlconn.CreateCommand
-            mycommand.CommandText = "Select * from GradeSection ASC"
+            mycommand.CommandText = "Select * from GradeSection"
             myadapter.SelectCommand = mycommand
             myadapter.Fill(mydataset, "GradeSection")
             mydataTable = mydataset.Tables("GradeSection")
             mysqlreader = mycommand.ExecuteReader()
             While mysqlreader.Read()
-                frmAdmission.cmbGradeSection.Text = mysqlreader("SYFrom").ToString + "-" + mysqlreader("SYTo").ToString
+                frmAdmission.cmbGradeSection.Items.Add(mysqlreader("GradeSection"))
             End While
-            If mydataTable.Rows.Count = 0 Then
-                SchoolYearID = ""
-                SchoolYearVar = ""
-
-            End If
             mysqlreader.Close()
             mysqlconn.Close()
         Catch ex As Exception
