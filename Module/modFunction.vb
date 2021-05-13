@@ -7,6 +7,7 @@ Module modFunction
     Public myadmission As New Admission
     Public mygradesection As New GradeSection
     Public myschoolexpenses As New SchoolExpenses
+    Public myschoolfees As New SchoolFees
 
 
     Public mysqlconn As New OleDb.OleDbConnection
@@ -202,6 +203,33 @@ Module modFunction
                 ID = strvar & String.Format("{0:0000}", Mid(Trim(ID), 5, 8) + 1)
             End If
             frmSchoolExpenses.lblCode.Text = Trim(ID)
+            mysqlreader.Close()
+            mysqlconn.Close()
+        Catch ex As Exception
+            MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, "Error !!")
+
+        End Try
+    End Function
+    Public Function getSchoolFeesID(ByVal ID As String) As Boolean
+        strvar = "FEE-"
+        Try
+            Call connect(condbPOS)
+            mycommand = mysqlconn.CreateCommand
+            mycommand.CommandText = "Select Top 1  * from SchoolFees order by ID DESC"
+            myadapter.SelectCommand = mycommand
+            myadapter.Fill(mydataset, "SchoolFees")
+            mydataTable = mydataset.Tables("SchoolFees")
+            mysqlreader = mycommand.ExecuteReader()
+
+            While mysqlreader.Read()
+                ID = String.Format("{0:0000}", mysqlreader("ID"))
+            End While
+            If mydataTable.Rows.Count = 0 Then
+                ID = strvar & "0001"
+            Else
+                ID = strvar & String.Format("{0:0000}", Mid(Trim(ID), 5, 8) + 1)
+            End If
+            frmSchoolFees.lblCode.Text = Trim(ID)
             mysqlreader.Close()
             mysqlconn.Close()
         Catch ex As Exception

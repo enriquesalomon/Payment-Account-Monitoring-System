@@ -23,8 +23,8 @@ Partial Class frmSchoolFees
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSchoolFees))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -33,14 +33,14 @@ Partial Class frmSchoolFees
         Me.btnNew = New System.Windows.Forms.Button()
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.Label40 = New System.Windows.Forms.Label()
-        Me.dtgUserList = New System.Windows.Forms.DataGridView()
+        Me.dtgList = New System.Windows.Forms.DataGridView()
         Me.panelFee = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.cboGender = New System.Windows.Forms.ComboBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.cmbSY = New System.Windows.Forms.ComboBox()
+        Me.txtAmount = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.txtFirstname = New System.Windows.Forms.TextBox()
+        Me.txtDescription = New System.Windows.Forms.TextBox()
+        Me.txtParticular = New System.Windows.Forms.TextBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.btnClosePanel = New System.Windows.Forms.Button()
         Me.lblCode = New System.Windows.Forms.Label()
@@ -50,7 +50,7 @@ Partial Class frmSchoolFees
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Panel4.SuspendLayout()
         Me.Panel1.SuspendLayout()
-        CType(Me.dtgUserList, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtgList, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panelFee.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.SuspendLayout()
@@ -63,7 +63,7 @@ Partial Class frmSchoolFees
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel4.Location = New System.Drawing.Point(0, 0)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(613, 26)
+        Me.Panel4.Size = New System.Drawing.Size(831, 26)
         Me.Panel4.TabIndex = 581
         '
         'btnClose
@@ -72,7 +72,7 @@ Partial Class frmSchoolFees
         Me.btnClose.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClose.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnClose.ImageIndex = 1
-        Me.btnClose.Location = New System.Drawing.Point(582, 0)
+        Me.btnClose.Location = New System.Drawing.Point(800, 0)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(31, 26)
         Me.btnClose.TabIndex = 218
@@ -100,9 +100,9 @@ Partial Class frmSchoolFees
         Me.Panel1.Controls.Add(Me.btnNew)
         Me.Panel1.Controls.Add(Me.btnDelete)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel1.Location = New System.Drawing.Point(0, 480)
+        Me.Panel1.Location = New System.Drawing.Point(0, 469)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(613, 29)
+        Me.Panel1.Size = New System.Drawing.Size(831, 29)
         Me.Panel1.TabIndex = 585
         '
         'btnEdit
@@ -152,64 +152,65 @@ Partial Class frmSchoolFees
         Me.Label40.TabIndex = 609
         Me.Label40.Text = "LIST"
         '
-        'dtgUserList
+        'dtgList
         '
-        Me.dtgUserList.AllowUserToAddRows = False
-        Me.dtgUserList.AllowUserToDeleteRows = False
-        Me.dtgUserList.AllowUserToResizeColumns = False
-        Me.dtgUserList.AllowUserToResizeRows = False
-        Me.dtgUserList.BackgroundColor = System.Drawing.Color.Gainsboro
-        Me.dtgUserList.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dtgUserList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
-        Me.dtgUserList.ColumnHeadersHeight = 32
-        Me.dtgUserList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.dtgUserList.EnableHeadersVisualStyles = False
-        Me.dtgUserList.GridColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.dtgUserList.Location = New System.Drawing.Point(3, 63)
-        Me.dtgUserList.MultiSelect = False
-        Me.dtgUserList.Name = "dtgUserList"
-        Me.dtgUserList.ReadOnly = True
-        Me.dtgUserList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        Me.dtgUserList.RowHeadersVisible = False
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
-        Me.dtgUserList.RowsDefaultCellStyle = DataGridViewCellStyle2
-        Me.dtgUserList.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtgUserList.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
-        Me.dtgUserList.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.DodgerBlue
-        Me.dtgUserList.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White
-        Me.dtgUserList.RowTemplate.Height = 25
-        Me.dtgUserList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtgUserList.Size = New System.Drawing.Size(606, 411)
-        Me.dtgUserList.TabIndex = 608
+        Me.dtgList.AllowUserToAddRows = False
+        Me.dtgList.AllowUserToDeleteRows = False
+        Me.dtgList.AllowUserToResizeColumns = False
+        Me.dtgList.AllowUserToResizeRows = False
+        Me.dtgList.BackgroundColor = System.Drawing.Color.Gainsboro
+        Me.dtgList.BorderStyle = System.Windows.Forms.BorderStyle.None
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dtgList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle9
+        Me.dtgList.ColumnHeadersHeight = 32
+        Me.dtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.dtgList.EnableHeadersVisualStyles = False
+        Me.dtgList.GridColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.dtgList.Location = New System.Drawing.Point(3, 63)
+        Me.dtgList.MultiSelect = False
+        Me.dtgList.Name = "dtgList"
+        Me.dtgList.ReadOnly = True
+        Me.dtgList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        Me.dtgList.RowHeadersVisible = False
+        DataGridViewCellStyle10.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle10.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White
+        Me.dtgList.RowsDefaultCellStyle = DataGridViewCellStyle10
+        Me.dtgList.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtgList.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
+        Me.dtgList.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.DodgerBlue
+        Me.dtgList.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White
+        Me.dtgList.RowTemplate.Height = 25
+        Me.dtgList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dtgList.Size = New System.Drawing.Size(825, 401)
+        Me.dtgList.TabIndex = 608
         '
         'panelFee
         '
         Me.panelFee.Controls.Add(Me.Label3)
-        Me.panelFee.Controls.Add(Me.cboGender)
-        Me.panelFee.Controls.Add(Me.TextBox2)
+        Me.panelFee.Controls.Add(Me.cmbSY)
+        Me.panelFee.Controls.Add(Me.txtAmount)
         Me.panelFee.Controls.Add(Me.Label2)
-        Me.panelFee.Controls.Add(Me.TextBox1)
-        Me.panelFee.Controls.Add(Me.txtFirstname)
+        Me.panelFee.Controls.Add(Me.txtDescription)
+        Me.panelFee.Controls.Add(Me.txtParticular)
         Me.panelFee.Controls.Add(Me.Panel3)
         Me.panelFee.Controls.Add(Me.btnSave)
         Me.panelFee.Controls.Add(Me.bntClose)
         Me.panelFee.Controls.Add(Me.Label1)
         Me.panelFee.Controls.Add(Me.Label4)
-        Me.panelFee.Location = New System.Drawing.Point(128, 146)
+        Me.panelFee.Location = New System.Drawing.Point(239, 162)
         Me.panelFee.Name = "panelFee"
         Me.panelFee.Size = New System.Drawing.Size(334, 196)
         Me.panelFee.TabIndex = 610
+        Me.panelFee.Visible = False
         '
         'Label3
         '
@@ -221,27 +222,26 @@ Partial Class frmSchoolFees
         Me.Label3.TabIndex = 663
         Me.Label3.Text = "School Year:"
         '
-        'cboGender
+        'cmbSY
         '
-        Me.cboGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboGender.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cboGender.FormattingEnabled = True
-        Me.cboGender.Items.AddRange(New Object() {"MALE", "FEMALE"})
-        Me.cboGender.Location = New System.Drawing.Point(94, 119)
-        Me.cboGender.Name = "cboGender"
-        Me.cboGender.Size = New System.Drawing.Size(124, 24)
-        Me.cboGender.TabIndex = 662
+        Me.cmbSY.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbSY.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbSY.FormattingEnabled = True
+        Me.cmbSY.Location = New System.Drawing.Point(94, 119)
+        Me.cmbSY.Name = "cmbSY"
+        Me.cmbSY.Size = New System.Drawing.Size(124, 24)
+        Me.cmbSY.TabIndex = 662
         '
-        'TextBox2
+        'txtAmount
         '
-        Me.TextBox2.BackColor = System.Drawing.Color.White
-        Me.TextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox2.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(94, 94)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(124, 22)
-        Me.TextBox2.TabIndex = 661
+        Me.txtAmount.BackColor = System.Drawing.Color.White
+        Me.txtAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtAmount.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtAmount.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAmount.Location = New System.Drawing.Point(94, 94)
+        Me.txtAmount.Name = "txtAmount"
+        Me.txtAmount.Size = New System.Drawing.Size(124, 22)
+        Me.txtAmount.TabIndex = 661
         '
         'Label2
         '
@@ -253,27 +253,27 @@ Partial Class frmSchoolFees
         Me.Label2.TabIndex = 660
         Me.Label2.Text = "Amount: "
         '
-        'TextBox1
+        'txtDescription
         '
-        Me.TextBox1.BackColor = System.Drawing.Color.White
-        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox1.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(94, 69)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(234, 22)
-        Me.TextBox1.TabIndex = 659
+        Me.txtDescription.BackColor = System.Drawing.Color.White
+        Me.txtDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtDescription.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtDescription.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDescription.Location = New System.Drawing.Point(94, 69)
+        Me.txtDescription.Name = "txtDescription"
+        Me.txtDescription.Size = New System.Drawing.Size(234, 22)
+        Me.txtDescription.TabIndex = 659
         '
-        'txtFirstname
+        'txtParticular
         '
-        Me.txtFirstname.BackColor = System.Drawing.Color.White
-        Me.txtFirstname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtFirstname.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtFirstname.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtFirstname.Location = New System.Drawing.Point(94, 44)
-        Me.txtFirstname.Name = "txtFirstname"
-        Me.txtFirstname.Size = New System.Drawing.Size(234, 22)
-        Me.txtFirstname.TabIndex = 658
+        Me.txtParticular.BackColor = System.Drawing.Color.White
+        Me.txtParticular.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtParticular.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtParticular.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtParticular.Location = New System.Drawing.Point(94, 44)
+        Me.txtParticular.Name = "txtParticular"
+        Me.txtParticular.Size = New System.Drawing.Size(234, 22)
+        Me.txtParticular.TabIndex = 658
         '
         'Panel3
         '
@@ -365,10 +365,10 @@ Partial Class frmSchoolFees
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(613, 509)
+        Me.ClientSize = New System.Drawing.Size(831, 498)
         Me.Controls.Add(Me.panelFee)
         Me.Controls.Add(Me.Label40)
-        Me.Controls.Add(Me.dtgUserList)
+        Me.Controls.Add(Me.dtgList)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel4)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -378,7 +378,7 @@ Partial Class frmSchoolFees
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
         Me.Panel1.ResumeLayout(False)
-        CType(Me.dtgUserList, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtgList, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panelFee.ResumeLayout(False)
         Me.panelFee.PerformLayout()
         Me.Panel3.ResumeLayout(False)
@@ -396,7 +396,7 @@ Partial Class frmSchoolFees
     Friend WithEvents btnNew As Button
     Friend WithEvents btnDelete As Button
     Friend WithEvents Label40 As Label
-    Friend WithEvents dtgUserList As DataGridView
+    Friend WithEvents dtgList As DataGridView
     Friend WithEvents panelFee As Panel
     Friend WithEvents Panel3 As Panel
     Friend WithEvents btnClosePanel As Button
@@ -405,10 +405,10 @@ Partial Class frmSchoolFees
     Friend WithEvents bntClose As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents txtAmount As TextBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents txtFirstname As TextBox
+    Friend WithEvents txtDescription As TextBox
+    Friend WithEvents txtParticular As TextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents cboGender As ComboBox
+    Friend WithEvents cmbSY As ComboBox
 End Class
