@@ -22,8 +22,8 @@ Partial Class frmAdmission
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAdmission))
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.btnClose = New System.Windows.Forms.Button()
@@ -40,9 +40,7 @@ Partial Class frmAdmission
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.dtgUserList = New System.Windows.Forms.DataGridView()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.cmbUserlevel = New System.Windows.Forms.ComboBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.cmbGradeSection = New System.Windows.Forms.ComboBox()
         Me.btnEdit = New System.Windows.Forms.Button()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.btnNew = New System.Windows.Forms.Button()
@@ -50,6 +48,8 @@ Partial Class frmAdmission
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.lblrecordcount = New System.Windows.Forms.Label()
+        Me.txtControlNumber = New System.Windows.Forms.TextBox()
+        Me.lblSchoolYear = New System.Windows.Forms.Label()
         Me.Panel4.SuspendLayout()
         CType(Me.dtgUserList, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -103,7 +103,6 @@ Partial Class frmAdmission
         Me.txtCode.Size = New System.Drawing.Size(115, 22)
         Me.txtCode.TabIndex = 620
         Me.txtCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.txtCode.Visible = False
         '
         'Label2
         '
@@ -111,10 +110,9 @@ Partial Class frmAdmission
         Me.Label2.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(25, 88)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(80, 17)
+        Me.Label2.Size = New System.Drawing.Size(74, 17)
         Me.Label2.TabIndex = 621
-        Me.Label2.Text = "ControlNo:"
-        Me.Label2.Visible = False
+        Me.Label2.Text = "StudentID:"
         '
         'Label7
         '
@@ -194,18 +192,18 @@ Partial Class frmAdmission
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(12, 187)
+        Me.Label6.Location = New System.Drawing.Point(-1, 187)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(90, 17)
+        Me.Label6.Size = New System.Drawing.Size(104, 17)
         Me.Label6.TabIndex = 606
-        Me.Label6.Text = "Grade Level:"
+        Me.Label6.Text = "Grade-Section:"
         '
         'Label12
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.ForeColor = System.Drawing.Color.Green
-        Me.Label12.Location = New System.Drawing.Point(338, 57)
+        Me.Label12.Location = New System.Drawing.Point(912, 62)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(31, 16)
         Me.Label12.TabIndex = 624
@@ -219,14 +217,14 @@ Partial Class frmAdmission
         Me.dtgUserList.AllowUserToResizeRows = False
         Me.dtgUserList.BackgroundColor = System.Drawing.Color.Gainsboro
         Me.dtgUserList.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dtgUserList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dtgUserList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.dtgUserList.ColumnHeadersHeight = 32
         Me.dtgUserList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dtgUserList.EnableHeadersVisualStyles = False
@@ -237,12 +235,12 @@ Partial Class frmAdmission
         Me.dtgUserList.ReadOnly = True
         Me.dtgUserList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         Me.dtgUserList.RowHeadersVisible = False
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
-        Me.dtgUserList.RowsDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White
+        Me.dtgUserList.RowsDefaultCellStyle = DataGridViewCellStyle6
         Me.dtgUserList.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtgUserList.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
         Me.dtgUserList.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.DodgerBlue
@@ -252,37 +250,16 @@ Partial Class frmAdmission
         Me.dtgUserList.Size = New System.Drawing.Size(602, 516)
         Me.dtgUserList.TabIndex = 623
         '
-        'Label3
+        'cmbGradeSection
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(43, 213)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(59, 17)
-        Me.Label3.TabIndex = 626
-        Me.Label3.Text = "Section:"
-        '
-        'cmbUserlevel
-        '
-        Me.cmbUserlevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbUserlevel.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbUserlevel.FormattingEnabled = True
-        Me.cmbUserlevel.Items.AddRange(New Object() {"Administrator", "Stock Clerk", "Cashier"})
-        Me.cmbUserlevel.Location = New System.Drawing.Point(103, 183)
-        Me.cmbUserlevel.Name = "cmbUserlevel"
-        Me.cmbUserlevel.Size = New System.Drawing.Size(114, 25)
-        Me.cmbUserlevel.TabIndex = 627
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox1.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Administrator", "Stock Clerk", "Cashier"})
-        Me.ComboBox1.Location = New System.Drawing.Point(103, 211)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(114, 25)
-        Me.ComboBox1.TabIndex = 628
+        Me.cmbGradeSection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbGradeSection.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbGradeSection.FormattingEnabled = True
+        Me.cmbGradeSection.Items.AddRange(New Object() {"Administrator", "Stock Clerk", "Cashier"})
+        Me.cmbGradeSection.Location = New System.Drawing.Point(103, 183)
+        Me.cmbGradeSection.Name = "cmbGradeSection"
+        Me.cmbGradeSection.Size = New System.Drawing.Size(234, 25)
+        Me.cmbGradeSection.TabIndex = 627
         '
         'btnEdit
         '
@@ -365,21 +342,46 @@ Partial Class frmAdmission
         Me.lblrecordcount.TabIndex = 551
         Me.lblrecordcount.Text = "Record Count"
         '
+        'txtControlNumber
+        '
+        Me.txtControlNumber.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtControlNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtControlNumber.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtControlNumber.Location = New System.Drawing.Point(102, 55)
+        Me.txtControlNumber.Name = "txtControlNumber"
+        Me.txtControlNumber.ReadOnly = True
+        Me.txtControlNumber.Size = New System.Drawing.Size(115, 22)
+        Me.txtControlNumber.TabIndex = 635
+        Me.txtControlNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtControlNumber.Visible = False
+        '
+        'lblSchoolYear
+        '
+        Me.lblSchoolYear.AutoSize = True
+        Me.lblSchoolYear.Font = New System.Drawing.Font("Century Gothic", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSchoolYear.ForeColor = System.Drawing.Color.Green
+        Me.lblSchoolYear.Location = New System.Drawing.Point(341, 50)
+        Me.lblSchoolYear.Name = "lblSchoolYear"
+        Me.lblSchoolYear.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.lblSchoolYear.Size = New System.Drawing.Size(159, 28)
+        Me.lblSchoolYear.TabIndex = 636
+        Me.lblSchoolYear.Text = "USER DETAILS"
+        '
         'frmAdmission
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(947, 631)
+        Me.Controls.Add(Me.lblSchoolYear)
+        Me.Controls.Add(Me.txtControlNumber)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.btnEdit)
         Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.btnNew)
         Me.Controls.Add(Me.bntClose)
-        Me.Controls.Add(Me.ComboBox1)
-        Me.Controls.Add(Me.cmbUserlevel)
-        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.cmbGradeSection)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.dtgUserList)
         Me.Controls.Add(Me.txtCode)
@@ -422,9 +424,7 @@ Partial Class frmAdmission
     Friend WithEvents Label6 As Label
     Friend WithEvents Label12 As Label
     Friend WithEvents dtgUserList As DataGridView
-    Friend WithEvents Label3 As Label
-    Friend WithEvents cmbUserlevel As ComboBox
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cmbGradeSection As ComboBox
     Friend WithEvents btnEdit As Button
     Friend WithEvents btnSave As Button
     Friend WithEvents btnNew As Button
@@ -432,4 +432,6 @@ Partial Class frmAdmission
     Friend WithEvents Button1 As Button
     Friend WithEvents Panel1 As Panel
     Friend WithEvents lblrecordcount As Label
+    Friend WithEvents txtControlNumber As TextBox
+    Friend WithEvents lblSchoolYear As Label
 End Class

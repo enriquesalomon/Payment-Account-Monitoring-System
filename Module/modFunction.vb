@@ -4,6 +4,8 @@ Module modFunction
     Public mylogin As New Login
     Public mystudent As New Student
     Public myschoolyear As New SchoolYear
+    Public myadmission As New Admission
+    Public mygradesection As New GradeSection
 
 
     Public mysqlconn As New OleDb.OleDbConnection
@@ -18,12 +20,13 @@ Module modFunction
     Public password As String
     Public Username As String
     Public SchoolYearID As String
+    Public SchoolYearVar As String
     Public Restrictionlevel As String
     Public strvar As String
     Public lsaving As Boolean
     Public searching As Boolean
     Public SupplierviewFocus As String
-    Public ClientviewFocus As String
+    Public StudentviewFocus As String
     Public ItemviewFocus As String
     Public POSFormFocus As String
     Public UserID As String
@@ -144,6 +147,33 @@ Module modFunction
                 ID = strvar & String.Format("{0:0000}", Mid(Trim(ID), 4, 8) + 1)
             End If
             frmSchoolYear.lblCode.Text = Trim(ID)
+            mysqlreader.Close()
+            mysqlconn.Close()
+        Catch ex As Exception
+            MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, "Error !!")
+
+        End Try
+    End Function
+    Public Function getGradeSectionID(ByVal ID As String) As Boolean
+        strvar = "GS-"
+        Try
+            Call connect(condbPOS)
+            mycommand = mysqlconn.CreateCommand
+            mycommand.CommandText = "Select Top 1  * from GradeSection order by ID DESC"
+            myadapter.SelectCommand = mycommand
+            myadapter.Fill(mydataset, "GradeSection")
+            mydataTable = mydataset.Tables("GradeSection")
+            mysqlreader = mycommand.ExecuteReader()
+
+            While mysqlreader.Read()
+                ID = String.Format("{0:0000}", mysqlreader("ID"))
+            End While
+            If mydataTable.Rows.Count = 0 Then
+                ID = strvar & "0001"
+            Else
+                ID = strvar & String.Format("{0:0000}", Mid(Trim(ID), 4, 8) + 1)
+            End If
+            frmGradeLevel.lblCode.Text = Trim(ID)
             mysqlreader.Close()
             mysqlconn.Close()
         Catch ex As Exception

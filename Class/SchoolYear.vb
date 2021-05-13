@@ -25,7 +25,7 @@
                 getSYID(frmSchoolYear.lblCode.Text)
                 connect(condbPOS)
                 mycommand = mysqlconn.CreateCommand
-                mycommand.CommandText = "INSERT INTO SchoolYear VALUES ('" & frmSchoolYear.lblCode.Text & "','" & frmSchoolYear.cmbFrom.Text & "','" & frmSchoolYear.cmbTo.Text & "','" & Format(DateAndTime.Now, "Short Date") & "','" & Format(DateAndTime.Now, "Short Date") & "','" & frmSchoolYear.cmbStatus.Text & "',)"
+                mycommand.CommandText = "INSERT INTO SchoolYear VALUES ('" & frmSchoolYear.lblCode.Text & "','" & frmSchoolYear.cmbFrom.Text & "','" & frmSchoolYear.cmbTo.Text & "','" & Format(DateAndTime.Now, "Short Date") & "','" & Format(DateAndTime.Now, "Short Date") & "','" & frmSchoolYear.cmbStatus.Text & "')"
                 mycommand.ExecuteNonQuery()
                 LoadSYList()
                 frmSchoolYear.ClearMe()

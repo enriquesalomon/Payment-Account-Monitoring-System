@@ -77,9 +77,12 @@
             mysqlreader = mycommand.ExecuteReader()
             While mysqlreader.Read()
                 SchoolYearID = mysqlreader("ID").ToString
+                SchoolYearVar = "School Year " + mysqlreader("SYFrom").ToString + "-" + mysqlreader("SYTo").ToString
             End While
             If mydataTable.Rows.Count = 0 Then
                 SchoolYearID = ""
+                SchoolYearVar = ""
+
             End If
             mysqlreader.Close()
             mysqlconn.Close()
@@ -109,10 +112,18 @@
     End Sub
 
     Private Sub ManageSectionToolStripMenuItem_Click(sender As Object, e As EventArgs)
-        frmSelectSYAdmission.ShowDialog()
+
     End Sub
 
     Private Sub ToolStripMenuItem8_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem8.Click
         frmLedger.ShowDialog()
+    End Sub
+
+    Private Sub txtpassword_KeyDown(sender As Object, e As KeyEventArgs) Handles txtpassword.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            mylogin.VerifyUser()
+            getMenu()
+        End If
+
     End Sub
 End Class
