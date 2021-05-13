@@ -80,6 +80,7 @@
     <Compile Include="Class\SchoolFees.vb" />
     <Compile Include="Class\SchoolYear.vb" />
     <Compile Include="Class\Student.vb" />
+    <Compile Include="Class\UserAccount.vb" />
     <Compile Include="Forms\frmAdmission.Designer.vb">
       <DependentUpon>frmAdmission.vb</DependentUpon>
     </Compile>

@@ -1,8 +1,19 @@
 ﻿Public Class frmMain
     Private Sub ToolStripMenuItem5_Click(sender As Object, e As EventArgs) Handles tsMenuLogout.Click
+        menuoptionvisible()
         panelLogin.Visible = True
         MenuStrip1.Enabled = False
         lblDescLogin.Visible = False
+    End Sub
+    Sub menuoptionvisible()
+        tsMenuProfile.Visible = True
+        tsMenuAdmission.Visible = True
+        tsMenuExpenses.Visible = True
+        tsMenuFees.Visible = True
+        tsMenuTransaction.Visible = True
+        tsMenuSetting.Visible = True
+        tsMenuUsers.Visible = True
+
     End Sub
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click

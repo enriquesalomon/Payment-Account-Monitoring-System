@@ -186,7 +186,6 @@ Partial Class frmUser
         Me.btnDelete.Text = "Delete"
         Me.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnDelete.UseVisualStyleBackColor = True
-        Me.btnDelete.Visible = False
         '
         'Label12
         '
@@ -237,7 +236,7 @@ Partial Class frmUser
         Me.dtgUserList.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White
         Me.dtgUserList.RowTemplate.Height = 25
         Me.dtgUserList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtgUserList.Size = New System.Drawing.Size(633, 345)
+        Me.dtgUserList.Size = New System.Drawing.Size(645, 345)
         Me.dtgUserList.TabIndex = 603
         '
         'Label8
@@ -340,7 +339,7 @@ Partial Class frmUser
         Me.cmbUserlevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbUserlevel.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbUserlevel.FormattingEnabled = True
-        Me.cmbUserlevel.Items.AddRange(New Object() {"Administrator", "Stock Clerk", "Cashier"})
+        Me.cmbUserlevel.Items.AddRange(New Object() {"Administrator", "Secretary", "Cashier"})
         Me.cmbUserlevel.Location = New System.Drawing.Point(101, 269)
         Me.cmbUserlevel.Name = "cmbUserlevel"
         Me.cmbUserlevel.Size = New System.Drawing.Size(234, 25)

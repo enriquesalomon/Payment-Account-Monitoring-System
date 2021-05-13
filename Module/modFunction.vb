@@ -8,6 +8,7 @@ Module modFunction
     Public mygradesection As New GradeSection
     Public myschoolexpenses As New SchoolExpenses
     Public myschoolfees As New SchoolFees
+    Public myuseraccount As New UserAccount
 
 
     Public mysqlconn As New OleDb.OleDbConnection
@@ -27,10 +28,7 @@ Module modFunction
     Public strvar As String
     Public lsaving As Boolean
     Public searching As Boolean
-    Public SupplierviewFocus As String
     Public StudentviewFocus As String
-    Public ItemviewFocus As String
-    Public POSFormFocus As String
     Public UserID As String
     Public UserFullname As String
     Public tofullypaid As Boolean
@@ -83,7 +81,7 @@ Module modFunction
             Else
                 ID = strvar & String.Format("{0:0000}", Mid(Trim(ID), 5, 8) + 1)
             End If
-            'frmUserManagement.txtCode.Text = Trim(ID)
+            frmUser.txtCode.Text = Trim(ID)
             mysqlreader.Close()
             mysqlconn.Close()
         Catch ex As Exception
@@ -95,11 +93,31 @@ Module modFunction
     Public Function getMenu()
         If Restrictionlevel = "Secretary" Then
             frmMain.tsMenuProfile.Visible = True
+            frmMain.tsMenuAdmission.Visible = True
+            frmMain.tsMenuExpenses.Visible = False
+            frmMain.tsMenuFees.Visible = False
+            frmMain.tsMenuTransaction.Visible = False
+            frmMain.tsMenuUsers.Visible = False
+            frmMain.tsmenuReports.Visible = True
+            frmMain.tsMenuSetting.Visible = True
         ElseIf Restrictionlevel = "Administrator" Then
+            frmMain.tsMenuProfile.Visible = False
+            frmMain.tsMenuAdmission.Visible = False
+            frmMain.tsMenuExpenses.Visible = False
+            frmMain.tsMenuFees.Visible = False
+            frmMain.tsMenuTransaction.Visible = False
+            frmMain.tsMenuUsers.Visible = True
+            frmMain.tsmenuReports.Visible = True
+            frmMain.tsMenuSetting.Visible = True
+        ElseIf Restrictionlevel = "Cashier" Then
             frmMain.tsMenuProfile.Visible = True
-        ElseIf Restrictionlevel = "Principal" Then
-
-
+            frmMain.tsMenuAdmission.Visible = True
+            frmMain.tsMenuExpenses.Visible = False
+            frmMain.tsMenuFees.Visible = True
+            frmMain.tsMenuTransaction.Visible = True
+            frmMain.tsMenuUsers.Visible = False
+            frmMain.tsmenuReports.Visible = True
+            frmMain.tsMenuSetting.Visible = False
         End If
     End Function
     Public Function getStudentID(ByVal ID As String) As Boolean

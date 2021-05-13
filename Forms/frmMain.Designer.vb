@@ -44,7 +44,7 @@ Partial Class frmMain
         Me.tsMenuUsers = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem9 = New System.Windows.Forms.ToolStripMenuItem()
         Me.UserLogsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmenuReports = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem8 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem10 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem11 = New System.Windows.Forms.ToolStripMenuItem()
@@ -134,7 +134,7 @@ Partial Class frmMain
         '
         Me.MenuStrip1.BackColor = System.Drawing.Color.White
         Me.MenuStrip1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem5, Me.tsMenuProfile, Me.tsMenuAdmission, Me.tsMenuFees, Me.tsMenuExpenses, Me.tsMenuTransaction, Me.tsMenuUsers, Me.ToolStripMenuItem1, Me.tsMenuSetting, Me.tsMenuLogout})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem5, Me.tsMenuProfile, Me.tsMenuAdmission, Me.tsMenuFees, Me.tsMenuExpenses, Me.tsMenuTransaction, Me.tsMenuUsers, Me.tsmenuReports, Me.tsMenuSetting, Me.tsMenuLogout})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 31)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1149, 40)
@@ -157,7 +157,7 @@ Partial Class frmMain
         '
         Me.ToolStripMenuItem6.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStripMenuItem6.Name = "ToolStripMenuItem6"
-        Me.ToolStripMenuItem6.Size = New System.Drawing.Size(180, 22)
+        Me.ToolStripMenuItem6.Size = New System.Drawing.Size(115, 22)
         Me.ToolStripMenuItem6.Text = "Log in"
         '
         'tsMenuProfile
@@ -193,7 +193,7 @@ Partial Class frmMain
         '
         Me.ToolStripMenuItem4.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
-        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(168, 22)
+        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(180, 22)
         Me.ToolStripMenuItem4.Text = "Admit Student"
         '
         'tsMenuFees
@@ -267,46 +267,46 @@ Partial Class frmMain
         '
         Me.ToolStripMenuItem9.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStripMenuItem9.Name = "ToolStripMenuItem9"
-        Me.ToolStripMenuItem9.Size = New System.Drawing.Size(159, 22)
+        Me.ToolStripMenuItem9.Size = New System.Drawing.Size(180, 22)
         Me.ToolStripMenuItem9.Text = "Manage User"
         '
         'UserLogsToolStripMenuItem
         '
         Me.UserLogsToolStripMenuItem.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UserLogsToolStripMenuItem.Name = "UserLogsToolStripMenuItem"
-        Me.UserLogsToolStripMenuItem.Size = New System.Drawing.Size(159, 22)
+        Me.UserLogsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.UserLogsToolStripMenuItem.Text = "User Logs"
         '
-        'ToolStripMenuItem1
+        'tsmenuReports
         '
-        Me.ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem8, Me.ToolStripMenuItem10, Me.ToolStripMenuItem11})
-        Me.ToolStripMenuItem1.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.ToolStripMenuItem1.Image = CType(resources.GetObject("ToolStripMenuItem1.Image"), System.Drawing.Image)
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(69, 36)
-        Me.ToolStripMenuItem1.Text = "REPORTS"
-        Me.ToolStripMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.tsmenuReports.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem8, Me.ToolStripMenuItem10, Me.ToolStripMenuItem11})
+        Me.tsmenuReports.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tsmenuReports.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.tsmenuReports.Image = CType(resources.GetObject("tsmenuReports.Image"), System.Drawing.Image)
+        Me.tsmenuReports.Name = "tsmenuReports"
+        Me.tsmenuReports.Size = New System.Drawing.Size(69, 36)
+        Me.tsmenuReports.Text = "REPORTS"
+        Me.tsmenuReports.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
         'ToolStripMenuItem8
         '
         Me.ToolStripMenuItem8.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStripMenuItem8.Name = "ToolStripMenuItem8"
-        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(173, 22)
+        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(180, 22)
         Me.ToolStripMenuItem8.Text = "Student Ledger"
         '
         'ToolStripMenuItem10
         '
         Me.ToolStripMenuItem10.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStripMenuItem10.Name = "ToolStripMenuItem10"
-        Me.ToolStripMenuItem10.Size = New System.Drawing.Size(173, 22)
+        Me.ToolStripMenuItem10.Size = New System.Drawing.Size(180, 22)
         Me.ToolStripMenuItem10.Text = "Report 2"
         '
         'ToolStripMenuItem11
         '
         Me.ToolStripMenuItem11.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStripMenuItem11.Name = "ToolStripMenuItem11"
-        Me.ToolStripMenuItem11.Size = New System.Drawing.Size(173, 22)
+        Me.ToolStripMenuItem11.Size = New System.Drawing.Size(180, 22)
         Me.ToolStripMenuItem11.Text = "Report 3"
         '
         'tsMenuSetting
@@ -570,7 +570,7 @@ Partial Class frmMain
     Friend WithEvents tsMenuProfile As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem3 As ToolStripMenuItem
     Friend WithEvents UserLogsToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents tsmenuReports As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem8 As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem10 As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem11 As ToolStripMenuItem
