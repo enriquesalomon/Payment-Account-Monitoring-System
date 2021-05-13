@@ -25,6 +25,10 @@
                 password = password
                 'frmMain.lblusername.Text = Username
             End If
+
+            mysqlreader.Close()
+            mysqlconn.Close()
+
             If Trim(password) = Trim(frmMain.txtpassword.Text) And frmMain.txtusername.Text = Trim(Username) Then
                 MessageBox.Show("Access successfully Granted", "Validation Message", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
                 frmMain.txtpassword.Text = ""
@@ -33,13 +37,18 @@
                 frmMain.MenuStrip1.Enabled = True
                 frmMain.lblDescLogin.Visible = True
                 frmMain.lblDescLogin.Text = "Welcome" & Space(1) & Username & ","
+
+                getLogsID()
+                connect(condbPOS)
+                mycommand = mysqlconn.CreateCommand
+                mycommand.CommandText = "INSERT INTO Logs VALUES ('" & LogsID & "','" & UserID & "','" & Format(DateAndTime.Now, "Short Date") & "','')"
+                mycommand.ExecuteNonQuery()
+
             Else
                 MessageBox.Show("Access denied! Invalid username or password", "Validation Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 frmMain.txtpassword.Focus()
             End If
 
-            mysqlreader.Close()
-            mysqlconn.Close()
         Catch ex As Exception
             MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, " Error !!")
         End Try

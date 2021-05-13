@@ -30,6 +30,7 @@ Module modFunction
     Public searching As Boolean
     Public StudentviewFocus As String
     Public UserID As String
+    Public LogsID As String
     Public UserFullname As String
     Public tofullypaid As Boolean
 
@@ -167,6 +168,32 @@ Module modFunction
                 ID = strvar & String.Format("{0:0000}", Mid(Trim(ID), 4, 8) + 1)
             End If
             frmSchoolYear.lblCode.Text = Trim(ID)
+            mysqlreader.Close()
+            mysqlconn.Close()
+        Catch ex As Exception
+            MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, "Error !!")
+
+        End Try
+    End Function
+    Public Function getLogsID()
+        Try
+            Call connect(condbPOS)
+            mycommand = mysqlconn.CreateCommand
+            mycommand.CommandText = "Select Top 1  * from Logs order by ID DESC"
+            myadapter.SelectCommand = mycommand
+            myadapter.Fill(mydataset, "Logs")
+            mydataTable = mydataset.Tables("Logs")
+            mysqlreader = mycommand.ExecuteReader()
+
+            While mysqlreader.Read()
+                ID = mysqlreader("ID")
+            End While
+            If mydataTable.Rows.Count = 0 Then
+                ID = "1"
+            Else
+                ID = CDbl(ID) + 1
+            End If
+            LogsID = Trim(ID)
             mysqlreader.Close()
             mysqlconn.Close()
         Catch ex As Exception
