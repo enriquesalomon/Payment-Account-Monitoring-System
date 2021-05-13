@@ -4,6 +4,10 @@
         panelLogin.Visible = True
         MenuStrip1.Enabled = False
         lblDescLogin.Visible = False
+        connect(condbPOS)
+        mycommand = mysqlconn.CreateCommand
+        mycommand.CommandText = "UPDATE Logs set Out='" & Format(DateAndTime.Now) & "' where ID ='" & lblLogsID.Text & "'"
+        mycommand.ExecuteNonQuery()
     End Sub
     Sub menuoptionvisible()
         tsMenuProfile.Visible = True

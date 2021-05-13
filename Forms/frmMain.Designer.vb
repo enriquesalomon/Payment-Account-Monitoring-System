@@ -63,6 +63,7 @@ Partial Class frmMain
         Me.txtusername = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.lblLogsID = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.lblbranchName = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
@@ -193,7 +194,7 @@ Partial Class frmMain
         '
         Me.ToolStripMenuItem4.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
-        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(180, 22)
+        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(168, 22)
         Me.ToolStripMenuItem4.Text = "Admit Student"
         '
         'tsMenuFees
@@ -267,14 +268,14 @@ Partial Class frmMain
         '
         Me.ToolStripMenuItem9.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStripMenuItem9.Name = "ToolStripMenuItem9"
-        Me.ToolStripMenuItem9.Size = New System.Drawing.Size(180, 22)
+        Me.ToolStripMenuItem9.Size = New System.Drawing.Size(159, 22)
         Me.ToolStripMenuItem9.Text = "Manage User"
         '
         'UserLogsToolStripMenuItem
         '
         Me.UserLogsToolStripMenuItem.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UserLogsToolStripMenuItem.Name = "UserLogsToolStripMenuItem"
-        Me.UserLogsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.UserLogsToolStripMenuItem.Size = New System.Drawing.Size(159, 22)
         Me.UserLogsToolStripMenuItem.Text = "User Logs"
         '
         'tsmenuReports
@@ -292,21 +293,21 @@ Partial Class frmMain
         '
         Me.ToolStripMenuItem8.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStripMenuItem8.Name = "ToolStripMenuItem8"
-        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(180, 22)
+        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(173, 22)
         Me.ToolStripMenuItem8.Text = "Student Ledger"
         '
         'ToolStripMenuItem10
         '
         Me.ToolStripMenuItem10.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStripMenuItem10.Name = "ToolStripMenuItem10"
-        Me.ToolStripMenuItem10.Size = New System.Drawing.Size(180, 22)
+        Me.ToolStripMenuItem10.Size = New System.Drawing.Size(173, 22)
         Me.ToolStripMenuItem10.Text = "Report 2"
         '
         'ToolStripMenuItem11
         '
         Me.ToolStripMenuItem11.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStripMenuItem11.Name = "ToolStripMenuItem11"
-        Me.ToolStripMenuItem11.Size = New System.Drawing.Size(180, 22)
+        Me.ToolStripMenuItem11.Size = New System.Drawing.Size(173, 22)
         Me.ToolStripMenuItem11.Text = "Report 3"
         '
         'tsMenuSetting
@@ -467,6 +468,7 @@ Partial Class frmMain
         'Panel5
         '
         Me.Panel5.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Panel5.Controls.Add(Me.lblLogsID)
         Me.Panel5.Controls.Add(Me.Label3)
         Me.Panel5.Controls.Add(Me.lblbranchName)
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Bottom
@@ -474,6 +476,20 @@ Partial Class frmMain
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(1149, 29)
         Me.Panel5.TabIndex = 246
+        '
+        'lblLogsID
+        '
+        Me.lblLogsID.AutoSize = True
+        Me.lblLogsID.BackColor = System.Drawing.Color.Goldenrod
+        Me.lblLogsID.Dock = System.Windows.Forms.DockStyle.Left
+        Me.lblLogsID.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblLogsID.ForeColor = System.Drawing.Color.White
+        Me.lblLogsID.Location = New System.Drawing.Point(0, 0)
+        Me.lblLogsID.Name = "lblLogsID"
+        Me.lblLogsID.Size = New System.Drawing.Size(58, 20)
+        Me.lblLogsID.TabIndex = 222
+        Me.lblLogsID.Text = "LogsID"
+        Me.lblLogsID.Visible = False
         '
         'Label3
         '
@@ -577,4 +593,5 @@ Partial Class frmMain
     Friend WithEvents ManageGradeLevelToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem5 As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem6 As ToolStripMenuItem
+    Friend WithEvents lblLogsID As Label
 End Class

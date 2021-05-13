@@ -175,7 +175,7 @@ Module modFunction
 
         End Try
     End Function
-    Public Function getLogsID()
+    Public Function getLogsID(ByVal ID As String) As Boolean
         Try
             Call connect(condbPOS)
             mycommand = mysqlconn.CreateCommand
@@ -186,14 +186,14 @@ Module modFunction
             mysqlreader = mycommand.ExecuteReader()
 
             While mysqlreader.Read()
-                ID = mysqlreader("ID")
+                ID = mysqlreader("ID").ToString
             End While
             If mydataTable.Rows.Count = 0 Then
-                ID = "1"
+                ID = 1
             Else
-                ID = CDbl(ID) + 1
+                ID = CInt(ID) + 1
             End If
-            LogsID = Trim(ID)
+            frmMain.lblLogsID.Text = ID
             mysqlreader.Close()
             mysqlconn.Close()
         Catch ex As Exception

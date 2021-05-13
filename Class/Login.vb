@@ -38,11 +38,13 @@
                 frmMain.lblDescLogin.Visible = True
                 frmMain.lblDescLogin.Text = "Welcome" & Space(1) & Username & ","
 
-                getLogsID()
+                getLogsID(frmMain.lblLogsID.Text)
                 connect(condbPOS)
                 mycommand = mysqlconn.CreateCommand
-                mycommand.CommandText = "INSERT INTO Logs VALUES ('" & LogsID & "','" & UserID & "','" & Format(DateAndTime.Now, "Short Date") & "','')"
+                mycommand.CommandText = "INSERT INTO Logs VALUES ('" & frmMain.lblLogsID.Text & "','" & UserID & "','" & Format(DateAndTime.Now) & "','')"
                 mycommand.ExecuteNonQuery()
+
+
 
             Else
                 MessageBox.Show("Access denied! Invalid username or password", "Validation Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
