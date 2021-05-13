@@ -157,8 +157,8 @@ Partial Class frmMain
         '
         Me.ToolStripMenuItem6.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStripMenuItem6.Name = "ToolStripMenuItem6"
-        Me.ToolStripMenuItem6.Size = New System.Drawing.Size(204, 22)
-        Me.ToolStripMenuItem6.Text = "Student Information"
+        Me.ToolStripMenuItem6.Size = New System.Drawing.Size(180, 22)
+        Me.ToolStripMenuItem6.Text = "Log in"
         '
         'tsMenuProfile
         '

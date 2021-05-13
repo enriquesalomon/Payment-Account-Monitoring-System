@@ -19,6 +19,7 @@
                     Restrictionlevel = mysqlreader("RestrictionLevel").ToString
                     UserID = mysqlreader("ID").ToString
                     UserFullname = mysqlreader("Firstname").ToString + " " + mysqlreader("Lastname").ToString
+                    frmMain.ToolStripMenuItem6.Text = "Logged In: " + UserFullname
                 End While
             Else
                 password = password
