@@ -74,6 +74,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\Login.vb" />
+    <Compile Include="Class\SchoolYear.vb" />
+    <Compile Include="Class\Student.vb" />
     <Compile Include="Forms\frmAdmission.Designer.vb">
       <DependentUpon>frmAdmission.vb</DependentUpon>
     </Compile>
@@ -127,12 +129,6 @@
       <DependentUpon>frmSchoolYear.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmSchoolYear.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmSelectSYAdmission.Designer.vb">
-      <DependentUpon>frmSelectSYAdmission.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\frmSelectSYAdmission.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\frmStudent.Designer.vb">
@@ -191,9 +187,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmSchoolYear.resx">
       <DependentUpon>frmSchoolYear.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmSelectSYAdmission.resx">
-      <DependentUpon>frmSelectSYAdmission.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmStudent.resx">
       <DependentUpon>frmStudent.vb</DependentUpon>

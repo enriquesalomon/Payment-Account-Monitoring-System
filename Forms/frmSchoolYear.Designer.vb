@@ -33,22 +33,24 @@ Partial Class frmSchoolYear
         Me.btnNew = New System.Windows.Forms.Button()
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.cmbUserlevel = New System.Windows.Forms.ComboBox()
         Me.panelSchoolYear = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.btnClosePanel = New System.Windows.Forms.Button()
         Me.lblCode = New System.Windows.Forms.Label()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.bntClose = New System.Windows.Forms.Button()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.dtgUserList = New System.Windows.Forms.DataGridView()
+        Me.dtgSYList = New System.Windows.Forms.DataGridView()
         Me.Label40 = New System.Windows.Forms.Label()
+        Me.cmbFrom = New System.Windows.Forms.TextBox()
+        Me.cmbTo = New System.Windows.Forms.TextBox()
+        Me.cmbStatus = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel4.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.panelSchoolYear.SuspendLayout()
         Me.Panel3.SuspendLayout()
-        CType(Me.dtgUserList, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtgSYList, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel4
@@ -141,35 +143,28 @@ Partial Class frmSchoolYear
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(7, 49)
+        Me.Label4.Location = New System.Drawing.Point(7, 44)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(44, 17)
         Me.Label4.TabIndex = 596
         Me.Label4.Text = "From:"
         '
-        'cmbUserlevel
-        '
-        Me.cmbUserlevel.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbUserlevel.FormattingEnabled = True
-        Me.cmbUserlevel.Items.AddRange(New Object() {"Administrator", "Stock Clerk", "Cashier"})
-        Me.cmbUserlevel.Location = New System.Drawing.Point(53, 45)
-        Me.cmbUserlevel.Name = "cmbUserlevel"
-        Me.cmbUserlevel.Size = New System.Drawing.Size(136, 25)
-        Me.cmbUserlevel.TabIndex = 595
-        '
         'panelSchoolYear
         '
+        Me.panelSchoolYear.Controls.Add(Me.Label2)
+        Me.panelSchoolYear.Controls.Add(Me.cmbStatus)
+        Me.panelSchoolYear.Controls.Add(Me.cmbTo)
+        Me.panelSchoolYear.Controls.Add(Me.cmbFrom)
         Me.panelSchoolYear.Controls.Add(Me.Panel3)
         Me.panelSchoolYear.Controls.Add(Me.btnSave)
         Me.panelSchoolYear.Controls.Add(Me.bntClose)
-        Me.panelSchoolYear.Controls.Add(Me.ComboBox1)
         Me.panelSchoolYear.Controls.Add(Me.Label1)
-        Me.panelSchoolYear.Controls.Add(Me.cmbUserlevel)
         Me.panelSchoolYear.Controls.Add(Me.Label4)
         Me.panelSchoolYear.Location = New System.Drawing.Point(37, 157)
         Me.panelSchoolYear.Name = "panelSchoolYear"
         Me.panelSchoolYear.Size = New System.Drawing.Size(205, 152)
         Me.panelSchoolYear.TabIndex = 597
+        Me.panelSchoolYear.Visible = False
         '
         'Panel3
         '
@@ -208,7 +203,6 @@ Partial Class frmSchoolYear
         Me.lblCode.Size = New System.Drawing.Size(40, 17)
         Me.lblCode.TabIndex = 137
         Me.lblCode.Text = "code"
-        Me.lblCode.Visible = False
         '
         'btnSave
         '
@@ -235,34 +229,24 @@ Partial Class frmSchoolYear
         Me.bntClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.bntClose.UseVisualStyleBackColor = True
         '
-        'ComboBox1
-        '
-        Me.ComboBox1.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Administrator", "Stock Clerk", "Cashier"})
-        Me.ComboBox1.Location = New System.Drawing.Point(53, 73)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(136, 25)
-        Me.ComboBox1.TabIndex = 597
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(24, 79)
+        Me.Label1.Location = New System.Drawing.Point(24, 68)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(26, 17)
         Me.Label1.TabIndex = 598
         Me.Label1.Text = "To:"
         '
-        'dtgUserList
+        'dtgSYList
         '
-        Me.dtgUserList.AllowUserToAddRows = False
-        Me.dtgUserList.AllowUserToDeleteRows = False
-        Me.dtgUserList.AllowUserToResizeColumns = False
-        Me.dtgUserList.AllowUserToResizeRows = False
-        Me.dtgUserList.BackgroundColor = System.Drawing.Color.Gainsboro
-        Me.dtgUserList.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.dtgSYList.AllowUserToAddRows = False
+        Me.dtgSYList.AllowUserToDeleteRows = False
+        Me.dtgSYList.AllowUserToResizeColumns = False
+        Me.dtgSYList.AllowUserToResizeRows = False
+        Me.dtgSYList.BackgroundColor = System.Drawing.Color.Gainsboro
+        Me.dtgSYList.BorderStyle = System.Windows.Forms.BorderStyle.None
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -270,31 +254,31 @@ Partial Class frmSchoolYear
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dtgUserList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
-        Me.dtgUserList.ColumnHeadersHeight = 32
-        Me.dtgUserList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.dtgUserList.EnableHeadersVisualStyles = False
-        Me.dtgUserList.GridColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.dtgUserList.Location = New System.Drawing.Point(3, 60)
-        Me.dtgUserList.MultiSelect = False
-        Me.dtgUserList.Name = "dtgUserList"
-        Me.dtgUserList.ReadOnly = True
-        Me.dtgUserList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        Me.dtgUserList.RowHeadersVisible = False
+        Me.dtgSYList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.dtgSYList.ColumnHeadersHeight = 32
+        Me.dtgSYList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.dtgSYList.EnableHeadersVisualStyles = False
+        Me.dtgSYList.GridColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.dtgSYList.Location = New System.Drawing.Point(3, 60)
+        Me.dtgSYList.MultiSelect = False
+        Me.dtgSYList.Name = "dtgSYList"
+        Me.dtgSYList.ReadOnly = True
+        Me.dtgSYList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        Me.dtgSYList.RowHeadersVisible = False
         DataGridViewCellStyle2.BackColor = System.Drawing.Color.White
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
-        Me.dtgUserList.RowsDefaultCellStyle = DataGridViewCellStyle2
-        Me.dtgUserList.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtgUserList.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
-        Me.dtgUserList.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.DodgerBlue
-        Me.dtgUserList.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White
-        Me.dtgUserList.RowTemplate.Height = 25
-        Me.dtgUserList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtgUserList.Size = New System.Drawing.Size(301, 334)
-        Me.dtgUserList.TabIndex = 604
+        Me.dtgSYList.RowsDefaultCellStyle = DataGridViewCellStyle2
+        Me.dtgSYList.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtgSYList.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
+        Me.dtgSYList.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.DodgerBlue
+        Me.dtgSYList.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White
+        Me.dtgSYList.RowTemplate.Height = 25
+        Me.dtgSYList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dtgSYList.Size = New System.Drawing.Size(301, 334)
+        Me.dtgSYList.TabIndex = 604
         '
         'Label40
         '
@@ -307,6 +291,47 @@ Partial Class frmSchoolYear
         Me.Label40.TabIndex = 605
         Me.Label40.Text = "LIST"
         '
+        'cmbFrom
+        '
+        Me.cmbFrom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.cmbFrom.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.cmbFrom.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbFrom.Location = New System.Drawing.Point(53, 39)
+        Me.cmbFrom.Name = "cmbFrom"
+        Me.cmbFrom.Size = New System.Drawing.Size(115, 22)
+        Me.cmbFrom.TabIndex = 658
+        '
+        'cmbTo
+        '
+        Me.cmbTo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.cmbTo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.cmbTo.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbTo.Location = New System.Drawing.Point(53, 63)
+        Me.cmbTo.Name = "cmbTo"
+        Me.cmbTo.Size = New System.Drawing.Size(115, 22)
+        Me.cmbTo.TabIndex = 659
+        '
+        'cmbStatus
+        '
+        Me.cmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbStatus.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbStatus.FormattingEnabled = True
+        Me.cmbStatus.Items.AddRange(New Object() {"Active", "Inactive"})
+        Me.cmbStatus.Location = New System.Drawing.Point(53, 87)
+        Me.cmbStatus.Name = "cmbStatus"
+        Me.cmbStatus.Size = New System.Drawing.Size(115, 24)
+        Me.cmbStatus.TabIndex = 667
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(1, 91)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(50, 17)
+        Me.Label2.TabIndex = 668
+        Me.Label2.Text = "Status:"
+        '
         'frmSchoolYear
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -317,7 +342,7 @@ Partial Class frmSchoolYear
         Me.Controls.Add(Me.panelSchoolYear)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel4)
-        Me.Controls.Add(Me.dtgUserList)
+        Me.Controls.Add(Me.dtgSYList)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmSchoolYear"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -329,7 +354,7 @@ Partial Class frmSchoolYear
         Me.panelSchoolYear.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
-        CType(Me.dtgUserList, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtgSYList, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -343,15 +368,17 @@ Partial Class frmSchoolYear
     Friend WithEvents btnNew As Button
     Friend WithEvents btnDelete As Button
     Friend WithEvents Label4 As Label
-    Friend WithEvents cmbUserlevel As ComboBox
     Friend WithEvents panelSchoolYear As Panel
-    Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents Label1 As Label
     Friend WithEvents btnSave As Button
     Friend WithEvents bntClose As Button
     Friend WithEvents Panel3 As Panel
     Friend WithEvents btnClosePanel As Button
     Friend WithEvents lblCode As Label
-    Friend WithEvents dtgUserList As DataGridView
+    Friend WithEvents dtgSYList As DataGridView
     Friend WithEvents Label40 As Label
+    Friend WithEvents cmbTo As TextBox
+    Friend WithEvents cmbFrom As TextBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents cmbStatus As ComboBox
 End Class

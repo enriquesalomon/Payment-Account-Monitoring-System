@@ -23,8 +23,8 @@ Partial Class frmStudent
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmStudent))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -41,17 +41,17 @@ Partial Class frmStudent
         Me.txtsearch = New System.Windows.Forms.TextBox()
         Me.Label39 = New System.Windows.Forms.Label()
         Me.Label40 = New System.Windows.Forms.Label()
-        Me.panelClient = New System.Windows.Forms.Panel()
+        Me.panelStudent = New System.Windows.Forms.Panel()
         Me.txtProvince = New System.Windows.Forms.TextBox()
         Me.txtMunCity = New System.Windows.Forms.TextBox()
-        Me.txtContactNoC = New System.Windows.Forms.TextBox()
+        Me.txtContactNoICE = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.btnClosePanel = New System.Windows.Forms.Button()
         Me.lbldesc = New System.Windows.Forms.Label()
         Me.Label42 = New System.Windows.Forms.Label()
         Me.Label37 = New System.Windows.Forms.Label()
-        Me.txtLnameC = New System.Windows.Forms.TextBox()
+        Me.txtFullnameICE = New System.Windows.Forms.TextBox()
         Me.Label36 = New System.Windows.Forms.Label()
         Me.Label35 = New System.Windows.Forms.Label()
         Me.txtBaranggay = New System.Windows.Forms.TextBox()
@@ -66,7 +66,7 @@ Partial Class frmStudent
         Me.dtBirthdate = New System.Windows.Forms.DateTimePicker()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.txtClientCode = New System.Windows.Forms.TextBox()
+        Me.txtStudentCode = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtMname = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -77,7 +77,7 @@ Partial Class frmStudent
         Me.Panel4.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.dtgStudent, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.panelClient.SuspendLayout()
+        Me.panelStudent.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -214,14 +214,14 @@ Partial Class frmStudent
         Me.dtgStudent.AllowUserToResizeRows = False
         Me.dtgStudent.BackgroundColor = System.Drawing.Color.Gainsboro
         Me.dtgStudent.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dtgStudent.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.Gainsboro
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dtgStudent.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.dtgStudent.ColumnHeadersHeight = 26
         Me.dtgStudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dtgStudent.Dock = System.Windows.Forms.DockStyle.Bottom
@@ -233,12 +233,12 @@ Partial Class frmStudent
         Me.dtgStudent.ReadOnly = True
         Me.dtgStudent.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         Me.dtgStudent.RowHeadersVisible = False
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
-        Me.dtgStudent.RowsDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White
+        Me.dtgStudent.RowsDefaultCellStyle = DataGridViewCellStyle6
         Me.dtgStudent.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtgStudent.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
         Me.dtgStudent.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.DodgerBlue
@@ -306,42 +306,43 @@ Partial Class frmStudent
         Me.Label40.TabIndex = 588
         Me.Label40.Text = "LIST OF STUDENTS"
         '
-        'panelClient
+        'panelStudent
         '
-        Me.panelClient.Controls.Add(Me.txtProvince)
-        Me.panelClient.Controls.Add(Me.txtMunCity)
-        Me.panelClient.Controls.Add(Me.txtContactNoC)
-        Me.panelClient.Controls.Add(Me.Label10)
-        Me.panelClient.Controls.Add(Me.Panel3)
-        Me.panelClient.Controls.Add(Me.Label42)
-        Me.panelClient.Controls.Add(Me.Label37)
-        Me.panelClient.Controls.Add(Me.txtLnameC)
-        Me.panelClient.Controls.Add(Me.Label36)
-        Me.panelClient.Controls.Add(Me.Label35)
-        Me.panelClient.Controls.Add(Me.txtBaranggay)
-        Me.panelClient.Controls.Add(Me.Label28)
-        Me.panelClient.Controls.Add(Me.Label21)
-        Me.panelClient.Controls.Add(Me.txtcontactno)
-        Me.panelClient.Controls.Add(Me.Label9)
-        Me.panelClient.Controls.Add(Me.cboGender)
-        Me.panelClient.Controls.Add(Me.Label12)
-        Me.panelClient.Controls.Add(Me.txtage)
-        Me.panelClient.Controls.Add(Me.Label11)
-        Me.panelClient.Controls.Add(Me.dtBirthdate)
-        Me.panelClient.Controls.Add(Me.Label8)
-        Me.panelClient.Controls.Add(Me.Label6)
-        Me.panelClient.Controls.Add(Me.txtClientCode)
-        Me.panelClient.Controls.Add(Me.Label7)
-        Me.panelClient.Controls.Add(Me.txtMname)
-        Me.panelClient.Controls.Add(Me.Label2)
-        Me.panelClient.Controls.Add(Me.txtFname)
-        Me.panelClient.Controls.Add(Me.Label3)
-        Me.panelClient.Controls.Add(Me.txtLname)
-        Me.panelClient.Controls.Add(Me.Label4)
-        Me.panelClient.Location = New System.Drawing.Point(197, 101)
-        Me.panelClient.Name = "panelClient"
-        Me.panelClient.Size = New System.Drawing.Size(660, 366)
-        Me.panelClient.TabIndex = 593
+        Me.panelStudent.Controls.Add(Me.txtProvince)
+        Me.panelStudent.Controls.Add(Me.txtMunCity)
+        Me.panelStudent.Controls.Add(Me.txtContactNoICE)
+        Me.panelStudent.Controls.Add(Me.Label10)
+        Me.panelStudent.Controls.Add(Me.Panel3)
+        Me.panelStudent.Controls.Add(Me.Label42)
+        Me.panelStudent.Controls.Add(Me.Label37)
+        Me.panelStudent.Controls.Add(Me.txtFullnameICE)
+        Me.panelStudent.Controls.Add(Me.Label36)
+        Me.panelStudent.Controls.Add(Me.Label35)
+        Me.panelStudent.Controls.Add(Me.txtBaranggay)
+        Me.panelStudent.Controls.Add(Me.Label28)
+        Me.panelStudent.Controls.Add(Me.Label21)
+        Me.panelStudent.Controls.Add(Me.txtcontactno)
+        Me.panelStudent.Controls.Add(Me.Label9)
+        Me.panelStudent.Controls.Add(Me.cboGender)
+        Me.panelStudent.Controls.Add(Me.Label12)
+        Me.panelStudent.Controls.Add(Me.txtage)
+        Me.panelStudent.Controls.Add(Me.Label11)
+        Me.panelStudent.Controls.Add(Me.dtBirthdate)
+        Me.panelStudent.Controls.Add(Me.Label8)
+        Me.panelStudent.Controls.Add(Me.Label6)
+        Me.panelStudent.Controls.Add(Me.txtStudentCode)
+        Me.panelStudent.Controls.Add(Me.Label7)
+        Me.panelStudent.Controls.Add(Me.txtMname)
+        Me.panelStudent.Controls.Add(Me.Label2)
+        Me.panelStudent.Controls.Add(Me.txtFname)
+        Me.panelStudent.Controls.Add(Me.Label3)
+        Me.panelStudent.Controls.Add(Me.txtLname)
+        Me.panelStudent.Controls.Add(Me.Label4)
+        Me.panelStudent.Location = New System.Drawing.Point(197, 101)
+        Me.panelStudent.Name = "panelStudent"
+        Me.panelStudent.Size = New System.Drawing.Size(660, 366)
+        Me.panelStudent.TabIndex = 593
+        Me.panelStudent.Visible = False
         '
         'txtProvince
         '
@@ -363,15 +364,15 @@ Partial Class frmStudent
         Me.txtMunCity.Size = New System.Drawing.Size(236, 22)
         Me.txtMunCity.TabIndex = 659
         '
-        'txtContactNoC
+        'txtContactNoICE
         '
-        Me.txtContactNoC.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtContactNoC.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtContactNoC.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtContactNoC.Location = New System.Drawing.Point(523, 328)
-        Me.txtContactNoC.Name = "txtContactNoC"
-        Me.txtContactNoC.Size = New System.Drawing.Size(115, 22)
-        Me.txtContactNoC.TabIndex = 657
+        Me.txtContactNoICE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtContactNoICE.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtContactNoICE.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtContactNoICE.Location = New System.Drawing.Point(523, 328)
+        Me.txtContactNoICE.Name = "txtContactNoICE"
+        Me.txtContactNoICE.Size = New System.Drawing.Size(115, 22)
+        Me.txtContactNoICE.TabIndex = 657
         '
         'Label10
         '
@@ -442,15 +443,15 @@ Partial Class frmStudent
         Me.Label37.TabIndex = 640
         Me.Label37.Text = "Province:"
         '
-        'txtLnameC
+        'txtFullnameICE
         '
-        Me.txtLnameC.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtLnameC.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtLnameC.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtLnameC.Location = New System.Drawing.Point(150, 328)
-        Me.txtLnameC.Name = "txtLnameC"
-        Me.txtLnameC.Size = New System.Drawing.Size(282, 22)
-        Me.txtLnameC.TabIndex = 23
+        Me.txtFullnameICE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtFullnameICE.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtFullnameICE.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtFullnameICE.Location = New System.Drawing.Point(150, 328)
+        Me.txtFullnameICE.Name = "txtFullnameICE"
+        Me.txtFullnameICE.Size = New System.Drawing.Size(282, 22)
+        Me.txtFullnameICE.TabIndex = 23
         '
         'Label36
         '
@@ -595,17 +596,17 @@ Partial Class frmStudent
         Me.Label6.TabIndex = 613
         Me.Label6.Text = "PERSONAL INFORMATION"
         '
-        'txtClientCode
+        'txtStudentCode
         '
-        Me.txtClientCode.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.txtClientCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtClientCode.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtClientCode.Location = New System.Drawing.Point(150, 61)
-        Me.txtClientCode.Name = "txtClientCode"
-        Me.txtClientCode.ReadOnly = True
-        Me.txtClientCode.Size = New System.Drawing.Size(115, 22)
-        Me.txtClientCode.TabIndex = 611
-        Me.txtClientCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtStudentCode.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.txtStudentCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtStudentCode.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtStudentCode.Location = New System.Drawing.Point(150, 61)
+        Me.txtStudentCode.Name = "txtStudentCode"
+        Me.txtStudentCode.ReadOnly = True
+        Me.txtStudentCode.Size = New System.Drawing.Size(115, 22)
+        Me.txtStudentCode.TabIndex = 611
+        Me.txtStudentCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label7
         '
@@ -683,7 +684,7 @@ Partial Class frmStudent
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1089, 552)
-        Me.Controls.Add(Me.panelClient)
+        Me.Controls.Add(Me.panelStudent)
         Me.Controls.Add(Me.btnrefresh)
         Me.Controls.Add(Me.btnSearch)
         Me.Controls.Add(Me.txtsearch)
@@ -701,8 +702,8 @@ Partial Class frmStudent
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.dtgStudent, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.panelClient.ResumeLayout(False)
-        Me.panelClient.PerformLayout()
+        Me.panelStudent.ResumeLayout(False)
+        Me.panelStudent.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         Me.ResumeLayout(False)
@@ -726,17 +727,17 @@ Partial Class frmStudent
     Friend WithEvents txtsearch As TextBox
     Friend WithEvents Label39 As Label
     Friend WithEvents Label40 As Label
-    Friend WithEvents panelClient As Panel
+    Friend WithEvents panelStudent As Panel
     Friend WithEvents txtProvince As TextBox
     Friend WithEvents txtMunCity As TextBox
-    Friend WithEvents txtContactNoC As TextBox
+    Friend WithEvents txtContactNoICE As TextBox
     Friend WithEvents Label10 As Label
     Friend WithEvents Panel3 As Panel
     Friend WithEvents btnClosePanel As Button
     Friend WithEvents lbldesc As Label
     Friend WithEvents Label42 As Label
     Friend WithEvents Label37 As Label
-    Friend WithEvents txtLnameC As TextBox
+    Friend WithEvents txtFullnameICE As TextBox
     Friend WithEvents Label36 As Label
     Friend WithEvents Label35 As Label
     Friend WithEvents txtBaranggay As TextBox
@@ -751,7 +752,7 @@ Partial Class frmStudent
     Friend WithEvents dtBirthdate As DateTimePicker
     Friend WithEvents Label8 As Label
     Friend WithEvents Label6 As Label
-    Friend WithEvents txtClientCode As TextBox
+    Friend WithEvents txtStudentCode As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents txtMname As TextBox
     Friend WithEvents Label2 As Label

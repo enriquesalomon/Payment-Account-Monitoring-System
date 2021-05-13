@@ -2,6 +2,8 @@
 Imports System.Data.OleDb
 Module modFunction
     Public mylogin As New Login
+    Public mystudent As New Student
+    Public myschoolyear As New SchoolYear
 
 
     Public mysqlconn As New OleDb.OleDbConnection
@@ -15,6 +17,7 @@ Module modFunction
 
     Public password As String
     Public Username As String
+    Public SchoolYearID As String
     Public Restrictionlevel As String
     Public strvar As String
     Public lsaving As Boolean
@@ -93,5 +96,59 @@ Module modFunction
 
 
         End If
+    End Function
+    Public Function getStudentID(ByVal ID As String) As Boolean
+        strvar = "STUD-"
+        Try
+            Call connect(condbPOS)
+            mycommand = mysqlconn.CreateCommand
+            mycommand.CommandText = "Select Top 1  * from Student order by ID DESC"
+            myadapter.SelectCommand = mycommand
+            myadapter.Fill(mydataset, "Student")
+            mydataTable = mydataset.Tables("Student")
+            mysqlreader = mycommand.ExecuteReader()
+
+            While mysqlreader.Read()
+                ID = String.Format("{0:0000}", mysqlreader("ID"))
+            End While
+            If mydataTable.Rows.Count = 0 Then
+                ID = strvar & "0001"
+            Else
+                ID = strvar & String.Format("{0:0000}", Mid(Trim(ID), 6, 8) + 1)
+            End If
+            frmStudent.txtStudentCode.Text = Trim(ID)
+            mysqlreader.Close()
+            mysqlconn.Close()
+        Catch ex As Exception
+            MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, "Error !!")
+
+        End Try
+    End Function
+    Public Function getSYID(ByVal ID As String) As Boolean
+        strvar = "SY-"
+        Try
+            Call connect(condbPOS)
+            mycommand = mysqlconn.CreateCommand
+            mycommand.CommandText = "Select Top 1  * from SchoolYEar order by ID DESC"
+            myadapter.SelectCommand = mycommand
+            myadapter.Fill(mydataset, "SchoolYEar")
+            mydataTable = mydataset.Tables("SchoolYEar")
+            mysqlreader = mycommand.ExecuteReader()
+
+            While mysqlreader.Read()
+                ID = String.Format("{0:0000}", mysqlreader("ID"))
+            End While
+            If mydataTable.Rows.Count = 0 Then
+                ID = strvar & "0001"
+            Else
+                ID = strvar & String.Format("{0:0000}", Mid(Trim(ID), 4, 8) + 1)
+            End If
+            frmSchoolYear.lblCode.Text = Trim(ID)
+            mysqlreader.Close()
+            mysqlconn.Close()
+        Catch ex As Exception
+            MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, "Error !!")
+
+        End Try
     End Function
 End Module
