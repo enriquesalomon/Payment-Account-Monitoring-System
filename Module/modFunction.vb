@@ -9,6 +9,7 @@ Module modFunction
     Public myschoolexpenses As New SchoolExpenses
     Public myschoolfees As New SchoolFees
     Public myuseraccount As New UserAccount
+    Public mylogs As New Logs
 
 
     Public mysqlconn As New OleDb.OleDbConnection

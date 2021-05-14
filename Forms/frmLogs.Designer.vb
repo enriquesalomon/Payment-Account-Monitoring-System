@@ -28,9 +28,9 @@ Partial Class frmLogs
         Me.btnClose = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label40 = New System.Windows.Forms.Label()
-        Me.dtgUserList = New System.Windows.Forms.DataGridView()
+        Me.dtgList = New System.Windows.Forms.DataGridView()
         Me.Panel4.SuspendLayout()
-        CType(Me.dtgUserList, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtgList, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel4
@@ -41,7 +41,7 @@ Partial Class frmLogs
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel4.Location = New System.Drawing.Point(0, 0)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(590, 26)
+        Me.Panel4.Size = New System.Drawing.Size(900, 26)
         Me.Panel4.TabIndex = 581
         '
         'btnClose
@@ -50,7 +50,7 @@ Partial Class frmLogs
         Me.btnClose.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClose.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnClose.ImageIndex = 1
-        Me.btnClose.Location = New System.Drawing.Point(559, 0)
+        Me.btnClose.Location = New System.Drawing.Point(869, 0)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(31, 26)
         Me.btnClose.TabIndex = 218
@@ -82,14 +82,14 @@ Partial Class frmLogs
         Me.Label40.TabIndex = 609
         Me.Label40.Text = "LIST"
         '
-        'dtgUserList
+        'dtgList
         '
-        Me.dtgUserList.AllowUserToAddRows = False
-        Me.dtgUserList.AllowUserToDeleteRows = False
-        Me.dtgUserList.AllowUserToResizeColumns = False
-        Me.dtgUserList.AllowUserToResizeRows = False
-        Me.dtgUserList.BackgroundColor = System.Drawing.Color.Gainsboro
-        Me.dtgUserList.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.dtgList.AllowUserToAddRows = False
+        Me.dtgList.AllowUserToDeleteRows = False
+        Me.dtgList.AllowUserToResizeColumns = False
+        Me.dtgList.AllowUserToResizeRows = False
+        Me.dtgList.BackgroundColor = System.Drawing.Color.Gainsboro
+        Me.dtgList.BorderStyle = System.Windows.Forms.BorderStyle.None
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -97,40 +97,40 @@ Partial Class frmLogs
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dtgUserList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
-        Me.dtgUserList.ColumnHeadersHeight = 32
-        Me.dtgUserList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.dtgUserList.EnableHeadersVisualStyles = False
-        Me.dtgUserList.GridColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.dtgUserList.Location = New System.Drawing.Point(4, 56)
-        Me.dtgUserList.MultiSelect = False
-        Me.dtgUserList.Name = "dtgUserList"
-        Me.dtgUserList.ReadOnly = True
-        Me.dtgUserList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        Me.dtgUserList.RowHeadersVisible = False
+        Me.dtgList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.dtgList.ColumnHeadersHeight = 32
+        Me.dtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.dtgList.EnableHeadersVisualStyles = False
+        Me.dtgList.GridColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.dtgList.Location = New System.Drawing.Point(2, 56)
+        Me.dtgList.MultiSelect = False
+        Me.dtgList.Name = "dtgList"
+        Me.dtgList.ReadOnly = True
+        Me.dtgList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        Me.dtgList.RowHeadersVisible = False
         DataGridViewCellStyle2.BackColor = System.Drawing.Color.White
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
-        Me.dtgUserList.RowsDefaultCellStyle = DataGridViewCellStyle2
-        Me.dtgUserList.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtgUserList.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
-        Me.dtgUserList.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.DodgerBlue
-        Me.dtgUserList.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White
-        Me.dtgUserList.RowTemplate.Height = 25
-        Me.dtgUserList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtgUserList.Size = New System.Drawing.Size(581, 463)
-        Me.dtgUserList.TabIndex = 608
+        Me.dtgList.RowsDefaultCellStyle = DataGridViewCellStyle2
+        Me.dtgList.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtgList.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
+        Me.dtgList.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.DodgerBlue
+        Me.dtgList.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White
+        Me.dtgList.RowTemplate.Height = 25
+        Me.dtgList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dtgList.Size = New System.Drawing.Size(898, 570)
+        Me.dtgList.TabIndex = 608
         '
         'frmLogs
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(590, 521)
+        Me.ClientSize = New System.Drawing.Size(900, 630)
         Me.Controls.Add(Me.Label40)
-        Me.Controls.Add(Me.dtgUserList)
+        Me.Controls.Add(Me.dtgList)
         Me.Controls.Add(Me.Panel4)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmLogs"
@@ -138,7 +138,7 @@ Partial Class frmLogs
         Me.Text = "frmLogs"
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
-        CType(Me.dtgUserList, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtgList, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -148,5 +148,5 @@ Partial Class frmLogs
     Friend WithEvents btnClose As Button
     Friend WithEvents Label5 As Label
     Friend WithEvents Label40 As Label
-    Friend WithEvents dtgUserList As DataGridView
+    Friend WithEvents dtgList As DataGridView
 End Class

@@ -76,6 +76,7 @@
     <Compile Include="Class\Admission.vb" />
     <Compile Include="Class\GradeSection.vb" />
     <Compile Include="Class\Login.vb" />
+    <Compile Include="Class\Logs.vb" />
     <Compile Include="Class\SchoolExpenses.vb" />
     <Compile Include="Class\SchoolFees.vb" />
     <Compile Include="Class\SchoolYear.vb" />
