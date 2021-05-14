@@ -25,4 +25,40 @@
             myadmission.LoadStudentList()
         End If
     End Sub
+
+    Private Sub dtgStudentList_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgStudentList.CellDoubleClick
+        'If dtgStudentList.Rows.Count = 0 Then
+        '    Exit Sub
+        'End If
+        'Dim GridRow As DataGridViewRow = dtgStudentList.CurrentRow
+        'For Each datagrd As DataGridViewRow In dtgStudentList.SelectedRows
+        '    frmAdmission.txtControlNumber.Text = CStr(GridRow.Cells.Item("controlno").Value)
+        '    dtgStudentList.txtClientCode.Text = CStr(GridRow.Cells.Item("ClientCode").Value)
+        '    dtgStudentList.txtPlanholdername.Text = CStr(GridRow.Cells.Item("fullname").Value)
+
+
+
+        '    Call connect(condbPOS)
+        '    mycommand = mysqlconn.CreateCommand
+
+        '    mycommand.CommandText = "Select * from  (InstallmentPlan inner join Client on Client.ID = InstallmentPlan.ClientCode)  WHERE InstallmentPlan.InstallmentNo='" & CStr(GridRow.Cells.Item("id").Value) & "'"
+        '    myadapter.SelectCommand = mycommand
+        '    myadapter.Fill(mydataset, "InstallmentPlan")
+        '    mydataTable = mydataset.Tables("InstallmentPlan")
+        '    mysqlreader = mycommand.ExecuteReader
+        '    If mydataTable.Rows.Count > 0 Then
+        '        While mysqlreader.Read()
+        '            installmentno = mysqlreader("InstallmentNo").ToString
+        '            frmClientLedger.txtInstallmentNo.Text = mysqlreader("InstallmentNo").ToString
+        '            frmClientLedger.txtTotalPlanAmount.Text = Format(CDbl(mysqlreader("ItemInstallmentPrice")), "###,###.#0")
+        '            amortpayable = mysqlreader("AmortPayable").ToString
+        '        End While
+        '    Else
+        '    End If
+        '    mysqlreader.Close()
+        '    mysqlconn.Close()
+        'Next datagrd
+
+        'Me.Close()
+    End Sub
 End Class

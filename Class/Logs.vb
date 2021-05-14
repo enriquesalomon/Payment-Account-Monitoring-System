@@ -42,7 +42,6 @@
             mycommand = mysqlconn.CreateCommand
             If searching = True Then
             Else
-                mycommand.CommandText = "Select * from Logs"
                 mycommand.CommandText = "Select * from (Logs inner join UserAccount on UserAccount.ID = Logs.UserID) ORDER BY Logs.ID ASC"
 
             End If

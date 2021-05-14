@@ -66,4 +66,154 @@
 
         End Try
     End Sub
+
+    Sub loadlist()
+        Try
+            frmAdmission.dtgList.Rows.Clear()
+            Call connect(condbPOS)
+            mycommand = mysqlconn.CreateCommand
+            'mycommand.CommandText = "Select * from Admission where SchoolYearID  ='" & SchoolYearID & "'"
+            mycommand.CommandText = "Select * from (Admission inner join Student on Student.ID = Admission.StudID) where Admission.SchoolYearID  ='" & SchoolYearID & "'"
+
+            myadapter.SelectCommand = mycommand
+            myadapter.Fill(mydataset, "Admission")
+            mydataTable = mydataset.Tables("Admission")
+            mysqlreader = mycommand.ExecuteReader
+            If mydataTable.Rows.Count > 0 Then
+                frmAdmission.dtgList.ColumnCount = 6
+
+                frmAdmission.dtgList.Columns(0).HeaderText = "CONTROL#"
+                frmAdmission.dtgList.Columns(0).Width = 100
+                frmAdmission.dtgList.Columns(0).Name = "controlno"
+                frmAdmission.dtgList.Columns(0).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+                frmAdmission.dtgList.Columns(1).HeaderText = "STUDENT"
+                frmAdmission.dtgList.Columns(1).Width = 150
+                frmAdmission.dtgList.Columns(1).Name = "name"
+                frmAdmission.dtgList.Columns(1).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+                frmAdmission.dtgList.Columns(2).HeaderText = "GENDER"
+                frmAdmission.dtgList.Columns(2).Width = 100
+                frmAdmission.dtgList.Columns(2).Name = "gender"
+                frmAdmission.dtgList.Columns(2).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+                frmAdmission.dtgList.Columns(3).HeaderText = "GRADE/SECTION"
+                frmAdmission.dtgList.Columns(3).Width = 100
+                frmAdmission.dtgList.Columns(3).Name = "contactno"
+                frmAdmission.dtgList.Columns(3).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+                frmAdmission.dtgList.Columns(4).HeaderText = "DATE ADDED"
+                frmAdmission.dtgList.Columns(4).Width = 100
+                frmAdmission.dtgList.Columns(4).Name = "dateadded"
+                frmAdmission.dtgList.Columns(4).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+                frmAdmission.dtgList.Columns(5).HeaderText = "ADDED BY"
+                frmAdmission.dtgList.Columns(5).Width = 80
+                frmAdmission.dtgList.Columns(5).Name = "addedby"
+                frmAdmission.dtgList.Columns(5).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+                Dim num As Integer = 0
+                Dim gradesection As String = ""
+                While mysqlreader.Read
+
+                    xtable.Rows.Clear()
+                    xdataset.Clear()
+                    mycommand = mysqlconn.CreateCommand
+                    mycommand.CommandText = " Select * from GradeSection where ID  ='" & mysqlreader("GradeSectionID").ToString & "'"
+                    myadapter.SelectCommand = mycommand
+                    myadapter.Fill(xdataset, "InstallmentPlan")
+                    xtable = xdataset.Tables("InstallmentPlan")
+                    If xtable.Rows.Count > 0 Then
+                        For Each str As DataRow In xtable.Rows
+                            gradesection = str("GradeSection").ToString
+                        Next
+                    End If
+                    xtable.Rows.Clear()
+                    xdataset.Clear()
+
+
+
+                    num += 1
+                    Dim nrow As String() = New String() {mysqlreader("ID").ToString, mysqlreader("Firstname").ToString + " " + mysqlreader("Middlename").ToString + " " + mysqlreader("Lastname").ToString, mysqlreader("Gender").ToString, gradesection.ToString, mysqlreader("AddedBy").ToString, mysqlreader("DateInserted").ToString}
+                    frmAdmission.dtgList.Rows.Add(nrow)
+                End While
+                frmAdmission.lblrecordcount.Text = "Record Count: " & num
+            End If
+
+            mysqlreader.Close()
+            mydataTable.Rows.Clear()
+            mydataset.Clear()
+        Catch ex As Exception
+            MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, "Error !!")
+        End Try
+    End Sub
+
+
+    Sub SaveEditRecords()
+        If frmAdmission.txtStudID.Text = "" Then
+            MsgBox("Student ID is Required")
+            Exit Sub
+        End If
+        If frmAdmission.cmbGradeSection.Text = Nothing Then
+            MsgBox("Grade/Section is Required")
+            Exit Sub
+        End If
+
+        If lsaving Then
+            getAdmissiontID(frmAdmission.txtControlNumber.Text)
+            If MessageBox.Show("Add this New Record", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
+                ' getClientNo(txtclientNo.Text)
+                connect(condbPOS)
+                mycommand = mysqlconn.CreateCommand
+                mycommand.CommandText = "INSERT INTO Admission VALUES ('" & frmAdmission.txtControlNumber.Text & "','" & frmAdmission.txtStudID.Text & "','" & Trim(frmAdmission.gradesectionID) & "','" & Trim(SchoolYearID) & "','" & Trim(UserID) & "','" & Format(DateAndTime.Now, "Short Date") & "','" & Format(DateAndTime.Now, "Short Date") & "')"
+                mycommand.ExecuteNonQuery()
+                MsgBox("New data has been successfully added!", MsgBoxStyle.Information)
+
+                frmAdmission.ClearMe()
+                loadlist()
+                frmAdmission.DisablerControls()
+            End If
+        Else
+            If frmAdmission.txtControlNumber.Text = Nothing Then
+                Exit Sub
+            End If
+
+            If MessageBox.Show("Are you sure you want to Update this Record?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
+                Try
+                    connect(condbPOS)
+                    mycommand = mysqlconn.CreateCommand
+                    mycommand.CommandText = "UPDATE Admission set StudID='" & frmAdmission.txtStudID.Text & "',GradeSectionID='" & frmAdmission.gradesectionID & "',DateModified='" & Format(DateAndTime.Now, "Short Date") & "' where ID ='" & frmAdmission.txtControlNumber.Text & "'"
+                    mycommand.ExecuteNonQuery()
+                    MsgBox("Record was Successfully Updated!", MsgBoxStyle.Information)
+                    frmAdmission.ClearMe()
+                    loadlist()
+                    frmAdmission.DisablerControls()
+                Catch ex As Exception
+                    MsgBox("ERROR:" & ex.Message & ex.Source)
+
+                End Try
+            End If
+
+        End If
+
+    End Sub
+
+    Sub delete()
+        If MessageBox.Show("Are you sure you want to delete this Record  " & vbNewLine & " " & vbNewLine & "", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.Yes Then
+            Try
+                connect(condbPOS)
+                mycommand = mysqlconn.CreateCommand
+                mycommand.CommandText = "DELETE from Admission where ID ='" & frmAdmission.txtControlNumber.Text & "'"
+                mycommand.ExecuteNonQuery()
+                MsgBox("Data was Successfully Deleted!", MsgBoxStyle.Information)
+                frmAdmission.ClearMe()
+                loadlist()
+                frmAdmission.DisablerControls()
+            Catch ex As Exception
+                MsgBox("ERROR:" & ex.Message & ex.Source)
+                frmAdmission.ClearMe()
+            End Try
+
+        End If
+    End Sub
 End Class

@@ -21,6 +21,9 @@ Module modFunction
     Public condbPOS As String = DBpath()
     Public Databasename As String
 
+    Public adataset, ndataset, xdataset, pdataset, cdataset As New DataSet
+    Public xtable, atable, ntable, pdatatable, cdatable As New DataTable
+
     Public password As String
     Public Username As String
     Public SchoolYearID As String
@@ -276,6 +279,33 @@ Module modFunction
                 ID = strvar & String.Format("{0:0000}", Mid(Trim(ID), 5, 8) + 1)
             End If
             frmSchoolFees.lblCode.Text = Trim(ID)
+            mysqlreader.Close()
+            mysqlconn.Close()
+        Catch ex As Exception
+            MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, "Error !!")
+
+        End Try
+    End Function
+    Public Function getAdmissiontID(ByVal ID As String) As Boolean
+        strvar = "CTRL-"
+        Try
+            Call connect(condbPOS)
+            mycommand = mysqlconn.CreateCommand
+            mycommand.CommandText = "Select Top 1  * from Student order by ID DESC"
+            myadapter.SelectCommand = mycommand
+            myadapter.Fill(mydataset, "Student")
+            mydataTable = mydataset.Tables("Student")
+            mysqlreader = mycommand.ExecuteReader()
+
+            While mysqlreader.Read()
+                ID = String.Format("{0:0000}", mysqlreader("ID"))
+            End While
+            If mydataTable.Rows.Count = 0 Then
+                ID = strvar & "0001"
+            Else
+                ID = strvar & String.Format("{0:0000}", Mid(Trim(ID), 6, 8) + 1)
+            End If
+            frmStudent.txtStudentCode.Text = Trim(ID)
             mysqlreader.Close()
             mysqlconn.Close()
         Catch ex As Exception
