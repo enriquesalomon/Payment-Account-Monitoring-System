@@ -30,10 +30,15 @@
         If dtgStudentList.Rows.Count = 0 Then
             Exit Sub
         End If
-        Dim GridRow As DataGridViewRow = dtgStudentList.CurrentRow
-        For Each datagrd As DataGridViewRow In dtgStudentList.SelectedRows
-            frmAdmission.txtControlNumber.Text = CStr(GridRow.Cells.Item("id").Value)
 
+        Dim GridRow As DataGridViewRow = dtgStudentList.CurrentRow
+        For Each RW As DataGridViewRow In frmAdmission.dtgList.Rows
+            If RW.Cells(2).Value = CStr(GridRow.Cells.Item("id").Value) Then
+                MsgBox("Student is already registered, Please choose another", MsgBoxStyle.Information)
+                Exit Sub
+            End If
+        Next
+        For Each datagrd As DataGridViewRow In dtgStudentList.SelectedRows
 
             Call connect(condbPOS)
             mycommand = mysqlconn.CreateCommand

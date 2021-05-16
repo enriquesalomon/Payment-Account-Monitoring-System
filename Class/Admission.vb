@@ -49,6 +49,7 @@
 
     Sub LoadGradeSection()
         Try
+            frmAdmission.cmbGradeSection.Items.Clear()
             Call connect(condbPOS)
             mycommand = mysqlconn.CreateCommand
             mycommand.CommandText = "Select * from GradeSection"
@@ -72,15 +73,19 @@
             frmAdmission.dtgList.Rows.Clear()
             Call connect(condbPOS)
             mycommand = mysqlconn.CreateCommand
-            'mycommand.CommandText = "Select * from Admission where SchoolYearID  ='" & SchoolYearID & "'"
-            mycommand.CommandText = "Select * from (Admission inner join Student on Student.ID = Admission.StudID) where Admission.SchoolYearID  ='" & SchoolYearID & "'"
+
+            If searching = True Then
+                mycommand.CommandText = "Select * from (Admission inner join Student on Student.ID = Admission.StudID) where Admission.SchoolYearID  ='" & SchoolYearID & "' AND Fname Like '%" & frmAdmission.txtsearch.Text & "%' OR Lname Like '%" & frmAdmission.txtsearch.Text & "%'"
+            Else
+                mycommand.CommandText = "Select * from (Admission inner join Student on Student.ID = Admission.StudID) where Admission.SchoolYearID  ='" & SchoolYearID & "'"
+            End If
 
             myadapter.SelectCommand = mycommand
             myadapter.Fill(mydataset, "Admission")
             mydataTable = mydataset.Tables("Admission")
             mysqlreader = mycommand.ExecuteReader
             If mydataTable.Rows.Count > 0 Then
-                frmAdmission.dtgList.ColumnCount = 7
+                frmAdmission.dtgList.ColumnCount = 8
 
                 frmAdmission.dtgList.Columns(0).HeaderText = "NO."
                 frmAdmission.dtgList.Columns(0).Width = 50
@@ -93,30 +98,35 @@
                 frmAdmission.dtgList.Columns(1).Name = "controlno"
                 frmAdmission.dtgList.Columns(1).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
-                frmAdmission.dtgList.Columns(2).HeaderText = "STUDENT"
-                frmAdmission.dtgList.Columns(2).Width = 150
-                frmAdmission.dtgList.Columns(2).Name = "name"
+                frmAdmission.dtgList.Columns(2).HeaderText = "STUDENT ID"
+                frmAdmission.dtgList.Columns(2).Width = 100
+                frmAdmission.dtgList.Columns(2).Name = "studid"
                 frmAdmission.dtgList.Columns(2).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
-                frmAdmission.dtgList.Columns(3).HeaderText = "GENDER"
-                frmAdmission.dtgList.Columns(3).Width = 100
-                frmAdmission.dtgList.Columns(3).Name = "gender"
+                frmAdmission.dtgList.Columns(3).HeaderText = "STUDENT"
+                frmAdmission.dtgList.Columns(3).Width = 200
+                frmAdmission.dtgList.Columns(3).Name = "name"
                 frmAdmission.dtgList.Columns(3).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
-                frmAdmission.dtgList.Columns(4).HeaderText = "GRADE/SECTION"
-                frmAdmission.dtgList.Columns(4).Width = 150
-                frmAdmission.dtgList.Columns(4).Name = "section"
+                frmAdmission.dtgList.Columns(4).HeaderText = "GENDER"
+                frmAdmission.dtgList.Columns(4).Width = 100
+                frmAdmission.dtgList.Columns(4).Name = "gender"
                 frmAdmission.dtgList.Columns(4).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
-                frmAdmission.dtgList.Columns(5).HeaderText = "ADDED BY"
-                frmAdmission.dtgList.Columns(5).Width = 100
-                frmAdmission.dtgList.Columns(5).Name = "addedby"
+                frmAdmission.dtgList.Columns(5).HeaderText = "GRADE/SECTION"
+                frmAdmission.dtgList.Columns(5).Width = 150
+                frmAdmission.dtgList.Columns(5).Name = "section"
                 frmAdmission.dtgList.Columns(5).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
-                frmAdmission.dtgList.Columns(6).HeaderText = "DATE ADDED"
-                frmAdmission.dtgList.Columns(6).Width = 80
-                frmAdmission.dtgList.Columns(6).Name = "dateadded"
+                frmAdmission.dtgList.Columns(6).HeaderText = "ADDED BY"
+                frmAdmission.dtgList.Columns(6).Width = 100
+                frmAdmission.dtgList.Columns(6).Name = "addedby"
                 frmAdmission.dtgList.Columns(6).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+                frmAdmission.dtgList.Columns(7).HeaderText = "DATE ADDED"
+                frmAdmission.dtgList.Columns(7).Width = 80
+                frmAdmission.dtgList.Columns(7).Name = "dateadded"
+                frmAdmission.dtgList.Columns(7).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
                 Dim num As Integer = 0
                 Dim gradesection As String = ""
@@ -137,10 +147,13 @@
                     End If
                     xtable.Rows.Clear()
                     xdataset.Clear()
+                    If mysqlreader("SchoolYearID").ToString = SchoolYearID Then
+                        num += 1
+                        Dim nrow As String() = New String() {num.ToString, mysqlreader("Admission.ID").ToString, mysqlreader("StudID").ToString, mysqlreader("Fname").ToString + " " + mysqlreader("Mname").ToString + " " + mysqlreader("Lname").ToString, mysqlreader("Gender").ToString, gradesection.ToString, mysqlreader("AddedBy").ToString, mysqlreader("DateInserted").ToString}
+                        frmAdmission.dtgList.Rows.Add(nrow)
+                    End If
 
-                    num += 1
-                    Dim nrow As String() = New String() {num.ToString, mysqlreader("Admission.ID").ToString, mysqlreader("Fname").ToString + " " + mysqlreader("Mname").ToString + " " + mysqlreader("Lname").ToString, mysqlreader("Gender").ToString, gradesection.ToString, mysqlreader("AddedBy").ToString, mysqlreader("DateInserted").ToString}
-                    frmAdmission.dtgList.Rows.Add(nrow)
+
                 End While
                 frmAdmission.lblrecordcount.Text = "Record Count: " & num
             End If
@@ -193,6 +206,9 @@
                     frmAdmission.ClearMe()
                     loadlist()
                     frmAdmission.DisablerControls()
+                    frmAdmission.btnNew.Enabled = True
+                    frmAdmission.btnEdit.Enabled = False
+                    frmAdmission.btnSave.Enabled = False
                 Catch ex As Exception
                     MsgBox("ERROR:" & ex.Message & ex.Source)
 

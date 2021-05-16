@@ -126,6 +126,9 @@
                     frmUser.ClearMe()
                     userlist()
                     frmUser.DisablerControls()
+                    frmUser.btnNew.Enabled = True
+                    frmUser.btnEdit.Enabled = False
+                    frmUser.btnSave.Enabled = False
                 Catch ex As Exception
                     MsgBox("ERROR:" & ex.Message & ex.Source)
 

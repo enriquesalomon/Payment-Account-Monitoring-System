@@ -194,8 +194,8 @@ Partial Class frmMain
         '
         Me.ToolStripMenuItem4.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
-        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(168, 22)
-        Me.ToolStripMenuItem4.Text = "Admit Student"
+        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(180, 22)
+        Me.ToolStripMenuItem4.Text = "Record Entry"
         '
         'tsMenuFees
         '
@@ -489,6 +489,7 @@ Partial Class frmMain
         Me.lblLogsID.Size = New System.Drawing.Size(58, 20)
         Me.lblLogsID.TabIndex = 222
         Me.lblLogsID.Text = "LogsID"
+        Me.lblLogsID.Visible = False
         '
         'Label3
         '

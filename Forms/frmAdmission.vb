@@ -1,12 +1,13 @@
 ﻿Public Class frmAdmission
     Public gradesectionID As String
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        DisablerControls()
+        ClearMe()
         Me.Close()
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnBrowseStudent.Click
-        StudentviewFocus = "Admission Entry"
-        frmStudentSearch.ShowDialog()
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
+
     End Sub
 
     Private Sub frmAdmission_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -105,5 +106,84 @@
 
     Private Sub btnNew_Click(sender As Object, e As EventArgs) Handles btnNew.Click
         ButtonClick("New")
+    End Sub
+
+    Private Sub dtgList_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgList.CellClick
+
+        Dim GridRow As DataGridViewRow = dtgList.CurrentRow
+        For Each datagrd As DataGridViewRow In dtgList.SelectedRows
+
+            txtControlNumber.Text = (CStr(GridRow.Cells.Item("controlno").Value))
+            Dim gradesectionid As String = ""
+            Call connect(condbPOS)
+            mycommand = mysqlconn.CreateCommand
+            'mycommand.CommandText = "Select * from Admission WHERE ID ='" & Trim((CStr(GridRow.Cells.Item("controlno").Value))) & "'"
+            mycommand.CommandText = "Select * from (Admission inner join Student on Student.ID = Admission.StudID)  WHERE Admission.ID='" & CStr(GridRow.Cells.Item("controlno").Value) & "'"
+
+            myadapter.SelectCommand = mycommand
+            myadapter.Fill(mydataset, "Admission")
+            mydataTable = mydataset.Tables("Admission")
+            mysqlreader = mycommand.ExecuteReader
+            If mydataTable.Rows.Count > 0 Then
+                While mysqlreader.Read()
+                    txtStudID.Text = (mysqlreader("Student.ID").ToString)
+                    txtFirstname.Text = (mysqlreader("Fname").ToString)
+                    txtMiddlename.Text = (mysqlreader("Mname").ToString)
+                    txtLastname.Text = (mysqlreader("Lname").ToString)
+                    txtGender.Text = (mysqlreader("Gender").ToString)
+                    gradesectionid = (mysqlreader("GradeSectionID").ToString)
+                End While
+                xtable.Rows.Clear()
+                xdataset.Clear()
+                mycommand = mysqlconn.CreateCommand
+                mycommand.CommandText = " Select * from GradeSection where ID  ='" & gradesectionid & "'"
+                myadapter.SelectCommand = mycommand
+                myadapter.Fill(xdataset, "GradeSection")
+                xtable = xdataset.Tables("GradeSection")
+                If xtable.Rows.Count > 0 Then
+                    For Each str As DataRow In xtable.Rows
+                        cmbGradeSection.Text = str("GradeSection").ToString
+                    Next
+                End If
+                xtable.Rows.Clear()
+                xdataset.Clear()
+            Else
+            End If
+            mysqlreader.Close()
+            mysqlconn.Close()
+
+        Next datagrd
+        If txtControlNumber.Text <> Nothing Then
+            btnEdit.Enabled = True
+            btnSave.Enabled = False
+            'btnDelete.Enabled = True
+        End If
+    End Sub
+
+    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnBrowseStudent.Click
+        StudentviewFocus = "Admission Entry"
+        frmStudentSearch.ShowDialog()
+    End Sub
+
+    Private Sub DeleteMenuStrip_Click(sender As Object, e As EventArgs) Handles DeleteMenuStrip.Click
+        If txtControlNumber.Text = "" Then
+            MsgBox("No record selected!", MsgBoxStyle.Information)
+            Exit Sub
+        End If
+        ButtonClick("Delete")
+    End Sub
+
+    Private Sub btnSearch_Click_1(sender As Object, e As EventArgs) Handles btnSearch.Click
+        If txtsearch.Text <> "" Then
+            searching = True
+            myadmission.loadlist()
+        End If
+    End Sub
+
+    Private Sub btnrefresh_Click(sender As Object, e As EventArgs) Handles btnrefresh.Click
+        txtsearch.Clear()
+        searching = False
+        myadmission.loadlist()
+
     End Sub
 End Class

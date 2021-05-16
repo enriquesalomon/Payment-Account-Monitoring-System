@@ -77,7 +77,6 @@
         For Each datagrd As DataGridViewRow In dtgUserList.SelectedRows
 
             txtCode.Text = (CStr(GridRow.Cells.Item("userid").Value))
-
             Call connect(condbPOS)
             mycommand = mysqlconn.CreateCommand
             mycommand.CommandText = "Select * from UserAccount WHERE ID ='" & Trim((CStr(GridRow.Cells.Item("userid").Value))) & "'"
