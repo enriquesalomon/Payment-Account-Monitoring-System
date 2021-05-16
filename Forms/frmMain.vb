@@ -6,7 +6,7 @@
         lblDescLogin.Visible = False
         connect(condbPOS)
         mycommand = mysqlconn.CreateCommand
-        mycommand.CommandText = "UPDATE Logs set Out='" & Format(DateAndTime.Now) & "' where ID ='" & lblLogsID.Text & "'"
+        mycommand.CommandText = "UPDATE Logs set Out='" & Format(DateAndTime.Now) & "' where ID ='" & Trim(lblLogsID.Text) & "'"
         mycommand.ExecuteNonQuery()
     End Sub
     Sub menuoptionvisible()

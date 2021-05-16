@@ -194,7 +194,7 @@ Partial Class frmMain
         '
         Me.ToolStripMenuItem4.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
-        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(180, 22)
+        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(168, 22)
         Me.ToolStripMenuItem4.Text = "Admit Student"
         '
         'tsMenuFees
@@ -293,21 +293,21 @@ Partial Class frmMain
         '
         Me.ToolStripMenuItem8.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStripMenuItem8.Name = "ToolStripMenuItem8"
-        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(180, 22)
+        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(173, 22)
         Me.ToolStripMenuItem8.Text = "Student Ledger"
         '
         'ToolStripMenuItem10
         '
         Me.ToolStripMenuItem10.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStripMenuItem10.Name = "ToolStripMenuItem10"
-        Me.ToolStripMenuItem10.Size = New System.Drawing.Size(180, 22)
+        Me.ToolStripMenuItem10.Size = New System.Drawing.Size(173, 22)
         Me.ToolStripMenuItem10.Text = "Report 2"
         '
         'ToolStripMenuItem11
         '
         Me.ToolStripMenuItem11.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStripMenuItem11.Name = "ToolStripMenuItem11"
-        Me.ToolStripMenuItem11.Size = New System.Drawing.Size(180, 22)
+        Me.ToolStripMenuItem11.Size = New System.Drawing.Size(173, 22)
         Me.ToolStripMenuItem11.Text = "Report 3"
         '
         'tsMenuSetting
@@ -489,7 +489,6 @@ Partial Class frmMain
         Me.lblLogsID.Size = New System.Drawing.Size(58, 20)
         Me.lblLogsID.TabIndex = 222
         Me.lblLogsID.Text = "LogsID"
-        Me.lblLogsID.Visible = False
         '
         'Label3
         '

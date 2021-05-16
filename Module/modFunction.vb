@@ -183,7 +183,7 @@ Module modFunction
         Try
             Call connect(condbPOS)
             mycommand = mysqlconn.CreateCommand
-            mycommand.CommandText = "Select Top 1  * from Logs order by ID DESC"
+            mycommand.CommandText = "Select * from Logs"
             myadapter.SelectCommand = mycommand
             myadapter.Fill(mydataset, "Logs")
             mydataTable = mydataset.Tables("Logs")
@@ -195,7 +195,7 @@ Module modFunction
             If mydataTable.Rows.Count = 0 Then
                 ID = 1
             Else
-                ID = CInt(ID) + 1
+                ID = CDbl(ID) + 1
             End If
             frmMain.lblLogsID.Text = ID
             mysqlreader.Close()
@@ -291,10 +291,10 @@ Module modFunction
         Try
             Call connect(condbPOS)
             mycommand = mysqlconn.CreateCommand
-            mycommand.CommandText = "Select Top 1  * from Student order by ID DESC"
+            mycommand.CommandText = "Select Top 1  * from Admission order by ID DESC"
             myadapter.SelectCommand = mycommand
-            myadapter.Fill(mydataset, "Student")
-            mydataTable = mydataset.Tables("Student")
+            myadapter.Fill(mydataset, "Admission")
+            mydataTable = mydataset.Tables("Admission")
             mysqlreader = mycommand.ExecuteReader()
 
             While mysqlreader.Read()
@@ -305,7 +305,7 @@ Module modFunction
             Else
                 ID = strvar & String.Format("{0:0000}", Mid(Trim(ID), 6, 8) + 1)
             End If
-            frmStudent.txtStudentCode.Text = Trim(ID)
+            frmAdmission.txtControlNumber.Text = Trim(ID)
             mysqlreader.Close()
             mysqlconn.Close()
         Catch ex As Exception

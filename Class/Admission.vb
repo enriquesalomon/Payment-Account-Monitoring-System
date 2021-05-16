@@ -80,37 +80,43 @@
             mydataTable = mydataset.Tables("Admission")
             mysqlreader = mycommand.ExecuteReader
             If mydataTable.Rows.Count > 0 Then
-                frmAdmission.dtgList.ColumnCount = 6
+                frmAdmission.dtgList.ColumnCount = 7
 
-                frmAdmission.dtgList.Columns(0).HeaderText = "CONTROL#"
-                frmAdmission.dtgList.Columns(0).Width = 100
-                frmAdmission.dtgList.Columns(0).Name = "controlno"
+                frmAdmission.dtgList.Columns(0).HeaderText = "NO."
+                frmAdmission.dtgList.Columns(0).Width = 50
+                frmAdmission.dtgList.Columns(0).Name = "num"
                 frmAdmission.dtgList.Columns(0).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
-                frmAdmission.dtgList.Columns(1).HeaderText = "STUDENT"
-                frmAdmission.dtgList.Columns(1).Width = 150
-                frmAdmission.dtgList.Columns(1).Name = "name"
+
+                frmAdmission.dtgList.Columns(1).HeaderText = "CONTROL#"
+                frmAdmission.dtgList.Columns(1).Width = 100
+                frmAdmission.dtgList.Columns(1).Name = "controlno"
                 frmAdmission.dtgList.Columns(1).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
-                frmAdmission.dtgList.Columns(2).HeaderText = "GENDER"
-                frmAdmission.dtgList.Columns(2).Width = 100
-                frmAdmission.dtgList.Columns(2).Name = "gender"
+                frmAdmission.dtgList.Columns(2).HeaderText = "STUDENT"
+                frmAdmission.dtgList.Columns(2).Width = 150
+                frmAdmission.dtgList.Columns(2).Name = "name"
                 frmAdmission.dtgList.Columns(2).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
-                frmAdmission.dtgList.Columns(3).HeaderText = "GRADE/SECTION"
+                frmAdmission.dtgList.Columns(3).HeaderText = "GENDER"
                 frmAdmission.dtgList.Columns(3).Width = 100
-                frmAdmission.dtgList.Columns(3).Name = "contactno"
+                frmAdmission.dtgList.Columns(3).Name = "gender"
                 frmAdmission.dtgList.Columns(3).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
-                frmAdmission.dtgList.Columns(4).HeaderText = "DATE ADDED"
-                frmAdmission.dtgList.Columns(4).Width = 100
-                frmAdmission.dtgList.Columns(4).Name = "dateadded"
+                frmAdmission.dtgList.Columns(4).HeaderText = "GRADE/SECTION"
+                frmAdmission.dtgList.Columns(4).Width = 150
+                frmAdmission.dtgList.Columns(4).Name = "section"
                 frmAdmission.dtgList.Columns(4).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
                 frmAdmission.dtgList.Columns(5).HeaderText = "ADDED BY"
-                frmAdmission.dtgList.Columns(5).Width = 80
+                frmAdmission.dtgList.Columns(5).Width = 100
                 frmAdmission.dtgList.Columns(5).Name = "addedby"
                 frmAdmission.dtgList.Columns(5).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+                frmAdmission.dtgList.Columns(6).HeaderText = "DATE ADDED"
+                frmAdmission.dtgList.Columns(6).Width = 80
+                frmAdmission.dtgList.Columns(6).Name = "dateadded"
+                frmAdmission.dtgList.Columns(6).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
                 Dim num As Integer = 0
                 Dim gradesection As String = ""
@@ -121,20 +127,19 @@
                     mycommand = mysqlconn.CreateCommand
                     mycommand.CommandText = " Select * from GradeSection where ID  ='" & mysqlreader("GradeSectionID").ToString & "'"
                     myadapter.SelectCommand = mycommand
-                    myadapter.Fill(xdataset, "InstallmentPlan")
-                    xtable = xdataset.Tables("InstallmentPlan")
+                    myadapter.Fill(xdataset, "GradeSection")
+                    xtable = xdataset.Tables("GradeSection")
                     If xtable.Rows.Count > 0 Then
                         For Each str As DataRow In xtable.Rows
                             gradesection = str("GradeSection").ToString
+
                         Next
                     End If
                     xtable.Rows.Clear()
                     xdataset.Clear()
 
-
-
                     num += 1
-                    Dim nrow As String() = New String() {mysqlreader("ID").ToString, mysqlreader("Firstname").ToString + " " + mysqlreader("Middlename").ToString + " " + mysqlreader("Lastname").ToString, mysqlreader("Gender").ToString, gradesection.ToString, mysqlreader("AddedBy").ToString, mysqlreader("DateInserted").ToString}
+                    Dim nrow As String() = New String() {num.ToString, mysqlreader("Admission.ID").ToString, mysqlreader("Fname").ToString + " " + mysqlreader("Mname").ToString + " " + mysqlreader("Lname").ToString, mysqlreader("Gender").ToString, gradesection.ToString, mysqlreader("AddedBy").ToString, mysqlreader("DateInserted").ToString}
                     frmAdmission.dtgList.Rows.Add(nrow)
                 End While
                 frmAdmission.lblrecordcount.Text = "Record Count: " & num
