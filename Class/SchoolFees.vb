@@ -73,6 +73,7 @@
 
     Sub loadSY()
         Try
+            frmSchoolFees.cmbSY.Items.Clear()
             Call connect(condbPOS)
             mycommand = mysqlconn.CreateCommand
             mycommand.CommandText = "Select * from SchoolYear"
@@ -81,7 +82,7 @@
             mydataTable = mydataset.Tables("SchoolYear")
             mysqlreader = mycommand.ExecuteReader()
             While mysqlreader.Read()
-                frmSchoolFees.cmbSY.Items.Add(mysqlreader("SYFrom").ToString + "-" + mysqlreader("SYFrom").ToString)
+                frmSchoolFees.cmbSY.Items.Add(mysqlreader("SYFrom").ToString + "-" + mysqlreader("SYTo").ToString)
             End While
             mysqlreader.Close()
             mysqlconn.Close()

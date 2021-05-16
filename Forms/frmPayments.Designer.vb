@@ -22,11 +22,11 @@ Partial Class frmPayments
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPayments))
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -55,7 +55,7 @@ Partial Class frmPayments
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
-        Me.dtgAmortizationTable = New System.Windows.Forms.DataGridView()
+        Me.dtgSchoolFee = New System.Windows.Forms.DataGridView()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.txtbalance = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -89,7 +89,7 @@ Partial Class frmPayments
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panelpay.SuspendLayout()
         Me.Panel10.SuspendLayout()
-        CType(Me.dtgAmortizationTable, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtgSchoolFee, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
         Me.Panel5.SuspendLayout()
         Me.SuspendLayout()
@@ -140,14 +140,14 @@ Partial Class frmPayments
         Me.dtgSales.AllowUserToResizeRows = False
         Me.dtgSales.BackgroundColor = System.Drawing.Color.Gainsboro
         Me.dtgSales.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dtgSales.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dtgSales.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.dtgSales.ColumnHeadersHeight = 26
         Me.dtgSales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dtgSales.EnableHeadersVisualStyles = False
@@ -158,12 +158,12 @@ Partial Class frmPayments
         Me.dtgSales.ReadOnly = True
         Me.dtgSales.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         Me.dtgSales.RowHeadersVisible = False
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
-        Me.dtgSales.RowsDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White
+        Me.dtgSales.RowsDefaultCellStyle = DataGridViewCellStyle6
         Me.dtgSales.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtgSales.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
         Me.dtgSales.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.DodgerBlue
@@ -245,7 +245,7 @@ Partial Class frmPayments
         Me.panelSales.Controls.Add(Me.Panel8)
         Me.panelSales.Controls.Add(Me.Label12)
         Me.panelSales.Controls.Add(Me.Label17)
-        Me.panelSales.Controls.Add(Me.dtgAmortizationTable)
+        Me.panelSales.Controls.Add(Me.dtgSchoolFee)
         Me.panelSales.Controls.Add(Me.Panel1)
         Me.panelSales.Controls.Add(Me.txtbalance)
         Me.panelSales.Controls.Add(Me.Label10)
@@ -469,49 +469,49 @@ Partial Class frmPayments
         Me.Label17.ForeColor = System.Drawing.Color.Green
         Me.Label17.Location = New System.Drawing.Point(478, 48)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(84, 16)
+        Me.Label17.Size = New System.Drawing.Size(83, 16)
         Me.Label17.TabIndex = 719
-        Me.Label17.Text = "STUDENT FEES"
+        Me.Label17.Text = "SCHOOL FEES"
         '
-        'dtgAmortizationTable
+        'dtgSchoolFee
         '
-        Me.dtgAmortizationTable.AllowUserToAddRows = False
-        Me.dtgAmortizationTable.AllowUserToDeleteRows = False
-        Me.dtgAmortizationTable.AllowUserToResizeColumns = False
-        Me.dtgAmortizationTable.AllowUserToResizeRows = False
-        Me.dtgAmortizationTable.BackgroundColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dtgAmortizationTable.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
-        Me.dtgAmortizationTable.ColumnHeadersHeight = 26
-        Me.dtgAmortizationTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.dtgAmortizationTable.EnableHeadersVisualStyles = False
-        Me.dtgAmortizationTable.GridColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.dtgAmortizationTable.Location = New System.Drawing.Point(478, 67)
-        Me.dtgAmortizationTable.MultiSelect = False
-        Me.dtgAmortizationTable.Name = "dtgAmortizationTable"
-        Me.dtgAmortizationTable.ReadOnly = True
-        Me.dtgAmortizationTable.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        Me.dtgAmortizationTable.RowHeadersVisible = False
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White
-        Me.dtgAmortizationTable.RowsDefaultCellStyle = DataGridViewCellStyle4
-        Me.dtgAmortizationTable.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtgAmortizationTable.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
-        Me.dtgAmortizationTable.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.DodgerBlue
-        Me.dtgAmortizationTable.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White
-        Me.dtgAmortizationTable.RowTemplate.Height = 25
-        Me.dtgAmortizationTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtgAmortizationTable.Size = New System.Drawing.Size(434, 504)
-        Me.dtgAmortizationTable.TabIndex = 718
+        Me.dtgSchoolFee.AllowUserToAddRows = False
+        Me.dtgSchoolFee.AllowUserToDeleteRows = False
+        Me.dtgSchoolFee.AllowUserToResizeColumns = False
+        Me.dtgSchoolFee.AllowUserToResizeRows = False
+        Me.dtgSchoolFee.BackgroundColor = System.Drawing.Color.White
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dtgSchoolFee.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
+        Me.dtgSchoolFee.ColumnHeadersHeight = 26
+        Me.dtgSchoolFee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.dtgSchoolFee.EnableHeadersVisualStyles = False
+        Me.dtgSchoolFee.GridColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.dtgSchoolFee.Location = New System.Drawing.Point(478, 67)
+        Me.dtgSchoolFee.MultiSelect = False
+        Me.dtgSchoolFee.Name = "dtgSchoolFee"
+        Me.dtgSchoolFee.ReadOnly = True
+        Me.dtgSchoolFee.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        Me.dtgSchoolFee.RowHeadersVisible = False
+        DataGridViewCellStyle8.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White
+        Me.dtgSchoolFee.RowsDefaultCellStyle = DataGridViewCellStyle8
+        Me.dtgSchoolFee.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtgSchoolFee.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
+        Me.dtgSchoolFee.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.DodgerBlue
+        Me.dtgSchoolFee.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White
+        Me.dtgSchoolFee.RowTemplate.Height = 25
+        Me.dtgSchoolFee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dtgSchoolFee.Size = New System.Drawing.Size(434, 504)
+        Me.dtgSchoolFee.TabIndex = 718
         '
         'Panel1
         '
@@ -823,7 +823,7 @@ Partial Class frmPayments
         Me.panelpay.PerformLayout()
         Me.Panel10.ResumeLayout(False)
         Me.Panel10.PerformLayout()
-        CType(Me.dtgAmortizationTable, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtgSchoolFee, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
@@ -857,7 +857,7 @@ Partial Class frmPayments
     Friend WithEvents Panel8 As Panel
     Friend WithEvents Label12 As Label
     Friend WithEvents Label17 As Label
-    Friend WithEvents dtgAmortizationTable As DataGridView
+    Friend WithEvents dtgSchoolFee As DataGridView
     Friend WithEvents Panel1 As Panel
     Friend WithEvents txtbalance As TextBox
     Friend WithEvents Label10 As Label
