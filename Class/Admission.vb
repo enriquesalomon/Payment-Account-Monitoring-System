@@ -166,7 +166,7 @@
         End Try
     End Sub
 
-
+    Public studentAccountID As String = ""
     Sub SaveEditRecords()
         If frmAdmission.txtStudID.Text = "" Then
             MsgBox("Student ID is Required")
@@ -184,6 +184,11 @@
                 connect(condbPOS)
                 mycommand = mysqlconn.CreateCommand
                 mycommand.CommandText = "INSERT INTO Admission VALUES ('" & frmAdmission.txtControlNumber.Text & "','" & frmAdmission.txtStudID.Text & "','" & Trim(frmAdmission.gradesectionID) & "','" & Trim(SchoolYearID) & "','" & Trim(UserID) & "','" & Format(DateAndTime.Now, "Short Date") & "','" & Format(DateAndTime.Now, "Short Date") & "')"
+                mycommand.ExecuteNonQuery()
+                getStudentAccountID(studentAccountID)
+                connect(condbPOS)
+                mycommand = mysqlconn.CreateCommand
+                mycommand.CommandText = "INSERT INTO StudentAccount VALUES ('" & studentAccountID & "','" & frmAdmission.txtControlNumber.Text & "')"
                 mycommand.ExecuteNonQuery()
                 MsgBox("New data has been successfully added!", MsgBoxStyle.Information)
 

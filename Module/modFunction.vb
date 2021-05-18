@@ -313,4 +313,31 @@ Module modFunction
 
         End Try
     End Function
+    Public Function getStudentAccountID(ByVal ID As String) As Boolean
+        strvar = "ACCT-"
+        Try
+            Call connect(condbPOS)
+            mycommand = mysqlconn.CreateCommand
+            mycommand.CommandText = "Select Top 1  * from StudentAccount order by ID DESC"
+            myadapter.SelectCommand = mycommand
+            myadapter.Fill(mydataset, "StudentAccount")
+            mydataTable = mydataset.Tables("StudentAccount")
+            mysqlreader = mycommand.ExecuteReader()
+
+            While mysqlreader.Read()
+                ID = String.Format("{0:0000}", mysqlreader("ID"))
+            End While
+            If mydataTable.Rows.Count = 0 Then
+                ID = strvar & "0001"
+            Else
+                ID = strvar & String.Format("{0:0000}", Mid(Trim(ID), 6, 8) + 1)
+            End If
+            myadmission.studentAccountID = Trim(ID)
+            mysqlreader.Close()
+            mysqlconn.Close()
+        Catch ex As Exception
+            MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, "Error !!")
+
+        End Try
+    End Function
 End Module
