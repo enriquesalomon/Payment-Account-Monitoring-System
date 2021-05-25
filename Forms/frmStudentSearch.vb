@@ -31,6 +31,8 @@
         frmPayments.txtStudentFullname.Clear()
         frmPayments.txtgender.Clear()
         frmPayments.txtYrSection.Clear()
+        frmPayments.dtgSchoolFee.Rows.Clear()
+        frmPayments.txtTotalpayable.Text = "0.00"
 
     End Sub
 
@@ -135,6 +137,11 @@
                 mysqlreader.Close()
                 mysqlconn.Close()
             Next datagrd
+            mypayments.loaddtgSchoolFees()
+            mypayments.LoadListSchoolFees()
+            If frmPayments.txtAccountID.Text = "" Then
+                cleartx()
+            End If
 
             Me.Close()
 

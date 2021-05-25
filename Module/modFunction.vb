@@ -10,6 +10,8 @@ Module modFunction
     Public myschoolfees As New SchoolFees
     Public myuseraccount As New UserAccount
     Public mylogs As New Logs
+    Public mypayments As New Payments
+
 
 
     Public mysqlconn As New OleDb.OleDbConnection
@@ -28,6 +30,7 @@ Module modFunction
     Public Username As String
     Public SchoolYearID As String
     Public SchoolYearVar As String
+    Public SchoolYearData As String
     Public Restrictionlevel As String
     Public strvar As String
     Public lsaving As Boolean
@@ -76,11 +79,13 @@ Module modFunction
             mysqlreader = mycommand.ExecuteReader()
             While mysqlreader.Read()
                 SchoolYearID = mysqlreader("ID").ToString
+                SchoolYearData = mysqlreader("SYFrom").ToString + "-" + mysqlreader("SYTo").ToString
                 SchoolYearVar = "School Year " + mysqlreader("SYFrom").ToString + "-" + mysqlreader("SYTo").ToString
             End While
             If mydataTable.Rows.Count = 0 Then
                 SchoolYearID = ""
                 SchoolYearVar = ""
+                SchoolYearData = ""
 
             End If
             mysqlreader.Close()
