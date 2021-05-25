@@ -22,11 +22,11 @@ Partial Class frmPayments
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPayments))
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -38,7 +38,7 @@ Partial Class frmPayments
         Me.Label8 = New System.Windows.Forms.Label()
         Me.panelSales = New System.Windows.Forms.Panel()
         Me.Label13 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtYrSection = New System.Windows.Forms.TextBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.panelpay = New System.Windows.Forms.Panel()
         Me.Panel10 = New System.Windows.Forms.Panel()
@@ -50,7 +50,7 @@ Partial Class frmPayments
         Me.btnSave = New System.Windows.Forms.Button()
         Me.bntClear = New System.Windows.Forms.Button()
         Me.lblItemCode = New System.Windows.Forms.Label()
-        Me.lblInstallmentNo = New System.Windows.Forms.Label()
+        Me.lblAccountID = New System.Windows.Forms.Label()
         Me.lblSchedID = New System.Windows.Forms.Label()
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.Label12 = New System.Windows.Forms.Label()
@@ -72,16 +72,16 @@ Partial Class frmPayments
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.txtplanDescription = New System.Windows.Forms.TextBox()
-        Me.txtpaymentID = New System.Windows.Forms.TextBox()
+        Me.txtAccountID = New System.Windows.Forms.TextBox()
         Me.Label21 = New System.Windows.Forms.Label()
-        Me.btnView = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtClientCode = New System.Windows.Forms.TextBox()
+        Me.txtStudentCode = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtgender = New System.Windows.Forms.TextBox()
-        Me.txtPlanholder = New System.Windows.Forms.TextBox()
+        Me.txtStudentFullname = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.btnBrowseStudent = New System.Windows.Forms.Button()
         Me.Panel4.SuspendLayout()
         CType(Me.dtgSales, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -140,14 +140,14 @@ Partial Class frmPayments
         Me.dtgSales.AllowUserToResizeRows = False
         Me.dtgSales.BackgroundColor = System.Drawing.Color.Gainsboro
         Me.dtgSales.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dtgSales.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dtgSales.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dtgSales.ColumnHeadersHeight = 26
         Me.dtgSales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dtgSales.EnableHeadersVisualStyles = False
@@ -158,12 +158,12 @@ Partial Class frmPayments
         Me.dtgSales.ReadOnly = True
         Me.dtgSales.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         Me.dtgSales.RowHeadersVisible = False
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White
-        Me.dtgSales.RowsDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
+        Me.dtgSales.RowsDefaultCellStyle = DataGridViewCellStyle2
         Me.dtgSales.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtgSales.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
         Me.dtgSales.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.DodgerBlue
@@ -233,14 +233,15 @@ Partial Class frmPayments
         '
         'panelSales
         '
+        Me.panelSales.Controls.Add(Me.btnBrowseStudent)
         Me.panelSales.Controls.Add(Me.Label13)
-        Me.panelSales.Controls.Add(Me.TextBox1)
+        Me.panelSales.Controls.Add(Me.txtYrSection)
         Me.panelSales.Controls.Add(Me.PictureBox1)
         Me.panelSales.Controls.Add(Me.panelpay)
         Me.panelSales.Controls.Add(Me.btnSave)
         Me.panelSales.Controls.Add(Me.bntClear)
         Me.panelSales.Controls.Add(Me.lblItemCode)
-        Me.panelSales.Controls.Add(Me.lblInstallmentNo)
+        Me.panelSales.Controls.Add(Me.lblAccountID)
         Me.panelSales.Controls.Add(Me.lblSchedID)
         Me.panelSales.Controls.Add(Me.Panel8)
         Me.panelSales.Controls.Add(Me.Label12)
@@ -259,14 +260,13 @@ Partial Class frmPayments
         Me.panelSales.Controls.Add(Me.Label6)
         Me.panelSales.Controls.Add(Me.Label9)
         Me.panelSales.Controls.Add(Me.txtplanDescription)
-        Me.panelSales.Controls.Add(Me.txtpaymentID)
+        Me.panelSales.Controls.Add(Me.txtAccountID)
         Me.panelSales.Controls.Add(Me.Label21)
-        Me.panelSales.Controls.Add(Me.btnView)
         Me.panelSales.Controls.Add(Me.Label1)
-        Me.panelSales.Controls.Add(Me.txtClientCode)
+        Me.panelSales.Controls.Add(Me.txtStudentCode)
         Me.panelSales.Controls.Add(Me.Label7)
         Me.panelSales.Controls.Add(Me.txtgender)
-        Me.panelSales.Controls.Add(Me.txtPlanholder)
+        Me.panelSales.Controls.Add(Me.txtStudentFullname)
         Me.panelSales.Controls.Add(Me.Label4)
         Me.panelSales.Controls.Add(Me.Label2)
         Me.panelSales.Location = New System.Drawing.Point(47, 69)
@@ -284,16 +284,16 @@ Partial Class frmPayments
         Me.Label13.TabIndex = 749
         Me.Label13.Text = "Year - Section:"
         '
-        'TextBox1
+        'txtYrSection
         '
-        Me.TextBox1.BackColor = System.Drawing.Color.White
-        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox1.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(203, 154)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.ReadOnly = True
-        Me.TextBox1.Size = New System.Drawing.Size(133, 22)
-        Me.TextBox1.TabIndex = 748
+        Me.txtYrSection.BackColor = System.Drawing.Color.White
+        Me.txtYrSection.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtYrSection.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtYrSection.Location = New System.Drawing.Point(203, 154)
+        Me.txtYrSection.Name = "txtYrSection"
+        Me.txtYrSection.ReadOnly = True
+        Me.txtYrSection.Size = New System.Drawing.Size(133, 22)
+        Me.txtYrSection.TabIndex = 748
         '
         'PictureBox1
         '
@@ -419,17 +419,17 @@ Partial Class frmPayments
         Me.lblItemCode.Text = "ITEM CODE"
         Me.lblItemCode.Visible = False
         '
-        'lblInstallmentNo
+        'lblAccountID
         '
-        Me.lblInstallmentNo.AutoSize = True
-        Me.lblInstallmentNo.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblInstallmentNo.ForeColor = System.Drawing.Color.Red
-        Me.lblInstallmentNo.Location = New System.Drawing.Point(342, 50)
-        Me.lblInstallmentNo.Name = "lblInstallmentNo"
-        Me.lblInstallmentNo.Size = New System.Drawing.Size(103, 17)
-        Me.lblInstallmentNo.TabIndex = 742
-        Me.lblInstallmentNo.Text = "INSTALLMENT ID"
-        Me.lblInstallmentNo.Visible = False
+        Me.lblAccountID.AutoSize = True
+        Me.lblAccountID.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAccountID.ForeColor = System.Drawing.Color.Red
+        Me.lblAccountID.Location = New System.Drawing.Point(342, 50)
+        Me.lblAccountID.Name = "lblAccountID"
+        Me.lblAccountID.Size = New System.Drawing.Size(82, 17)
+        Me.lblAccountID.TabIndex = 742
+        Me.lblAccountID.Text = "PAYMENT ID"
+        Me.lblAccountID.Visible = False
         '
         'lblSchedID
         '
@@ -480,14 +480,14 @@ Partial Class frmPayments
         Me.dtgSchoolFee.AllowUserToResizeColumns = False
         Me.dtgSchoolFee.AllowUserToResizeRows = False
         Me.dtgSchoolFee.BackgroundColor = System.Drawing.Color.White
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dtgSchoolFee.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dtgSchoolFee.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.dtgSchoolFee.ColumnHeadersHeight = 26
         Me.dtgSchoolFee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dtgSchoolFee.EnableHeadersVisualStyles = False
@@ -498,12 +498,12 @@ Partial Class frmPayments
         Me.dtgSchoolFee.ReadOnly = True
         Me.dtgSchoolFee.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         Me.dtgSchoolFee.RowHeadersVisible = False
-        DataGridViewCellStyle8.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White
-        Me.dtgSchoolFee.RowsDefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White
+        Me.dtgSchoolFee.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.dtgSchoolFee.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtgSchoolFee.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
         Me.dtgSchoolFee.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.DodgerBlue
@@ -686,17 +686,17 @@ Partial Class frmPayments
         Me.txtplanDescription.Size = New System.Drawing.Size(235, 22)
         Me.txtplanDescription.TabIndex = 674
         '
-        'txtpaymentID
+        'txtAccountID
         '
-        Me.txtpaymentID.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.txtpaymentID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtpaymentID.Enabled = False
-        Me.txtpaymentID.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtpaymentID.Location = New System.Drawing.Point(202, 60)
-        Me.txtpaymentID.Name = "txtpaymentID"
-        Me.txtpaymentID.Size = New System.Drawing.Size(134, 22)
-        Me.txtpaymentID.TabIndex = 673
-        Me.txtpaymentID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtAccountID.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.txtAccountID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtAccountID.Enabled = False
+        Me.txtAccountID.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAccountID.Location = New System.Drawing.Point(202, 60)
+        Me.txtAccountID.Name = "txtAccountID"
+        Me.txtAccountID.Size = New System.Drawing.Size(134, 22)
+        Me.txtAccountID.TabIndex = 673
+        Me.txtAccountID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label21
         '
@@ -708,20 +708,6 @@ Partial Class frmPayments
         Me.Label21.TabIndex = 672
         Me.Label21.Text = "Account ID:"
         '
-        'btnView
-        '
-        Me.btnView.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnView.ForeColor = System.Drawing.Color.Black
-        Me.btnView.ImageIndex = 1
-        Me.btnView.Location = New System.Drawing.Point(336, 84)
-        Me.btnView.Name = "btnView"
-        Me.btnView.Size = New System.Drawing.Size(30, 21)
-        Me.btnView.TabIndex = 665
-        Me.btnView.Text = "..."
-        Me.btnView.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnView.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnView.UseVisualStyleBackColor = True
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -732,17 +718,17 @@ Partial Class frmPayments
         Me.Label1.TabIndex = 671
         Me.Label1.Text = "Gender:"
         '
-        'txtClientCode
+        'txtStudentCode
         '
-        Me.txtClientCode.BackColor = System.Drawing.Color.White
-        Me.txtClientCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtClientCode.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtClientCode.Location = New System.Drawing.Point(203, 83)
-        Me.txtClientCode.Name = "txtClientCode"
-        Me.txtClientCode.ReadOnly = True
-        Me.txtClientCode.Size = New System.Drawing.Size(133, 22)
-        Me.txtClientCode.TabIndex = 670
-        Me.txtClientCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtStudentCode.BackColor = System.Drawing.Color.White
+        Me.txtStudentCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtStudentCode.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtStudentCode.Location = New System.Drawing.Point(203, 83)
+        Me.txtStudentCode.Name = "txtStudentCode"
+        Me.txtStudentCode.ReadOnly = True
+        Me.txtStudentCode.Size = New System.Drawing.Size(133, 22)
+        Me.txtStudentCode.TabIndex = 670
+        Me.txtStudentCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label7
         '
@@ -765,16 +751,16 @@ Partial Class frmPayments
         Me.txtgender.Size = New System.Drawing.Size(133, 22)
         Me.txtgender.TabIndex = 667
         '
-        'txtPlanholder
+        'txtStudentFullname
         '
-        Me.txtPlanholder.BackColor = System.Drawing.Color.White
-        Me.txtPlanholder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtPlanholder.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPlanholder.Location = New System.Drawing.Point(203, 106)
-        Me.txtPlanholder.Name = "txtPlanholder"
-        Me.txtPlanholder.ReadOnly = True
-        Me.txtPlanholder.Size = New System.Drawing.Size(237, 22)
-        Me.txtPlanholder.TabIndex = 666
+        Me.txtStudentFullname.BackColor = System.Drawing.Color.White
+        Me.txtStudentFullname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtStudentFullname.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtStudentFullname.Location = New System.Drawing.Point(203, 106)
+        Me.txtStudentFullname.Name = "txtStudentFullname"
+        Me.txtStudentFullname.ReadOnly = True
+        Me.txtStudentFullname.Size = New System.Drawing.Size(237, 22)
+        Me.txtStudentFullname.TabIndex = 666
         '
         'Label4
         '
@@ -795,6 +781,15 @@ Partial Class frmPayments
         Me.Label2.Size = New System.Drawing.Size(77, 17)
         Me.Label2.TabIndex = 675
         Me.Label2.Text = "Particular: "
+        '
+        'btnBrowseStudent
+        '
+        Me.btnBrowseStudent.Image = CType(resources.GetObject("btnBrowseStudent.Image"), System.Drawing.Image)
+        Me.btnBrowseStudent.Location = New System.Drawing.Point(336, 81)
+        Me.btnBrowseStudent.Name = "btnBrowseStudent"
+        Me.btnBrowseStudent.Size = New System.Drawing.Size(57, 24)
+        Me.btnBrowseStudent.TabIndex = 750
+        Me.btnBrowseStudent.UseVisualStyleBackColor = True
         '
         'frmPayments
         '
@@ -852,7 +847,7 @@ Partial Class frmPayments
     Friend WithEvents btnSave As Button
     Friend WithEvents bntClear As Button
     Friend WithEvents lblItemCode As Label
-    Friend WithEvents lblInstallmentNo As Label
+    Friend WithEvents lblAccountID As Label
     Friend WithEvents lblSchedID As Label
     Friend WithEvents Panel8 As Panel
     Friend WithEvents Label12 As Label
@@ -875,16 +870,16 @@ Partial Class frmPayments
     Friend WithEvents Label9 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents txtplanDescription As TextBox
-    Friend WithEvents txtpaymentID As TextBox
+    Friend WithEvents txtAccountID As TextBox
     Friend WithEvents Label21 As Label
-    Friend WithEvents btnView As Button
     Friend WithEvents Label1 As Label
-    Friend WithEvents txtClientCode As TextBox
+    Friend WithEvents txtStudentCode As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents txtgender As TextBox
-    Friend WithEvents txtPlanholder As TextBox
+    Friend WithEvents txtStudentFullname As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents Label13 As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtYrSection As TextBox
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents btnBrowseStudent As Button
 End Class
