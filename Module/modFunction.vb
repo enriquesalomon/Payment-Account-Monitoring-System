@@ -65,6 +65,32 @@ Module modFunction
         End Try
     End Sub
 
+    Public Sub getSchoolearID()
+        Try
+            Call connect(condbPOS)
+            mycommand = mysqlconn.CreateCommand
+            mycommand.CommandText = "Select Top 1  * from SchoolYear WHERE Status ='Active'"
+            myadapter.SelectCommand = mycommand
+            myadapter.Fill(mydataset, "SchoolYear")
+            mydataTable = mydataset.Tables("SchoolYear")
+            mysqlreader = mycommand.ExecuteReader()
+            While mysqlreader.Read()
+                SchoolYearID = mysqlreader("ID").ToString
+                SchoolYearVar = "School Year " + mysqlreader("SYFrom").ToString + "-" + mysqlreader("SYTo").ToString
+            End While
+            If mydataTable.Rows.Count = 0 Then
+                SchoolYearID = ""
+                SchoolYearVar = ""
+
+            End If
+            mysqlreader.Close()
+            mysqlconn.Close()
+        Catch ex As Exception
+            MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, "Error !!")
+
+        End Try
+    End Sub
+
     Public Function getUserrID(ByVal ID As String) As Boolean
         strvar = "USR-"
         Try
