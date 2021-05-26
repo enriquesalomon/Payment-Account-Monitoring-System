@@ -79,4 +79,8 @@
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         ButtonClick("Save")
     End Sub
+
+    Private Sub txtAccountID_TextChanged(sender As Object, e As EventArgs) Handles txtAccountID.TextChanged
+
+    End Sub
 End Class

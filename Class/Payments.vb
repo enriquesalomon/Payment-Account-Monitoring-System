@@ -106,4 +106,36 @@
         End If
 
     End Sub
+    Sub getTotalPayment()
+        Try
+
+            Dim totalpaid As String
+            totalpaid = ""
+
+
+            Call connect(condbPOS)
+        mycommand = mysqlconn.CreateCommand
+            mycommand.CommandText = " Select SUM (AmountPaid) as totalpayment,SUM(Penalty) as penaltypaid from Transactions where StudentAccountID  ='" & frmPayments.txtAccountID.Text & "'"
+            myadapter.SelectCommand = mycommand
+            myadapter.Fill(mydataset, "Transactions")
+            mydataTable = mydataset.Tables("Transactions")
+            mysqlreader = mycommand.ExecuteReader()
+            While mysqlreader.Read()
+            totalpaid = mysqlreader("totalpayment").ToString
+            End While
+            If totalpaid = Nothing Then
+                totalpaid = 0
+            End If
+
+            frmPayments.txttotalPayment.Text = CDbl(totalpaid)
+            frmPayments.txtbalance.Text = CDbl(frmPayments.txtTotalpayable.Text) - CDbl(totalpaid)
+            MsgBox(CDbl(frmPayments.txtTotalpayable.Text) - CDbl(totalpaid))
+            mysqlreader.Close()
+            mysqlconn.Close()
+
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
 End Class
