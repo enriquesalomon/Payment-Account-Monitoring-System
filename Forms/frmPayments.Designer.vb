@@ -36,7 +36,7 @@ Partial Class frmPayments
         Me.lblrecordcount = New System.Windows.Forms.Label()
         Me.btnNew = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.panelSales = New System.Windows.Forms.Panel()
+        Me.panelPayment = New System.Windows.Forms.Panel()
         Me.btnBrowseStudent = New System.Windows.Forms.Button()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.txtYrSection = New System.Windows.Forms.TextBox()
@@ -83,7 +83,7 @@ Partial Class frmPayments
         Me.Panel4.SuspendLayout()
         CType(Me.dtgSales, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
-        Me.panelSales.SuspendLayout()
+        Me.panelPayment.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panelpay.SuspendLayout()
         Me.Panel10.SuspendLayout()
@@ -229,46 +229,47 @@ Partial Class frmPayments
         Me.Label8.TabIndex = 714
         Me.Label8.Text = "PAYMENT  LIST"
         '
-        'panelSales
+        'panelPayment
         '
-        Me.panelSales.Controls.Add(Me.btnBrowseStudent)
-        Me.panelSales.Controls.Add(Me.Label13)
-        Me.panelSales.Controls.Add(Me.txtYrSection)
-        Me.panelSales.Controls.Add(Me.PictureBox1)
-        Me.panelSales.Controls.Add(Me.panelpay)
-        Me.panelSales.Controls.Add(Me.btnSave)
-        Me.panelSales.Controls.Add(Me.bntClear)
-        Me.panelSales.Controls.Add(Me.lblItemCode)
-        Me.panelSales.Controls.Add(Me.lblAccountID)
-        Me.panelSales.Controls.Add(Me.lblSchedID)
-        Me.panelSales.Controls.Add(Me.Panel8)
-        Me.panelSales.Controls.Add(Me.Label12)
-        Me.panelSales.Controls.Add(Me.Label17)
-        Me.panelSales.Controls.Add(Me.dtgSchoolFee)
-        Me.panelSales.Controls.Add(Me.Panel1)
-        Me.panelSales.Controls.Add(Me.txtbalance)
-        Me.panelSales.Controls.Add(Me.Label10)
-        Me.panelSales.Controls.Add(Me.Panel7)
-        Me.panelSales.Controls.Add(Me.txttotalPayment)
-        Me.panelSales.Controls.Add(Me.Label3)
-        Me.panelSales.Controls.Add(Me.txtTotalpayable)
-        Me.panelSales.Controls.Add(Me.Label18)
-        Me.panelSales.Controls.Add(Me.Panel3)
-        Me.panelSales.Controls.Add(Me.Panel5)
-        Me.panelSales.Controls.Add(Me.Label6)
-        Me.panelSales.Controls.Add(Me.Label9)
-        Me.panelSales.Controls.Add(Me.txtAccountID)
-        Me.panelSales.Controls.Add(Me.Label21)
-        Me.panelSales.Controls.Add(Me.Label1)
-        Me.panelSales.Controls.Add(Me.txtStudentCode)
-        Me.panelSales.Controls.Add(Me.Label7)
-        Me.panelSales.Controls.Add(Me.txtgender)
-        Me.panelSales.Controls.Add(Me.txtStudentFullname)
-        Me.panelSales.Controls.Add(Me.Label4)
-        Me.panelSales.Location = New System.Drawing.Point(77, 69)
-        Me.panelSales.Name = "panelSales"
-        Me.panelSales.Size = New System.Drawing.Size(866, 588)
-        Me.panelSales.TabIndex = 717
+        Me.panelPayment.Controls.Add(Me.btnBrowseStudent)
+        Me.panelPayment.Controls.Add(Me.Label13)
+        Me.panelPayment.Controls.Add(Me.txtYrSection)
+        Me.panelPayment.Controls.Add(Me.PictureBox1)
+        Me.panelPayment.Controls.Add(Me.panelpay)
+        Me.panelPayment.Controls.Add(Me.btnSave)
+        Me.panelPayment.Controls.Add(Me.bntClear)
+        Me.panelPayment.Controls.Add(Me.lblItemCode)
+        Me.panelPayment.Controls.Add(Me.lblAccountID)
+        Me.panelPayment.Controls.Add(Me.lblSchedID)
+        Me.panelPayment.Controls.Add(Me.Panel8)
+        Me.panelPayment.Controls.Add(Me.Label12)
+        Me.panelPayment.Controls.Add(Me.Label17)
+        Me.panelPayment.Controls.Add(Me.dtgSchoolFee)
+        Me.panelPayment.Controls.Add(Me.Panel1)
+        Me.panelPayment.Controls.Add(Me.txtbalance)
+        Me.panelPayment.Controls.Add(Me.Label10)
+        Me.panelPayment.Controls.Add(Me.Panel7)
+        Me.panelPayment.Controls.Add(Me.txttotalPayment)
+        Me.panelPayment.Controls.Add(Me.Label3)
+        Me.panelPayment.Controls.Add(Me.txtTotalpayable)
+        Me.panelPayment.Controls.Add(Me.Label18)
+        Me.panelPayment.Controls.Add(Me.Panel3)
+        Me.panelPayment.Controls.Add(Me.Panel5)
+        Me.panelPayment.Controls.Add(Me.Label6)
+        Me.panelPayment.Controls.Add(Me.Label9)
+        Me.panelPayment.Controls.Add(Me.txtAccountID)
+        Me.panelPayment.Controls.Add(Me.Label21)
+        Me.panelPayment.Controls.Add(Me.Label1)
+        Me.panelPayment.Controls.Add(Me.txtStudentCode)
+        Me.panelPayment.Controls.Add(Me.Label7)
+        Me.panelPayment.Controls.Add(Me.txtgender)
+        Me.panelPayment.Controls.Add(Me.txtStudentFullname)
+        Me.panelPayment.Controls.Add(Me.Label4)
+        Me.panelPayment.Location = New System.Drawing.Point(77, 69)
+        Me.panelPayment.Name = "panelPayment"
+        Me.panelPayment.Size = New System.Drawing.Size(866, 588)
+        Me.panelPayment.TabIndex = 717
+        Me.panelPayment.Visible = False
         '
         'btnBrowseStudent
         '
@@ -441,7 +442,7 @@ Partial Class frmPayments
         Me.lblSchedID.AutoSize = True
         Me.lblSchedID.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblSchedID.ForeColor = System.Drawing.Color.Red
-        Me.lblSchedID.Location = New System.Drawing.Point(844, 40)
+        Me.lblSchedID.Location = New System.Drawing.Point(781, 40)
         Me.lblSchedID.Name = "lblSchedID"
         Me.lblSchedID.Size = New System.Drawing.Size(68, 17)
         Me.lblSchedID.TabIndex = 736
@@ -772,7 +773,7 @@ Partial Class frmPayments
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1020, 704)
-        Me.Controls.Add(Me.panelSales)
+        Me.Controls.Add(Me.panelPayment)
         Me.Controls.Add(Me.dtgSales)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Label8)
@@ -786,8 +787,8 @@ Partial Class frmPayments
         CType(Me.dtgSales, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
-        Me.panelSales.ResumeLayout(False)
-        Me.panelSales.PerformLayout()
+        Me.panelPayment.ResumeLayout(False)
+        Me.panelPayment.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panelpay.ResumeLayout(False)
         Me.panelpay.PerformLayout()
@@ -811,7 +812,7 @@ Partial Class frmPayments
     Friend WithEvents lblrecordcount As Label
     Friend WithEvents btnNew As Button
     Friend WithEvents Label8 As Label
-    Friend WithEvents panelSales As Panel
+    Friend WithEvents panelPayment As Panel
     Friend WithEvents panelpay As Panel
     Friend WithEvents Panel10 As Panel
     Friend WithEvents Label20 As Label

@@ -25,19 +25,10 @@
             myadmission.LoadStudentList()
         End If
     End Sub
-    Sub cleartx()
-        frmPayments.txtAccountID.Clear()
-        frmPayments.txtStudentCode.Clear()
-        frmPayments.txtStudentFullname.Clear()
-        frmPayments.txtgender.Clear()
-        frmPayments.txtYrSection.Clear()
-        frmPayments.dtgSchoolFee.Rows.Clear()
-        frmPayments.txtTotalpayable.Text = "0.00"
 
-    End Sub
 
     Private Sub dtgStudentList_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgStudentList.CellDoubleClick
-        cleartx()
+        frmPayments.cleartx()
         If dtgStudentList.Rows.Count = 0 Then
             Exit Sub
         End If
@@ -140,7 +131,7 @@
             mypayments.loaddtgSchoolFees()
             mypayments.LoadListSchoolFees()
             If frmPayments.txtAccountID.Text = "" Then
-                cleartx()
+                frmPayments.cleartx()
             End If
 
             Me.Close()

@@ -68,6 +68,7 @@ Partial Class frmMain
         Me.Label3 = New System.Windows.Forms.Label()
         Me.lblbranchName = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.PaymentListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.panelLogin.SuspendLayout()
@@ -250,7 +251,7 @@ Partial Class frmMain
         '
         Me.ToolStripMenuItem2.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(138, 22)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(180, 22)
         Me.ToolStripMenuItem2.Text = "Payments"
         '
         'tsMenuUsers
@@ -281,7 +282,7 @@ Partial Class frmMain
         '
         'tsmenuReports
         '
-        Me.tsmenuReports.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem8, Me.ToolStripMenuItem10, Me.ToolStripMenuItem11, Me.SchoolExpensesToolStripMenuItem})
+        Me.tsmenuReports.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem8, Me.ToolStripMenuItem10, Me.ToolStripMenuItem11, Me.SchoolExpensesToolStripMenuItem, Me.PaymentListToolStripMenuItem})
         Me.tsmenuReports.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tsmenuReports.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.tsmenuReports.Image = CType(resources.GetObject("tsmenuReports.Image"), System.Drawing.Image)
@@ -294,29 +295,29 @@ Partial Class frmMain
         '
         Me.ToolStripMenuItem8.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStripMenuItem8.Name = "ToolStripMenuItem8"
-        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(179, 22)
+        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(202, 22)
         Me.ToolStripMenuItem8.Text = "Student Ledger"
         '
         'ToolStripMenuItem10
         '
         Me.ToolStripMenuItem10.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStripMenuItem10.Name = "ToolStripMenuItem10"
-        Me.ToolStripMenuItem10.Size = New System.Drawing.Size(179, 22)
+        Me.ToolStripMenuItem10.Size = New System.Drawing.Size(202, 22)
         Me.ToolStripMenuItem10.Text = "Admission List"
         '
         'ToolStripMenuItem11
         '
         Me.ToolStripMenuItem11.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStripMenuItem11.Name = "ToolStripMenuItem11"
-        Me.ToolStripMenuItem11.Size = New System.Drawing.Size(179, 22)
-        Me.ToolStripMenuItem11.Text = "School Fees"
+        Me.ToolStripMenuItem11.Size = New System.Drawing.Size(202, 22)
+        Me.ToolStripMenuItem11.Text = "School Fees List"
         '
         'SchoolExpensesToolStripMenuItem
         '
         Me.SchoolExpensesToolStripMenuItem.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SchoolExpensesToolStripMenuItem.Name = "SchoolExpensesToolStripMenuItem"
-        Me.SchoolExpensesToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
-        Me.SchoolExpensesToolStripMenuItem.Text = "School Expenses"
+        Me.SchoolExpensesToolStripMenuItem.Size = New System.Drawing.Size(202, 22)
+        Me.SchoolExpensesToolStripMenuItem.Text = "School Expenses List"
         '
         'tsMenuSetting
         '
@@ -529,6 +530,13 @@ Partial Class frmMain
         '
         Me.Timer1.Enabled = True
         '
+        'PaymentListToolStripMenuItem
+        '
+        Me.PaymentListToolStripMenuItem.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PaymentListToolStripMenuItem.Name = "PaymentListToolStripMenuItem"
+        Me.PaymentListToolStripMenuItem.Size = New System.Drawing.Size(202, 22)
+        Me.PaymentListToolStripMenuItem.Text = "Transactions List"
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -603,4 +611,5 @@ Partial Class frmMain
     Friend WithEvents ToolStripMenuItem6 As ToolStripMenuItem
     Friend WithEvents lblLogsID As Label
     Friend WithEvents SchoolExpensesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PaymentListToolStripMenuItem As ToolStripMenuItem
 End Class
