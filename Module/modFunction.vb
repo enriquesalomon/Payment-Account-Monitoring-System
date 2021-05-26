@@ -50,9 +50,6 @@ Module modFunction
         Databasename = Application.StartupPath & "\PAMS_DB" & ".accdb"
         'Databasename = "C:\AB GADGETS BETA TESTING\DB\POSIS_DB" & ".accdb"
         DBpath = "provider=microsoft.ace.oledb.12.0;" & "data source=" & Databasename & ";Jet OLEDB:Database Password="
-
-        'DBpath = "provider=microsoft.ace.oledb.12.0;" & "data source=" & Databasename & ";Jet OLEDB:Database Password=abgadgets.pos"
-        'LENDINGpath = "provider=microsoft.ace.oledb.12.0;Persist Security Info=False;Data Source=" & Trim(LENDINGDatabasename) & ";Jet OLEDB:Database Password=12345"
     End Function
 
     Public Sub connect(ByVal lconString As String)
@@ -364,6 +361,33 @@ Module modFunction
                 ID = strvar & String.Format("{0:0000}", Mid(Trim(ID), 6, 8) + 1)
             End If
             myadmission.studentAccountID = Trim(ID)
+            mysqlreader.Close()
+            mysqlconn.Close()
+        Catch ex As Exception
+            MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, "Error !!")
+
+        End Try
+    End Function
+    Public Function getTransID(ByVal ID As String) As Boolean
+        strvar = "TXN-"
+        Try
+            Call connect(condbPOS)
+            mycommand = mysqlconn.CreateCommand
+            mycommand.CommandText = "Select Top 1  * from Transactions order by ID DESC"
+            myadapter.SelectCommand = mycommand
+            myadapter.Fill(mydataset, "Transactions")
+            mydataTable = mydataset.Tables("Transactions")
+            mysqlreader = mycommand.ExecuteReader()
+
+            While mysqlreader.Read()
+                ID = String.Format("{0:0000}", mysqlreader("ID"))
+            End While
+            If mydataTable.Rows.Count = 0 Then
+                ID = strvar & "0001"
+            Else
+                ID = strvar & String.Format("{0:0000}", Mid(Trim(ID), 5, 8) + 1)
+            End If
+            frmPayments.lbltransID.Text = Trim(ID)
             mysqlreader.Close()
             mysqlconn.Close()
         Catch ex As Exception

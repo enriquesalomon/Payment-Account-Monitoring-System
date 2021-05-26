@@ -51,7 +51,7 @@ Partial Class frmPayments
         Me.btnSave = New System.Windows.Forms.Button()
         Me.bntClear = New System.Windows.Forms.Button()
         Me.lblItemCode = New System.Windows.Forms.Label()
-        Me.lblAccountID = New System.Windows.Forms.Label()
+        Me.lbltransID = New System.Windows.Forms.Label()
         Me.lblSchedID = New System.Windows.Forms.Label()
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.Label12 = New System.Windows.Forms.Label()
@@ -239,7 +239,7 @@ Partial Class frmPayments
         Me.panelPayment.Controls.Add(Me.btnSave)
         Me.panelPayment.Controls.Add(Me.bntClear)
         Me.panelPayment.Controls.Add(Me.lblItemCode)
-        Me.panelPayment.Controls.Add(Me.lblAccountID)
+        Me.panelPayment.Controls.Add(Me.lbltransID)
         Me.panelPayment.Controls.Add(Me.lblSchedID)
         Me.panelPayment.Controls.Add(Me.Panel8)
         Me.panelPayment.Controls.Add(Me.Label12)
@@ -425,17 +425,17 @@ Partial Class frmPayments
         Me.lblItemCode.Text = "ITEM CODE"
         Me.lblItemCode.Visible = False
         '
-        'lblAccountID
+        'lbltransID
         '
-        Me.lblAccountID.AutoSize = True
-        Me.lblAccountID.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAccountID.ForeColor = System.Drawing.Color.Red
-        Me.lblAccountID.Location = New System.Drawing.Point(342, 50)
-        Me.lblAccountID.Name = "lblAccountID"
-        Me.lblAccountID.Size = New System.Drawing.Size(82, 17)
-        Me.lblAccountID.TabIndex = 742
-        Me.lblAccountID.Text = "PAYMENT ID"
-        Me.lblAccountID.Visible = False
+        Me.lbltransID.AutoSize = True
+        Me.lbltransID.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbltransID.ForeColor = System.Drawing.Color.Red
+        Me.lbltransID.Location = New System.Drawing.Point(342, 50)
+        Me.lbltransID.Name = "lbltransID"
+        Me.lbltransID.Size = New System.Drawing.Size(44, 17)
+        Me.lbltransID.TabIndex = 742
+        Me.lbltransID.Text = "TXNID"
+        Me.lbltransID.Visible = False
         '
         'lblSchedID
         '
@@ -823,7 +823,7 @@ Partial Class frmPayments
     Friend WithEvents btnSave As Button
     Friend WithEvents bntClear As Button
     Friend WithEvents lblItemCode As Label
-    Friend WithEvents lblAccountID As Label
+    Friend WithEvents lbltransID As Label
     Friend WithEvents lblSchedID As Label
     Friend WithEvents Panel8 As Panel
     Friend WithEvents Label12 As Label

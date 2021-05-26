@@ -91,4 +91,17 @@
         myschoolfees.LoadList()
         myschoolfees.loadSY()
     End Sub
+
+    Private Sub txtAmount_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtAmount.KeyPress
+
+        Try
+            If Not (Char.IsDigit(e.KeyChar) Or e.KeyChar = ".") And Not Char.IsControl(e.KeyChar) Then
+                MsgBox("Input Only Number Value", MsgBoxStyle.Information)
+                e.Handled = True
+            End If
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
 End Class

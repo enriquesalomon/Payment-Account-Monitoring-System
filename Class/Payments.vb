@@ -60,4 +60,50 @@
             MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, "Error !!")
         End Try
     End Sub
+    Sub LoadListPayments()
+
+    End Sub
+
+    Sub SaveEditRecords()
+        If frmPayments.txtAccountID.Text = "" Then
+            Exit Sub
+        End If
+
+        If CDbl(frmPayments.txtbalance.Text) = 0 Then
+            Exit Sub
+        End If
+        If CDbl(frmPayments.txtAmountPaid.Text) > CDbl(frmPayments.txtbalance.Text) Then
+            MessageBox.Show("Amount to Pay should not be greater than the Balance", "Validation Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Exit Sub
+        End If
+
+        If lsaving Then
+            Dim balance As Double = 0
+            Dim amountpay As Double = 0
+            Dim newbalance As Double = 0
+            balance = CDbl(frmPayments.txtbalance.Text)
+            amountpay = CDbl(frmPayments.txtAmountPaid.Text)
+            newbalance = balance - amountpay
+
+
+            If MessageBox.Show("Accept this Payment?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
+                getTransID(frmPayments.lbltransID.Text)
+                connect(condbPOS)
+                mycommand = mysqlconn.CreateCommand
+                mycommand.CommandText = "INSERT INTO Transactions VALUES ('" & frmPayments.lbltransID.Text & "','" & frmPayments.txtStudentCode.Text & "','" & SchoolYearID & "','" & frmPayments.txtTotalpayable.Text & "','" & frmPayments.txttotalPayment.Text & "','" & frmPayments.txtbalance.Text & "','" & frmPayments.dtpaymentDate.Text & "','" & frmPayments.txtAmountPaid.Text & "','" & UserID & "','" & Format(DateAndTime.Now, "Short Date") & "')"
+                mycommand.ExecuteNonQuery()
+                LoadListPayments()
+                frmPayments.cleartx()
+                frmPayments.panelPayment.Visible = False
+                MsgBox("Transaction has been successfully Saved ", MsgBoxStyle.OkOnly, "Message")
+                lsaving = False
+
+            End If
+            lsaving = False
+
+        Else
+
+        End If
+
+    End Sub
 End Class
