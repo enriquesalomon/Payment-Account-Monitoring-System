@@ -7,6 +7,9 @@
         txtYrSection.Clear()
         dtgSchoolFee.Rows.Clear()
         txtTotalpayable.Text = "0.00"
+        txttotalPayment.Text = "0.00"
+        txtbalance.Text = "0.00"
+        txtAmountPaid.Text = "0.00"
 
     End Sub
     Private Sub ButtonClick(ByVal ckey As String)
@@ -46,7 +49,9 @@
     End Sub
 
     Private Sub frmPayments_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        mypayments.loaddtgSchoolFees()
+        mypayments.loaddtgTransactions()
+        mypayments.LoadListTransaction()
     End Sub
 
     Private Sub btnBrowseStudent_Click(sender As Object, e As EventArgs) Handles btnBrowseStudent.Click
@@ -56,6 +61,7 @@
 
     Private Sub btnNew_Click(sender As Object, e As EventArgs) Handles btnNew.Click
         ButtonClick("New")
+        getTransID(txtTransID.Text)
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -81,6 +87,10 @@
     End Sub
 
     Private Sub txtAccountID_TextChanged(sender As Object, e As EventArgs) Handles txtAccountID.TextChanged
+
+    End Sub
+
+    Private Sub txtStudentCode_TextChanged(sender As Object, e As EventArgs) Handles txtStudentCode.TextChanged
 
     End Sub
 End Class

@@ -1,4 +1,88 @@
 ﻿Public Class Payments
+    Sub loaddtgTransactions()
+        frmPayments.dtgSales.ColumnCount = 8
+
+        frmPayments.dtgSales.Columns(0).HeaderText = "NO."
+        frmPayments.dtgSales.Columns(0).Width = 50
+        frmPayments.dtgSales.Columns(0).Name = "no"
+        frmPayments.dtgSales.Columns(0).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        frmPayments.dtgSales.Columns(1).HeaderText = "ACCT#"
+        frmPayments.dtgSales.Columns(1).Width = 100
+        frmPayments.dtgSales.Columns(1).Name = "acctno"
+        frmPayments.dtgSales.Columns(1).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        frmPayments.dtgSales.Columns(2).HeaderText = "STUDENT ID"
+        frmPayments.dtgSales.Columns(2).Width = 100
+        frmPayments.dtgSales.Columns(2).Name = "studId"
+        frmPayments.dtgSales.Columns(2).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        frmPayments.dtgSales.Columns(3).HeaderText = "STUDENT NAME"
+        frmPayments.dtgSales.Columns(3).Width = 250
+        frmPayments.dtgSales.Columns(3).Name = "fullname"
+        frmPayments.dtgSales.Columns(3).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        frmPayments.dtgSales.Columns(4).HeaderText = "GENDER"
+        frmPayments.dtgSales.Columns(4).Width = 100
+        frmPayments.dtgSales.Columns(4).Name = "gender"
+        frmPayments.dtgSales.Columns(4).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+
+        frmPayments.dtgSales.Columns(5).HeaderText = "GRADE-SECTION"
+        frmPayments.dtgSales.Columns(5).Width = 100
+        frmPayments.dtgSales.Columns(5).Name = "gradesection"
+        frmPayments.dtgSales.Columns(5).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        frmPayments.dtgSales.Columns(6).HeaderText = "AMOUNT PAID"
+        frmPayments.dtgSales.Columns(6).Width = 150
+        frmPayments.dtgSales.Columns(6).Name = "amountpaid"
+        frmPayments.dtgSales.Columns(6).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        frmPayments.dtgSales.Columns(7).HeaderText = "DATE OF PAYMENT"
+        frmPayments.dtgSales.Columns(7).Width = 150
+        frmPayments.dtgSales.Columns(7).Name = "dateofpayment"
+        frmPayments.dtgSales.Columns(7).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+    End Sub
+    Sub LoadListTransaction()
+        Try
+            frmPayments.dtgSales.Rows.Clear()
+            Call connect(condbPOS)
+            mycommand = mysqlconn.CreateCommand
+            If searching = True Then
+            Else
+                mycommand.CommandText = "Select * from Transactions where SchoolYearID= '" & SchoolYearID & "'"
+            End If
+
+            myadapter.SelectCommand = mycommand
+            myadapter.Fill(mydataset, "Transactions")
+            mydataTable = mydataset.Tables("Transactions")
+            mysqlreader = mycommand.ExecuteReader
+            If mydataTable.Rows.Count > 0 Then
+                Dim nos As Integer = 0
+                While mysqlreader.Read
+                    nos += 1
+                    Dim nrow As String() = New String() {nos.ToString, mysqlreader("StudentAccountID").ToString, "STUDENT ID", "Fullname", "Gender", "Grade Section", mysqlreader("AmountPaid").ToString, mysqlreader("PaymentDate").ToString}
+                    frmPayments.dtgSales.Rows.Add(nrow)
+                End While
+
+            End If
+            'Dim no As Integer = 0
+            'Dim totalpayable As Double = 0
+            'For Each RW As DataGridViewRow In frmPayments.dtgSchoolFee.Rows
+            '    no += 1
+            '    totalpayable += CDbl(RW.Cells(2).Value)
+            'Next
+            'frmPayments.txtTotalpayable.Text = totalpayable
+
+            mysqlreader.Close()
+            mydataTable.Rows.Clear()
+            mydataset.Clear()
+            mypayments.getTotalPayment()
+        Catch ex As Exception
+            MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, "Error !!")
+        End Try
+    End Sub
 
     Sub loaddtgSchoolFees()
         frmPayments.dtgSchoolFee.ColumnCount = 3
@@ -56,12 +140,10 @@
             mysqlreader.Close()
             mydataTable.Rows.Clear()
             mydataset.Clear()
+            mypayments.getTotalPayment()
         Catch ex As Exception
             MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, "Error !!")
         End Try
-    End Sub
-    Sub LoadListPayments()
-
     End Sub
 
     Sub SaveEditRecords()
@@ -87,12 +169,11 @@
 
 
             If MessageBox.Show("Accept this Payment?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
-                getTransID(frmPayments.lbltransID.Text)
                 connect(condbPOS)
                 mycommand = mysqlconn.CreateCommand
-                mycommand.CommandText = "INSERT INTO Transactions VALUES ('" & frmPayments.lbltransID.Text & "','" & frmPayments.txtStudentCode.Text & "','" & SchoolYearID & "','" & frmPayments.txtTotalpayable.Text & "','" & frmPayments.txttotalPayment.Text & "','" & frmPayments.txtbalance.Text & "','" & frmPayments.dtpaymentDate.Text & "','" & frmPayments.txtAmountPaid.Text & "','" & UserID & "','" & Format(DateAndTime.Now, "Short Date") & "')"
+                mycommand.CommandText = "INSERT INTO Transactions VALUES ('" & frmPayments.txtTransID.Text & "','" & frmPayments.txtAccountID.Text & "','" & SchoolYearID & "','" & frmPayments.txtTotalpayable.Text & "','" & frmPayments.txtbalance.Text & "','" & frmPayments.dtpaymentDate.Text & "','" & frmPayments.txtAmountPaid.Text & "','" & UserID & "','" & Format(DateAndTime.Now, "Short Date") & "')"
                 mycommand.ExecuteNonQuery()
-                LoadListPayments()
+                LoadListTransaction()
                 frmPayments.cleartx()
                 frmPayments.panelPayment.Visible = False
                 MsgBox("Transaction has been successfully Saved ", MsgBoxStyle.OkOnly, "Message")
@@ -115,7 +196,7 @@
 
             Call connect(condbPOS)
         mycommand = mysqlconn.CreateCommand
-            mycommand.CommandText = " Select SUM (AmountPaid) as totalpayment,SUM(Penalty) as penaltypaid from Transactions where StudentAccountID  ='" & frmPayments.txtAccountID.Text & "'"
+            mycommand.CommandText = " Select SUM (AmountPaid) as totalpayment from Transactions where StudentAccountID  ='" & frmPayments.txtAccountID.Text & "' AND  SchoolYearID  ='" & SchoolYearID & "'"
             myadapter.SelectCommand = mycommand
             myadapter.Fill(mydataset, "Transactions")
             mydataTable = mydataset.Tables("Transactions")
@@ -129,7 +210,6 @@
 
             frmPayments.txttotalPayment.Text = CDbl(totalpaid)
             frmPayments.txtbalance.Text = CDbl(frmPayments.txtTotalpayable.Text) - CDbl(totalpaid)
-            MsgBox(CDbl(frmPayments.txtTotalpayable.Text) - CDbl(totalpaid))
             mysqlreader.Close()
             mysqlconn.Close()
 

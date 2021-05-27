@@ -128,14 +128,14 @@
                 mysqlreader.Close()
                 mysqlconn.Close()
             Next datagrd
-            mypayments.loaddtgSchoolFees()
+
             mypayments.LoadListSchoolFees()
 
             If frmPayments.txtAccountID.Text = "" Then
                 frmPayments.cleartx()
             End If
 
-            mypayments.getTotalPayment()
+
 
             Me.Close()
 
