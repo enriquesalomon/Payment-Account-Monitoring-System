@@ -1,47 +1,52 @@
 ﻿Public Class Payments
     Sub loaddtgTransactions()
-        frmPayments.dtgSales.ColumnCount = 8
+        frmPayments.dtgSales.ColumnCount = 9
 
         frmPayments.dtgSales.Columns(0).HeaderText = "NO."
         frmPayments.dtgSales.Columns(0).Width = 50
         frmPayments.dtgSales.Columns(0).Name = "no"
         frmPayments.dtgSales.Columns(0).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
-        frmPayments.dtgSales.Columns(1).HeaderText = "ACCT#"
+        frmPayments.dtgSales.Columns(1).HeaderText = "TXN#"
         frmPayments.dtgSales.Columns(1).Width = 100
-        frmPayments.dtgSales.Columns(1).Name = "acctno"
+        frmPayments.dtgSales.Columns(1).Name = "txn"
         frmPayments.dtgSales.Columns(1).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
-        frmPayments.dtgSales.Columns(2).HeaderText = "STUDENT ID"
+        frmPayments.dtgSales.Columns(2).HeaderText = "ACCT#"
         frmPayments.dtgSales.Columns(2).Width = 100
-        frmPayments.dtgSales.Columns(2).Name = "studId"
+        frmPayments.dtgSales.Columns(2).Name = "acctno"
         frmPayments.dtgSales.Columns(2).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
-        frmPayments.dtgSales.Columns(3).HeaderText = "STUDENT NAME"
-        frmPayments.dtgSales.Columns(3).Width = 250
-        frmPayments.dtgSales.Columns(3).Name = "fullname"
+        frmPayments.dtgSales.Columns(3).HeaderText = "STUDENT ID"
+        frmPayments.dtgSales.Columns(3).Width = 100
+        frmPayments.dtgSales.Columns(3).Name = "studId"
         frmPayments.dtgSales.Columns(3).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
-        frmPayments.dtgSales.Columns(4).HeaderText = "GENDER"
-        frmPayments.dtgSales.Columns(4).Width = 100
-        frmPayments.dtgSales.Columns(4).Name = "gender"
+        frmPayments.dtgSales.Columns(4).HeaderText = "STUDENT NAME"
+        frmPayments.dtgSales.Columns(4).Width = 250
+        frmPayments.dtgSales.Columns(4).Name = "fullname"
         frmPayments.dtgSales.Columns(4).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
-
-        frmPayments.dtgSales.Columns(5).HeaderText = "GRADE-SECTION"
+        frmPayments.dtgSales.Columns(5).HeaderText = "GENDER"
         frmPayments.dtgSales.Columns(5).Width = 100
-        frmPayments.dtgSales.Columns(5).Name = "gradesection"
+        frmPayments.dtgSales.Columns(5).Name = "gender"
         frmPayments.dtgSales.Columns(5).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
-        frmPayments.dtgSales.Columns(6).HeaderText = "AMOUNT PAID"
+
+        frmPayments.dtgSales.Columns(6).HeaderText = "GRADE-SECTION"
         frmPayments.dtgSales.Columns(6).Width = 150
-        frmPayments.dtgSales.Columns(6).Name = "amountpaid"
+        frmPayments.dtgSales.Columns(6).Name = "gradesection"
         frmPayments.dtgSales.Columns(6).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
-        frmPayments.dtgSales.Columns(7).HeaderText = "DATE OF PAYMENT"
-        frmPayments.dtgSales.Columns(7).Width = 150
-        frmPayments.dtgSales.Columns(7).Name = "dateofpayment"
+        frmPayments.dtgSales.Columns(7).HeaderText = "AMOUNT"
+        frmPayments.dtgSales.Columns(7).Width = 100
+        frmPayments.dtgSales.Columns(7).Name = "amountpaid"
         frmPayments.dtgSales.Columns(7).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        frmPayments.dtgSales.Columns(8).HeaderText = "DATE OF PAYMENT"
+        frmPayments.dtgSales.Columns(8).Width = 150
+        frmPayments.dtgSales.Columns(8).Name = "dateofpayment"
+        frmPayments.dtgSales.Columns(8).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
     End Sub
     Sub LoadListTransaction()
@@ -50,6 +55,8 @@
             Call connect(condbPOS)
             mycommand = mysqlconn.CreateCommand
             If searching = True Then
+                mycommand.CommandText = "Select * from Transactions where ID Like '%" & frmPayments.txtsearch.Text & "%' OR StudentAccountID Like '%" & frmPayments.txtsearch.Text & "%'"
+
             Else
                 mycommand.CommandText = "Select * from Transactions where SchoolYearID= '" & SchoolYearID & "'"
             End If
@@ -61,8 +68,28 @@
             If mydataTable.Rows.Count > 0 Then
                 Dim nos As Integer = 0
                 While mysqlreader.Read
+
+
+                    xtable.Rows.Clear()
+                    xdataset.Clear()
+                    mycommand = mysqlconn.CreateCommand
+                    mycommand.CommandText = "Select * from (Transactions inner join Student on Student.ID = Transactions.StudentID) where Transactions.StudentID  ='" & mysqlreader("StudentID").ToString & "'"
+                    Dim fname As String = ""
+                    Dim gender As String = ""
+                    myadapter.SelectCommand = mycommand
+                    myadapter.Fill(xdataset, "Transactions")
+                    xtable = xdataset.Tables("Transactions")
+                    If xtable.Rows.Count > 0 Then
+                        For Each str As DataRow In xtable.Rows
+                            fname = str("Fname") + " " + str("Mname") + " " + str("Lname")
+                            gender = str("Gender")
+                        Next
+                    End If
+                    xtable.Rows.Clear()
+                    xdataset.Clear()
+
                     nos += 1
-                    Dim nrow As String() = New String() {nos.ToString, mysqlreader("StudentAccountID").ToString, "STUDENT ID", "Fullname", "Gender", "Grade Section", mysqlreader("AmountPaid").ToString, mysqlreader("PaymentDate").ToString}
+                    Dim nrow As String() = New String() {nos.ToString, mysqlreader("ID").ToString, mysqlreader("StudentAccountID").ToString, mysqlreader("StudentID").ToString, fname, gender, mysqlreader("GradeSection").ToString, mysqlreader("AmountPaid").ToString, mysqlreader("PaymentDate").ToString}
                     frmPayments.dtgSales.Rows.Add(nrow)
                 End While
 
@@ -147,11 +174,17 @@
     End Sub
 
     Sub SaveEditRecords()
+        If frmPayments.txtAmountPaid.Text = "" Then
+            Exit Sub
+        End If
         If frmPayments.txtAccountID.Text = "" Then
             Exit Sub
         End If
 
         If CDbl(frmPayments.txtbalance.Text) = 0 Then
+            Exit Sub
+        End If
+        If CDbl(frmPayments.txtAmountPaid.Text) = 0 Then
             Exit Sub
         End If
         If CDbl(frmPayments.txtAmountPaid.Text) > CDbl(frmPayments.txtbalance.Text) Then
@@ -171,7 +204,7 @@
             If MessageBox.Show("Accept this Payment?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
                 connect(condbPOS)
                 mycommand = mysqlconn.CreateCommand
-                mycommand.CommandText = "INSERT INTO Transactions VALUES ('" & frmPayments.txtTransID.Text & "','" & frmPayments.txtAccountID.Text & "','" & SchoolYearID & "','" & frmPayments.txtTotalpayable.Text & "','" & frmPayments.txtbalance.Text & "','" & frmPayments.dtpaymentDate.Text & "','" & frmPayments.txtAmountPaid.Text & "','" & UserID & "','" & Format(DateAndTime.Now, "Short Date") & "')"
+                mycommand.CommandText = "INSERT INTO Transactions VALUES ('" & frmPayments.txtTransID.Text & "','" & frmPayments.txtAccountID.Text & "','" & frmPayments.txtStudentCode.Text & "','" & SchoolYearID & "','" & frmPayments.txtGradeSection.Text & "','" & frmPayments.txtTotalpayable.Text & "','" & frmPayments.txtbalance.Text & "','" & frmPayments.dtpaymentDate.Text & "','" & frmPayments.txtAmountPaid.Text & "','" & UserID & "','" & Format(DateAndTime.Now, "Short Date") & "')"
                 mycommand.ExecuteNonQuery()
                 LoadListTransaction()
                 frmPayments.cleartx()

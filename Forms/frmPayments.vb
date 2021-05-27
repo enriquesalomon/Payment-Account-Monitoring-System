@@ -4,7 +4,7 @@
         txtStudentCode.Clear()
         txtStudentFullname.Clear()
         txtgender.Clear()
-        txtYrSection.Clear()
+        txtGradeSection.Clear()
         dtgSchoolFee.Rows.Clear()
         txtTotalpayable.Text = "0.00"
         txttotalPayment.Text = "0.00"
@@ -21,7 +21,7 @@
                 lsaving = True
                 'btnEdit.Enabled = False
                 'btnDelete.Enabled = False
-                dtgSales.Enabled = False
+                'dtgSales.Enabled = False
                 btnSave.Enabled = True
 
 
@@ -31,7 +31,7 @@
                 lsaving = False
                 btnNew.Enabled = False
                 'btnDelete.Enabled = False
-                dtgSales.Enabled = False
+                'dtgSales.Enabled = False
                 btnSave.Enabled = True
 
 
@@ -92,5 +92,32 @@
 
     Private Sub txtStudentCode_TextChanged(sender As Object, e As EventArgs) Handles txtStudentCode.TextChanged
 
+    End Sub
+
+    Private Sub panelPayment_Paint(sender As Object, e As PaintEventArgs) Handles panelPayment.Paint
+
+    End Sub
+
+    Private Sub txtAmountPaid_KeyDown(sender As Object, e As KeyEventArgs) Handles txtAmountPaid.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            ButtonClick("Save")
+        End If
+    End Sub
+
+    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+        If txtsearch.Text <> "" Then
+            searching = True
+            mypayments.LoadListTransaction()
+        End If
+    End Sub
+
+    Private Sub btnrefresh_Click(sender As Object, e As EventArgs) Handles btnrefresh.Click
+        txtsearch.Clear()
+        searching = False
+        mypayments.LoadListTransaction()
+    End Sub
+
+    Private Sub DeleteMenuStrip_Click(sender As Object, e As EventArgs) Handles DeleteMenuStrip.Click
+        frmVoidTransactionConfirmation.ShowDialog()
     End Sub
 End Class

@@ -50,6 +50,8 @@ Partial Class frmMain
         Me.ToolStripMenuItem11 = New System.Windows.Forms.ToolStripMenuItem()
         Me.SchoolExpensesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PaymentListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PaymentListToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.VoidedTransactractionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsMenuSetting = New System.Windows.Forms.ToolStripMenuItem()
         Me.UserManagementToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ManageGradeLevelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -69,8 +71,6 @@ Partial Class frmMain
         Me.Label3 = New System.Windows.Forms.Label()
         Me.lblbranchName = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.PaymentListToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.VoidedTransactractionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.panelLogin.SuspendLayout()
@@ -329,6 +329,18 @@ Partial Class frmMain
         Me.PaymentListToolStripMenuItem.Size = New System.Drawing.Size(202, 22)
         Me.PaymentListToolStripMenuItem.Text = "Transactions"
         '
+        'PaymentListToolStripMenuItem1
+        '
+        Me.PaymentListToolStripMenuItem1.Name = "PaymentListToolStripMenuItem1"
+        Me.PaymentListToolStripMenuItem1.Size = New System.Drawing.Size(231, 22)
+        Me.PaymentListToolStripMenuItem1.Text = "Payment List"
+        '
+        'VoidedTransactractionsToolStripMenuItem
+        '
+        Me.VoidedTransactractionsToolStripMenuItem.Name = "VoidedTransactractionsToolStripMenuItem"
+        Me.VoidedTransactractionsToolStripMenuItem.Size = New System.Drawing.Size(231, 22)
+        Me.VoidedTransactractionsToolStripMenuItem.Text = "Voided Transactractions"
+        '
         'tsMenuSetting
         '
         Me.tsMenuSetting.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UserManagementToolStripMenuItem, Me.ManageGradeLevelToolStripMenuItem})
@@ -539,18 +551,6 @@ Partial Class frmMain
         'Timer1
         '
         Me.Timer1.Enabled = True
-        '
-        'PaymentListToolStripMenuItem1
-        '
-        Me.PaymentListToolStripMenuItem1.Name = "PaymentListToolStripMenuItem1"
-        Me.PaymentListToolStripMenuItem1.Size = New System.Drawing.Size(231, 22)
-        Me.PaymentListToolStripMenuItem1.Text = "Payment List"
-        '
-        'VoidedTransactractionsToolStripMenuItem
-        '
-        Me.VoidedTransactractionsToolStripMenuItem.Name = "VoidedTransactractionsToolStripMenuItem"
-        Me.VoidedTransactractionsToolStripMenuItem.Size = New System.Drawing.Size(231, 22)
-        Me.VoidedTransactractionsToolStripMenuItem.Text = "Voided Transactractions"
         '
         'frmMain
         '

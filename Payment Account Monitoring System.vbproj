@@ -156,6 +156,12 @@
     <Compile Include="Forms\frmUser.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\frmVoidTransactionConfirmation.Designer.vb">
+      <DependentUpon>frmVoidTransactionConfirmation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmVoidTransactionConfirmation.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Module\modFunction.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -210,6 +216,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmUser.resx">
       <DependentUpon>frmUser.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmVoidTransactionConfirmation.resx">
+      <DependentUpon>frmVoidTransactionConfirmation.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

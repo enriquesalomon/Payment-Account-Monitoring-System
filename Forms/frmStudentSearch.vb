@@ -104,7 +104,7 @@
                 mysqlreader = mycommand.ExecuteReader
                 If mydataTable.Rows.Count > 0 Then
                     While mysqlreader.Read()
-                        frmPayments.txtYrSection.Text = mysqlreader("GradeSectionID").ToString
+                        frmPayments.txtGradeSection.Text = mysqlreader("GradeSectionID").ToString
                         admissionID = mysqlreader("ID").ToString
                     End While
                 Else
