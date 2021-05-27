@@ -111,4 +111,11 @@
         ButtonClick("Edit")
 
     End Sub
+
+    Private Sub dtgSales_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgSales.CellClick
+        If dtgSales.Rows.Count > 0 Then
+            lblrecordcount.Text = "Showing " & (dtgSales.CurrentRow.Index) + 1 & Space(1) & "entries" & Space(1) & " of " & dtgSales.Rows.Count
+
+        End If
+    End Sub
 End Class

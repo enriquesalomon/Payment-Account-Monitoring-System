@@ -26,7 +26,7 @@ Partial Class frmVoidTransactionConfirmation
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtTxnNo = New System.Windows.Forms.TextBox()
         Me.btnClose = New System.Windows.Forms.Button()
-        Me.btnLogin = New System.Windows.Forms.Button()
+        Me.btnVoid = New System.Windows.Forms.Button()
         Me.Panel4.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -75,17 +75,17 @@ Partial Class frmVoidTransactionConfirmation
         Me.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnClose.UseVisualStyleBackColor = True
         '
-        'btnLogin
+        'btnVoid
         '
-        Me.btnLogin.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLogin.ImageKey = "Check_16x16.png"
-        Me.btnLogin.Location = New System.Drawing.Point(11, 51)
-        Me.btnLogin.Name = "btnLogin"
-        Me.btnLogin.Size = New System.Drawing.Size(88, 29)
-        Me.btnLogin.TabIndex = 218
-        Me.btnLogin.Text = "Void"
-        Me.btnLogin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnLogin.UseVisualStyleBackColor = True
+        Me.btnVoid.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnVoid.ImageKey = "Check_16x16.png"
+        Me.btnVoid.Location = New System.Drawing.Point(11, 51)
+        Me.btnVoid.Name = "btnVoid"
+        Me.btnVoid.Size = New System.Drawing.Size(88, 29)
+        Me.btnVoid.TabIndex = 218
+        Me.btnVoid.Text = "Void"
+        Me.btnVoid.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnVoid.UseVisualStyleBackColor = True
         '
         'frmVoidTransactionConfirmation
         '
@@ -93,7 +93,7 @@ Partial Class frmVoidTransactionConfirmation
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(204, 83)
         Me.Controls.Add(Me.btnClose)
-        Me.Controls.Add(Me.btnLogin)
+        Me.Controls.Add(Me.btnVoid)
         Me.Controls.Add(Me.txtTxnNo)
         Me.Controls.Add(Me.Panel4)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -111,5 +111,5 @@ Partial Class frmVoidTransactionConfirmation
     Friend WithEvents Label5 As Label
     Friend WithEvents txtTxnNo As TextBox
     Friend WithEvents btnClose As Button
-    Friend WithEvents btnLogin As Button
+    Friend WithEvents btnVoid As Button
 End Class

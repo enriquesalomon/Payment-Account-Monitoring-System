@@ -158,6 +158,10 @@
             btnSave.Enabled = False
             'btnDelete.Enabled = True
         End If
+        If dtgList.Rows.Count > 0 Then
+            lblrecordcount.Text = "Showing " & (dtgList.CurrentRow.Index) + 1 & Space(1) & "entries" & Space(1) & " of " & dtgList.Rows.Count
+
+        End If
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnBrowseStudent.Click
