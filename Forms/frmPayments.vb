@@ -12,33 +12,23 @@
         txtAmountPaid.Text = "0.00"
 
     End Sub
-    Private Sub ButtonClick(ByVal ckey As String)
+    Public Sub ButtonClick(ByVal ckey As String)
         Select Case ckey
             Case "New"
                 cleartx()
                 panelPayment.Visible = True
                 txtStudentCode.Focus()
                 lsaving = True
-                'btnEdit.Enabled = False
-                'btnDelete.Enabled = False
-                'dtgSales.Enabled = False
                 btnSave.Enabled = True
 
 
             Case "Edit"
-
-                panelPayment.Visible = True
                 lsaving = False
-                btnNew.Enabled = False
-                'btnDelete.Enabled = False
-                'dtgSales.Enabled = False
-                btnSave.Enabled = True
-
-
+                frmVoidTransactionConfirmation.ShowDialog()
             Case "Save"
                 mypayments.SaveEditRecords()
             Case "Delete"
-                'mypayments.delete()
+
 
         End Select
     End Sub
@@ -118,6 +108,7 @@
     End Sub
 
     Private Sub DeleteMenuStrip_Click(sender As Object, e As EventArgs) Handles DeleteMenuStrip.Click
-        frmVoidTransactionConfirmation.ShowDialog()
+        ButtonClick("Edit")
+
     End Sub
 End Class

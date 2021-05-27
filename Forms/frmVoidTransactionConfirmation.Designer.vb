@@ -25,6 +25,7 @@ Partial Class frmVoidTransactionConfirmation
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtTxnNo = New System.Windows.Forms.TextBox()
+        Me.btnClose = New System.Windows.Forms.Button()
         Me.btnLogin = New System.Windows.Forms.Button()
         Me.Panel4.SuspendLayout()
         Me.SuspendLayout()
@@ -61,15 +62,28 @@ Partial Class frmVoidTransactionConfirmation
         Me.txtTxnNo.TabIndex = 139
         Me.txtTxnNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
+        'btnClose
+        '
+        Me.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.btnClose.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClose.ImageIndex = 1
+        Me.btnClose.Location = New System.Drawing.Point(105, 51)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(88, 29)
+        Me.btnClose.TabIndex = 219
+        Me.btnClose.Text = "Cancel"
+        Me.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnClose.UseVisualStyleBackColor = True
+        '
         'btnLogin
         '
         Me.btnLogin.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLogin.ImageKey = "Check_16x16.png"
-        Me.btnLogin.Location = New System.Drawing.Point(3, 52)
+        Me.btnLogin.Location = New System.Drawing.Point(11, 51)
         Me.btnLogin.Name = "btnLogin"
-        Me.btnLogin.Size = New System.Drawing.Size(195, 29)
-        Me.btnLogin.TabIndex = 217
-        Me.btnLogin.Text = "Void Transaction"
+        Me.btnLogin.Size = New System.Drawing.Size(88, 29)
+        Me.btnLogin.TabIndex = 218
+        Me.btnLogin.Text = "Void"
         Me.btnLogin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnLogin.UseVisualStyleBackColor = True
         '
@@ -77,7 +91,8 @@ Partial Class frmVoidTransactionConfirmation
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(204, 88)
+        Me.ClientSize = New System.Drawing.Size(204, 83)
+        Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.btnLogin)
         Me.Controls.Add(Me.txtTxnNo)
         Me.Controls.Add(Me.Panel4)
@@ -95,5 +110,6 @@ Partial Class frmVoidTransactionConfirmation
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Label5 As Label
     Friend WithEvents txtTxnNo As TextBox
+    Friend WithEvents btnClose As Button
     Friend WithEvents btnLogin As Button
 End Class

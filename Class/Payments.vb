@@ -55,10 +55,9 @@
             Call connect(condbPOS)
             mycommand = mysqlconn.CreateCommand
             If searching = True Then
-                mycommand.CommandText = "Select * from Transactions where ID Like '%" & frmPayments.txtsearch.Text & "%' OR StudentAccountID Like '%" & frmPayments.txtsearch.Text & "%'"
-
+                mycommand.CommandText = "Select * from Transactions where ID Like '%" & frmPayments.txtsearch.Text & "%' OR StudentAccountID Like '%" & frmPayments.txtsearch.Text & "%' AND Void='NULL'"
             Else
-                mycommand.CommandText = "Select * from Transactions where SchoolYearID= '" & SchoolYearID & "'"
+                mycommand.CommandText = "Select * from Transactions where SchoolYearID= '" & SchoolYearID & "' AND Void='NULL'"
             End If
 
             myadapter.SelectCommand = mycommand
@@ -174,25 +173,28 @@
     End Sub
 
     Sub SaveEditRecords()
-        If frmPayments.txtAmountPaid.Text = "" Then
-            Exit Sub
-        End If
-        If frmPayments.txtAccountID.Text = "" Then
-            Exit Sub
-        End If
 
-        If CDbl(frmPayments.txtbalance.Text) = 0 Then
-            Exit Sub
-        End If
-        If CDbl(frmPayments.txtAmountPaid.Text) = 0 Then
-            Exit Sub
-        End If
-        If CDbl(frmPayments.txtAmountPaid.Text) > CDbl(frmPayments.txtbalance.Text) Then
-            MessageBox.Show("Amount to Pay should not be greater than the Balance", "Validation Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            Exit Sub
-        End If
 
         If lsaving Then
+
+            If frmPayments.txtAmountPaid.Text = "" Then
+                Exit Sub
+            End If
+            If frmPayments.txtAccountID.Text = "" Then
+                Exit Sub
+            End If
+
+            If CDbl(frmPayments.txtbalance.Text) = 0 Then
+                Exit Sub
+            End If
+            If CDbl(frmPayments.txtAmountPaid.Text) = 0 Then
+                Exit Sub
+            End If
+            If CDbl(frmPayments.txtAmountPaid.Text) > CDbl(frmPayments.txtbalance.Text) Then
+                MessageBox.Show("Amount to Pay should not be greater than the Balance", "Validation Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                Exit Sub
+            End If
+
             Dim balance As Double = 0
             Dim amountpay As Double = 0
             Dim newbalance As Double = 0
@@ -204,7 +206,7 @@
             If MessageBox.Show("Accept this Payment?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
                 connect(condbPOS)
                 mycommand = mysqlconn.CreateCommand
-                mycommand.CommandText = "INSERT INTO Transactions VALUES ('" & frmPayments.txtTransID.Text & "','" & frmPayments.txtAccountID.Text & "','" & frmPayments.txtStudentCode.Text & "','" & SchoolYearID & "','" & frmPayments.txtGradeSection.Text & "','" & frmPayments.txtTotalpayable.Text & "','" & frmPayments.txtbalance.Text & "','" & frmPayments.dtpaymentDate.Text & "','" & frmPayments.txtAmountPaid.Text & "','" & UserID & "','" & Format(DateAndTime.Now, "Short Date") & "')"
+                mycommand.CommandText = "INSERT INTO Transactions VALUES ('" & frmPayments.txtTransID.Text & "','" & frmPayments.txtAccountID.Text & "','" & frmPayments.txtStudentCode.Text & "','" & SchoolYearID & "','" & frmPayments.txtGradeSection.Text & "','" & frmPayments.txtTotalpayable.Text & "','" & frmPayments.txtbalance.Text & "','" & frmPayments.dtpaymentDate.Text & "','" & frmPayments.txtAmountPaid.Text & "','" & UserID & "','" & Format(DateAndTime.Now, "Short Date") & "','Null')"
                 mycommand.ExecuteNonQuery()
                 LoadListTransaction()
                 frmPayments.cleartx()
@@ -216,10 +218,31 @@
             lsaving = False
 
         Else
+            If frmVoidTransactionConfirmation.txtTxnNo.Text = Nothing Then
+                Exit Sub
+            End If
+
+            If MessageBox.Show("Are you sure you want to Void this Transaction?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
+                Try
+                    connect(condbPOS)
+                    mycommand = mysqlconn.CreateCommand
+                    mycommand.CommandText = "UPDATE Transactions set Void='Yes' where ID ='" & frmVoidTransactionConfirmation.txtTxnNo.Text & "'"
+
+                    mycommand.ExecuteNonQuery()
+                    MsgBox("Transaction record was successfully Voided!", MsgBoxStyle.Information)
+                    frmVoidTransactionConfirmation.txtTxnNo.Clear()
+                    frmVoidTransactionConfirmation.Close()
+                    LoadListTransaction()
+                Catch ex As Exception
+                    MsgBox("ERROR:" & ex.Message & ex.Source)
+
+                End Try
+            End If
 
         End If
 
     End Sub
+
     Sub getTotalPayment()
         Try
 
