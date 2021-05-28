@@ -251,14 +251,14 @@
 
 
             Call connect(condbPOS)
-        mycommand = mysqlconn.CreateCommand
-            mycommand.CommandText = " Select SUM (AmountPaid) as totalpayment from Transactions where StudentAccountID  ='" & frmPayments.txtAccountID.Text & "' AND  SchoolYearID  ='" & SchoolYearID & "'"
+            mycommand = mysqlconn.CreateCommand
+            mycommand.CommandText = " Select SUM (AmountPaid) as totalpayment from Transactions where StudentAccountID  ='" & frmPayments.txtAccountID.Text & "' AND  SchoolYearID  ='" & SchoolYearID & "' AND Void='NULL'"
             myadapter.SelectCommand = mycommand
             myadapter.Fill(mydataset, "Transactions")
             mydataTable = mydataset.Tables("Transactions")
             mysqlreader = mycommand.ExecuteReader()
             While mysqlreader.Read()
-            totalpaid = mysqlreader("totalpayment").ToString
+                totalpaid = mysqlreader("totalpayment").ToString
             End While
             If totalpaid = Nothing Then
                 totalpaid = 0
@@ -274,4 +274,6 @@
 
         End Try
     End Sub
+
+
 End Class

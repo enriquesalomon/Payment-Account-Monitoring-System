@@ -105,4 +105,8 @@
 
         End Try
     End Sub
+
+    Private Sub cmbSY_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbSY.SelectedIndexChanged
+
+    End Sub
 End Class

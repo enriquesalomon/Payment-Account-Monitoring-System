@@ -209,4 +209,26 @@
             MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, "Error !!")
         End Try
     End Sub
+
+    Sub loadSYAdmissionReport()
+        Try
+            frmReportAdmissionList.cmbSY.Items.Clear()
+            Call connect(condbPOS)
+            mycommand = mysqlconn.CreateCommand
+            mycommand.CommandText = "Select * from SchoolYear"
+            myadapter.SelectCommand = mycommand
+            myadapter.Fill(mydataset, "SchoolYear")
+            mydataTable = mydataset.Tables("SchoolYear")
+            mysqlreader = mycommand.ExecuteReader()
+            While mysqlreader.Read()
+                frmReportAdmissionList.cmbSY.Items.Add(mysqlreader("SYFrom").ToString + "-" + mysqlreader("SYTo").ToString)
+            End While
+            mysqlreader.Close()
+            mysqlconn.Close()
+        Catch ex As Exception
+            MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, "Error !!")
+
+        End Try
+
+    End Sub
 End Class

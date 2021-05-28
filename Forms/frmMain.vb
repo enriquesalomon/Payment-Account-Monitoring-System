@@ -114,7 +114,7 @@
     End Sub
 
     Private Sub ToolStripMenuItem8_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem8.Click
-        frmLedger.ShowDialog()
+        frmReportLedger.ShowDialog()
     End Sub
 
     Private Sub txtpassword_KeyDown(sender As Object, e As KeyEventArgs) Handles txtpassword.KeyDown
@@ -123,5 +123,9 @@
             getMenu()
         End If
 
+    End Sub
+
+    Private Sub ToolStripMenuItem10_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem10.Click
+        frmReportAdmissionList.ShowDialog()
     End Sub
 End Class

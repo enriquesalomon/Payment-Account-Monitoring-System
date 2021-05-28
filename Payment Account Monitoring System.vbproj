@@ -95,10 +95,16 @@
     <Compile Include="Forms\frmGradeLevel.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmLedger.Designer.vb">
-      <DependentUpon>frmLedger.vb</DependentUpon>
+    <Compile Include="Forms\frmReportAdmissionList.Designer.vb">
+      <DependentUpon>frmReportAdmissionList.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmLedger.vb">
+    <Compile Include="Forms\frmReportAdmissionList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmReportLedger.Designer.vb">
+      <DependentUpon>frmReportLedger.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmReportLedger.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\frmLogs.Designer.vb">
@@ -187,8 +193,11 @@
     <EmbeddedResource Include="Forms\frmGradeLevel.resx">
       <DependentUpon>frmGradeLevel.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmLedger.resx">
-      <DependentUpon>frmLedger.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\frmReportAdmissionList.resx">
+      <DependentUpon>frmReportAdmissionList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmReportLedger.resx">
+      <DependentUpon>frmReportLedger.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmLogs.resx">
       <DependentUpon>frmLogs.vb</DependentUpon>

@@ -8,7 +8,12 @@
         If txtTxnNo.Text = "" Then
             Exit Sub
         End If
-        frmPayments.ButtonClick("Save")
+        If ValidateVoidTXN() Then
+            frmPayments.ButtonClick("Save")
+        Else
+            MsgBox("TXN # is not found", MsgBoxStyle.Information)
+        End If
+
 
 
     End Sub
