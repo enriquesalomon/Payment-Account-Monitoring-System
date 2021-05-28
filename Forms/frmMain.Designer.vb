@@ -71,12 +71,14 @@ Partial Class frmMain
         Me.Label3 = New System.Windows.Forms.Label()
         Me.lblbranchName = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.panelLogin.SuspendLayout()
         Me.Panel4.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel5.SuspendLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -356,15 +358,15 @@ Partial Class frmMain
         '
         Me.UserManagementToolStripMenuItem.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UserManagementToolStripMenuItem.Name = "UserManagementToolStripMenuItem"
-        Me.UserManagementToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
-        Me.UserManagementToolStripMenuItem.Text = "Manage School Year"
+        Me.UserManagementToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
+        Me.UserManagementToolStripMenuItem.Text = "Set School Year"
         '
         'ManageGradeLevelToolStripMenuItem
         '
         Me.ManageGradeLevelToolStripMenuItem.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ManageGradeLevelToolStripMenuItem.Name = "ManageGradeLevelToolStripMenuItem"
-        Me.ManageGradeLevelToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
-        Me.ManageGradeLevelToolStripMenuItem.Text = "Manage Grade Level"
+        Me.ManageGradeLevelToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
+        Me.ManageGradeLevelToolStripMenuItem.Text = "Set Grade Level"
         '
         'tsMenuLogout
         '
@@ -552,16 +554,30 @@ Partial Class frmMain
         '
         Me.Timer1.Enabled = True
         '
+        'PictureBox2
+        '
+        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
+        Me.PictureBox2.Location = New System.Drawing.Point(22, 107)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(272, 259)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox2.TabIndex = 247
+        Me.PictureBox2.TabStop = False
+        Me.PictureBox2.Visible = False
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.ClientSize = New System.Drawing.Size(1149, 450)
         Me.Controls.Add(Me.Panel5)
         Me.Controls.Add(Me.panelLogin)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.PictureBox2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmMain"
         Me.Text = "Form1"
@@ -577,6 +593,7 @@ Partial Class frmMain
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -629,4 +646,5 @@ Partial Class frmMain
     Friend WithEvents PaymentListToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PaymentListToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents VoidedTransactractionsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PictureBox2 As PictureBox
 End Class

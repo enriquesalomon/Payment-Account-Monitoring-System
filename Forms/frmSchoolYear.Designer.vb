@@ -34,6 +34,10 @@ Partial Class frmSchoolYear
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.panelSchoolYear = New System.Windows.Forms.Panel()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.cmbStatus = New System.Windows.Forms.ComboBox()
+        Me.cmbTo = New System.Windows.Forms.TextBox()
+        Me.cmbFrom = New System.Windows.Forms.TextBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.btnClosePanel = New System.Windows.Forms.Button()
         Me.lblCode = New System.Windows.Forms.Label()
@@ -42,10 +46,6 @@ Partial Class frmSchoolYear
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dtgSYList = New System.Windows.Forms.DataGridView()
         Me.Label40 = New System.Windows.Forms.Label()
-        Me.cmbFrom = New System.Windows.Forms.TextBox()
-        Me.cmbTo = New System.Windows.Forms.TextBox()
-        Me.cmbStatus = New System.Windows.Forms.ComboBox()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel4.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.panelSchoolYear.SuspendLayout()
@@ -87,9 +87,9 @@ Partial Class frmSchoolYear
         Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label5.Location = New System.Drawing.Point(6, 6)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(145, 16)
+        Me.Label5.Size = New System.Drawing.Size(109, 16)
         Me.Label5.TabIndex = 137
-        Me.Label5.Text = "MANAGE SCHOOL YEAR"
+        Me.Label5.Text = "SET SCHOOL YEAR"
         '
         'Panel1
         '
@@ -165,6 +165,47 @@ Partial Class frmSchoolYear
         Me.panelSchoolYear.Size = New System.Drawing.Size(205, 152)
         Me.panelSchoolYear.TabIndex = 597
         Me.panelSchoolYear.Visible = False
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(1, 91)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(50, 17)
+        Me.Label2.TabIndex = 668
+        Me.Label2.Text = "Status:"
+        '
+        'cmbStatus
+        '
+        Me.cmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbStatus.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbStatus.FormattingEnabled = True
+        Me.cmbStatus.Items.AddRange(New Object() {"Active", "Inactive"})
+        Me.cmbStatus.Location = New System.Drawing.Point(53, 87)
+        Me.cmbStatus.Name = "cmbStatus"
+        Me.cmbStatus.Size = New System.Drawing.Size(115, 24)
+        Me.cmbStatus.TabIndex = 667
+        '
+        'cmbTo
+        '
+        Me.cmbTo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.cmbTo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.cmbTo.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbTo.Location = New System.Drawing.Point(53, 63)
+        Me.cmbTo.Name = "cmbTo"
+        Me.cmbTo.Size = New System.Drawing.Size(115, 22)
+        Me.cmbTo.TabIndex = 659
+        '
+        'cmbFrom
+        '
+        Me.cmbFrom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.cmbFrom.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.cmbFrom.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbFrom.Location = New System.Drawing.Point(53, 39)
+        Me.cmbFrom.Name = "cmbFrom"
+        Me.cmbFrom.Size = New System.Drawing.Size(115, 22)
+        Me.cmbFrom.TabIndex = 658
         '
         'Panel3
         '
@@ -290,47 +331,6 @@ Partial Class frmSchoolYear
         Me.Label40.Size = New System.Drawing.Size(31, 16)
         Me.Label40.TabIndex = 605
         Me.Label40.Text = "LIST"
-        '
-        'cmbFrom
-        '
-        Me.cmbFrom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.cmbFrom.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.cmbFrom.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbFrom.Location = New System.Drawing.Point(53, 39)
-        Me.cmbFrom.Name = "cmbFrom"
-        Me.cmbFrom.Size = New System.Drawing.Size(115, 22)
-        Me.cmbFrom.TabIndex = 658
-        '
-        'cmbTo
-        '
-        Me.cmbTo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.cmbTo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.cmbTo.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbTo.Location = New System.Drawing.Point(53, 63)
-        Me.cmbTo.Name = "cmbTo"
-        Me.cmbTo.Size = New System.Drawing.Size(115, 22)
-        Me.cmbTo.TabIndex = 659
-        '
-        'cmbStatus
-        '
-        Me.cmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbStatus.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbStatus.FormattingEnabled = True
-        Me.cmbStatus.Items.AddRange(New Object() {"Active", "Inactive"})
-        Me.cmbStatus.Location = New System.Drawing.Point(53, 87)
-        Me.cmbStatus.Name = "cmbStatus"
-        Me.cmbStatus.Size = New System.Drawing.Size(115, 24)
-        Me.cmbStatus.TabIndex = 667
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(1, 91)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(50, 17)
-        Me.Label2.TabIndex = 668
-        Me.Label2.Text = "Status:"
         '
         'frmSchoolYear
         '

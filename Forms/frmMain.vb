@@ -1,6 +1,7 @@
 ﻿Public Class frmMain
     Private Sub ToolStripMenuItem5_Click(sender As Object, e As EventArgs) Handles tsMenuLogout.Click
         menuoptionvisible()
+        PictureBox2.Visible = False
         panelLogin.Visible = True
         MenuStrip1.Enabled = False
         lblDescLogin.Visible = False
@@ -29,6 +30,7 @@
         lbltime.Text = "Today is :" & Space(1) & Now.ToString("F")
         'lbldate.Text = Format(DateTime.Now, "MM/dd/yyyy").ToString
         'lblstime.Text = Now.ToString("T")
+        PictureBox2.Location = New Point((Me.Width / 2) - (PictureBox2.Width / 2), (Me.Height / 2) - (PictureBox2.Height / 2))
     End Sub
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         MenuStrip1.Enabled = False

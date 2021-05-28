@@ -37,6 +37,7 @@
                 frmMain.MenuStrip1.Enabled = True
                 frmMain.lblDescLogin.Visible = True
                 frmMain.lblDescLogin.Text = "Welcome" & Space(1) & Username & ","
+                frmMain.PictureBox2.Visible = True
 
                 getLogsID(frmMain.lblLogsID.Text)
                 connect(condbPOS)
