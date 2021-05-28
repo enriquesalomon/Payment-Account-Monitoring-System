@@ -231,4 +231,76 @@
         End Try
 
     End Sub
+
+    Sub loaddtgReport()
+        frmReportExpensesList.dtgList.ColumnCount = 6
+
+        frmReportExpensesList.dtgList.Columns(0).HeaderText = "NO."
+        frmReportExpensesList.dtgList.Columns(0).Width = 50
+        frmReportExpensesList.dtgList.Columns(0).Name = "no"
+        frmReportExpensesList.dtgList.Columns(0).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        frmReportExpensesList.dtgList.Columns(1).HeaderText = "ID"
+        frmReportExpensesList.dtgList.Columns(1).Width = 100
+        frmReportExpensesList.dtgList.Columns(1).Name = "id"
+        frmReportExpensesList.dtgList.Columns(1).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        frmReportExpensesList.dtgList.Columns(2).HeaderText = "Particular"
+        frmReportExpensesList.dtgList.Columns(2).Width = 300
+        frmReportExpensesList.dtgList.Columns(2).Name = "particular"
+        frmReportExpensesList.dtgList.Columns(2).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        frmReportExpensesList.dtgList.Columns(3).HeaderText = "Category"
+        frmReportExpensesList.dtgList.Columns(3).Width = 200
+        frmReportExpensesList.dtgList.Columns(3).Name = "category"
+        frmReportExpensesList.dtgList.Columns(3).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        frmReportExpensesList.dtgList.Columns(4).HeaderText = "Amount"
+        frmReportExpensesList.dtgList.Columns(4).Width = 100
+        frmReportExpensesList.dtgList.Columns(4).Name = "amount"
+        frmReportExpensesList.dtgList.Columns(4).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        frmReportExpensesList.dtgList.Columns(5).HeaderText = "School Year"
+        frmReportExpensesList.dtgList.Columns(5).Width = 100
+        frmReportExpensesList.dtgList.Columns(5).Name = "schoolyear"
+        frmReportExpensesList.dtgList.Columns(5).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+
+    End Sub
+
+    Sub LoadListReport()
+        Try
+            frmReportExpensesList.dtgList.Rows.Clear()
+            Call connect(condbPOS)
+            mycommand = mysqlconn.CreateCommand
+            If searching = True Then
+            Else
+                mycommand.CommandText = "Select * from SchoolExpenses"
+            End If
+
+            myadapter.SelectCommand = mycommand
+            myadapter.Fill(mydataset, "SchoolExpenses")
+            mydataTable = mydataset.Tables("SchoolExpenses")
+            mysqlreader = mycommand.ExecuteReader
+            If mydataTable.Rows.Count > 0 Then
+                Dim nos As Integer = 0
+                While mysqlreader.Read
+                    nos += 1
+                    Dim nrow As String() = New String() {nos.ToString, mysqlreader("ID").ToString, mysqlreader("Particular").ToString, mysqlreader("Category").ToString, mysqlreader("Amount").ToString, mysqlreader("SY").ToString}
+                    frmReportExpensesList.dtgList.Rows.Add(nrow)
+                End While
+
+            End If
+            Dim no As Integer = 0
+            For Each RW As DataGridViewRow In frmReportExpensesList.dtgList.Rows
+                no += 1
+            Next
+            frmReportExpensesList.lblrecordcount.Text = "Record Count: " & no
+            mysqlreader.Close()
+            mydataTable.Rows.Clear()
+            mydataset.Clear()
+        Catch ex As Exception
+            MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, "Error !!")
+        End Try
+    End Sub
 End Class

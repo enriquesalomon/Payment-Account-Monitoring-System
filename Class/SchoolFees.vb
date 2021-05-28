@@ -212,4 +212,76 @@
             MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, "Error !!")
         End Try
     End Sub
+
+    Sub loaddtgReport()
+        frmReportSchoolFeesList.dtgList.ColumnCount = 6
+
+        frmReportSchoolFeesList.dtgList.Columns(0).HeaderText = "NO."
+        frmReportSchoolFeesList.dtgList.Columns(0).Width = 50
+        frmReportSchoolFeesList.dtgList.Columns(0).Name = "no"
+        frmReportSchoolFeesList.dtgList.Columns(0).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        frmReportSchoolFeesList.dtgList.Columns(1).HeaderText = "ID"
+        frmReportSchoolFeesList.dtgList.Columns(1).Width = 100
+        frmReportSchoolFeesList.dtgList.Columns(1).Name = "id"
+        frmReportSchoolFeesList.dtgList.Columns(1).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        frmReportSchoolFeesList.dtgList.Columns(2).HeaderText = "Particular"
+        frmReportSchoolFeesList.dtgList.Columns(2).Width = 250
+        frmReportSchoolFeesList.dtgList.Columns(2).Name = "particular"
+        frmReportSchoolFeesList.dtgList.Columns(2).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        frmReportSchoolFeesList.dtgList.Columns(3).HeaderText = "Description"
+        frmReportSchoolFeesList.dtgList.Columns(3).Width = 200
+        frmReportSchoolFeesList.dtgList.Columns(3).Name = "decription"
+        frmReportSchoolFeesList.dtgList.Columns(3).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        frmReportSchoolFeesList.dtgList.Columns(4).HeaderText = "Amount"
+        frmReportSchoolFeesList.dtgList.Columns(4).Width = 100
+        frmReportSchoolFeesList.dtgList.Columns(4).Name = "amount"
+        frmReportSchoolFeesList.dtgList.Columns(4).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        frmReportSchoolFeesList.dtgList.Columns(5).HeaderText = "School Year"
+        frmReportSchoolFeesList.dtgList.Columns(5).Width = 100
+        frmReportSchoolFeesList.dtgList.Columns(5).Name = "schoolyear"
+        frmReportSchoolFeesList.dtgList.Columns(5).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+
+    End Sub
+
+    Sub LoadListReport()
+        Try
+            frmReportSchoolFeesList.dtgList.Rows.Clear()
+            Call connect(condbPOS)
+            mycommand = mysqlconn.CreateCommand
+            If searching = True Then
+            Else
+                mycommand.CommandText = "Select * from SchoolFees"
+            End If
+
+            myadapter.SelectCommand = mycommand
+            myadapter.Fill(mydataset, "SchoolFees")
+            mydataTable = mydataset.Tables("SchoolFees")
+            mysqlreader = mycommand.ExecuteReader
+            If mydataTable.Rows.Count > 0 Then
+                Dim nos As Integer = 0
+                While mysqlreader.Read
+                    nos += 1
+                    Dim nrow As String() = New String() {nos.ToString, mysqlreader("ID").ToString, mysqlreader("Particular").ToString, mysqlreader("Description").ToString, mysqlreader("Amount").ToString, mysqlreader("SY").ToString}
+                    frmReportSchoolFeesList.dtgList.Rows.Add(nrow)
+                End While
+
+            End If
+            Dim no As Integer = 0
+            For Each RW As DataGridViewRow In frmReportSchoolFeesList.dtgList.Rows
+                no += 1
+            Next
+            frmReportSchoolFeesList.lblrecordcount.Text = "Record Count: " & no
+            mysqlreader.Close()
+            mydataTable.Rows.Clear()
+            mydataset.Clear()
+        Catch ex As Exception
+            MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, "Error !!")
+        End Try
+    End Sub
 End Class
