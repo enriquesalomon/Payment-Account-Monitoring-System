@@ -35,7 +35,6 @@ Partial Class frmPayments
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.DeleteMenuStrip = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.btnPrint = New System.Windows.Forms.Button()
         Me.lblrecordcount = New System.Windows.Forms.Label()
         Me.btnNew = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -198,7 +197,6 @@ Partial Class frmPayments
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.White
-        Me.Panel2.Controls.Add(Me.btnPrint)
         Me.Panel2.Controls.Add(Me.lblrecordcount)
         Me.Panel2.Controls.Add(Me.btnNew)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
@@ -206,18 +204,6 @@ Partial Class frmPayments
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1020, 29)
         Me.Panel2.TabIndex = 715
-        '
-        'btnPrint
-        '
-        Me.btnPrint.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPrint.Image = CType(resources.GetObject("btnPrint.Image"), System.Drawing.Image)
-        Me.btnPrint.Location = New System.Drawing.Point(110, 1)
-        Me.btnPrint.Name = "btnPrint"
-        Me.btnPrint.Size = New System.Drawing.Size(100, 26)
-        Me.btnPrint.TabIndex = 749
-        Me.btnPrint.Text = "Print "
-        Me.btnPrint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnPrint.UseVisualStyleBackColor = True
         '
         'lblrecordcount
         '
@@ -898,7 +884,6 @@ Partial Class frmPayments
     Friend WithEvents Label5 As Label
     Friend WithEvents dtgSales As DataGridView
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents btnPrint As Button
     Friend WithEvents lblrecordcount As Label
     Friend WithEvents btnNew As Button
     Friend WithEvents Label8 As Label

@@ -130,4 +130,12 @@
     Private Sub ToolStripMenuItem10_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem10.Click
         frmReportAdmissionList.ShowDialog()
     End Sub
+
+    Private Sub ToolStripMenuItem11_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem11.Click
+        frmReportSchoolFeesList.ShowDialog()
+    End Sub
+
+    Private Sub SchoolExpensesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SchoolExpensesToolStripMenuItem.Click
+        frmReportExpensesList.ShowDialog()
+    End Sub
 End Class
