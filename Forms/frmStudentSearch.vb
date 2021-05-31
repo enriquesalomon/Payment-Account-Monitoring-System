@@ -85,7 +85,6 @@
                     While mysqlreader.Read()
                         frmPayments.txtStudentFullname.Text = mysqlreader("Fname").ToString + " " + mysqlreader("Mname").ToString + " " + mysqlreader("Lname").ToString
                         frmPayments.txtgender.Text = mysqlreader("Gender").ToString
-                        frmPayments.txtgender.Text = mysqlreader("Gender").ToString
                         frmPayments.txtStudentCode.Text = mysqlreader("ID").ToString
                         'frmAdmission.cmbGradeSection.Text = mysqlreader("SchoolYearID").ToString
                     End While
@@ -139,6 +138,74 @@
 
             Me.Close()
 
+
+        ElseIf StudentviewFocus = "Student Ledger" Then
+            Dim GridRow As DataGridViewRow = dtgStudentList.CurrentRow
+            For Each datagrd As DataGridViewRow In dtgStudentList.SelectedRows
+
+                Call connect(condbPOS)
+                mycommand = mysqlconn.CreateCommand
+                mycommand.CommandText = "Select * from  Student  WHERE ID='" & CStr(GridRow.Cells.Item("id").Value) & "'"
+                myadapter.SelectCommand = mycommand
+                myadapter.Fill(mydataset, "Student")
+                mydataTable = mydataset.Tables("Student")
+                mysqlreader = mycommand.ExecuteReader
+                If mydataTable.Rows.Count > 0 Then
+                    While mysqlreader.Read()
+                        frmReportLedger.txtStudentName.Text = mysqlreader("Fname").ToString + " " + mysqlreader("Mname").ToString + " " + mysqlreader("Lname").ToString
+                        frmReportLedger.txtGender.Text = mysqlreader("Gender").ToString
+                        frmReportLedger.txtStudentCode.Text = mysqlreader("ID").ToString
+                        'frmAdmission.cmbGradeSection.Text = mysqlreader("SchoolYearID").ToString
+                    End While
+                Else
+                End If
+                mysqlreader.Close()
+                mysqlconn.Close()
+
+                'Dim admissionID As String = ""
+                'Call connect(condbPOS)
+                'mycommand = mysqlconn.CreateCommand
+                'mycommand.CommandText = "Select * from  Admission  WHERE SchoolYearID='" & SchoolYearID & "' AND StudID='" & CStr(GridRow.Cells.Item("id").Value) & "'"
+                'myadapter.SelectCommand = mycommand
+                'myadapter.Fill(mydataset, "Admission")
+                'mydataTable = mydataset.Tables("Admission")
+                'mysqlreader = mycommand.ExecuteReader
+                'If mydataTable.Rows.Count > 0 Then
+                '    While mysqlreader.Read()
+                '        frmPayments.txtGradeSection.Text = mysqlreader("GradeSectionID").ToString
+                '        admissionID = mysqlreader("ID").ToString
+                '    End While
+                'Else
+                'End If
+                'mysqlreader.Close()
+                'mysqlconn.Close()
+
+                'Call connect(condbPOS)
+                'mycommand = mysqlconn.CreateCommand
+                'mycommand.CommandText = "Select * from  StudentAccount  WHERE AdmissionID='" & admissionID & "'"
+                'myadapter.SelectCommand = mycommand
+                'myadapter.Fill(mydataset, "StudentAccount")
+                'mydataTable = mydataset.Tables("StudentAccount")
+                'mysqlreader = mycommand.ExecuteReader
+                'If mydataTable.Rows.Count > 0 Then
+                '    While mysqlreader.Read()
+                '        frmReportLedger.txtAccountNumber.Text = mysqlreader("ID").ToString
+                '    End While
+                'Else
+                'End If
+                'mysqlreader.Close()
+                'mysqlconn.Close()
+            Next datagrd
+
+            mypayments.LoadListSchoolFees()
+
+            If frmPayments.txtAccountID.Text = "" Then
+                frmPayments.cleartx()
+            End If
+
+
+
+            Me.Close()
         End If
 
 

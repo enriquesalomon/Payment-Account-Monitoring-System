@@ -37,6 +37,7 @@ Module modFunction
     Public lsaving As Boolean
     Public searching As Boolean
     Public StudentviewFocus As String
+    Public loadstudentenrolled As Boolean
     Public UserID As String
     Public LogsID As String
     Public UserFullname As String

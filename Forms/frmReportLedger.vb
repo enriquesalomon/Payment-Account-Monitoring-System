@@ -4,6 +4,8 @@
     End Sub
 
     Private Sub btnView_Click(sender As Object, e As EventArgs) Handles btnView.Click
+        StudentviewFocus = "Student Ledger"
+        loadstudentenrolled = True
         frmStudentSearch.ShowDialog()
     End Sub
 
