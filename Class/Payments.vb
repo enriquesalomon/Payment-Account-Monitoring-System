@@ -275,5 +275,147 @@
         End Try
     End Sub
 
+    Sub loadSY()
 
+        frmReportPaymentList.cmbSY.Items.Clear()
+        Call connect(condbPOS)
+        mycommand = mysqlconn.CreateCommand
+        mycommand.CommandText = "Select * from SchoolYear"
+        myadapter.SelectCommand = mycommand
+        myadapter.Fill(mydataset, "SchoolYear")
+        mydataTable = mydataset.Tables("SchoolYear")
+        mysqlreader = mycommand.ExecuteReader()
+        While mysqlreader.Read()
+            frmReportPaymentList.cmbSY.Items.Add(mysqlreader("SYFrom").ToString + "-" + mysqlreader("SYTo").ToString)
+
+        End While
+        mysqlreader.Close()
+        mysqlconn.Close()
+    End Sub
+    Sub loaddtgPaymentsReport()
+        frmReportPaymentList.dtgSales.ColumnCount = 9
+
+        frmReportPaymentList.dtgSales.Columns(0).HeaderText = "NO."
+        frmReportPaymentList.dtgSales.Columns(0).Width = 50
+        frmReportPaymentList.dtgSales.Columns(0).Name = "no"
+        frmReportPaymentList.dtgSales.Columns(0).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        frmReportPaymentList.dtgSales.Columns(1).HeaderText = "TXN#"
+        frmReportPaymentList.dtgSales.Columns(1).Width = 100
+        frmReportPaymentList.dtgSales.Columns(1).Name = "txn"
+        frmReportPaymentList.dtgSales.Columns(1).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        frmReportPaymentList.dtgSales.Columns(2).HeaderText = "ACCT#"
+        frmReportPaymentList.dtgSales.Columns(2).Width = 100
+        frmReportPaymentList.dtgSales.Columns(2).Name = "acctno"
+        frmReportPaymentList.dtgSales.Columns(2).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        frmReportPaymentList.dtgSales.Columns(3).HeaderText = "STUDENT ID"
+        frmReportPaymentList.dtgSales.Columns(3).Width = 100
+        frmReportPaymentList.dtgSales.Columns(3).Name = "studId"
+        frmReportPaymentList.dtgSales.Columns(3).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        frmReportPaymentList.dtgSales.Columns(4).HeaderText = "STUDENT NAME"
+        frmReportPaymentList.dtgSales.Columns(4).Width = 250
+        frmReportPaymentList.dtgSales.Columns(4).Name = "fullname"
+        frmReportPaymentList.dtgSales.Columns(4).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        frmReportPaymentList.dtgSales.Columns(5).HeaderText = "GENDER"
+        frmReportPaymentList.dtgSales.Columns(5).Width = 100
+        frmReportPaymentList.dtgSales.Columns(5).Name = "gender"
+        frmReportPaymentList.dtgSales.Columns(5).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+
+        frmReportPaymentList.dtgSales.Columns(6).HeaderText = "GRADE-SECTION"
+        frmReportPaymentList.dtgSales.Columns(6).Width = 150
+        frmReportPaymentList.dtgSales.Columns(6).Name = "gradesection"
+        frmReportPaymentList.dtgSales.Columns(6).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        frmReportPaymentList.dtgSales.Columns(7).HeaderText = "AMOUNT"
+        frmReportPaymentList.dtgSales.Columns(7).Width = 100
+        frmReportPaymentList.dtgSales.Columns(7).Name = "amountpaid"
+        frmReportPaymentList.dtgSales.Columns(7).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        frmReportPaymentList.dtgSales.Columns(8).HeaderText = "DATE OF PAYMENT"
+        frmReportPaymentList.dtgSales.Columns(8).Width = 150
+        frmReportPaymentList.dtgSales.Columns(8).Name = "dateofpayment"
+        frmReportPaymentList.dtgSales.Columns(8).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+    End Sub
+
+    Sub loadSYAdmissionReport()
+
+        Try
+            frmReportPaymentList.SchoolYearIDFilter = ""
+            Call connect(condbPOS)
+            mycommand = mysqlconn.CreateCommand
+            mycommand.CommandText = "Select * from SchoolYear where SYFrom ='" & frmReportPaymentList.SYFrom & "' AND SYTo ='" & frmReportPaymentList.SYTo & "' "
+            myadapter.SelectCommand = mycommand
+            myadapter.Fill(mydataset, "SchoolYear")
+            mydataTable = mydataset.Tables("SchoolYear")
+            mysqlreader = mycommand.ExecuteReader()
+            While mysqlreader.Read()
+                frmReportPaymentList.SchoolYearIDFilter = mysqlreader("ID").ToString
+
+            End While
+            mysqlreader.Close()
+            mysqlconn.Close()
+        Catch ex As Exception
+            MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, "Error !!")
+
+        End Try
+
+        Try
+            frmReportPaymentList.dtgSales.Rows.Clear()
+            Call connect(condbPOS)
+            mycommand = mysqlconn.CreateCommand
+            'If searching = True Then
+            '    mycommand.CommandText = "Select * from Transactions where ID Like '%" & frmPayments.txtsearch.Text & "%' OR StudentAccountID Like '%" & frmPayments.txtsearch.Text & "%' AND Void='NULL'"
+            'Else
+            mycommand.CommandText = "Select * from Transactions where SchoolYearID= '" & frmReportPaymentList.SchoolYearIDFilter & "' AND Void='NULL'"
+            'End If
+
+            myadapter.SelectCommand = mycommand
+            myadapter.Fill(mydataset, "Transactions")
+            mydataTable = mydataset.Tables("Transactions")
+            mysqlreader = mycommand.ExecuteReader
+            If mydataTable.Rows.Count > 0 Then
+                Dim nos As Integer = 0
+                While mysqlreader.Read
+
+
+                    xtable.Rows.Clear()
+                    xdataset.Clear()
+                    mycommand = mysqlconn.CreateCommand
+                    mycommand.CommandText = "Select * from (Transactions inner join Student on Student.ID = Transactions.StudentID) where Transactions.StudentID  ='" & mysqlreader("StudentID").ToString & "'"
+                    Dim fname As String = ""
+                    Dim gender As String = ""
+                    myadapter.SelectCommand = mycommand
+                    myadapter.Fill(xdataset, "Transactions")
+                    xtable = xdataset.Tables("Transactions")
+                    If xtable.Rows.Count > 0 Then
+                        For Each str As DataRow In xtable.Rows
+                            fname = str("Fname") + " " + str("Mname") + " " + str("Lname")
+                            gender = str("Gender")
+                        Next
+                    End If
+                    xtable.Rows.Clear()
+                    xdataset.Clear()
+
+                    nos += 1
+                    Dim nrow As String() = New String() {nos.ToString, mysqlreader("ID").ToString, mysqlreader("StudentAccountID").ToString, mysqlreader("StudentID").ToString, fname, gender, mysqlreader("GradeSection").ToString, mysqlreader("AmountPaid").ToString, mysqlreader("PaymentDate").ToString}
+                    frmReportPaymentList.dtgSales.Rows.Add(nrow)
+                End While
+
+            End If
+
+            mysqlreader.Close()
+            mydataTable.Rows.Clear()
+            mydataset.Clear()
+            mypayments.getTotalPayment()
+        Catch ex As Exception
+            MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, "Error !!")
+        End Try
+
+    End Sub
 End Class

@@ -23,13 +23,12 @@ Partial Class frmStudent
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmStudent))
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.btnPrint = New System.Windows.Forms.Button()
         Me.btnEdit = New System.Windows.Forms.Button()
         Me.lblrecordcount = New System.Windows.Forms.Label()
         Me.btnSave = New System.Windows.Forms.Button()
@@ -122,7 +121,6 @@ Partial Class frmStudent
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.White
-        Me.Panel1.Controls.Add(Me.btnPrint)
         Me.Panel1.Controls.Add(Me.btnEdit)
         Me.Panel1.Controls.Add(Me.lblrecordcount)
         Me.Panel1.Controls.Add(Me.btnSave)
@@ -133,18 +131,6 @@ Partial Class frmStudent
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1089, 31)
         Me.Panel1.TabIndex = 586
-        '
-        'btnPrint
-        '
-        Me.btnPrint.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPrint.ImageIndex = 4
-        Me.btnPrint.Location = New System.Drawing.Point(398, 2)
-        Me.btnPrint.Name = "btnPrint"
-        Me.btnPrint.Size = New System.Drawing.Size(100, 26)
-        Me.btnPrint.TabIndex = 552
-        Me.btnPrint.Text = "Print "
-        Me.btnPrint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnPrint.UseVisualStyleBackColor = True
         '
         'btnEdit
         '
@@ -214,14 +200,14 @@ Partial Class frmStudent
         Me.dtgStudent.AllowUserToResizeRows = False
         Me.dtgStudent.BackgroundColor = System.Drawing.Color.Gainsboro
         Me.dtgStudent.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.Gainsboro
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dtgStudent.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dtgStudent.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dtgStudent.ColumnHeadersHeight = 26
         Me.dtgStudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dtgStudent.Dock = System.Windows.Forms.DockStyle.Bottom
@@ -233,12 +219,12 @@ Partial Class frmStudent
         Me.dtgStudent.ReadOnly = True
         Me.dtgStudent.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         Me.dtgStudent.RowHeadersVisible = False
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White
-        Me.dtgStudent.RowsDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
+        Me.dtgStudent.RowsDefaultCellStyle = DataGridViewCellStyle2
         Me.dtgStudent.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtgStudent.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
         Me.dtgStudent.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.DodgerBlue
@@ -715,7 +701,6 @@ Partial Class frmStudent
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Label5 As Label
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents btnPrint As Button
     Friend WithEvents btnEdit As Button
     Friend WithEvents lblrecordcount As Label
     Friend WithEvents btnSave As Button

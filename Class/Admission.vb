@@ -322,7 +322,6 @@
             mysqlreader = mycommand.ExecuteReader()
             While mysqlreader.Read()
                 frmReportAdmissionList.SchoolYearIDFilter = mysqlreader("ID").ToString
-                'MsgBox(frmReportAdmissionList.SchoolYearIDFilter)
 
             End While
             mysqlreader.Close()
