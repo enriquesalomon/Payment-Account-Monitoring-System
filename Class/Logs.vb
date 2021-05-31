@@ -17,7 +17,7 @@
         frmLogs.dtgList.Columns(2).Name = "fullname"
         frmLogs.dtgList.Columns(2).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
-        frmLogs.dtgList.Columns(3).HeaderText = "Position"
+        frmLogs.dtgList.Columns(3).HeaderText = "Access Level"
         frmLogs.dtgList.Columns(3).Width = 150
         frmLogs.dtgList.Columns(3).Name = "position"
         frmLogs.dtgList.Columns(3).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter

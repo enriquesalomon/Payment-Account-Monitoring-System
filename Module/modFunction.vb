@@ -11,6 +11,7 @@ Module modFunction
     Public myuseraccount As New UserAccount
     Public mylogs As New Logs
     Public mypayments As New Payments
+    Public myledger As New Ledger
 
 
 

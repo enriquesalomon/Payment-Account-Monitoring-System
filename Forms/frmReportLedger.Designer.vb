@@ -22,8 +22,8 @@ Partial Class frmReportLedger
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmReportLedger))
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.btnClose = New System.Windows.Forms.Button()
@@ -39,13 +39,14 @@ Partial Class frmReportLedger
         Me.txtPlanholdername = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnView = New System.Windows.Forms.Button()
-        Me.txtClientCode = New System.Windows.Forms.TextBox()
+        Me.txtStudentCode = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnrefresh = New System.Windows.Forms.Button()
+        Me.cmbSY = New System.Windows.Forms.ComboBox()
         Me.Panel4.SuspendLayout()
         CType(Me.dtgClientLedger, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -117,14 +118,14 @@ Partial Class frmReportLedger
         Me.dtgClientLedger.AllowUserToResizeRows = False
         Me.dtgClientLedger.BackgroundColor = System.Drawing.Color.Gainsboro
         Me.dtgClientLedger.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dtgClientLedger.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dtgClientLedger.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.dtgClientLedger.ColumnHeadersHeight = 26
         Me.dtgClientLedger.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dtgClientLedger.EnableHeadersVisualStyles = False
@@ -135,12 +136,12 @@ Partial Class frmReportLedger
         Me.dtgClientLedger.ReadOnly = True
         Me.dtgClientLedger.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         Me.dtgClientLedger.RowHeadersVisible = False
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
-        Me.dtgClientLedger.RowsDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White
+        Me.dtgClientLedger.RowsDefaultCellStyle = DataGridViewCellStyle6
         Me.dtgClientLedger.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtgClientLedger.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
         Me.dtgClientLedger.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.DodgerBlue
@@ -187,7 +188,7 @@ Partial Class frmReportLedger
         Me.txtInstallmentNo.BackColor = System.Drawing.Color.White
         Me.txtInstallmentNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtInstallmentNo.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtInstallmentNo.Location = New System.Drawing.Point(297, 80)
+        Me.txtInstallmentNo.Location = New System.Drawing.Point(143, 81)
         Me.txtInstallmentNo.Name = "txtInstallmentNo"
         Me.txtInstallmentNo.ReadOnly = True
         Me.txtInstallmentNo.Size = New System.Drawing.Size(200, 22)
@@ -197,7 +198,7 @@ Partial Class frmReportLedger
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(182, 83)
+        Me.Label2.Location = New System.Drawing.Point(28, 84)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(110, 17)
         Me.Label2.TabIndex = 717
@@ -238,17 +239,17 @@ Partial Class frmReportLedger
         Me.btnView.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnView.UseVisualStyleBackColor = True
         '
-        'txtClientCode
+        'txtStudentCode
         '
-        Me.txtClientCode.BackColor = System.Drawing.Color.White
-        Me.txtClientCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtClientCode.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtClientCode.Location = New System.Drawing.Point(9, 55)
-        Me.txtClientCode.Name = "txtClientCode"
-        Me.txtClientCode.ReadOnly = True
-        Me.txtClientCode.Size = New System.Drawing.Size(133, 22)
-        Me.txtClientCode.TabIndex = 714
-        Me.txtClientCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtStudentCode.BackColor = System.Drawing.Color.White
+        Me.txtStudentCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtStudentCode.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtStudentCode.Location = New System.Drawing.Point(9, 55)
+        Me.txtStudentCode.Name = "txtStudentCode"
+        Me.txtStudentCode.ReadOnly = True
+        Me.txtStudentCode.Size = New System.Drawing.Size(133, 22)
+        Me.txtStudentCode.TabIndex = 714
+        Me.txtStudentCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label7
         '
@@ -281,22 +282,11 @@ Partial Class frmReportLedger
         Me.Label8.TabIndex = 730
         Me.Label8.Text = "Grade-Section"
         '
-        'TextBox2
-        '
-        Me.TextBox2.BackColor = System.Drawing.Color.White
-        Me.TextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox2.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(582, 78)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.ReadOnly = True
-        Me.TextBox2.Size = New System.Drawing.Size(124, 22)
-        Me.TextBox2.TabIndex = 732
-        '
         'Label9
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(501, 83)
+        Me.Label9.Location = New System.Drawing.Point(360, 84)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(79, 17)
         Me.Label9.TabIndex = 733
@@ -314,15 +304,40 @@ Partial Class frmReportLedger
         Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'frmLedger
+        'btnrefresh
+        '
+        Me.btnrefresh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnrefresh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnrefresh.Image = CType(resources.GetObject("btnrefresh.Image"), System.Drawing.Image)
+        Me.btnrefresh.Location = New System.Drawing.Point(571, 78)
+        Me.btnrefresh.Name = "btnrefresh"
+        Me.btnrefresh.Size = New System.Drawing.Size(135, 26)
+        Me.btnrefresh.TabIndex = 897
+        Me.btnrefresh.Text = " Load Data"
+        Me.btnrefresh.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnrefresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnrefresh.UseVisualStyleBackColor = True
+        '
+        'cmbSY
+        '
+        Me.cmbSY.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbSY.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbSY.FormattingEnabled = True
+        Me.cmbSY.Location = New System.Drawing.Point(443, 79)
+        Me.cmbSY.Name = "cmbSY"
+        Me.cmbSY.Size = New System.Drawing.Size(129, 24)
+        Me.cmbSY.TabIndex = 896
+        '
+        'frmReportLedger
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(712, 592)
+        Me.Controls.Add(Me.btnrefresh)
+        Me.Controls.Add(Me.cmbSY)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label9)
-        Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.txtRunningBalance)
@@ -336,11 +351,11 @@ Partial Class frmReportLedger
         Me.Controls.Add(Me.txtPlanholdername)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnView)
-        Me.Controls.Add(Me.txtClientCode)
+        Me.Controls.Add(Me.txtStudentCode)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Panel4)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "frmLedger"
+        Me.Name = "frmReportLedger"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmLedger"
         Me.Panel4.ResumeLayout(False)
@@ -365,11 +380,12 @@ Partial Class frmReportLedger
     Friend WithEvents txtPlanholdername As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents btnView As Button
-    Friend WithEvents txtClientCode As TextBox
+    Friend WithEvents txtStudentCode As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Label8 As Label
-    Friend WithEvents TextBox2 As TextBox
     Friend WithEvents Label9 As Label
     Friend WithEvents Button1 As Button
+    Friend WithEvents btnrefresh As Button
+    Friend WithEvents cmbSY As ComboBox
 End Class

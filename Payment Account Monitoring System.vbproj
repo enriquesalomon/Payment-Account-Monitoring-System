@@ -75,6 +75,7 @@
   <ItemGroup>
     <Compile Include="Class\Admission.vb" />
     <Compile Include="Class\GradeSection.vb" />
+    <Compile Include="Class\Ledger.vb" />
     <Compile Include="Class\Login.vb" />
     <Compile Include="Class\Logs.vb" />
     <Compile Include="Class\Payments.vb" />
