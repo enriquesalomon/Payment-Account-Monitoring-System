@@ -250,13 +250,14 @@
     End Sub
 
     Sub LoadListReport()
+
         Try
             frmReportSchoolFeesList.dtgList.Rows.Clear()
             Call connect(condbPOS)
             mycommand = mysqlconn.CreateCommand
             If searching = True Then
             Else
-                mycommand.CommandText = "Select * from SchoolFees"
+                mycommand.CommandText = "Select * from SchoolFees where SY= '" & Trim(frmReportSchoolFeesList.cmbSY.Text) & "'"
             End If
 
             myadapter.SelectCommand = mycommand
@@ -283,5 +284,25 @@
         Catch ex As Exception
             MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, "Error !!")
         End Try
+    End Sub
+
+
+
+    Sub loadSYReport()
+
+        frmReportSchoolFeesList.cmbSY.Items.Clear()
+        Call connect(condbPOS)
+        mycommand = mysqlconn.CreateCommand
+        mycommand.CommandText = "Select * from SchoolYear"
+        myadapter.SelectCommand = mycommand
+        myadapter.Fill(mydataset, "SchoolYear")
+        mydataTable = mydataset.Tables("SchoolYear")
+        mysqlreader = mycommand.ExecuteReader()
+        While mysqlreader.Read()
+            frmReportSchoolFeesList.cmbSY.Items.Add(mysqlreader("SYFrom").ToString + "-" + mysqlreader("SYTo").ToString)
+
+        End While
+        mysqlreader.Close()
+        mysqlconn.Close()
     End Sub
 End Class

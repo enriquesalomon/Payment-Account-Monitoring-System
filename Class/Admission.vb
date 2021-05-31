@@ -377,6 +377,11 @@
                 End While
                 frmReportAdmissionList.lblrecordcount.Text = "Record Count: " & num
             End If
+            Dim no As Integer = 0
+            For Each RW As DataGridViewRow In frmReportAdmissionList.dtgList.Rows
+                no += 1
+            Next
+            frmReportAdmissionList.lblrecordcount.Text = "Record Count: " & no
 
             mysqlreader.Close()
             mydataTable.Rows.Clear()

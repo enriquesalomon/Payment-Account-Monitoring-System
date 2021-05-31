@@ -46,7 +46,7 @@
                 Try
                     connect(condbPOS)
                     mycommand = mysqlconn.CreateCommand
-                    mycommand.CommandText = "UPDATE SchoolExpenses set Particular='" & frmSchoolExpenses.txtParticular.Text & "',Category='" & frmSchoolExpenses.cmbCategory.Text & "',Amount='" & frmSchoolExpenses.txtAmount.Text & "',SY='" & frmSchoolExpenses.cmbCategory.Text & "',DateModified='" & Format(DateAndTime.Now, "Short Date") & "' where ID ='" & frmSchoolExpenses.lblCode.Text & "'"
+                    mycommand.CommandText = "UPDATE SchoolExpenses set Particular='" & frmSchoolExpenses.txtParticular.Text & "',Category='" & frmSchoolExpenses.cmbCategory.Text & "',Amount='" & frmSchoolExpenses.txtAmount.Text & "',SY='" & frmSchoolExpenses.cmbSY.Text & "',DateModified='" & Format(DateAndTime.Now, "Short Date") & "' where ID ='" & frmSchoolExpenses.lblCode.Text & "'"
                     mycommand.ExecuteNonQuery()
                     LoadList()
                     frmSchoolExpenses.ClearMe()
@@ -254,7 +254,7 @@
             mycommand = mysqlconn.CreateCommand
             If searching = True Then
             Else
-                mycommand.CommandText = "Select * from SchoolExpenses"
+                mycommand.CommandText = "Select * from SchoolExpenses  where SY= '" & Trim(frmReportExpensesList.cmbSY.Text) & "'"
             End If
 
             myadapter.SelectCommand = mycommand
@@ -281,5 +281,23 @@
         Catch ex As Exception
             MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, "Error !!")
         End Try
+    End Sub
+
+    Sub loadSYReport()
+
+        frmReportExpensesList.cmbSY.Items.Clear()
+        Call connect(condbPOS)
+        mycommand = mysqlconn.CreateCommand
+        mycommand.CommandText = "Select * from SchoolYear"
+        myadapter.SelectCommand = mycommand
+        myadapter.Fill(mydataset, "SchoolYear")
+        mydataTable = mydataset.Tables("SchoolYear")
+        mysqlreader = mycommand.ExecuteReader()
+        While mysqlreader.Read()
+            frmReportExpensesList.cmbSY.Items.Add(mysqlreader("SYFrom").ToString + "-" + mysqlreader("SYTo").ToString)
+
+        End While
+        mysqlreader.Close()
+        mysqlconn.Close()
     End Sub
 End Class

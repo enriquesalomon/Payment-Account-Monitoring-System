@@ -408,6 +408,11 @@
                 End While
 
             End If
+            Dim no As Integer = 0
+            For Each RW As DataGridViewRow In frmReportPaymentList.dtgSales.Rows
+                no += 1
+            Next
+            frmReportPaymentList.lblrecordcount.Text = "Record Count: " & no
 
             mysqlreader.Close()
             mydataTable.Rows.Clear()
@@ -562,6 +567,12 @@
                 End While
 
             End If
+
+            Dim no As Integer = 0
+            For Each RW As DataGridViewRow In frmReportVoidedPaymentList.dtgSales.Rows
+                no += 1
+            Next
+            frmReportVoidedPaymentList.lblrecordcount.Text = "Record Count: " & no
 
             mysqlreader.Close()
             mydataTable.Rows.Clear()
