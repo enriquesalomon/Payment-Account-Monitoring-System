@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class frmReportPaymentList
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class frmReportVoidedPaymentList
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()>
+    <System.Diagnostics.DebuggerNonUserCode()> _
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,9 +20,9 @@ Partial Class frmReportPaymentList
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()>
+    <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmReportPaymentList))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmReportVoidedPaymentList))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel4 = New System.Windows.Forms.Panel()
@@ -49,8 +49,8 @@ Partial Class frmReportPaymentList
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel4.Location = New System.Drawing.Point(0, 0)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(1119, 26)
-        Me.Panel4.TabIndex = 582
+        Me.Panel4.Size = New System.Drawing.Size(963, 26)
+        Me.Panel4.TabIndex = 583
         '
         'Label5
         '
@@ -60,9 +60,9 @@ Partial Class frmReportPaymentList
         Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label5.Location = New System.Drawing.Point(4, 4)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(127, 16)
+        Me.Label5.Size = New System.Drawing.Size(175, 16)
         Me.Label5.TabIndex = 219
-        Me.Label5.Text = "Report - Payment List"
+        Me.Label5.Text = "Report - Voided Transactions"
         '
         'btnClose
         '
@@ -70,7 +70,7 @@ Partial Class frmReportPaymentList
         Me.btnClose.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClose.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnClose.ImageIndex = 1
-        Me.btnClose.Location = New System.Drawing.Point(1088, 0)
+        Me.btnClose.Location = New System.Drawing.Point(932, 0)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(31, 26)
         Me.btnClose.TabIndex = 218
@@ -87,8 +87,8 @@ Partial Class frmReportPaymentList
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel2.Location = New System.Drawing.Point(0, 675)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1119, 29)
-        Me.Panel2.TabIndex = 716
+        Me.Panel2.Size = New System.Drawing.Size(963, 29)
+        Me.Panel2.TabIndex = 717
         '
         'btnPrint
         '
@@ -153,18 +153,18 @@ Partial Class frmReportPaymentList
         Me.dtgSales.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White
         Me.dtgSales.RowTemplate.Height = 25
         Me.dtgSales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtgSales.Size = New System.Drawing.Size(1119, 608)
-        Me.dtgSales.TabIndex = 717
+        Me.dtgSales.Size = New System.Drawing.Size(963, 608)
+        Me.dtgSales.TabIndex = 718
         '
         'btnrefresh
         '
         Me.btnrefresh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnrefresh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnrefresh.Image = CType(resources.GetObject("btnrefresh.Image"), System.Drawing.Image)
-        Me.btnrefresh.Location = New System.Drawing.Point(858, 35)
+        Me.btnrefresh.Location = New System.Drawing.Point(858, 36)
         Me.btnrefresh.Name = "btnrefresh"
         Me.btnrefresh.Size = New System.Drawing.Size(38, 26)
-        Me.btnrefresh.TabIndex = 721
+        Me.btnrefresh.TabIndex = 725
         Me.btnrefresh.Text = " "
         Me.btnrefresh.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnrefresh.UseVisualStyleBackColor = True
@@ -173,10 +173,10 @@ Partial Class frmReportPaymentList
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(586, 39)
+        Me.Label3.Location = New System.Drawing.Point(586, 40)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(87, 17)
-        Me.Label3.TabIndex = 720
+        Me.Label3.TabIndex = 724
         Me.Label3.Text = "School Year:"
         '
         'cmbSY
@@ -184,27 +184,27 @@ Partial Class frmReportPaymentList
         Me.cmbSY.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbSY.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbSY.FormattingEnabled = True
-        Me.cmbSY.Location = New System.Drawing.Point(677, 36)
+        Me.cmbSY.Location = New System.Drawing.Point(677, 37)
         Me.cmbSY.Name = "cmbSY"
         Me.cmbSY.Size = New System.Drawing.Size(179, 24)
-        Me.cmbSY.TabIndex = 719
+        Me.cmbSY.TabIndex = 723
         '
         'Label40
         '
         Me.Label40.AutoSize = True
         Me.Label40.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label40.ForeColor = System.Drawing.Color.Green
-        Me.Label40.Location = New System.Drawing.Point(4, 46)
+        Me.Label40.Location = New System.Drawing.Point(4, 47)
         Me.Label40.Name = "Label40"
-        Me.Label40.Size = New System.Drawing.Size(148, 16)
-        Me.Label40.TabIndex = 718
-        Me.Label40.Text = "LIST OF TRANSACTION"
+        Me.Label40.Size = New System.Drawing.Size(31, 16)
+        Me.Label40.TabIndex = 722
+        Me.Label40.Text = "LIST"
         '
-        'frmReportPaymentList
+        'frmReportVoidedPaymentList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1119, 704)
+        Me.ClientSize = New System.Drawing.Size(963, 704)
         Me.Controls.Add(Me.btnrefresh)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.cmbSY)
@@ -213,9 +213,9 @@ Partial Class frmReportPaymentList
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel4)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "frmReportPaymentList"
+        Me.Name = "frmReportVoidedPaymentList"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "frmReportPaymentList"
+        Me.Text = "frmReportVoidedPaymentList"
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
         Me.Panel2.ResumeLayout(False)
@@ -227,14 +227,14 @@ Partial Class frmReportPaymentList
     End Sub
 
     Friend WithEvents Panel4 As Panel
+    Friend WithEvents Label5 As Label
     Friend WithEvents btnClose As Button
     Friend WithEvents Panel2 As Panel
+    Friend WithEvents btnPrint As Button
     Friend WithEvents lblrecordcount As Label
     Friend WithEvents dtgSales As DataGridView
     Friend WithEvents btnrefresh As Button
     Friend WithEvents Label3 As Label
     Friend WithEvents cmbSY As ComboBox
     Friend WithEvents Label40 As Label
-    Friend WithEvents Label5 As Label
-    Friend WithEvents btnPrint As Button
 End Class

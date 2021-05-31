@@ -138,4 +138,12 @@
     Private Sub SchoolExpensesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SchoolExpensesToolStripMenuItem.Click
         frmReportExpensesList.ShowDialog()
     End Sub
+
+    Private Sub PaymentListToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles PaymentListToolStripMenuItem1.Click
+        frmReportPaymentList.ShowDialog()
+    End Sub
+
+    Private Sub VoidedTransactractionsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VoidedTransactractionsToolStripMenuItem.Click
+        frmReportVoidedPaymentList.ShowDialog()
+    End Sub
 End Class

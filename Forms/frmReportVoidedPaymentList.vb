@@ -1,9 +1,14 @@
 ﻿Imports System.Text.RegularExpressions
 
-Public Class frmReportPaymentList
-    Private Sub frmReportPaymentList_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        mypayments.loaddtgPaymentsReport()
-        mypayments.loadSY()
+Public Class frmReportVoidedPaymentList
+    Public SYFrom, SYTo, SchoolYearIDFilter As String
+    Private Sub frmReportVoidedPaymentList_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        mypayments.loaddtgVoidedPaymentsReport()
+        mypayments.loadSYVoided()
+    End Sub
+
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        Me.Close()
     End Sub
 
     Private Sub dtgSales_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgSales.CellClick
@@ -12,16 +17,11 @@ Public Class frmReportPaymentList
 
         End If
     End Sub
-    Public SYFrom, SYTo, SchoolYearIDFilter As String
-
-    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
-        Me.Close()
-    End Sub
 
     Private Sub btnrefresh_Click(sender As Object, e As EventArgs) Handles btnrefresh.Click
 
         If cmbSY.Text <> Nothing Then
-            mypayments.loadPaymentsReport()
+            mypayments.loadVoidedPaymentReport()
         End If
     End Sub
 

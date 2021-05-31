@@ -144,6 +144,12 @@
     <Compile Include="Forms\frmReportSchoolFeesList.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\frmReportVoidedPaymentList.Designer.vb">
+      <DependentUpon>frmReportVoidedPaymentList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmReportVoidedPaymentList.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\frmSchoolExpenses.Designer.vb">
       <DependentUpon>frmSchoolExpenses.vb</DependentUpon>
     </Compile>
@@ -234,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmReportSchoolFeesList.resx">
       <DependentUpon>frmReportSchoolFeesList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmReportVoidedPaymentList.resx">
+      <DependentUpon>frmReportVoidedPaymentList.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmSchoolExpenses.resx">
       <DependentUpon>frmSchoolExpenses.vb</DependentUpon>

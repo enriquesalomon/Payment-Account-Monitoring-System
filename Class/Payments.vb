@@ -343,7 +343,7 @@
 
     End Sub
 
-    Sub loadSYAdmissionReport()
+    Sub loadPaymentsReport()
 
         Try
             frmReportPaymentList.SchoolYearIDFilter = ""
@@ -405,6 +405,160 @@
                     nos += 1
                     Dim nrow As String() = New String() {nos.ToString, mysqlreader("ID").ToString, mysqlreader("StudentAccountID").ToString, mysqlreader("StudentID").ToString, fname, gender, mysqlreader("GradeSection").ToString, mysqlreader("AmountPaid").ToString, mysqlreader("PaymentDate").ToString}
                     frmReportPaymentList.dtgSales.Rows.Add(nrow)
+                End While
+
+            End If
+
+            mysqlreader.Close()
+            mydataTable.Rows.Clear()
+            mydataset.Clear()
+            mypayments.getTotalPayment()
+        Catch ex As Exception
+            MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, "Error !!")
+        End Try
+
+    End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    Sub loadSYVoided()
+
+        frmReportVoidedPaymentList.cmbSY.Items.Clear()
+        Call connect(condbPOS)
+        mycommand = mysqlconn.CreateCommand
+        mycommand.CommandText = "Select * from SchoolYear"
+        myadapter.SelectCommand = mycommand
+        myadapter.Fill(mydataset, "SchoolYear")
+        mydataTable = mydataset.Tables("SchoolYear")
+        mysqlreader = mycommand.ExecuteReader()
+        While mysqlreader.Read()
+            frmReportVoidedPaymentList.cmbSY.Items.Add(mysqlreader("SYFrom").ToString + "-" + mysqlreader("SYTo").ToString)
+
+        End While
+        mysqlreader.Close()
+        mysqlconn.Close()
+    End Sub
+    Sub loaddtgVoidedPaymentsReport()
+        frmReportVoidedPaymentList.dtgSales.ColumnCount = 8
+
+        frmReportVoidedPaymentList.dtgSales.Columns(0).HeaderText = "NO."
+        frmReportVoidedPaymentList.dtgSales.Columns(0).Width = 50
+        frmReportVoidedPaymentList.dtgSales.Columns(0).Name = "no"
+        frmReportVoidedPaymentList.dtgSales.Columns(0).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        frmReportVoidedPaymentList.dtgSales.Columns(1).HeaderText = "TXN#"
+        frmReportVoidedPaymentList.dtgSales.Columns(1).Width = 100
+        frmReportVoidedPaymentList.dtgSales.Columns(1).Name = "txn"
+        frmReportVoidedPaymentList.dtgSales.Columns(1).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        frmReportVoidedPaymentList.dtgSales.Columns(2).HeaderText = "ACCT#"
+        frmReportVoidedPaymentList.dtgSales.Columns(2).Width = 100
+        frmReportVoidedPaymentList.dtgSales.Columns(2).Name = "acctno"
+        frmReportVoidedPaymentList.dtgSales.Columns(2).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        frmReportVoidedPaymentList.dtgSales.Columns(3).HeaderText = "STUDENT ID"
+        frmReportVoidedPaymentList.dtgSales.Columns(3).Width = 100
+        frmReportVoidedPaymentList.dtgSales.Columns(3).Name = "studId"
+        frmReportVoidedPaymentList.dtgSales.Columns(3).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        frmReportVoidedPaymentList.dtgSales.Columns(4).HeaderText = "STUDENT NAME"
+        frmReportVoidedPaymentList.dtgSales.Columns(4).Width = 250
+        frmReportVoidedPaymentList.dtgSales.Columns(4).Name = "fullname"
+        frmReportVoidedPaymentList.dtgSales.Columns(4).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        frmReportVoidedPaymentList.dtgSales.Columns(5).HeaderText = "GENDER"
+        frmReportVoidedPaymentList.dtgSales.Columns(5).Width = 100
+        frmReportVoidedPaymentList.dtgSales.Columns(5).Name = "gender"
+        frmReportVoidedPaymentList.dtgSales.Columns(5).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+
+        frmReportVoidedPaymentList.dtgSales.Columns(6).HeaderText = "GRADE-SECTION"
+        frmReportVoidedPaymentList.dtgSales.Columns(6).Width = 150
+        frmReportVoidedPaymentList.dtgSales.Columns(6).Name = "gradesection"
+        frmReportVoidedPaymentList.dtgSales.Columns(6).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        frmReportVoidedPaymentList.dtgSales.Columns(7).HeaderText = "AMOUNT"
+        frmReportVoidedPaymentList.dtgSales.Columns(7).Width = 100
+        frmReportVoidedPaymentList.dtgSales.Columns(7).Name = "amountpaid"
+        frmReportVoidedPaymentList.dtgSales.Columns(7).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+    End Sub
+
+    Sub loadVoidedPaymentReport()
+
+        Try
+            frmReportPaymentList.SchoolYearIDFilter = ""
+            Call connect(condbPOS)
+            mycommand = mysqlconn.CreateCommand
+            mycommand.CommandText = "Select * from SchoolYear where SYFrom ='" & frmReportVoidedPaymentList.SYFrom & "' AND SYTo ='" & frmReportVoidedPaymentList.SYTo & "' "
+            myadapter.SelectCommand = mycommand
+            myadapter.Fill(mydataset, "SchoolYear")
+            mydataTable = mydataset.Tables("SchoolYear")
+            mysqlreader = mycommand.ExecuteReader()
+            While mysqlreader.Read()
+                frmReportVoidedPaymentList.SchoolYearIDFilter = mysqlreader("ID").ToString
+
+            End While
+            mysqlreader.Close()
+            mysqlconn.Close()
+        Catch ex As Exception
+            MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, "Error !!")
+
+        End Try
+
+        Try
+            frmReportVoidedPaymentList.dtgSales.Rows.Clear()
+            Call connect(condbPOS)
+            mycommand = mysqlconn.CreateCommand
+            'If searching = True Then
+            '    mycommand.CommandText = "Select * from Transactions where ID Like '%" & frmPayments.txtsearch.Text & "%' OR StudentAccountID Like '%" & frmPayments.txtsearch.Text & "%' AND Void='NULL'"
+            'Else
+            mycommand.CommandText = "Select * from Transactions where SchoolYearID= '" & frmReportVoidedPaymentList.SchoolYearIDFilter & "' AND Void='Yes'"
+            'End If
+
+            myadapter.SelectCommand = mycommand
+            myadapter.Fill(mydataset, "Transactions")
+            mydataTable = mydataset.Tables("Transactions")
+            mysqlreader = mycommand.ExecuteReader
+            If mydataTable.Rows.Count > 0 Then
+                Dim nos As Integer = 0
+                While mysqlreader.Read
+
+
+                    xtable.Rows.Clear()
+                    xdataset.Clear()
+                    mycommand = mysqlconn.CreateCommand
+                    mycommand.CommandText = "Select * from (Transactions inner join Student on Student.ID = Transactions.StudentID) where Transactions.StudentID  ='" & mysqlreader("StudentID").ToString & "'"
+                    Dim fname As String = ""
+                    Dim gender As String = ""
+                    myadapter.SelectCommand = mycommand
+                    myadapter.Fill(xdataset, "Transactions")
+                    xtable = xdataset.Tables("Transactions")
+                    If xtable.Rows.Count > 0 Then
+                        For Each str As DataRow In xtable.Rows
+                            fname = str("Fname") + " " + str("Mname") + " " + str("Lname")
+                            gender = str("Gender")
+                        Next
+                    End If
+                    xtable.Rows.Clear()
+                    xdataset.Clear()
+
+                    nos += 1
+                    Dim nrow As String() = New String() {nos.ToString, mysqlreader("ID").ToString, mysqlreader("StudentAccountID").ToString, mysqlreader("StudentID").ToString, fname, gender, mysqlreader("GradeSection").ToString, mysqlreader("AmountPaid").ToString, mysqlreader("PaymentDate").ToString}
+                    frmReportVoidedPaymentList.dtgSales.Rows.Add(nrow)
                 End While
 
             End If
