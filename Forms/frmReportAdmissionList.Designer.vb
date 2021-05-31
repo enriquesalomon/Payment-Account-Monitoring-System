@@ -22,20 +22,20 @@ Partial Class frmReportAdmissionList
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmReportAdmissionList))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmReportAdmissionList))
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnPrint = New System.Windows.Forms.Button()
         Me.lblrecordcount = New System.Windows.Forms.Label()
         Me.Label40 = New System.Windows.Forms.Label()
         Me.dtgList = New System.Windows.Forms.DataGridView()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.cmbSY = New System.Windows.Forms.ComboBox()
         Me.btnrefresh = New System.Windows.Forms.Button()
-        Me.btnPrint = New System.Windows.Forms.Button()
         Me.Panel4.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.dtgList, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -89,6 +89,19 @@ Partial Class frmReportAdmissionList
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(964, 31)
         Me.Panel1.TabIndex = 587
+        '
+        'btnPrint
+        '
+        Me.btnPrint.Dock = System.Windows.Forms.DockStyle.Left
+        Me.btnPrint.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPrint.Image = CType(resources.GetObject("btnPrint.Image"), System.Drawing.Image)
+        Me.btnPrint.Location = New System.Drawing.Point(0, 0)
+        Me.btnPrint.Name = "btnPrint"
+        Me.btnPrint.Size = New System.Drawing.Size(100, 31)
+        Me.btnPrint.TabIndex = 752
+        Me.btnPrint.Text = "Print "
+        Me.btnPrint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnPrint.UseVisualStyleBackColor = True
         '
         'lblrecordcount
         '
@@ -186,19 +199,6 @@ Partial Class frmReportAdmissionList
         Me.btnrefresh.Text = " "
         Me.btnrefresh.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnrefresh.UseVisualStyleBackColor = True
-        '
-        'btnPrint
-        '
-        Me.btnPrint.Dock = System.Windows.Forms.DockStyle.Left
-        Me.btnPrint.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPrint.Image = CType(resources.GetObject("btnPrint.Image"), System.Drawing.Image)
-        Me.btnPrint.Location = New System.Drawing.Point(0, 0)
-        Me.btnPrint.Name = "btnPrint"
-        Me.btnPrint.Size = New System.Drawing.Size(100, 31)
-        Me.btnPrint.TabIndex = 752
-        Me.btnPrint.Text = "Print "
-        Me.btnPrint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnPrint.UseVisualStyleBackColor = True
         '
         'frmReportAdmissionList
         '

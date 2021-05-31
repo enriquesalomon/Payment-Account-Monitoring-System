@@ -246,5 +246,146 @@
         End If
     End Sub
 
+    Sub loadSY()
+
+        frmReportAdmissionList.cmbSY.Items.Clear()
+        Call connect(condbPOS)
+        mycommand = mysqlconn.CreateCommand
+        mycommand.CommandText = "Select * from SchoolYear"
+        myadapter.SelectCommand = mycommand
+        myadapter.Fill(mydataset, "SchoolYear")
+        mydataTable = mydataset.Tables("SchoolYear")
+        mysqlreader = mycommand.ExecuteReader()
+        While mysqlreader.Read()
+            frmReportAdmissionList.cmbSY.Items.Add(mysqlreader("SYFrom").ToString + "-" + mysqlreader("SYTo").ToString)
+
+        End While
+        mysqlreader.Close()
+        mysqlconn.Close()
+    End Sub
+    Sub loaddtgAdmissionReport()
+        frmReportAdmissionList.dtgList.ColumnCount = 8
+
+        frmReportAdmissionList.dtgList.Columns(0).HeaderText = "NO."
+        frmReportAdmissionList.dtgList.Columns(0).Width = 50
+        frmReportAdmissionList.dtgList.Columns(0).Name = "num"
+        frmReportAdmissionList.dtgList.Columns(0).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+
+        frmReportAdmissionList.dtgList.Columns(1).HeaderText = "CONTROL#"
+        frmReportAdmissionList.dtgList.Columns(1).Width = 100
+        frmReportAdmissionList.dtgList.Columns(1).Name = "controlno"
+        frmReportAdmissionList.dtgList.Columns(1).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        frmReportAdmissionList.dtgList.Columns(2).HeaderText = "STUDENT ID"
+        frmReportAdmissionList.dtgList.Columns(2).Width = 100
+        frmReportAdmissionList.dtgList.Columns(2).Name = "studid"
+        frmReportAdmissionList.dtgList.Columns(2).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        frmReportAdmissionList.dtgList.Columns(3).HeaderText = "STUDENT"
+        frmReportAdmissionList.dtgList.Columns(3).Width = 200
+        frmReportAdmissionList.dtgList.Columns(3).Name = "name"
+        frmReportAdmissionList.dtgList.Columns(3).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        frmReportAdmissionList.dtgList.Columns(4).HeaderText = "GENDER"
+        frmReportAdmissionList.dtgList.Columns(4).Width = 100
+        frmReportAdmissionList.dtgList.Columns(4).Name = "gender"
+        frmReportAdmissionList.dtgList.Columns(4).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        frmReportAdmissionList.dtgList.Columns(5).HeaderText = "GRADE/SECTION"
+        frmReportAdmissionList.dtgList.Columns(5).Width = 150
+        frmReportAdmissionList.dtgList.Columns(5).Name = "section"
+        frmReportAdmissionList.dtgList.Columns(5).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        frmReportAdmissionList.dtgList.Columns(6).HeaderText = "ADDED BY"
+        frmReportAdmissionList.dtgList.Columns(6).Width = 100
+        frmReportAdmissionList.dtgList.Columns(6).Name = "addedby"
+        frmReportAdmissionList.dtgList.Columns(6).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        frmReportAdmissionList.dtgList.Columns(7).HeaderText = "DATE ADDED"
+        frmReportAdmissionList.dtgList.Columns(7).Width = 150
+        frmReportAdmissionList.dtgList.Columns(7).Name = "dateadded"
+        frmReportAdmissionList.dtgList.Columns(7).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+    End Sub
+
+    Sub loadSYAdmissionReport()
+
+        Try
+            frmReportAdmissionList.SchoolYearIDFilter = ""
+            Call connect(condbPOS)
+            mycommand = mysqlconn.CreateCommand
+            mycommand.CommandText = "Select * from SchoolYear where SYFrom ='" & frmReportAdmissionList.SYFrom & "' AND SYTo ='" & frmReportAdmissionList.SYTo & "' "
+            myadapter.SelectCommand = mycommand
+            myadapter.Fill(mydataset, "SchoolYear")
+            mydataTable = mydataset.Tables("SchoolYear")
+            mysqlreader = mycommand.ExecuteReader()
+            While mysqlreader.Read()
+                frmReportAdmissionList.SchoolYearIDFilter = mysqlreader("ID").ToString
+                'MsgBox(frmReportAdmissionList.SchoolYearIDFilter)
+
+            End While
+            mysqlreader.Close()
+            mysqlconn.Close()
+        Catch ex As Exception
+            MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, "Error !!")
+
+        End Try
+
+        Try
+            frmReportAdmissionList.dtgList.Rows.Clear()
+            Call connect(condbPOS)
+            mycommand = mysqlconn.CreateCommand
+
+            'If searching = True Then
+            'mycommand.CommandText = "Select * from (Admission inner join Student on Student.ID = Admission.StudID) where Admission.SchoolYearID  ='" & SchoolYearID & "' AND Fname Like '%" & frmAdmission.txtsearch.Text & "%' OR Lname Like '%" & frmAdmission.txtsearch.Text & "%'"
+            'Else
+            mycommand.CommandText = "Select * from (Admission inner join Student on Student.ID = Admission.StudID) where Admission.SchoolYearID  ='" & frmReportAdmissionList.SchoolYearIDFilter & "'"
+            'End If
+
+            myadapter.SelectCommand = mycommand
+            myadapter.Fill(mydataset, "Admission")
+            mydataTable = mydataset.Tables("Admission")
+            mysqlreader = mycommand.ExecuteReader
+            If mydataTable.Rows.Count > 0 Then
+
+                Dim num As Integer = 0
+                Dim gradesection As String = ""
+                While mysqlreader.Read
+
+                    xtable.Rows.Clear()
+                    xdataset.Clear()
+                    mycommand = mysqlconn.CreateCommand
+                    mycommand.CommandText = " Select * from GradeSection where ID  ='" & mysqlreader("GradeSectionID").ToString & "'"
+                    myadapter.SelectCommand = mycommand
+                    myadapter.Fill(xdataset, "GradeSection")
+                    xtable = xdataset.Tables("GradeSection")
+                    If xtable.Rows.Count > 0 Then
+                        For Each str As DataRow In xtable.Rows
+                            gradesection = str("GradeSection").ToString
+
+                        Next
+                    End If
+                    xtable.Rows.Clear()
+                    xdataset.Clear()
+                    If mysqlreader("SchoolYearID").ToString = frmReportAdmissionList.SchoolYearIDFilter Then
+                        num += 1
+                        Dim nrow As String() = New String() {num.ToString, mysqlreader("Admission.ID").ToString, mysqlreader("StudID").ToString, mysqlreader("Fname").ToString + " " + mysqlreader("Mname").ToString + " " + mysqlreader("Lname").ToString, mysqlreader("Gender").ToString, gradesection.ToString, mysqlreader("AddedBy").ToString, mysqlreader("DateInserted").ToString}
+                        frmReportAdmissionList.dtgList.Rows.Add(nrow)
+                    End If
+
+
+                End While
+                frmReportAdmissionList.lblrecordcount.Text = "Record Count: " & num
+            End If
+
+            mysqlreader.Close()
+            mydataTable.Rows.Clear()
+            mydataset.Clear()
+        Catch ex As Exception
+            MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, "Error !!")
+        End Try
+
+    End Sub
 
 End Class
