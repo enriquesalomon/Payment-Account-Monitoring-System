@@ -45,8 +45,8 @@ Module modFunction
 
     Public printDoc, Str, receiptfocus As String
 
-    Public reportpath As String = "C:\AB GADGETS BETA TESTING\REPORTS"
-    'Public reportpath As String = "C:\Users\Home\Documents\Visual Studio 2013\Projects\INSTALLMENT MANAGEMENT SYSTEM\INSTALLMENT MANAGEMENT SYSTEM\Reports"
+    'Public reportpath As String = "C:\AB GADGETS BETA TESTING\REPORTS"
+    Public reportpath As String = "C:\Users\1IPAY PAYMENT CENTER\Desktop\Payment System\Report"
 
     Public Function DBpath() As String
         Databasename = Application.StartupPath & "\PAMS_DB" & ".accdb"

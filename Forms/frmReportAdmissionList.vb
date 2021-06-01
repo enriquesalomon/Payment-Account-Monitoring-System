@@ -19,6 +19,13 @@ Public Class frmReportAdmissionList
         End If
     End Sub
 
+    Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
+        If dtgList.Rows.Count <> 0 Then
+            printDoc = "Admission List"
+            Report.ShowDialog()
+        End If
+    End Sub
+
     Private Sub cmbSY_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbSY.SelectedIndexChanged
         SYFrom = ""
         SYTo = ""
