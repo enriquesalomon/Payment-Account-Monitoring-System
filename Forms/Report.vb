@@ -4,7 +4,7 @@ Public Class Report
     Dim spath As String
 
 
-    Dim rptAdmissionList As New ReportDocument
+    Dim rptAdmissionList, rptSchoolFeesList As New ReportDocument
 
     Private Sub Report_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         PrintMe()
@@ -12,13 +12,11 @@ Public Class Report
     Private Sub PrintMe()
 
 
-        Dim dtAdmissionList As New DataTable
+        Dim dtAdmissionList, dtSchoolFeesList As New DataTable
 
         If printDoc = "Admission List" Then
 
             Try
-
-
                 spath = "" & reportpath & "\CrysAdmissionList.rpt"
                 rptAdmissionList.Load(spath)
 
@@ -45,6 +43,34 @@ Public Class Report
             Catch ex As Exception
                 MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, "Data Error !!")
             End Try
+        ElseIf printDoc = "School Fees List" Then
+
+            'Try
+            spath = "" & reportpath & "\CrysSchoolFeesList.rpt"
+            rptSchoolFeesList.Load(spath)
+
+            With dtSchoolFeesList
+                .Columns.Add("No")
+                .Columns.Add("ID")
+                .Columns.Add("Particular")
+                .Columns.Add("Description")
+                .Columns.Add("Amount")
+                .Columns.Add("SchoolYear")
+
+            End With
+
+            For Each dr As DataGridViewRow In frmReportSchoolFeesList.dtgList.Rows
+                dtSchoolFeesList.Rows.Add(dr.Cells("no").Value, dr.Cells("id").Value, dr.Cells("particular").Value, dr.Cells("descriptions").Value, dr.Cells("amount").Value, dr.Cells("schoolyear").Value)
+            Next
+                CrystalReportViewer1.Refresh()
+            rptSchoolFeesList.SetDataSource(dtSchoolFeesList)
+            CrystalReportViewer1.ReportSource = rptSchoolFeesList
+            dtSchoolFeesList.Clear()
+            CrystalReportViewer1.Refresh()
+            'Catch ex As Exception
+            '    MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, "Data Error !!")
+            'End Try
+
 
             'ElseIf printDoc = "Client Ledger" Then
             '    Dim ledgerinstallmentnotx, ledgerclientcodetx, ledgerclientnametx, ledgertotalplanamounttx, ledgerbalancetx, ledgerremainnumpaymenttx As CrystalDecisions.CrystalReports.Engine.TextObject

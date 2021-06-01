@@ -130,7 +130,7 @@
 
         frmSchoolFees.dtgList.Columns(3).HeaderText = "Description"
         frmSchoolFees.dtgList.Columns(3).Width = 200
-        frmSchoolFees.dtgList.Columns(3).Name = "decription"
+        frmSchoolFees.dtgList.Columns(3).Name = "descriptions"
         frmSchoolFees.dtgList.Columns(3).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
         frmSchoolFees.dtgList.Columns(4).HeaderText = "Amount"
