@@ -218,8 +218,8 @@ Partial Class frmMain
         '
         Me.ToolStripMenuItem17.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStripMenuItem17.Name = "ToolStripMenuItem17"
-        Me.ToolStripMenuItem17.Size = New System.Drawing.Size(190, 22)
-        Me.ToolStripMenuItem17.Text = "Manage Expenses"
+        Me.ToolStripMenuItem17.Size = New System.Drawing.Size(208, 22)
+        Me.ToolStripMenuItem17.Text = "Manage School Fees"
         '
         'tsMenuExpenses
         '
@@ -237,8 +237,8 @@ Partial Class frmMain
         '
         Me.ToolStripMenuItem13.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStripMenuItem13.Name = "ToolStripMenuItem13"
-        Me.ToolStripMenuItem13.Size = New System.Drawing.Size(179, 22)
-        Me.ToolStripMenuItem13.Text = "School Expenses"
+        Me.ToolStripMenuItem13.Size = New System.Drawing.Size(237, 22)
+        Me.ToolStripMenuItem13.Text = "Manage School Expenses"
         '
         'tsMenuTransaction
         '
@@ -358,14 +358,14 @@ Partial Class frmMain
         '
         Me.UserManagementToolStripMenuItem.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UserManagementToolStripMenuItem.Name = "UserManagementToolStripMenuItem"
-        Me.UserManagementToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.UserManagementToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
         Me.UserManagementToolStripMenuItem.Text = "Set School Year"
         '
         'ManageGradeLevelToolStripMenuItem
         '
         Me.ManageGradeLevelToolStripMenuItem.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ManageGradeLevelToolStripMenuItem.Name = "ManageGradeLevelToolStripMenuItem"
-        Me.ManageGradeLevelToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ManageGradeLevelToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
         Me.ManageGradeLevelToolStripMenuItem.Text = "Set Grade Level"
         '
         'tsMenuLogout
