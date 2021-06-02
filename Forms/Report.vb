@@ -4,7 +4,7 @@ Public Class Report
     Dim spath As String
 
 
-    Dim rptAdmissionList, rptSchoolFeesList, rptSchoolExpenseList As New ReportDocument
+    Dim rptAdmissionList, rptSchoolFeesList, rptSchoolExpenseList, rptPaymentList, rptPaymentVoidedList As New ReportDocument
 
     Private Sub Report_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         PrintMe()
@@ -12,7 +12,7 @@ Public Class Report
     Private Sub PrintMe()
 
 
-        Dim dtAdmissionList, dtSchoolFeesList, dtSchoolExpenseList As New DataTable
+        Dim dtAdmissionList, dtSchoolFeesList, dtSchoolExpenseList, dtPaymentList, dtPaymentVoidedList As New DataTable
 
         If printDoc = "Admission List" Then
 
@@ -90,6 +90,60 @@ Public Class Report
             rptSchoolExpenseList.SetDataSource(dtSchoolExpenseList)
             CrystalReportViewer1.ReportSource = rptSchoolExpenseList
             dtSchoolExpenseList.Clear()
+            CrystalReportViewer1.Refresh()
+
+        ElseIf printDoc = "Payment List" Then
+
+            'Try
+            spath = "" & reportpath & "\CrysPaymentList.rpt"
+            rptPaymentList.Load(spath)
+
+            With dtPaymentList
+                .Columns.Add("No")
+                .Columns.Add("Txn")
+                .Columns.Add("AcctNo")
+                .Columns.Add("StudID")
+                .Columns.Add("Name")
+                .Columns.Add("Gender")
+                .Columns.Add("GradeSection")
+                .Columns.Add("Amount")
+
+            End With
+
+            For Each dr As DataGridViewRow In frmReportPaymentList.dtgSales.Rows
+                dtPaymentList.Rows.Add(dr.Cells("no").Value, dr.Cells("txn").Value, dr.Cells("acctno").Value, dr.Cells("studID").Value, dr.Cells("fullname").Value, dr.Cells("gender").Value, dr.Cells("gradesection").Value, dr.Cells("amountpaid").Value)
+            Next
+            CrystalReportViewer1.Refresh()
+            rptPaymentList.SetDataSource(dtPaymentList)
+            CrystalReportViewer1.ReportSource = rptPaymentList
+            dtPaymentList.Clear()
+            CrystalReportViewer1.Refresh()
+
+        ElseIf printDoc = "Payment Voided List" Then
+
+            'Try
+            spath = "" & reportpath & "\CrysPaymentVoidedList.rpt"
+            rptPaymentVoidedList.Load(spath)
+
+            With dtPaymentVoidedList
+                .Columns.Add("No")
+                .Columns.Add("Txn")
+                .Columns.Add("AcctNo")
+                .Columns.Add("StudID")
+                .Columns.Add("Name")
+                .Columns.Add("Gender")
+                .Columns.Add("GradeSection")
+                .Columns.Add("Amount")
+
+            End With
+
+            For Each dr As DataGridViewRow In frmReportVoidedPaymentList.dtgSales.Rows
+                dtPaymentVoidedList.Rows.Add(dr.Cells("no").Value, dr.Cells("txn").Value, dr.Cells("acctno").Value, dr.Cells("studID").Value, dr.Cells("fullname").Value, dr.Cells("gender").Value, dr.Cells("gradesection").Value, dr.Cells("amountpaid").Value)
+            Next
+            CrystalReportViewer1.Refresh()
+            rptPaymentVoidedList.SetDataSource(dtPaymentVoidedList)
+            CrystalReportViewer1.ReportSource = rptPaymentVoidedList
+            dtPaymentVoidedList.Clear()
             CrystalReportViewer1.Refresh()
             'Catch ex As Exception
             '    MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, "Data Error !!")

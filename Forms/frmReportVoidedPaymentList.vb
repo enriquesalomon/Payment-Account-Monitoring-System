@@ -18,6 +18,13 @@ Public Class frmReportVoidedPaymentList
         End If
     End Sub
 
+    Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
+        If dtgSales.Rows.Count <> 0 Then
+            printDoc = "Payment Voided List"
+            Report.ShowDialog()
+        End If
+    End Sub
+
     Private Sub btnrefresh_Click(sender As Object, e As EventArgs) Handles btnrefresh.Click
 
         If cmbSY.Text <> Nothing Then
