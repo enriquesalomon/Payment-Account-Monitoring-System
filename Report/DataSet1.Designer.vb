@@ -667,8 +667,6 @@ Partial Public Class DataSet1
         
         Private columnParticular As Global.System.Data.DataColumn
         
-        Private columnDescription As Global.System.Data.DataColumn
-        
         Private columnAmount As Global.System.Data.DataColumn
         
         Private columnSchoolYear As Global.System.Data.DataColumn
@@ -734,14 +732,6 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property DescriptionColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnDescription
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public ReadOnly Property AmountColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnAmount
@@ -793,9 +783,9 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AdddtSchoolFeesListRow(ByVal No As String, ByVal ID As String, ByVal Particular As String, ByVal Description As String, ByVal Amount As String, ByVal SchoolYear As String) As dtSchoolFeesListRow
+        Public Overloads Function AdddtSchoolFeesListRow(ByVal No As String, ByVal ID As String, ByVal Particular As String, ByVal Amount As String, ByVal SchoolYear As String) As dtSchoolFeesListRow
             Dim rowdtSchoolFeesListRow As dtSchoolFeesListRow = CType(Me.NewRow,dtSchoolFeesListRow)
-            Dim columnValuesArray() As Object = New Object() {No, ID, Particular, Description, Amount, SchoolYear}
+            Dim columnValuesArray() As Object = New Object() {No, ID, Particular, Amount, SchoolYear}
             rowdtSchoolFeesListRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdtSchoolFeesListRow)
             Return rowdtSchoolFeesListRow
@@ -821,7 +811,6 @@ Partial Public Class DataSet1
             Me.columnNo = MyBase.Columns("No")
             Me.columnID = MyBase.Columns("ID")
             Me.columnParticular = MyBase.Columns("Particular")
-            Me.columnDescription = MyBase.Columns("Description")
             Me.columnAmount = MyBase.Columns("Amount")
             Me.columnSchoolYear = MyBase.Columns("SchoolYear")
         End Sub
@@ -835,8 +824,6 @@ Partial Public Class DataSet1
             MyBase.Columns.Add(Me.columnID)
             Me.columnParticular = New Global.System.Data.DataColumn("Particular", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnParticular)
-            Me.columnDescription = New Global.System.Data.DataColumn("Description", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnDescription)
             Me.columnAmount = New Global.System.Data.DataColumn("Amount", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnAmount)
             Me.columnSchoolYear = New Global.System.Data.DataColumn("SchoolYear", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -1264,21 +1251,6 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property Description() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tabledtSchoolFeesList.DescriptionColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Description' in table 'dtSchoolFeesList' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tabledtSchoolFeesList.DescriptionColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property Amount() As String
             Get
                 Try 
@@ -1341,18 +1313,6 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetParticularNull()
             Me(Me.tabledtSchoolFeesList.ParticularColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsDescriptionNull() As Boolean
-            Return Me.IsNull(Me.tabledtSchoolFeesList.DescriptionColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetDescriptionNull()
-            Me(Me.tabledtSchoolFeesList.DescriptionColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
