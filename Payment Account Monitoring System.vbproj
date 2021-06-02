@@ -229,6 +229,12 @@
       <DependentUpon>CrysAdmissionList.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Report\CrysSchoolExpenseList.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrysSchoolExpenseList.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Report\CrysSchoolFeesList.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -311,6 +317,10 @@
     <EmbeddedResource Include="Report\CrysAdmissionList.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrysAdmissionList.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrysSchoolExpenseList.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrysSchoolExpenseList.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\CrysSchoolFeesList.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

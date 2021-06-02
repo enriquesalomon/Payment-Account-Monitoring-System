@@ -37,6 +37,18 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="dtSchoolExpenseList" msprop:Generator_TableClassName="dtSchoolExpenseListDataTable" msprop:Generator_TableVarName="tabledtSchoolExpenseList" msprop:Generator_TablePropName="dtSchoolExpenseList" msprop:Generator_RowDeletingName="dtSchoolExpenseListRowDeleting" msprop:Generator_RowChangingName="dtSchoolExpenseListRowChanging" msprop:Generator_RowEvHandlerName="dtSchoolExpenseListRowChangeEventHandler" msprop:Generator_RowDeletedName="dtSchoolExpenseListRowDeleted" msprop:Generator_UserTableName="dtSchoolExpenseList" msprop:Generator_RowChangedName="dtSchoolExpenseListRowChanged" msprop:Generator_RowEvArgName="dtSchoolExpenseListRowChangeEvent" msprop:Generator_RowClassName="dtSchoolExpenseListRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="No" msprop:Generator_ColumnVarNameInTable="columnNo" msprop:Generator_ColumnPropNameInRow="No" msprop:Generator_ColumnPropNameInTable="NoColumn" msprop:Generator_UserColumnName="No" type="xs:string" minOccurs="0" />
+              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:string" minOccurs="0" />
+              <xs:element name="Particular" msprop:Generator_ColumnVarNameInTable="columnParticular" msprop:Generator_ColumnPropNameInRow="Particular" msprop:Generator_ColumnPropNameInTable="ParticularColumn" msprop:Generator_UserColumnName="Particular" type="xs:string" minOccurs="0" />
+              <xs:element name="Category" msprop:Generator_ColumnVarNameInTable="columnCategory" msprop:Generator_ColumnPropNameInRow="Category" msprop:Generator_ColumnPropNameInTable="CategoryColumn" msprop:Generator_UserColumnName="Category" type="xs:string" minOccurs="0" />
+              <xs:element name="Amount" msprop:Generator_ColumnVarNameInTable="columnAmount" msprop:Generator_ColumnPropNameInRow="Amount" msprop:Generator_ColumnPropNameInTable="AmountColumn" msprop:Generator_UserColumnName="Amount" type="xs:string" minOccurs="0" />
+              <xs:element name="SchoolYear" msprop:Generator_ColumnVarNameInTable="columnSchoolYear" msprop:Generator_ColumnPropNameInRow="SchoolYear" msprop:Generator_ColumnPropNameInTable="SchoolYearColumn" msprop:Generator_UserColumnName="SchoolYear" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>
