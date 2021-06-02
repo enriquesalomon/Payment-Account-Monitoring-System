@@ -129,8 +129,8 @@ Module modFunction
         If Restrictionlevel = "Secretary" Then
             frmMain.tsMenuProfile.Visible = True
             frmMain.tsMenuAdmission.Visible = True
-            frmMain.tsMenuExpenses.Visible = False
-            frmMain.tsMenuFees.Visible = False
+            frmMain.tsMenuExpenses.Visible = True
+            frmMain.tsMenuFees.Visible = True
             frmMain.tsMenuTransaction.Visible = False
             frmMain.tsMenuUsers.Visible = False
             frmMain.tsmenuReports.Visible = True

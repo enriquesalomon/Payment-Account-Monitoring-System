@@ -5,6 +5,11 @@ Public Class frmReportLedger
         Me.Close()
     End Sub
     Sub clrtx()
+        txtStudentCode.Clear()
+        txtStudentName.Clear()
+        txtGender.Clear()
+        dtgList.Rows.Clear()
+
         txtAccountNumber.Text = "ACCT-****"
         txtTotalPayableAmount.Text = "0.00"
         txtTotalPaid.Text = "0.00"
@@ -12,6 +17,7 @@ Public Class frmReportLedger
     End Sub
 
     Private Sub btnView_Click(sender As Object, e As EventArgs) Handles btnView.Click
+        clrtx()
         StudentviewFocus = "Student Ledger"
         loadstudentenrolled = True
         frmStudentSearch.ShowDialog()
@@ -24,7 +30,6 @@ Public Class frmReportLedger
     Public SYFrom, SYTo, SchoolYearIDFilter As String
 
     Private Sub btnrefresh_Click(sender As Object, e As EventArgs) Handles btnrefresh.Click
-        clrtx()
         myledger.getAccountNumber()
         myledger.getSchoolFees()
         myledger.getTotalPayment()
