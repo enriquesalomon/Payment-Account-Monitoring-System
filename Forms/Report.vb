@@ -7,7 +7,7 @@ Public Class Report
     Dim rptAdmissionList, rptSchoolFeesList, rptSchoolExpenseList, rptPaymentList, rptPaymentVoidedList As New ReportDocument
 
     Private Sub Report_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        PrintMe()
+        'PrintMe()
     End Sub
     Private Sub PrintMe()
 

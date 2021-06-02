@@ -143,12 +143,12 @@ Module modFunction
             frmMain.tsMenuTransaction.Visible = False
             frmMain.tsMenuUsers.Visible = True
             frmMain.tsmenuReports.Visible = True
-            frmMain.tsMenuSetting.Visible = True
+            frmMain.tsMenuSetting.Visible = False
         ElseIf Restrictionlevel = "Cashier" Then
-            frmMain.tsMenuProfile.Visible = True
-            frmMain.tsMenuAdmission.Visible = True
+            frmMain.tsMenuProfile.Visible = False
+            frmMain.tsMenuAdmission.Visible = False
             frmMain.tsMenuExpenses.Visible = False
-            frmMain.tsMenuFees.Visible = True
+            frmMain.tsMenuFees.Visible = False
             frmMain.tsMenuTransaction.Visible = True
             frmMain.tsMenuUsers.Visible = False
             frmMain.tsmenuReports.Visible = True
