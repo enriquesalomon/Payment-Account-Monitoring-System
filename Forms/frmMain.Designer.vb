@@ -334,14 +334,14 @@ Partial Class frmMain
         'PaymentListToolStripMenuItem1
         '
         Me.PaymentListToolStripMenuItem1.Name = "PaymentListToolStripMenuItem1"
-        Me.PaymentListToolStripMenuItem1.Size = New System.Drawing.Size(231, 22)
+        Me.PaymentListToolStripMenuItem1.Size = New System.Drawing.Size(205, 22)
         Me.PaymentListToolStripMenuItem1.Text = "Payment List"
         '
         'VoidedTransactractionsToolStripMenuItem
         '
         Me.VoidedTransactractionsToolStripMenuItem.Name = "VoidedTransactractionsToolStripMenuItem"
-        Me.VoidedTransactractionsToolStripMenuItem.Size = New System.Drawing.Size(231, 22)
-        Me.VoidedTransactractionsToolStripMenuItem.Text = "Voided Transactractions"
+        Me.VoidedTransactractionsToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
+        Me.VoidedTransactractionsToolStripMenuItem.Text = "Voided Transactions"
         '
         'tsMenuSetting
         '
@@ -358,14 +358,14 @@ Partial Class frmMain
         '
         Me.UserManagementToolStripMenuItem.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UserManagementToolStripMenuItem.Name = "UserManagementToolStripMenuItem"
-        Me.UserManagementToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
+        Me.UserManagementToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.UserManagementToolStripMenuItem.Text = "Set School Year"
         '
         'ManageGradeLevelToolStripMenuItem
         '
         Me.ManageGradeLevelToolStripMenuItem.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ManageGradeLevelToolStripMenuItem.Name = "ManageGradeLevelToolStripMenuItem"
-        Me.ManageGradeLevelToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
+        Me.ManageGradeLevelToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ManageGradeLevelToolStripMenuItem.Text = "Set Grade Level"
         '
         'tsMenuLogout

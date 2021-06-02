@@ -35,6 +35,7 @@ Partial Class Report
         Me.CrystalReportViewer1.Name = "CrystalReportViewer1"
         Me.CrystalReportViewer1.Size = New System.Drawing.Size(800, 450)
         Me.CrystalReportViewer1.TabIndex = 0
+        Me.CrystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         '
         'Report
         '
@@ -44,6 +45,7 @@ Partial Class Report
         Me.Controls.Add(Me.CrystalReportViewer1)
         Me.Name = "Report"
         Me.Text = "Report"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ResumeLayout(False)
 
     End Sub
