@@ -32,7 +32,7 @@ Partial Class frmReportLedger
         Me.Label3 = New System.Windows.Forms.Label()
         Me.dtgList = New System.Windows.Forms.DataGridView()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.txtTotalPlanAmount = New System.Windows.Forms.TextBox()
+        Me.txtTotalPayableAmount = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtAccountNumber = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -47,6 +47,8 @@ Partial Class frmReportLedger
         Me.cmbSY = New System.Windows.Forms.ComboBox()
         Me.txtGender = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
+        Me.txtTotalPaid = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.Panel4.SuspendLayout()
         CType(Me.dtgList, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -94,6 +96,7 @@ Partial Class frmReportLedger
         Me.txtRunningBalance.BackColor = System.Drawing.Color.White
         Me.txtRunningBalance.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtRunningBalance.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtRunningBalance.ForeColor = System.Drawing.Color.Green
         Me.txtRunningBalance.Location = New System.Drawing.Point(571, 161)
         Me.txtRunningBalance.Name = "txtRunningBalance"
         Me.txtRunningBalance.ReadOnly = True
@@ -130,7 +133,7 @@ Partial Class frmReportLedger
         Me.dtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dtgList.EnableHeadersVisualStyles = False
         Me.dtgList.GridColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.dtgList.Location = New System.Drawing.Point(4, 187)
+        Me.dtgList.Location = New System.Drawing.Point(4, 215)
         Me.dtgList.MultiSelect = False
         Me.dtgList.Name = "dtgList"
         Me.dtgList.ReadOnly = True
@@ -148,7 +151,7 @@ Partial Class frmReportLedger
         Me.dtgList.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White
         Me.dtgList.RowTemplate.Height = 25
         Me.dtgList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtgList.Size = New System.Drawing.Size(704, 374)
+        Me.dtgList.Size = New System.Drawing.Size(704, 346)
         Me.dtgList.TabIndex = 722
         '
         'Label6
@@ -156,28 +159,29 @@ Partial Class frmReportLedger
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.Green
-        Me.Label6.Location = New System.Drawing.Point(3, 166)
+        Me.Label6.Location = New System.Drawing.Point(6, 196)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(173, 16)
         Me.Label6.TabIndex = 721
         Me.Label6.Text = "SUMMARY OF TRANSACTION"
         '
-        'txtTotalPlanAmount
+        'txtTotalPayableAmount
         '
-        Me.txtTotalPlanAmount.BackColor = System.Drawing.Color.White
-        Me.txtTotalPlanAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtTotalPlanAmount.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTotalPlanAmount.Location = New System.Drawing.Point(425, 161)
-        Me.txtTotalPlanAmount.Name = "txtTotalPlanAmount"
-        Me.txtTotalPlanAmount.ReadOnly = True
-        Me.txtTotalPlanAmount.Size = New System.Drawing.Size(140, 22)
-        Me.txtTotalPlanAmount.TabIndex = 720
+        Me.txtTotalPayableAmount.BackColor = System.Drawing.Color.White
+        Me.txtTotalPayableAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtTotalPayableAmount.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTotalPayableAmount.ForeColor = System.Drawing.Color.Green
+        Me.txtTotalPayableAmount.Location = New System.Drawing.Point(289, 161)
+        Me.txtTotalPayableAmount.Name = "txtTotalPayableAmount"
+        Me.txtTotalPayableAmount.ReadOnly = True
+        Me.txtTotalPayableAmount.Size = New System.Drawing.Size(140, 22)
+        Me.txtTotalPayableAmount.TabIndex = 720
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(422, 141)
+        Me.Label4.Location = New System.Drawing.Point(286, 141)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(138, 17)
         Me.Label4.TabIndex = 719
@@ -188,7 +192,8 @@ Partial Class frmReportLedger
         Me.txtAccountNumber.BackColor = System.Drawing.Color.White
         Me.txtAccountNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtAccountNumber.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAccountNumber.Location = New System.Drawing.Point(219, 161)
+        Me.txtAccountNumber.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.txtAccountNumber.Location = New System.Drawing.Point(9, 161)
         Me.txtAccountNumber.Name = "txtAccountNumber"
         Me.txtAccountNumber.ReadOnly = True
         Me.txtAccountNumber.Size = New System.Drawing.Size(200, 22)
@@ -198,7 +203,7 @@ Partial Class frmReportLedger
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(216, 141)
+        Me.Label2.Location = New System.Drawing.Point(6, 141)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(110, 17)
         Me.Label2.TabIndex = 717
@@ -328,12 +333,36 @@ Partial Class frmReportLedger
         Me.Label10.TabIndex = 898
         Me.Label10.Text = "Gender"
         '
+        'txtTotalPaid
+        '
+        Me.txtTotalPaid.BackColor = System.Drawing.Color.White
+        Me.txtTotalPaid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtTotalPaid.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTotalPaid.ForeColor = System.Drawing.Color.Green
+        Me.txtTotalPaid.Location = New System.Drawing.Point(430, 161)
+        Me.txtTotalPaid.Name = "txtTotalPaid"
+        Me.txtTotalPaid.ReadOnly = True
+        Me.txtTotalPaid.Size = New System.Drawing.Size(140, 22)
+        Me.txtTotalPaid.TabIndex = 901
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(427, 141)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(66, 17)
+        Me.Label8.TabIndex = 900
+        Me.Label8.Text = "Total Paid"
+        '
         'frmReportLedger
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(712, 592)
+        Me.Controls.Add(Me.txtTotalPaid)
+        Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.txtGender)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.btnrefresh)
@@ -344,7 +373,7 @@ Partial Class frmReportLedger
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.dtgList)
         Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.txtTotalPlanAmount)
+        Me.Controls.Add(Me.txtTotalPayableAmount)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.txtAccountNumber)
         Me.Controls.Add(Me.Label2)
@@ -373,7 +402,7 @@ Partial Class frmReportLedger
     Friend WithEvents Label3 As Label
     Friend WithEvents dtgList As DataGridView
     Friend WithEvents Label6 As Label
-    Friend WithEvents txtTotalPlanAmount As TextBox
+    Friend WithEvents txtTotalPayableAmount As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents txtAccountNumber As TextBox
     Friend WithEvents Label2 As Label
@@ -388,4 +417,6 @@ Partial Class frmReportLedger
     Friend WithEvents cmbSY As ComboBox
     Friend WithEvents txtGender As TextBox
     Friend WithEvents Label10 As Label
+    Friend WithEvents txtTotalPaid As TextBox
+    Friend WithEvents Label8 As Label
 End Class
