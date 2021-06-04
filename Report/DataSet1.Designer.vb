@@ -35,7 +35,7 @@ Partial Public Class DataSet1
     
     Private tabledtVoidedPaymentList As dtVoidedPaymentListDataTable
     
-    Private tabledtStudentsLedger As dtStudentsLedgerDataTable
+    Private tabledtLedger As dtLedgerDataTable
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -81,8 +81,8 @@ Partial Public Class DataSet1
             If (Not (ds.Tables("dtVoidedPaymentList")) Is Nothing) Then
                 MyBase.Tables.Add(New dtVoidedPaymentListDataTable(ds.Tables("dtVoidedPaymentList")))
             End If
-            If (Not (ds.Tables("dtStudentsLedger")) Is Nothing) Then
-                MyBase.Tables.Add(New dtStudentsLedgerDataTable(ds.Tables("dtStudentsLedger")))
+            If (Not (ds.Tables("dtLedger")) Is Nothing) Then
+                MyBase.Tables.Add(New dtLedgerDataTable(ds.Tables("dtLedger")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -155,9 +155,9 @@ Partial Public Class DataSet1
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property dtStudentsLedger() As dtStudentsLedgerDataTable
+    Public ReadOnly Property dtLedger() As dtLedgerDataTable
         Get
-            Return Me.tabledtStudentsLedger
+            Return Me.tabledtLedger
         End Get
     End Property
     
@@ -243,8 +243,8 @@ Partial Public Class DataSet1
             If (Not (ds.Tables("dtVoidedPaymentList")) Is Nothing) Then
                 MyBase.Tables.Add(New dtVoidedPaymentListDataTable(ds.Tables("dtVoidedPaymentList")))
             End If
-            If (Not (ds.Tables("dtStudentsLedger")) Is Nothing) Then
-                MyBase.Tables.Add(New dtStudentsLedgerDataTable(ds.Tables("dtStudentsLedger")))
+            If (Not (ds.Tables("dtLedger")) Is Nothing) Then
+                MyBase.Tables.Add(New dtLedgerDataTable(ds.Tables("dtLedger")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -308,10 +308,10 @@ Partial Public Class DataSet1
                 Me.tabledtVoidedPaymentList.InitVars
             End If
         End If
-        Me.tabledtStudentsLedger = CType(MyBase.Tables("dtStudentsLedger"),dtStudentsLedgerDataTable)
+        Me.tabledtLedger = CType(MyBase.Tables("dtLedger"),dtLedgerDataTable)
         If (initTable = true) Then
-            If (Not (Me.tabledtStudentsLedger) Is Nothing) Then
-                Me.tabledtStudentsLedger.InitVars
+            If (Not (Me.tabledtLedger) Is Nothing) Then
+                Me.tabledtLedger.InitVars
             End If
         End If
     End Sub
@@ -334,8 +334,8 @@ Partial Public Class DataSet1
         MyBase.Tables.Add(Me.tabledtPaymentList)
         Me.tabledtVoidedPaymentList = New dtVoidedPaymentListDataTable()
         MyBase.Tables.Add(Me.tabledtVoidedPaymentList)
-        Me.tabledtStudentsLedger = New dtStudentsLedgerDataTable()
-        MyBase.Tables.Add(Me.tabledtStudentsLedger)
+        Me.tabledtLedger = New dtLedgerDataTable()
+        MyBase.Tables.Add(Me.tabledtLedger)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -370,7 +370,7 @@ Partial Public Class DataSet1
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-    Private Function ShouldSerializedtStudentsLedger() As Boolean
+    Private Function ShouldSerializedtLedger() As Boolean
         Return false
     End Function
     
@@ -448,7 +448,7 @@ Partial Public Class DataSet1
     Public Delegate Sub dtVoidedPaymentListRowChangeEventHandler(ByVal sender As Object, ByVal e As dtVoidedPaymentListRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-    Public Delegate Sub dtStudentsLedgerRowChangeEventHandler(ByVal sender As Object, ByVal e As dtStudentsLedgerRowChangeEvent)
+    Public Delegate Sub dtLedgerRowChangeEventHandler(ByVal sender As Object, ByVal e As dtLedgerRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -2105,8 +2105,8 @@ Partial Public Class DataSet1
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class dtStudentsLedgerDataTable
-        Inherits Global.System.Data.TypedTableBase(Of dtStudentsLedgerRow)
+    Partial Public Class dtLedgerDataTable
+        Inherits Global.System.Data.TypedTableBase(Of dtLedgerRow)
         
         Private columnTxn As Global.System.Data.DataColumn
         
@@ -2124,7 +2124,7 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
             MyBase.New
-            Me.TableName = "dtStudentsLedger"
+            Me.TableName = "dtLedger"
             Me.BeginInit
             Me.InitClass
             Me.EndInit
@@ -2214,44 +2214,44 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As dtStudentsLedgerRow
+        Public Default ReadOnly Property Item(ByVal index As Integer) As dtLedgerRow
             Get
-                Return CType(Me.Rows(index),dtStudentsLedgerRow)
+                Return CType(Me.Rows(index),dtLedgerRow)
             End Get
         End Property
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event dtStudentsLedgerRowChanging As dtStudentsLedgerRowChangeEventHandler
+        Public Event dtLedgerRowChanging As dtLedgerRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event dtStudentsLedgerRowChanged As dtStudentsLedgerRowChangeEventHandler
+        Public Event dtLedgerRowChanged As dtLedgerRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event dtStudentsLedgerRowDeleting As dtStudentsLedgerRowChangeEventHandler
+        Public Event dtLedgerRowDeleting As dtLedgerRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event dtStudentsLedgerRowDeleted As dtStudentsLedgerRowChangeEventHandler
+        Public Event dtLedgerRowDeleted As dtLedgerRowChangeEventHandler
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Sub AdddtStudentsLedgerRow(ByVal row As dtStudentsLedgerRow)
+        Public Overloads Sub AdddtLedgerRow(ByVal row As dtLedgerRow)
             Me.Rows.Add(row)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AdddtStudentsLedgerRow(ByVal Txn As String, ByVal DatePayment As String, ByVal Particular As String, ByVal CurrentBal As String, ByVal AmountPaid As String, ByVal RemainBal As String) As dtStudentsLedgerRow
-            Dim rowdtStudentsLedgerRow As dtStudentsLedgerRow = CType(Me.NewRow,dtStudentsLedgerRow)
+        Public Overloads Function AdddtLedgerRow(ByVal Txn As String, ByVal DatePayment As String, ByVal Particular As String, ByVal CurrentBal As String, ByVal AmountPaid As String, ByVal RemainBal As String) As dtLedgerRow
+            Dim rowdtLedgerRow As dtLedgerRow = CType(Me.NewRow,dtLedgerRow)
             Dim columnValuesArray() As Object = New Object() {Txn, DatePayment, Particular, CurrentBal, AmountPaid, RemainBal}
-            rowdtStudentsLedgerRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowdtStudentsLedgerRow)
-            Return rowdtStudentsLedgerRow
+            rowdtLedgerRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowdtLedgerRow)
+            Return rowdtLedgerRow
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As dtStudentsLedgerDataTable = CType(MyBase.Clone,dtStudentsLedgerDataTable)
+            Dim cln As dtLedgerDataTable = CType(MyBase.Clone,dtLedgerDataTable)
             cln.InitVars
             Return cln
         End Function
@@ -2259,7 +2259,7 @@ Partial Public Class DataSet1
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New dtStudentsLedgerDataTable()
+            Return New dtLedgerDataTable()
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2292,28 +2292,28 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function NewdtStudentsLedgerRow() As dtStudentsLedgerRow
-            Return CType(Me.NewRow,dtStudentsLedgerRow)
+        Public Function NewdtLedgerRow() As dtLedgerRow
+            Return CType(Me.NewRow,dtLedgerRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New dtStudentsLedgerRow(builder)
+            Return New dtLedgerRow(builder)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(dtStudentsLedgerRow)
+            Return GetType(dtLedgerRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
-            If (Not (Me.dtStudentsLedgerRowChangedEvent) Is Nothing) Then
-                RaiseEvent dtStudentsLedgerRowChanged(Me, New dtStudentsLedgerRowChangeEvent(CType(e.Row,dtStudentsLedgerRow), e.Action))
+            If (Not (Me.dtLedgerRowChangedEvent) Is Nothing) Then
+                RaiseEvent dtLedgerRowChanged(Me, New dtLedgerRowChangeEvent(CType(e.Row,dtLedgerRow), e.Action))
             End If
         End Sub
         
@@ -2321,8 +2321,8 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
-            If (Not (Me.dtStudentsLedgerRowChangingEvent) Is Nothing) Then
-                RaiseEvent dtStudentsLedgerRowChanging(Me, New dtStudentsLedgerRowChangeEvent(CType(e.Row,dtStudentsLedgerRow), e.Action))
+            If (Not (Me.dtLedgerRowChangingEvent) Is Nothing) Then
+                RaiseEvent dtLedgerRowChanging(Me, New dtLedgerRowChangeEvent(CType(e.Row,dtLedgerRow), e.Action))
             End If
         End Sub
         
@@ -2330,8 +2330,8 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
-            If (Not (Me.dtStudentsLedgerRowDeletedEvent) Is Nothing) Then
-                RaiseEvent dtStudentsLedgerRowDeleted(Me, New dtStudentsLedgerRowChangeEvent(CType(e.Row,dtStudentsLedgerRow), e.Action))
+            If (Not (Me.dtLedgerRowDeletedEvent) Is Nothing) Then
+                RaiseEvent dtLedgerRowDeleted(Me, New dtLedgerRowChangeEvent(CType(e.Row,dtLedgerRow), e.Action))
             End If
         End Sub
         
@@ -2339,14 +2339,14 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
-            If (Not (Me.dtStudentsLedgerRowDeletingEvent) Is Nothing) Then
-                RaiseEvent dtStudentsLedgerRowDeleting(Me, New dtStudentsLedgerRowChangeEvent(CType(e.Row,dtStudentsLedgerRow), e.Action))
+            If (Not (Me.dtLedgerRowDeletingEvent) Is Nothing) Then
+                RaiseEvent dtLedgerRowDeleting(Me, New dtLedgerRowChangeEvent(CType(e.Row,dtLedgerRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub RemovedtStudentsLedgerRow(ByVal row As dtStudentsLedgerRow)
+        Public Sub RemovedtLedgerRow(ByVal row As dtLedgerRow)
             Me.Rows.Remove(row)
         End Sub
         
@@ -2373,7 +2373,7 @@ Partial Public Class DataSet1
             type.Attributes.Add(attribute1)
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "dtStudentsLedgerDataTable"
+            attribute2.FixedValue = "dtLedgerDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -3445,16 +3445,16 @@ Partial Public Class DataSet1
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
-    Partial Public Class dtStudentsLedgerRow
+    Partial Public Class dtLedgerRow
         Inherits Global.System.Data.DataRow
         
-        Private tabledtStudentsLedger As dtStudentsLedgerDataTable
+        Private tabledtLedger As dtLedgerDataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
             MyBase.New(rb)
-            Me.tabledtStudentsLedger = CType(Me.Table,dtStudentsLedgerDataTable)
+            Me.tabledtLedger = CType(Me.Table,dtLedgerDataTable)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3462,13 +3462,13 @@ Partial Public Class DataSet1
         Public Property Txn() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabledtStudentsLedger.TxnColumn),String)
+                    Return CType(Me(Me.tabledtLedger.TxnColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Txn' in table 'dtStudentsLedger' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Txn' in table 'dtLedger' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabledtStudentsLedger.TxnColumn) = value
+                Me(Me.tabledtLedger.TxnColumn) = value
             End Set
         End Property
         
@@ -3477,13 +3477,13 @@ Partial Public Class DataSet1
         Public Property DatePayment() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabledtStudentsLedger.DatePaymentColumn),String)
+                    Return CType(Me(Me.tabledtLedger.DatePaymentColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'DatePayment' in table 'dtStudentsLedger' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'DatePayment' in table 'dtLedger' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabledtStudentsLedger.DatePaymentColumn) = value
+                Me(Me.tabledtLedger.DatePaymentColumn) = value
             End Set
         End Property
         
@@ -3492,13 +3492,13 @@ Partial Public Class DataSet1
         Public Property Particular() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabledtStudentsLedger.ParticularColumn),String)
+                    Return CType(Me(Me.tabledtLedger.ParticularColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Particular' in table 'dtStudentsLedger' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Particular' in table 'dtLedger' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabledtStudentsLedger.ParticularColumn) = value
+                Me(Me.tabledtLedger.ParticularColumn) = value
             End Set
         End Property
         
@@ -3507,13 +3507,13 @@ Partial Public Class DataSet1
         Public Property CurrentBal() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabledtStudentsLedger.CurrentBalColumn),String)
+                    Return CType(Me(Me.tabledtLedger.CurrentBalColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'CurrentBal' in table 'dtStudentsLedger' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CurrentBal' in table 'dtLedger' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabledtStudentsLedger.CurrentBalColumn) = value
+                Me(Me.tabledtLedger.CurrentBalColumn) = value
             End Set
         End Property
         
@@ -3522,13 +3522,13 @@ Partial Public Class DataSet1
         Public Property AmountPaid() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabledtStudentsLedger.AmountPaidColumn),String)
+                    Return CType(Me(Me.tabledtLedger.AmountPaidColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'AmountPaid' in table 'dtStudentsLedger' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'AmountPaid' in table 'dtLedger' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabledtStudentsLedger.AmountPaidColumn) = value
+                Me(Me.tabledtLedger.AmountPaidColumn) = value
             End Set
         End Property
         
@@ -3537,86 +3537,86 @@ Partial Public Class DataSet1
         Public Property RemainBal() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabledtStudentsLedger.RemainBalColumn),String)
+                    Return CType(Me(Me.tabledtLedger.RemainBalColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'RemainBal' in table 'dtStudentsLedger' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'RemainBal' in table 'dtLedger' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabledtStudentsLedger.RemainBalColumn) = value
+                Me(Me.tabledtLedger.RemainBalColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsTxnNull() As Boolean
-            Return Me.IsNull(Me.tabledtStudentsLedger.TxnColumn)
+            Return Me.IsNull(Me.tabledtLedger.TxnColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetTxnNull()
-            Me(Me.tabledtStudentsLedger.TxnColumn) = Global.System.Convert.DBNull
+            Me(Me.tabledtLedger.TxnColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsDatePaymentNull() As Boolean
-            Return Me.IsNull(Me.tabledtStudentsLedger.DatePaymentColumn)
+            Return Me.IsNull(Me.tabledtLedger.DatePaymentColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetDatePaymentNull()
-            Me(Me.tabledtStudentsLedger.DatePaymentColumn) = Global.System.Convert.DBNull
+            Me(Me.tabledtLedger.DatePaymentColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsParticularNull() As Boolean
-            Return Me.IsNull(Me.tabledtStudentsLedger.ParticularColumn)
+            Return Me.IsNull(Me.tabledtLedger.ParticularColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetParticularNull()
-            Me(Me.tabledtStudentsLedger.ParticularColumn) = Global.System.Convert.DBNull
+            Me(Me.tabledtLedger.ParticularColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsCurrentBalNull() As Boolean
-            Return Me.IsNull(Me.tabledtStudentsLedger.CurrentBalColumn)
+            Return Me.IsNull(Me.tabledtLedger.CurrentBalColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetCurrentBalNull()
-            Me(Me.tabledtStudentsLedger.CurrentBalColumn) = Global.System.Convert.DBNull
+            Me(Me.tabledtLedger.CurrentBalColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsAmountPaidNull() As Boolean
-            Return Me.IsNull(Me.tabledtStudentsLedger.AmountPaidColumn)
+            Return Me.IsNull(Me.tabledtLedger.AmountPaidColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetAmountPaidNull()
-            Me(Me.tabledtStudentsLedger.AmountPaidColumn) = Global.System.Convert.DBNull
+            Me(Me.tabledtLedger.AmountPaidColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsRemainBalNull() As Boolean
-            Return Me.IsNull(Me.tabledtStudentsLedger.RemainBalColumn)
+            Return Me.IsNull(Me.tabledtLedger.RemainBalColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetRemainBalNull()
-            Me(Me.tabledtStudentsLedger.RemainBalColumn) = Global.System.Convert.DBNull
+            Me(Me.tabledtLedger.RemainBalColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -3804,16 +3804,16 @@ Partial Public Class DataSet1
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-    Public Class dtStudentsLedgerRowChangeEvent
+    Public Class dtLedgerRowChangeEvent
         Inherits Global.System.EventArgs
         
-        Private eventRow As dtStudentsLedgerRow
+        Private eventRow As dtLedgerRow
         
         Private eventAction As Global.System.Data.DataRowAction
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub New(ByVal row As dtStudentsLedgerRow, ByVal action As Global.System.Data.DataRowAction)
+        Public Sub New(ByVal row As dtLedgerRow, ByVal action As Global.System.Data.DataRowAction)
             MyBase.New
             Me.eventRow = row
             Me.eventAction = action
@@ -3821,7 +3821,7 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property Row() As dtStudentsLedgerRow
+        Public ReadOnly Property Row() As dtLedgerRow
             Get
                 Return Me.eventRow
             End Get

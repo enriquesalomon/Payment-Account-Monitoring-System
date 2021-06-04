@@ -1,8 +1,18 @@
 ﻿
 
 Partial Public Class DataSet1
-    Partial Public Class dtStudentsLedgerDataTable
-        Private Sub dtStudentsLedgerDataTable_dtStudentsLedgerRowChanging(sender As Object, e As dtStudentsLedgerRowChangeEvent) Handles Me.dtStudentsLedgerRowChanging
+    Partial Public Class dtPaymentListDataTable
+        Private Sub dtPaymentListDataTable_ColumnChanging(sender As Object, e As DataColumnChangeEventArgs) Handles Me.ColumnChanging
+            If (e.Column.ColumnName = Me.NoColumn.ColumnName) Then
+                'Add user code here
+            End If
+
+        End Sub
+
+    End Class
+
+    Partial Public Class dtLedgerDataTable
+        Private Sub dtLedgerDataTable_dtLedgerRowChanging(sender As Object, e As dtLedgerRowChangeEvent) Handles Me.dtLedgerRowChanging
 
         End Sub
 

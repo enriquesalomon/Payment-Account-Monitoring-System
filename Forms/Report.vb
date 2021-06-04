@@ -12,7 +12,7 @@ Public Class Report
     Private Sub PrintMe()
 
 
-        Dim dtAdmissionList, dtSchoolFeesList, dtSchoolExpenseList, dtPaymentList, dtPaymentVoidedList, dtLedger As New DataTable
+        Dim dtAdmissionList, dtSchoolFeesList, dtSchoolExpenseList, dtPaymentList, dtPaymentVoidedList, dtStudentsLedger As New DataTable
 
         If printDoc = "Admission List" Then
 
@@ -153,7 +153,7 @@ Public Class Report
             spath = "" & reportpath & "\CrysLedgerList.rpt"
             rptLedger.Load(spath)
 
-            With dtLedger
+            With dtStudentsLedger
                 .Columns.Add("No")
                 .Columns.Add("Txn")
                 .Columns.Add("AcctNo")
@@ -166,12 +166,12 @@ Public Class Report
             End With
 
             For Each dr As DataGridViewRow In frmReportLedger.dtgList.Rows
-                dtLedger.Rows.Add(dr.Cells("txn").Value, dr.Cells("dateofpayment").Value, dr.Cells("particular").Value, dr.Cells("currentbal").Value, dr.Cells("amount").Value, dr.Cells("remainbal").Value)
+                dtStudentsLedger.Rows.Add(dr.Cells("txn").Value, dr.Cells("dateofpayment").Value, dr.Cells("particular").Value, dr.Cells("currentbal").Value, dr.Cells("amount").Value, dr.Cells("remainbal").Value)
             Next
             CrystalReportViewer1.Refresh()
-            rptLedger.SetDataSource(dtLedger)
+            rptLedger.SetDataSource(dtStudentsLedger)
             CrystalReportViewer1.ReportSource = rptLedger
-            dtLedger.Clear()
+            dtStudentsLedger.Clear()
             CrystalReportViewer1.Refresh()
             'Catch ex As Exception
             '    MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, "Data Error !!")

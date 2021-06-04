@@ -229,6 +229,11 @@
       <DependentUpon>CrysAdmissionList.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Report\CrysLedgerList.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrysLedgerList.rpt</DependentUpon>
+    </Compile>
     <Compile Include="Report\CrysPaymentList.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -329,6 +334,10 @@
     <EmbeddedResource Include="Report\CrysAdmissionList.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrysAdmissionList.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrysLedgerList.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrysLedgerList.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\CrysPaymentList.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
