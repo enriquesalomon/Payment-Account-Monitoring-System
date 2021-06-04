@@ -87,9 +87,9 @@ Partial Class frmReportLedger
         Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label5.Location = New System.Drawing.Point(0, 4)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(102, 16)
+        Me.Label5.Size = New System.Drawing.Size(151, 16)
         Me.Label5.TabIndex = 137
-        Me.Label5.Text = "STUDENT LEDGER"
+        Me.Label5.Text = "ACCOUNT MONITORING"
         '
         'txtRunningBalance
         '

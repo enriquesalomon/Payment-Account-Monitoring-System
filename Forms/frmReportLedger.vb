@@ -30,6 +30,9 @@ Public Class frmReportLedger
     Public SYFrom, SYTo, SchoolYearIDFilter As String
 
     Private Sub btnrefresh_Click(sender As Object, e As EventArgs) Handles btnrefresh.Click
+        If txtAccountNumber.Text = "" Then
+            Exit Sub
+        End If
         myledger.getAccountNumber()
         myledger.getSchoolFees()
         myledger.getTotalPayment()

@@ -24,7 +24,7 @@
     Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
         If dtgList.Rows.Count <> 0 Then
             printDoc = "School Fees List"
-            'Report.ShowDialog()
+            Report.ShowDialog()
         End If
     End Sub
 End Class

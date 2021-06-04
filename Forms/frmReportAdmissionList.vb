@@ -22,7 +22,7 @@ Public Class frmReportAdmissionList
     Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
         If dtgList.Rows.Count <> 0 Then
             printDoc = "Admission List"
-            'Report.ShowDialog()
+            Report.ShowDialog()
         End If
     End Sub
 

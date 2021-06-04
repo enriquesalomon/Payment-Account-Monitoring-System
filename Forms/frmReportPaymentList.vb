@@ -21,7 +21,7 @@ Public Class frmReportPaymentList
     Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
         If dtgSales.Rows.Count <> 0 Then
             printDoc = "Payment List"
-            'Report.ShowDialog()
+            Report.ShowDialog()
         End If
     End Sub
 
