@@ -150,7 +150,7 @@ Public Class Report
         ElseIf printDoc = "Ledger" Then
 
             'Try
-            spath = "" & reportpath & "\CrysLedger.rpt"
+            spath = "" & reportpath & "\CrysLedgerList.rpt"
             rptLedger.Load(spath)
 
             With dtLedger
@@ -166,7 +166,7 @@ Public Class Report
             End With
 
             For Each dr As DataGridViewRow In frmReportLedger.dtgList.Rows
-                dtLedger.Rows.Add(dr.Cells("no").Value, dr.Cells("txn").Value, dr.Cells("acctno").Value, dr.Cells("studID").Value, dr.Cells("fullname").Value, dr.Cells("gender").Value, dr.Cells("gradesection").Value, dr.Cells("amountpaid").Value)
+                dtLedger.Rows.Add(dr.Cells("txn").Value, dr.Cells("dateofpayment").Value, dr.Cells("particular").Value, dr.Cells("currentbal").Value, dr.Cells("amount").Value, dr.Cells("remainbal").Value)
             Next
             CrystalReportViewer1.Refresh()
             rptLedger.SetDataSource(dtLedger)
