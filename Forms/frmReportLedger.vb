@@ -29,6 +29,13 @@ Public Class frmReportLedger
     End Sub
     Public SYFrom, SYTo, SchoolYearIDFilter As String
 
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        If dtgList.Rows.Count <> 0 Then
+            printDoc = "Ledger"
+            Report.ShowDialog()
+        End If
+    End Sub
+
     Private Sub btnrefresh_Click(sender As Object, e As EventArgs) Handles btnrefresh.Click
         If txtAccountNumber.Text = "" Then
             Exit Sub
