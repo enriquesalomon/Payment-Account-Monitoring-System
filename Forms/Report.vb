@@ -3,6 +3,8 @@ Imports CrystalDecisions.CrystalReports.Engine
 Public Class Report
     Dim spath As String
 
+    'Dim studentCode, studentAccountno As String
+
 
     Dim rptAdmissionList, rptSchoolFeesList, rptSchoolExpenseList, rptPaymentList, rptPaymentVoidedList, rptLedger As New ReportDocument
 
@@ -14,11 +16,19 @@ Public Class Report
 
         Dim dtAdmissionList, dtSchoolFeesList, dtSchoolExpenseList, dtPaymentList, dtPaymentVoidedList, dtStudentsLedger As New DataTable
 
+
+
         If printDoc = "Admission List" Then
+
+            Dim schoolYeartx As CrystalDecisions.CrystalReports.Engine.TextObject
 
             Try
                 spath = "" & reportpath & "\CrysAdmissionList.rpt"
                 rptAdmissionList.Load(spath)
+
+                schoolYeartx = rptAdmissionList.ReportDefinition.Sections(1).ReportObjects("txtSchoolYear")
+                schoolYeartx.Text = "SY-" & frmReportAdmissionList.cmbSY.Text
+
 
                 With dtAdmissionList
                     .Columns.Add("No")
@@ -45,9 +55,14 @@ Public Class Report
             End Try
         ElseIf printDoc = "School Fees List" Then
 
-            Try
-                spath = "" & reportpath & "\CrysSchoolFeesList.rpt"
+            Dim schoolYeartx As CrystalDecisions.CrystalReports.Engine.TextObject
+
+            'Try
+            spath = "" & reportpath & "\CrysSchoolFeesList.rpt"
                 rptSchoolFeesList.Load(spath)
+
+                schoolYeartx = rptSchoolFeesList.ReportDefinition.Sections(1).ReportObjects("txtSchoolYear")
+                schoolYeartx.Text = "SY-" & frmReportSchoolFeesList.cmbSY.Text
 
                 With dtSchoolFeesList
                     .Columns.Add("No")
@@ -66,15 +81,20 @@ Public Class Report
                 CrystalReportViewer1.ReportSource = rptSchoolFeesList
                 dtSchoolFeesList.Clear()
                 CrystalReportViewer1.Refresh()
-            Catch ex As Exception
-                MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, "Data Error !!")
-            End Try
+            'Catch ex As Exception
+            '    MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, "Data Error !!")
+            'End Try
 
         ElseIf printDoc = "School Expense List" Then
+
+            Dim schoolYeartx As CrystalDecisions.CrystalReports.Engine.TextObject
 
             Try
                 spath = "" & reportpath & "\CrysSchoolExpenseList.rpt"
                 rptSchoolExpenseList.Load(spath)
+
+                schoolYeartx = rptSchoolExpenseList.ReportDefinition.Sections(1).ReportObjects("txtSchoolYear")
+                schoolYeartx.Text = "SY-" & frmReportExpensesList.cmbSY.Text
 
                 With dtSchoolExpenseList
                     .Columns.Add("No")
@@ -99,9 +119,14 @@ Public Class Report
             End Try
         ElseIf printDoc = "Payment List" Then
 
+            Dim schoolYeartx As CrystalDecisions.CrystalReports.Engine.TextObject
+
             Try
                 spath = "" & reportpath & "\CrysPaymentList.rpt"
                 rptPaymentList.Load(spath)
+
+                schoolYeartx = rptPaymentList.ReportDefinition.Sections(1).ReportObjects("txtSchoolYear")
+                schoolYeartx.Text = "SY-" & frmReportPaymentList.cmbSY.Text
 
                 With dtPaymentList
                     .Columns.Add("No")
@@ -128,9 +153,15 @@ Public Class Report
             End Try
         ElseIf printDoc = "Payment Voided List" Then
 
+            Dim schoolYeartx As CrystalDecisions.CrystalReports.Engine.TextObject
+
             Try
                 spath = "" & reportpath & "\CrysPaymentVoidedList.rpt"
                 rptPaymentVoidedList.Load(spath)
+
+                schoolYeartx = rptPaymentVoidedList.ReportDefinition.Sections(1).ReportObjects("txtSchoolYear")
+                schoolYeartx.Text = "SY-" & frmReportVoidedPaymentList.cmbSY.Text
+
 
                 With dtPaymentVoidedList
                     .Columns.Add("No")
@@ -158,9 +189,36 @@ Public Class Report
 
         ElseIf printDoc = "Ledger" Then
 
+            Dim schoolYeartx, studentCodetx, studentAccountnotx, gendertx, StudentNametx, totalPayableAmounttx, balancetx As CrystalDecisions.CrystalReports.Engine.TextObject
+
             Try
                 spath = "" & reportpath & "\CrysLedgerList.rpt"
                 rptLedger.Load(spath)
+
+
+
+                schoolYeartx = rptLedger.ReportDefinition.Sections(1).ReportObjects("txtSchoolYear")
+                schoolYeartx.Text = "SY-" & frmReportLedger.cmbSY.Text
+
+                studentCodetx = rptLedger.ReportDefinition.Sections(1).ReportObjects("txtStudentCode")
+                studentCodetx.Text = frmReportLedger.txtStudentCode.Text
+
+                studentAccountnotx = rptLedger.ReportDefinition.Sections(1).ReportObjects("txtAccountNo")
+                studentAccountnotx.Text = frmReportLedger.txtAccountNumber.Text
+
+                StudentNametx = rptLedger.ReportDefinition.Sections(1).ReportObjects("txtStudentName")
+                StudentNametx.Text = frmReportLedger.txtStudentName.Text
+
+                gendertx = rptLedger.ReportDefinition.Sections(1).ReportObjects("txtGender")
+                gendertx.Text = frmReportLedger.txtGender.Text
+
+                totalPayableAmounttx = rptLedger.ReportDefinition.Sections(1).ReportObjects("txtTotalPayableAmount")
+                totalPayableAmounttx.Text = frmReportLedger.txtTotalPayableAmount.Text
+
+                balancetx = rptLedger.ReportDefinition.Sections(1).ReportObjects("txtBalance")
+                balancetx.Text = frmReportLedger.txtRunningBalance.Text
+
+
 
                 With dtStudentsLedger
                     .Columns.Add("Txn")
