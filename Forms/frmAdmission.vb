@@ -52,7 +52,7 @@
             Case "Save"
                 myadmission.SaveEditRecords()
             Case "Delete"
-                myadmission.c()
+                myadmission.delete()
             Case "Cancel"
                 btnEdit.Enabled = False
                 'btnDelete.Enabled = True

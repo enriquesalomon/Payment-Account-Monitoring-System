@@ -479,7 +479,8 @@ Module modFunction
             If found = True Then
                 ValidateExistingTXNAdmission = True
             Else
-                ValidateExistingTXNAdmission            End If
+                ValidateExistingTXNAdmission()
+            End If
 
             mysqlreader.Close()
             mysqlconn.Close()
