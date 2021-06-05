@@ -89,6 +89,10 @@
     End Sub
 
     Sub delete()
+        If ValidateExistingTXN() Then
+            MsgBox("Record Cannot be Deleted! Found Existing Transaction", MsgBoxStyle.Information)
+            Exit Sub
+        End If
         If MessageBox.Show("Are you sure you want to delete this Record  " & vbNewLine & " " & vbNewLine & "  ", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.Yes Then
             Try
                 connect(condbPOS)
