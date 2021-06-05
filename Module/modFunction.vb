@@ -428,12 +428,12 @@ Module modFunction
 
     End Function
 
-    Public Function ValidateExistingTXN() As Boolean
+    Public Function ValidateExistingTXNAdmission() As Boolean
         Try
             Dim found As Boolean
             Call connect(condbPOS)
             mycommand = mysqlconn.CreateCommand
-            mycommand.CommandText = "Select * from Transactions where StudentID='" & Trim(frmStudent.txtStudentCode.Text) & "'"
+            mycommand.CommandText = "Select * from Transactions where StudentID='" & Trim(frmAdmission.txtStudID.Text) & "'"
 
             myadapter.SelectCommand = mycommand
             myadapter.Fill(mydataset, "Transactions")
@@ -445,9 +445,9 @@ Module modFunction
                 found = False
             End If
             If found = True Then
-                ValidateExistingTXN = True
+                ValidateExistingTXNAdmission = True
             Else
-                ValidateExistingTXN = False
+                ValidateExistingTXNAdmission = False
             End If
 
             mysqlreader.Close()
@@ -456,6 +456,10 @@ Module modFunction
             MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, "Error !!")
 
         End Try
+
+    End Function
+
+
 
     End Function
 End Module
