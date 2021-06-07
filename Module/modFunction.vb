@@ -135,6 +135,12 @@ Module modFunction
             frmMain.tsMenuUsers.Visible = False
             frmMain.tsmenuReports.Visible = True
             frmMain.tsMenuSetting.Visible = True
+
+            frmMain.ToolStripMenuItem8.Visible = True
+            frmMain.ToolStripMenuItem10.Visible = True
+            frmMain.ToolStripMenuItem11.Visible = True
+            frmMain.SchoolExpensesToolStripMenuItem.Visible = True
+
         ElseIf Restrictionlevel = "Administrator" Then
             frmMain.tsMenuProfile.Visible = False
             frmMain.tsMenuAdmission.Visible = False
@@ -144,6 +150,12 @@ Module modFunction
             frmMain.tsMenuUsers.Visible = True
             frmMain.tsmenuReports.Visible = True
             frmMain.tsMenuSetting.Visible = False
+
+            frmMain.ToolStripMenuItem8.Visible = True
+            frmMain.ToolStripMenuItem10.Visible = True
+            frmMain.ToolStripMenuItem11.Visible = True
+            frmMain.SchoolExpensesToolStripMenuItem.Visible = True
+
         ElseIf Restrictionlevel = "Cashier" Then
             frmMain.tsMenuProfile.Visible = False
             frmMain.tsMenuAdmission.Visible = False
@@ -153,6 +165,11 @@ Module modFunction
             frmMain.tsMenuUsers.Visible = False
             frmMain.tsmenuReports.Visible = True
             frmMain.tsMenuSetting.Visible = False
+
+            frmMain.ToolStripMenuItem8.Visible = False
+            frmMain.ToolStripMenuItem10.Visible = False
+            frmMain.ToolStripMenuItem11.Visible = False
+            frmMain.SchoolExpensesToolStripMenuItem.Visible = False
         End If
     End Function
     Public Function getStudentID(ByVal ID As String) As Boolean
