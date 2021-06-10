@@ -87,6 +87,7 @@ Partial Class frmPayments
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.txtsearch = New System.Windows.Forms.TextBox()
         Me.Label39 = New System.Windows.Forms.Label()
+        Me.lblOrNumber = New System.Windows.Forms.Label()
         Me.Panel4.SuspendLayout()
         CType(Me.dtgSales, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
@@ -241,6 +242,7 @@ Partial Class frmPayments
         '
         'panelPayment
         '
+        Me.panelPayment.Controls.Add(Me.lblOrNumber)
         Me.panelPayment.Controls.Add(Me.txtTransID)
         Me.panelPayment.Controls.Add(Me.btnBrowseStudent)
         Me.panelPayment.Controls.Add(Me.Label13)
@@ -838,6 +840,18 @@ Partial Class frmPayments
         Me.Label39.TabIndex = 719
         Me.Label39.Text = "      Search TXN# / ACC#:"
         '
+        'lblOrNumber
+        '
+        Me.lblOrNumber.AutoSize = True
+        Me.lblOrNumber.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblOrNumber.ForeColor = System.Drawing.Color.Red
+        Me.lblOrNumber.Location = New System.Drawing.Point(411, 286)
+        Me.lblOrNumber.Name = "lblOrNumber"
+        Me.lblOrNumber.Size = New System.Drawing.Size(78, 17)
+        Me.lblOrNumber.TabIndex = 752
+        Me.lblOrNumber.Text = "ORNUMBER"
+        Me.lblOrNumber.Visible = False
+        '
         'frmPayments
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -938,4 +952,5 @@ Partial Class frmPayments
     Friend WithEvents Label39 As Label
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
     Friend WithEvents DeleteMenuStrip As ToolStripMenuItem
+    Friend WithEvents lblOrNumber As Label
 End Class

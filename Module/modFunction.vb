@@ -46,7 +46,7 @@ Module modFunction
     Public printDoc, Str, receiptfocus As String
 
     'Public reportpath As String = "C:\AB GADGETS BETA TESTING\REPORTS"
-    Public reportpath As String = "C:\Users\Home\Desktop\Payment System\Report"
+    Public reportpath As String = "C:\Users\1IPAY PAYMENT CENTER\Desktop\Payment System\Report"
 
     Public Function DBpath() As String
         Databasename = Application.StartupPath & "\PAMS_DB" & ".accdb"
@@ -405,6 +405,34 @@ Module modFunction
                 ID = strvar & "0001"
             Else
                 ID = strvar & String.Format("{0:0000}", Mid(Trim(ID), 5, 8) + 1)
+            End If
+            frmPayments.txtTransID.Text = Trim(ID)
+            mysqlreader.Close()
+            mysqlconn.Close()
+        Catch ex As Exception
+            MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, "Error !!")
+
+        End Try
+    End Function
+
+    Public Function getORNumber(ByVal ID As String) As Boolean
+        strvar = "OR-"
+        Try
+            Call connect(condbPOS)
+            mycommand = mysqlconn.CreateCommand
+            mycommand.CommandText = "Select Top 1  * from Transactions order by ID DESC"
+            myadapter.SelectCommand = mycommand
+            myadapter.Fill(mydataset, "Transactions")
+            mydataTable = mydataset.Tables("Transactions")
+            mysqlreader = mycommand.ExecuteReader()
+
+            While mysqlreader.Read()
+                ID = String.Format("{0:0000}", mysqlreader("ORNumber"))
+            End While
+            If ID = "" Then
+                ID = strvar & "0001"
+            Else
+                ID = strvar & String.Format("{0:0000}", Mid(Trim(ID), 4, 8) + 1)
             End If
             frmPayments.txtTransID.Text = Trim(ID)
             mysqlreader.Close()

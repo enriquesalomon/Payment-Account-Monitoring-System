@@ -41,6 +41,14 @@
             MessageBox.Show("Please enter  Student Contact Number!", "Validation Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Exit Sub
         End If
+        If frmStudent.txtMother.Text = "" Then
+            MessageBox.Show("Please enter  Mother's name", "Validation Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Exit Sub
+        End If
+        If frmStudent.txtFather.Text = "" Then
+            MessageBox.Show("Please enter   Father's name!", "Validation Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Exit Sub
+        End If
         If lsaving Then
 
 
@@ -48,7 +56,7 @@
                 getStudentID(frmStudent.txtStudentCode.Text)
                 connect(condbPOS)
                 mycommand = mysqlconn.CreateCommand
-                mycommand.CommandText = "INSERT INTO Student VALUES ('" & frmStudent.txtStudentCode.Text & "','" & frmStudent.txtLname.Text & "','" & Trim(frmStudent.txtFname.Text) & "','" & Trim(frmStudent.txtMname.Text) & "','" & Trim(frmStudent.cboGender.Text) & "','" & Trim(frmStudent.dtBirthdate.Text) & "','" & Trim(frmStudent.txtcontactno.Text) & "','" & Trim(frmStudent.txtBaranggay.Text) & "','" & Trim(frmStudent.txtMunCity.Text) & "','" & Trim(frmStudent.txtProvince.Text) & "','" & Trim(frmStudent.txtFullnameICE.Text) & "','" & Trim(frmStudent.txtContactNoICE.Text) & "','" & Format(DateAndTime.Now, "Short Date") & "','" & Format(DateAndTime.Now, "Short Date") & "')"
+                mycommand.CommandText = "INSERT INTO Student VALUES ('" & frmStudent.txtStudentCode.Text & "','" & frmStudent.txtLname.Text & "','" & Trim(frmStudent.txtFname.Text) & "','" & Trim(frmStudent.txtMname.Text) & "','" & Trim(frmStudent.cboGender.Text) & "','" & Trim(frmStudent.dtBirthdate.Text) & "','" & Trim(frmStudent.txtcontactno.Text) & "','" & Trim(frmStudent.txtBaranggay.Text) & "','" & Trim(frmStudent.txtMunCity.Text) & "','" & Trim(frmStudent.txtProvince.Text) & "','" & Trim(frmStudent.txtFullnameICE.Text) & "','" & Trim(frmStudent.txtContactNoICE.Text) & "','" & Format(DateAndTime.Now, "Short Date") & "','" & Format(DateAndTime.Now, "Short Date") & "','" & Trim(frmStudent.txtMother.Text) & "','" & Trim(frmStudent.txtFather.Text) & "')"
                 mycommand.ExecuteNonQuery()
                 LoadStudentList()
                 frmStudent.ClearMe()
@@ -68,7 +76,7 @@
                 Try
                     connect(condbPOS)
                     mycommand = mysqlconn.CreateCommand
-                    mycommand.CommandText = "UPDATE Student set Lname='" & frmStudent.txtLname.Text & "',Fname='" & frmStudent.txtFname.Text & "',Mname='" & frmStudent.txtMname.Text & "',Gender='" & frmStudent.cboGender.Text & "',Birthdate='" & frmStudent.dtBirthdate.Text & "',ContactNo='" & frmStudent.txtcontactno.Text & "',Barangay='" & frmStudent.txtBaranggay.Text & "',City='" & frmStudent.txtMunCity.Text & "',Province='" & frmStudent.txtProvince.Text & "',FullnameInCaseEmerg='" & frmStudent.txtFullnameICE.Text & "',ContactInCaseEmerg='" & frmStudent.txtContactNoICE.Text & "',DateModified='" & Format(DateAndTime.Now, "Short Date") & "' where ID ='" & frmStudent.txtStudentCode.Text & "'"
+                    mycommand.CommandText = "UPDATE Student set Lname='" & frmStudent.txtLname.Text & "',Fname='" & frmStudent.txtFname.Text & "',Mname='" & frmStudent.txtMname.Text & "',Gender='" & frmStudent.cboGender.Text & "',Birthdate='" & frmStudent.dtBirthdate.Text & "',ContactNo='" & frmStudent.txtcontactno.Text & "',Barangay='" & frmStudent.txtBaranggay.Text & "',City='" & frmStudent.txtMunCity.Text & "',Province='" & frmStudent.txtProvince.Text & "',FullnameInCaseEmerg='" & frmStudent.txtFullnameICE.Text & "',ContactInCaseEmerg='" & frmStudent.txtContactNoICE.Text & "',DateModified='" & Format(DateAndTime.Now, "Short Date") & "',MothersName='" & frmStudent.txtMother.Text & "',FathersName='" & frmStudent.txtFather.Text & "' where ID ='" & frmStudent.txtStudentCode.Text & "'"
                     mycommand.ExecuteNonQuery()
                     LoadStudentList()
                     frmStudent.ClearMe()
@@ -218,6 +226,8 @@
                     frmStudent.txtProvince.Text = xrow("Province").ToString
                     frmStudent.txtFullnameICE.Text = xrow("FullnameInCaseEmerg").ToString
                     frmStudent.txtContactNoICE.Text = xrow("ContactInCaseEmerg").ToString
+                    frmStudent.txtMother.Text = xrow("MothersName").ToString
+                    frmStudent.txtFather.Text = xrow("FathersName").ToString
                     Dim age = 0
                     With frmStudent.dtBirthdate.Value
                         Dim datenow As DateTime = New DateTime(Now.Year, .Month, .Day)

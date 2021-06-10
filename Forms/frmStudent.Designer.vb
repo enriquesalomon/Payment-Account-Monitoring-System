@@ -73,6 +73,11 @@ Partial Class frmStudent
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtLname = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtMother = New System.Windows.Forms.TextBox()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.txtFather = New System.Windows.Forms.TextBox()
+        Me.Label14 = New System.Windows.Forms.Label()
         Me.Panel4.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.dtgStudent, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -294,6 +299,11 @@ Partial Class frmStudent
         '
         'panelStudent
         '
+        Me.panelStudent.Controls.Add(Me.Label14)
+        Me.panelStudent.Controls.Add(Me.txtFather)
+        Me.panelStudent.Controls.Add(Me.Label13)
+        Me.panelStudent.Controls.Add(Me.Label1)
+        Me.panelStudent.Controls.Add(Me.txtMother)
         Me.panelStudent.Controls.Add(Me.txtProvince)
         Me.panelStudent.Controls.Add(Me.txtMunCity)
         Me.panelStudent.Controls.Add(Me.txtContactNoICE)
@@ -326,7 +336,7 @@ Partial Class frmStudent
         Me.panelStudent.Controls.Add(Me.Label4)
         Me.panelStudent.Location = New System.Drawing.Point(197, 101)
         Me.panelStudent.Name = "panelStudent"
-        Me.panelStudent.Size = New System.Drawing.Size(660, 366)
+        Me.panelStudent.Size = New System.Drawing.Size(660, 394)
         Me.panelStudent.TabIndex = 593
         Me.panelStudent.Visible = False
         '
@@ -664,6 +674,57 @@ Partial Class frmStudent
         Me.Label4.TabIndex = 607
         Me.Label4.Text = "Last Name:"
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(397, 209)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(57, 17)
+        Me.Label1.TabIndex = 662
+        Me.Label1.Text = "Mother:"
+        '
+        'txtMother
+        '
+        Me.txtMother.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtMother.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtMother.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtMother.Location = New System.Drawing.Point(456, 205)
+        Me.txtMother.Name = "txtMother"
+        Me.txtMother.Size = New System.Drawing.Size(182, 22)
+        Me.txtMother.TabIndex = 661
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.ForeColor = System.Drawing.Color.Green
+        Me.Label13.Location = New System.Drawing.Point(393, 186)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(96, 16)
+        Me.Label13.TabIndex = 663
+        Me.Label13.Text = "PARENTS NAME"
+        '
+        'txtFather
+        '
+        Me.txtFather.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtFather.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtFather.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtFather.Location = New System.Drawing.Point(456, 230)
+        Me.txtFather.Name = "txtFather"
+        Me.txtFather.Size = New System.Drawing.Size(182, 22)
+        Me.txtFather.TabIndex = 664
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(403, 235)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(52, 17)
+        Me.Label14.TabIndex = 665
+        Me.Label14.Text = "Father:"
+        '
         'frmStudent
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -745,4 +806,9 @@ Partial Class frmStudent
     Friend WithEvents Label3 As Label
     Friend WithEvents txtLname As TextBox
     Friend WithEvents Label4 As Label
+    Friend WithEvents Label14 As Label
+    Friend WithEvents txtFather As TextBox
+    Friend WithEvents Label13 As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents txtMother As TextBox
 End Class

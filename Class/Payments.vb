@@ -206,7 +206,7 @@
             If MessageBox.Show("Accept this Payment?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
                 connect(condbPOS)
                 mycommand = mysqlconn.CreateCommand
-                mycommand.CommandText = "INSERT INTO Transactions VALUES ('" & frmPayments.txtTransID.Text & "','" & frmPayments.txtAccountID.Text & "','" & frmPayments.txtStudentCode.Text & "','" & SchoolYearID & "','" & frmPayments.txtGradeSection.Text & "','" & frmPayments.txtTotalpayable.Text & "','" & frmPayments.txtbalance.Text & "','" & frmPayments.dtpaymentDate.Text & "','" & frmPayments.txtAmountPaid.Text & "','" & UserID & "','" & Format(DateAndTime.Now, "Short Date") & "','Null')"
+                mycommand.CommandText = "INSERT INTO Transactions VALUES ('" & frmPayments.txtTransID.Text & "','" & frmPayments.txtAccountID.Text & "','" & frmPayments.txtStudentCode.Text & "','" & SchoolYearID & "','" & frmPayments.txtGradeSection.Text & "','" & frmPayments.txtTotalpayable.Text & "','" & frmPayments.txtbalance.Text & "','" & frmPayments.dtpaymentDate.Text & "','" & frmPayments.txtAmountPaid.Text & "','" & UserID & "','" & Format(DateAndTime.Now, "Short Date") & "','Null','" & frmPayments.lblOrNumber.Text & "')"
                 mycommand.ExecuteNonQuery()
                 LoadListTransaction()
                 frmPayments.cleartx()

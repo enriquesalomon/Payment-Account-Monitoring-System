@@ -18,6 +18,9 @@
         txtMunCity.Clear()
         txtProvince.Clear()
 
+        txtMother.Clear()
+        txtFather.Clear()
+
     End Sub
     Private Sub ClosePanel()
         panelStudent.Visible = False

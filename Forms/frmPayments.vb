@@ -52,6 +52,7 @@
     Private Sub btnNew_Click(sender As Object, e As EventArgs) Handles btnNew.Click
         ButtonClick("New")
         getTransID(txtTransID.Text)
+        getORNumber(lblOrNumber.Text)
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
