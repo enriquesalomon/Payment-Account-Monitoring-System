@@ -429,12 +429,12 @@ Module modFunction
             While mysqlreader.Read()
                 ID = String.Format("{0:0000}", mysqlreader("ORNumber"))
             End While
-            If ID = "" Then
+            If ID = "ORNUMBER" Then
                 ID = strvar & "0001"
             Else
                 ID = strvar & String.Format("{0:0000}", Mid(Trim(ID), 4, 8) + 1)
             End If
-            frmPayments.txtTransID.Text = Trim(ID)
+            frmPayments.lblOrNumber.Text = Trim(ID)
             mysqlreader.Close()
             mysqlconn.Close()
         Catch ex As Exception
