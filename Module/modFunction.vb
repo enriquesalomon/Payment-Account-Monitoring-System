@@ -45,12 +45,11 @@ Module modFunction
 
     Public printDoc, Str, receiptfocus As String
 
-    'Public reportpath As String = "C:\AB GADGETS BETA TESTING\REPORTS"
+
     Public reportpath As String = "C:\Users\1IPAY PAYMENT CENTER\Desktop\Payment System\Report"
 
     Public Function DBpath() As String
         Databasename = Application.StartupPath & "\PAMS_DB" & ".accdb"
-        'Databasename = "C:\AB GADGETS BETA TESTING\DB\POSIS_DB" & ".accdb"
         DBpath = "provider=microsoft.ace.oledb.12.0;" & "data source=" & Databasename & ";Jet OLEDB:Database Password="
     End Function
 
