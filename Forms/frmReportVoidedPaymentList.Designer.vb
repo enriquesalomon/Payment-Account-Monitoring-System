@@ -33,9 +33,11 @@ Partial Class frmReportVoidedPaymentList
         Me.lblrecordcount = New System.Windows.Forms.Label()
         Me.dtgSales = New System.Windows.Forms.DataGridView()
         Me.btnrefresh = New System.Windows.Forms.Button()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.cmbSY = New System.Windows.Forms.ComboBox()
         Me.Label40 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.dtrangeFrom = New System.Windows.Forms.DateTimePicker()
+        Me.dtrangeTo = New System.Windows.Forms.DateTimePicker()
         Me.Panel4.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.dtgSales, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -169,26 +171,6 @@ Partial Class frmReportVoidedPaymentList
         Me.btnrefresh.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnrefresh.UseVisualStyleBackColor = True
         '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(586, 40)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(87, 17)
-        Me.Label3.TabIndex = 724
-        Me.Label3.Text = "School Year:"
-        '
-        'cmbSY
-        '
-        Me.cmbSY.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbSY.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbSY.FormattingEnabled = True
-        Me.cmbSY.Location = New System.Drawing.Point(677, 37)
-        Me.cmbSY.Name = "cmbSY"
-        Me.cmbSY.Size = New System.Drawing.Size(179, 24)
-        Me.cmbSY.TabIndex = 723
-        '
         'Label40
         '
         Me.Label40.AutoSize = True
@@ -200,14 +182,54 @@ Partial Class frmReportVoidedPaymentList
         Me.Label40.TabIndex = 722
         Me.Label40.Text = "LIST"
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(724, 43)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(22, 17)
+        Me.Label2.TabIndex = 731
+        Me.Label2.Text = "To"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(567, 43)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(40, 17)
+        Me.Label1.TabIndex = 730
+        Me.Label1.Text = "From"
+        '
+        'dtrangeFrom
+        '
+        Me.dtrangeFrom.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtrangeFrom.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtrangeFrom.Location = New System.Drawing.Point(610, 38)
+        Me.dtrangeFrom.Name = "dtrangeFrom"
+        Me.dtrangeFrom.Size = New System.Drawing.Size(109, 23)
+        Me.dtrangeFrom.TabIndex = 728
+        '
+        'dtrangeTo
+        '
+        Me.dtrangeTo.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtrangeTo.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtrangeTo.Location = New System.Drawing.Point(747, 38)
+        Me.dtrangeTo.Name = "dtrangeTo"
+        Me.dtrangeTo.Size = New System.Drawing.Size(109, 23)
+        Me.dtrangeTo.TabIndex = 729
+        '
         'frmReportVoidedPaymentList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(963, 704)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.dtrangeFrom)
+        Me.Controls.Add(Me.dtrangeTo)
         Me.Controls.Add(Me.btnrefresh)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.cmbSY)
         Me.Controls.Add(Me.Label40)
         Me.Controls.Add(Me.dtgSales)
         Me.Controls.Add(Me.Panel2)
@@ -234,7 +256,9 @@ Partial Class frmReportVoidedPaymentList
     Friend WithEvents lblrecordcount As Label
     Friend WithEvents dtgSales As DataGridView
     Friend WithEvents btnrefresh As Button
-    Friend WithEvents Label3 As Label
-    Friend WithEvents cmbSY As ComboBox
     Friend WithEvents Label40 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents dtrangeFrom As DateTimePicker
+    Friend WithEvents dtrangeTo As DateTimePicker
 End Class

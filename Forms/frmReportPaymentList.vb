@@ -3,7 +3,6 @@
 Public Class frmReportPaymentList
     Private Sub frmReportPaymentList_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         mypayments.loaddtgPaymentsReport()
-        mypayments.loadSY()
     End Sub
 
     Private Sub dtgSales_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgSales.CellClick
@@ -27,25 +26,10 @@ Public Class frmReportPaymentList
 
     Private Sub btnrefresh_Click(sender As Object, e As EventArgs) Handles btnrefresh.Click
 
-        If cmbSY.Text <> Nothing Then
-            mypayments.loadPaymentsReport()
-        End If
+        'If cmbSY.Text <> Nothing Then
+        mypayments.loadPaymentsReport()
+        'End If
     End Sub
 
-    Private Sub cmbSY_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbSY.SelectedIndexChanged
-        SYFrom = ""
-        SYTo = ""
-        Dim input As String = cmbSY.SelectedItem.ToString
-        Dim result As String() = Regex.Split(input, "-")
-        Dim i = 0
-        For Each s As String In result
-            If i = 0 Then
-                SYFrom = s
-                i += 1
-            Else
-                SYTo = s
-            End If
 
-        Next
-    End Sub
 End Class

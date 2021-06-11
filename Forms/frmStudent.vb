@@ -11,6 +11,8 @@
         cboGender.Text = Nothing
         dtBirthdate.Text = Nothing
         txtcontactno.Clear()
+        txtFb.Clear()
+        txtEmailadd.Clear()
 
         txtFullnameICE.Clear()
         txtContactNoICE.Clear()

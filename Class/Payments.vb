@@ -275,23 +275,7 @@
         End Try
     End Sub
 
-    Sub loadSY()
 
-        frmReportPaymentList.cmbSY.Items.Clear()
-        Call connect(condbPOS)
-        mycommand = mysqlconn.CreateCommand
-        mycommand.CommandText = "Select * from SchoolYear"
-        myadapter.SelectCommand = mycommand
-        myadapter.Fill(mydataset, "SchoolYear")
-        mydataTable = mydataset.Tables("SchoolYear")
-        mysqlreader = mycommand.ExecuteReader()
-        While mysqlreader.Read()
-            frmReportPaymentList.cmbSY.Items.Add(mysqlreader("SYFrom").ToString + "-" + mysqlreader("SYTo").ToString)
-
-        End While
-        mysqlreader.Close()
-        mysqlconn.Close()
-    End Sub
     Sub loaddtgPaymentsReport()
         frmReportPaymentList.dtgSales.ColumnCount = 9
 
@@ -345,25 +329,25 @@
 
     Sub loadPaymentsReport()
 
-        Try
-            frmReportPaymentList.SchoolYearIDFilter = ""
-            Call connect(condbPOS)
-            mycommand = mysqlconn.CreateCommand
-            mycommand.CommandText = "Select * from SchoolYear where SYFrom ='" & frmReportPaymentList.SYFrom & "' AND SYTo ='" & frmReportPaymentList.SYTo & "' "
-            myadapter.SelectCommand = mycommand
-            myadapter.Fill(mydataset, "SchoolYear")
-            mydataTable = mydataset.Tables("SchoolYear")
-            mysqlreader = mycommand.ExecuteReader()
-            While mysqlreader.Read()
-                frmReportPaymentList.SchoolYearIDFilter = mysqlreader("ID").ToString
+        'Try
+        '    frmReportPaymentList.SchoolYearIDFilter = ""
+        '    Call connect(condbPOS)
+        '    mycommand = mysqlconn.CreateCommand
+        '    mycommand.CommandText = "Select * from SchoolYear where TransDate between '" & CDate(frmReportPaymentList.dtrangeFrom.Text) & "' and '" & CDate(frmReportPaymentList.dtrangeTo.Text) & "' "
+        '    myadapter.SelectCommand = mycommand
+        '    myadapter.Fill(mydataset, "SchoolYear")
+        '    mydataTable = mydataset.Tables("SchoolYear")
+        '    mysqlreader = mycommand.ExecuteReader()
+        '    While mysqlreader.Read()
+        '        frmReportPaymentList.SchoolYearIDFilter = mysqlreader("ID").ToString
 
-            End While
-            mysqlreader.Close()
-            mysqlconn.Close()
-        Catch ex As Exception
-            MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, "Error !!")
+        '    End While
+        '    mysqlreader.Close()
+        '    mysqlconn.Close()
+        'Catch ex As Exception
+        '    MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, "Error !!")
 
-        End Try
+        'End Try
 
         Try
             frmReportPaymentList.dtgSales.Rows.Clear()
@@ -372,7 +356,7 @@
             'If searching = True Then
             '    mycommand.CommandText = "Select * from Transactions where ID Like '%" & frmPayments.txtsearch.Text & "%' OR StudentAccountID Like '%" & frmPayments.txtsearch.Text & "%' AND Void='NULL'"
             'Else
-            mycommand.CommandText = "Select * from Transactions where SchoolYearID= '" & frmReportPaymentList.SchoolYearIDFilter & "' AND Void='NULL'"
+            mycommand.CommandText = "Select * from Transactions where TransDate between '" & CDate(frmReportPaymentList.dtrangeFrom.Text) & "' and '" & CDate(frmReportPaymentList.dtrangeTo.Text) & "' AND Void='NULL'"
             'End If
 
             myadapter.SelectCommand = mycommand
@@ -439,23 +423,7 @@
 
 
 
-    Sub loadSYVoided()
 
-        frmReportVoidedPaymentList.cmbSY.Items.Clear()
-        Call connect(condbPOS)
-        mycommand = mysqlconn.CreateCommand
-        mycommand.CommandText = "Select * from SchoolYear"
-        myadapter.SelectCommand = mycommand
-        myadapter.Fill(mydataset, "SchoolYear")
-        mydataTable = mydataset.Tables("SchoolYear")
-        mysqlreader = mycommand.ExecuteReader()
-        While mysqlreader.Read()
-            frmReportVoidedPaymentList.cmbSY.Items.Add(mysqlreader("SYFrom").ToString + "-" + mysqlreader("SYTo").ToString)
-
-        End While
-        mysqlreader.Close()
-        mysqlconn.Close()
-    End Sub
     Sub loaddtgVoidedPaymentsReport()
         frmReportVoidedPaymentList.dtgSales.ColumnCount = 8
 
@@ -504,25 +472,6 @@
 
     Sub loadVoidedPaymentReport()
 
-        Try
-            frmReportPaymentList.SchoolYearIDFilter = ""
-            Call connect(condbPOS)
-            mycommand = mysqlconn.CreateCommand
-            mycommand.CommandText = "Select * from SchoolYear where SYFrom ='" & frmReportVoidedPaymentList.SYFrom & "' AND SYTo ='" & frmReportVoidedPaymentList.SYTo & "' "
-            myadapter.SelectCommand = mycommand
-            myadapter.Fill(mydataset, "SchoolYear")
-            mydataTable = mydataset.Tables("SchoolYear")
-            mysqlreader = mycommand.ExecuteReader()
-            While mysqlreader.Read()
-                frmReportVoidedPaymentList.SchoolYearIDFilter = mysqlreader("ID").ToString
-
-            End While
-            mysqlreader.Close()
-            mysqlconn.Close()
-        Catch ex As Exception
-            MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, "Error !!")
-
-        End Try
 
         Try
             frmReportVoidedPaymentList.dtgSales.Rows.Clear()
@@ -531,7 +480,7 @@
             'If searching = True Then
             '    mycommand.CommandText = "Select * from Transactions where ID Like '%" & frmPayments.txtsearch.Text & "%' OR StudentAccountID Like '%" & frmPayments.txtsearch.Text & "%' AND Void='NULL'"
             'Else
-            mycommand.CommandText = "Select * from Transactions where SchoolYearID= '" & frmReportVoidedPaymentList.SchoolYearIDFilter & "' AND Void='Yes'"
+            mycommand.CommandText = "Select * from Transactions where  TransDate between '" & CDate(frmReportVoidedPaymentList.dtrangeFrom.Text) & "' and '" & CDate(frmReportVoidedPaymentList.dtrangeTo.Text) & "' AND Void='Yes'"
             'End If
 
             myadapter.SelectCommand = mycommand

@@ -4,7 +4,6 @@ Public Class frmReportVoidedPaymentList
     Public SYFrom, SYTo, SchoolYearIDFilter As String
     Private Sub frmReportVoidedPaymentList_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         mypayments.loaddtgVoidedPaymentsReport()
-        mypayments.loadSYVoided()
     End Sub
 
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
@@ -27,25 +26,8 @@ Public Class frmReportVoidedPaymentList
 
     Private Sub btnrefresh_Click(sender As Object, e As EventArgs) Handles btnrefresh.Click
 
-        If cmbSY.Text <> Nothing Then
-            mypayments.loadVoidedPaymentReport()
-        End If
+        mypayments.loadVoidedPaymentReport()
     End Sub
 
-    Private Sub cmbSY_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbSY.SelectedIndexChanged
-        SYFrom = ""
-        SYTo = ""
-        Dim input As String = cmbSY.SelectedItem.ToString
-        Dim result As String() = Regex.Split(input, "-")
-        Dim i = 0
-        For Each s As String In result
-            If i = 0 Then
-                SYFrom = s
-                i += 1
-            Else
-                SYTo = s
-            End If
 
-        Next
-    End Sub
 End Class

@@ -126,7 +126,8 @@ Public Class Report
                 rptPaymentList.Load(spath)
 
                 schoolYeartx = rptPaymentList.ReportDefinition.Sections(1).ReportObjects("txtSchoolYear")
-                schoolYeartx.Text = "SY-" & frmReportPaymentList.cmbSY.Text
+                schoolYeartx.Text = "Report as of " & frmReportPaymentList.dtrangeFrom.Text & " - " & frmReportPaymentList.dtrangeTo.Text
+
 
                 With dtPaymentList
                     .Columns.Add("No")
@@ -160,7 +161,7 @@ Public Class Report
                 rptPaymentVoidedList.Load(spath)
 
                 schoolYeartx = rptPaymentVoidedList.ReportDefinition.Sections(1).ReportObjects("txtSchoolYear")
-                schoolYeartx.Text = "SY-" & frmReportVoidedPaymentList.cmbSY.Text
+                schoolYeartx.Text = "Report as of " & frmReportVoidedPaymentList.dtrangeFrom.Text & " - " & frmReportVoidedPaymentList.dtrangeTo.Text
 
 
                 With dtPaymentVoidedList
