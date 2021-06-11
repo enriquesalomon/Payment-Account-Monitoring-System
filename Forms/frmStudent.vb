@@ -93,6 +93,7 @@
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+
         ButtonClick("Save")
     End Sub
 
@@ -120,5 +121,21 @@
         txtsearch.Clear()
         searching = False
         mystudent.LoadStudentList()
+    End Sub
+
+    Private Sub txtcontactno_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcontactno.KeyPress
+        If Asc(e.KeyChar) <> 8 Then
+            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+                e.Handled = True
+            End If
+        End If
+    End Sub
+
+    Private Sub txtContactNoICE_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtContactNoICE.KeyPress
+        If Asc(e.KeyChar) <> 8 Then
+            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+                e.Handled = True
+            End If
+        End If
     End Sub
 End Class

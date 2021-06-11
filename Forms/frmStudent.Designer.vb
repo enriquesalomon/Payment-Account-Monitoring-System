@@ -23,8 +23,8 @@ Partial Class frmStudent
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmStudent))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -41,6 +41,10 @@ Partial Class frmStudent
         Me.Label39 = New System.Windows.Forms.Label()
         Me.Label40 = New System.Windows.Forms.Label()
         Me.panelStudent = New System.Windows.Forms.Panel()
+        Me.txtEmailadd = New System.Windows.Forms.TextBox()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.txtFb = New System.Windows.Forms.TextBox()
+        Me.Label15 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.txtFather = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
@@ -78,10 +82,6 @@ Partial Class frmStudent
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtLname = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.txtFb = New System.Windows.Forms.TextBox()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.txtEmailadd = New System.Windows.Forms.TextBox()
-        Me.Label16 = New System.Windows.Forms.Label()
         Me.Panel4.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.dtgStudent, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -209,14 +209,14 @@ Partial Class frmStudent
         Me.dtgStudent.AllowUserToResizeRows = False
         Me.dtgStudent.BackgroundColor = System.Drawing.Color.Gainsboro
         Me.dtgStudent.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dtgStudent.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.Gainsboro
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dtgStudent.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.dtgStudent.ColumnHeadersHeight = 26
         Me.dtgStudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dtgStudent.Dock = System.Windows.Forms.DockStyle.Bottom
@@ -228,12 +228,12 @@ Partial Class frmStudent
         Me.dtgStudent.ReadOnly = True
         Me.dtgStudent.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         Me.dtgStudent.RowHeadersVisible = False
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
-        Me.dtgStudent.RowsDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White
+        Me.dtgStudent.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.dtgStudent.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtgStudent.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
         Me.dtgStudent.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.DodgerBlue
@@ -347,6 +347,46 @@ Partial Class frmStudent
         Me.panelStudent.Size = New System.Drawing.Size(660, 394)
         Me.panelStudent.TabIndex = 593
         Me.panelStudent.Visible = False
+        '
+        'txtEmailadd
+        '
+        Me.txtEmailadd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtEmailadd.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtEmailadd.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtEmailadd.Location = New System.Drawing.Point(456, 172)
+        Me.txtEmailadd.Name = "txtEmailadd"
+        Me.txtEmailadd.Size = New System.Drawing.Size(182, 22)
+        Me.txtEmailadd.TabIndex = 668
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.Location = New System.Drawing.Point(384, 171)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(74, 17)
+        Me.Label16.TabIndex = 669
+        Me.Label16.Text = "EmailAdd:"
+        '
+        'txtFb
+        '
+        Me.txtFb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtFb.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtFb.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtFb.Location = New System.Drawing.Point(150, 172)
+        Me.txtFb.Name = "txtFb"
+        Me.txtFb.Size = New System.Drawing.Size(231, 22)
+        Me.txtFb.TabIndex = 666
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Location = New System.Drawing.Point(74, 174)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(77, 17)
+        Me.Label15.TabIndex = 667
+        Me.Label15.Text = "Facebook:"
         '
         'Label14
         '
@@ -732,46 +772,6 @@ Partial Class frmStudent
         Me.Label4.Size = New System.Drawing.Size(81, 17)
         Me.Label4.TabIndex = 607
         Me.Label4.Text = "Last Name:"
-        '
-        'txtFb
-        '
-        Me.txtFb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtFb.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtFb.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtFb.Location = New System.Drawing.Point(150, 172)
-        Me.txtFb.Name = "txtFb"
-        Me.txtFb.Size = New System.Drawing.Size(231, 22)
-        Me.txtFb.TabIndex = 666
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(74, 174)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(77, 17)
-        Me.Label15.TabIndex = 667
-        Me.Label15.Text = "Facebook:"
-        '
-        'txtEmailadd
-        '
-        Me.txtEmailadd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtEmailadd.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtEmailadd.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEmailadd.Location = New System.Drawing.Point(456, 172)
-        Me.txtEmailadd.Name = "txtEmailadd"
-        Me.txtEmailadd.Size = New System.Drawing.Size(182, 22)
-        Me.txtEmailadd.TabIndex = 668
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(384, 171)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(74, 17)
-        Me.Label16.TabIndex = 669
-        Me.Label16.Text = "EmailAdd:"
         '
         'frmStudent
         '
