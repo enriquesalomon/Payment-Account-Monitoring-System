@@ -9,6 +9,7 @@ Public Class frmReportAdmissionList
     Private Sub frmReportAdmissionList_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         myadmission.loaddtgAdmissionReport()
         myadmission.loadSY()
+        myadmission.LoadGradeSectionReport()
     End Sub
     Public SYFrom, SYTo, SchoolYearIDFilter As String
 
@@ -45,6 +46,9 @@ Public Class frmReportAdmissionList
     End Sub
 
     Private Sub btnrefresh_Click(sender As Object, e As EventArgs) Handles btnrefresh.Click
+        If cmbGradeSection.Text = Nothing Then
+            MsgBox("Please select Grade/Section")
+        End If
         If cmbSY.Text <> Nothing Then
             myadmission.loadSYAdmissionReport()
         End If

@@ -36,6 +36,8 @@ Partial Class frmReportAdmissionList
         Me.Label3 = New System.Windows.Forms.Label()
         Me.cmbSY = New System.Windows.Forms.ComboBox()
         Me.btnrefresh = New System.Windows.Forms.Button()
+        Me.cmbGradeSection = New System.Windows.Forms.ComboBox()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.Panel4.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.dtgList, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -200,11 +202,33 @@ Partial Class frmReportAdmissionList
         Me.btnrefresh.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnrefresh.UseVisualStyleBackColor = True
         '
+        'cmbGradeSection
+        '
+        Me.cmbGradeSection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbGradeSection.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbGradeSection.FormattingEnabled = True
+        Me.cmbGradeSection.Location = New System.Drawing.Point(364, 30)
+        Me.cmbGradeSection.Name = "cmbGradeSection"
+        Me.cmbGradeSection.Size = New System.Drawing.Size(218, 25)
+        Me.cmbGradeSection.TabIndex = 712
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(260, 32)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(104, 17)
+        Me.Label6.TabIndex = 711
+        Me.Label6.Text = "Grade-Section:"
+        '
         'frmReportAdmissionList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(964, 532)
+        Me.Controls.Add(Me.cmbGradeSection)
+        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.btnrefresh)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.cmbSY)
@@ -237,4 +261,6 @@ Partial Class frmReportAdmissionList
     Friend WithEvents cmbSY As ComboBox
     Friend WithEvents btnrefresh As Button
     Friend WithEvents btnPrint As Button
+    Friend WithEvents cmbGradeSection As ComboBox
+    Friend WithEvents Label6 As Label
 End Class

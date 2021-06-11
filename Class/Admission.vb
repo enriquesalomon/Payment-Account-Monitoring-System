@@ -120,6 +120,26 @@
         End Try
     End Sub
 
+    Sub LoadGradeSectionReport()
+        Try
+            frmReportAdmissionList.cmbGradeSection.Items.Clear()
+            Call connect(condbPOS)
+            mycommand = mysqlconn.CreateCommand
+            mycommand.CommandText = "Select * from GradeSection"
+            myadapter.SelectCommand = mycommand
+            myadapter.Fill(mydataset, "GradeSection")
+            mydataTable = mydataset.Tables("GradeSection")
+            mysqlreader = mycommand.ExecuteReader()
+            While mysqlreader.Read()
+                frmReportAdmissionList.cmbGradeSection.Items.Add(mysqlreader("GradeSection"))
+            End While
+            mysqlreader.Close()
+            mysqlconn.Close()
+        Catch ex As Exception
+            MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, "Error !!")
+
+        End Try
+    End Sub
     Sub loadlist()
         Try
             frmAdmission.dtgList.Rows.Clear()
@@ -373,13 +393,33 @@
             frmReportAdmissionList.SchoolYearIDFilter = ""
             Call connect(condbPOS)
             mycommand = mysqlconn.CreateCommand
-            mycommand.CommandText = "Select * from SchoolYear where SYFrom ='" & frmReportAdmissionList.SYFrom & "' AND SYTo ='" & frmReportAdmissionList.SYTo & "' "
+            mycommand.CommandText = "Select * from SchoolYear where  SYFrom ='" & frmReportAdmissionList.SYFrom & "' AND SYTo ='" & frmReportAdmissionList.SYTo & "' "
             myadapter.SelectCommand = mycommand
             myadapter.Fill(mydataset, "SchoolYear")
             mydataTable = mydataset.Tables("SchoolYear")
             mysqlreader = mycommand.ExecuteReader()
             While mysqlreader.Read()
                 frmReportAdmissionList.SchoolYearIDFilter = mysqlreader("ID").ToString
+
+            End While
+            mysqlreader.Close()
+            mysqlconn.Close()
+        Catch ex As Exception
+            MsgBox("Error: " & ex.Source & ": " & ex.Message, MsgBoxStyle.OkOnly, "Error !!")
+
+        End Try
+        Dim gradesectionFilter As String = ""
+        Try
+
+            Call connect(condbPOS)
+            mycommand = mysqlconn.CreateCommand
+            mycommand.CommandText = "Select * from GradeSection where  GradeSection ='" & frmReportAdmissionList.cmbGradeSection.Text & "'"
+            myadapter.SelectCommand = mycommand
+            myadapter.Fill(mydataset, "GradeSection")
+            mydataTable = mydataset.Tables("GradeSection")
+            mysqlreader = mycommand.ExecuteReader()
+            While mysqlreader.Read()
+                gradesectionFilter = mysqlreader("ID").ToString
 
             End While
             mysqlreader.Close()
@@ -397,7 +437,7 @@
             'If searching = True Then
             'mycommand.CommandText = "Select * from (Admission inner join Student on Student.ID = Admission.StudID) where Admission.SchoolYearID  ='" & SchoolYearID & "' AND Fname Like '%" & frmAdmission.txtsearch.Text & "%' OR Lname Like '%" & frmAdmission.txtsearch.Text & "%'"
             'Else
-            mycommand.CommandText = "Select * from (Admission inner join Student on Student.ID = Admission.StudID) where Admission.SchoolYearID  ='" & frmReportAdmissionList.SchoolYearIDFilter & "'"
+            mycommand.CommandText = "Select * from (Admission inner join Student on Student.ID = Admission.StudID) where Admission.SchoolYearID  ='" & frmReportAdmissionList.SchoolYearIDFilter & "' AND GradeSectionID='" & gradesectionFilter & "'"
             'End If
 
             myadapter.SelectCommand = mycommand
