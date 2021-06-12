@@ -132,6 +132,7 @@ Public Class Report
                 With dtPaymentList
                     .Columns.Add("No")
                     .Columns.Add("Txn")
+                    .Columns.Add("ORNum")
                     .Columns.Add("AcctNo")
                     .Columns.Add("StudID")
                     .Columns.Add("Name")
@@ -142,7 +143,7 @@ Public Class Report
                 End With
 
                 For Each dr As DataGridViewRow In frmReportPaymentList.dtgSales.Rows
-                    dtPaymentList.Rows.Add(dr.Cells("no").Value, dr.Cells("txn").Value, dr.Cells("acctno").Value, dr.Cells("studID").Value, dr.Cells("fullname").Value, dr.Cells("gender").Value, dr.Cells("gradesection").Value, dr.Cells("amountpaid").Value)
+                    dtPaymentList.Rows.Add(dr.Cells("no").Value, dr.Cells("txn").Value, dr.Cells("ornumber").Value, dr.Cells("acctno").Value, dr.Cells("studID").Value, dr.Cells("fullname").Value, dr.Cells("gender").Value, dr.Cells("gradesection").Value, dr.Cells("amountpaid").Value)
                 Next
                 CrystalReportViewer1.Refresh()
                 rptPaymentList.SetDataSource(dtPaymentList)
@@ -167,6 +168,7 @@ Public Class Report
                 With dtPaymentVoidedList
                     .Columns.Add("No")
                     .Columns.Add("Txn")
+                    .Columns.Add("ORNum")
                     .Columns.Add("AcctNo")
                     .Columns.Add("StudID")
                     .Columns.Add("Name")
@@ -177,7 +179,7 @@ Public Class Report
                 End With
 
                 For Each dr As DataGridViewRow In frmReportVoidedPaymentList.dtgSales.Rows
-                    dtPaymentVoidedList.Rows.Add(dr.Cells("no").Value, dr.Cells("txn").Value, dr.Cells("acctno").Value, dr.Cells("studID").Value, dr.Cells("fullname").Value, dr.Cells("gender").Value, dr.Cells("gradesection").Value, dr.Cells("amountpaid").Value)
+                    dtPaymentVoidedList.Rows.Add(dr.Cells("no").Value, dr.Cells("txn").Value, dr.Cells("ornumber").Value, dr.Cells("acctno").Value, dr.Cells("studID").Value, dr.Cells("fullname").Value, dr.Cells("gender").Value, dr.Cells("gradesection").Value, dr.Cells("amountpaid").Value)
                 Next
                 CrystalReportViewer1.Refresh()
                 rptPaymentVoidedList.SetDataSource(dtPaymentVoidedList)
