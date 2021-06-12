@@ -23,6 +23,13 @@ Partial Public Class DataSet1
 
         End Sub
 
+        Private Sub dtVoidedPaymentListDataTable_ColumnChanging(sender As Object, e As DataColumnChangeEventArgs) Handles Me.ColumnChanging
+            If (e.Column.ColumnName = Me.ORNumColumn.ColumnName) Then
+                'Add user code here
+            End If
+
+        End Sub
+
     End Class
 
     Partial Public Class dtSchoolExpenseListDataTable

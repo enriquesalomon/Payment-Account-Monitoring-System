@@ -1426,6 +1426,8 @@ Partial Public Class DataSet1
         
         Private columnTxn As Global.System.Data.DataColumn
         
+        Private columnORNum As Global.System.Data.DataColumn
+        
         Private columnAcctNo As Global.System.Data.DataColumn
         
         Private columnStudID As Global.System.Data.DataColumn
@@ -1486,6 +1488,14 @@ Partial Public Class DataSet1
         Public ReadOnly Property TxnColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnTxn
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property ORNumColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnORNum
             End Get
         End Property
         
@@ -1574,9 +1584,9 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AdddtPaymentListRow(ByVal No As String, ByVal Txn As String, ByVal AcctNo As String, ByVal StudID As String, ByVal Name As String, ByVal Gender As String, ByVal GradeSection As String, ByVal Amount As String) As dtPaymentListRow
+        Public Overloads Function AdddtPaymentListRow(ByVal No As String, ByVal Txn As String, ByVal ORNum As String, ByVal AcctNo As String, ByVal StudID As String, ByVal Name As String, ByVal Gender As String, ByVal GradeSection As String, ByVal Amount As String) As dtPaymentListRow
             Dim rowdtPaymentListRow As dtPaymentListRow = CType(Me.NewRow,dtPaymentListRow)
-            Dim columnValuesArray() As Object = New Object() {No, Txn, AcctNo, StudID, Name, Gender, GradeSection, Amount}
+            Dim columnValuesArray() As Object = New Object() {No, Txn, ORNum, AcctNo, StudID, Name, Gender, GradeSection, Amount}
             rowdtPaymentListRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdtPaymentListRow)
             Return rowdtPaymentListRow
@@ -1601,6 +1611,7 @@ Partial Public Class DataSet1
         Friend Sub InitVars()
             Me.columnNo = MyBase.Columns("No")
             Me.columnTxn = MyBase.Columns("Txn")
+            Me.columnORNum = MyBase.Columns("ORNum")
             Me.columnAcctNo = MyBase.Columns("AcctNo")
             Me.columnStudID = MyBase.Columns("StudID")
             Me.columnName = MyBase.Columns("Name")
@@ -1616,6 +1627,8 @@ Partial Public Class DataSet1
             MyBase.Columns.Add(Me.columnNo)
             Me.columnTxn = New Global.System.Data.DataColumn("Txn", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTxn)
+            Me.columnORNum = New Global.System.Data.DataColumn("ORNum", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnORNum)
             Me.columnAcctNo = New Global.System.Data.DataColumn("AcctNo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnAcctNo)
             Me.columnStudID = New Global.System.Data.DataColumn("StudID", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -1769,6 +1782,8 @@ Partial Public Class DataSet1
         
         Private columnTxn As Global.System.Data.DataColumn
         
+        Private columnORNum As Global.System.Data.DataColumn
+        
         Private columnAcctNo As Global.System.Data.DataColumn
         
         Private columnStudID As Global.System.Data.DataColumn
@@ -1829,6 +1844,14 @@ Partial Public Class DataSet1
         Public ReadOnly Property TxnColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnTxn
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property ORNumColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnORNum
             End Get
         End Property
         
@@ -1917,9 +1940,9 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AdddtVoidedPaymentListRow(ByVal No As String, ByVal Txn As String, ByVal AcctNo As String, ByVal StudID As String, ByVal Name As String, ByVal Gender As String, ByVal GradeSection As String, ByVal Amount As String) As dtVoidedPaymentListRow
+        Public Overloads Function AdddtVoidedPaymentListRow(ByVal No As String, ByVal Txn As String, ByVal ORNum As String, ByVal AcctNo As String, ByVal StudID As String, ByVal Name As String, ByVal Gender As String, ByVal GradeSection As String, ByVal Amount As String) As dtVoidedPaymentListRow
             Dim rowdtVoidedPaymentListRow As dtVoidedPaymentListRow = CType(Me.NewRow,dtVoidedPaymentListRow)
-            Dim columnValuesArray() As Object = New Object() {No, Txn, AcctNo, StudID, Name, Gender, GradeSection, Amount}
+            Dim columnValuesArray() As Object = New Object() {No, Txn, ORNum, AcctNo, StudID, Name, Gender, GradeSection, Amount}
             rowdtVoidedPaymentListRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdtVoidedPaymentListRow)
             Return rowdtVoidedPaymentListRow
@@ -1944,6 +1967,7 @@ Partial Public Class DataSet1
         Friend Sub InitVars()
             Me.columnNo = MyBase.Columns("No")
             Me.columnTxn = MyBase.Columns("Txn")
+            Me.columnORNum = MyBase.Columns("ORNum")
             Me.columnAcctNo = MyBase.Columns("AcctNo")
             Me.columnStudID = MyBase.Columns("StudID")
             Me.columnName = MyBase.Columns("Name")
@@ -1959,6 +1983,8 @@ Partial Public Class DataSet1
             MyBase.Columns.Add(Me.columnNo)
             Me.columnTxn = New Global.System.Data.DataColumn("Txn", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTxn)
+            Me.columnORNum = New Global.System.Data.DataColumn("ORNum", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnORNum)
             Me.columnAcctNo = New Global.System.Data.DataColumn("AcctNo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnAcctNo)
             Me.columnStudID = New Global.System.Data.DataColumn("StudID", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -3025,6 +3051,21 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property ORNum() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtPaymentList.ORNumColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'ORNum' in table 'dtPaymentList' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtPaymentList.ORNumColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property AcctNo() As String
             Get
                 Try 
@@ -3135,6 +3176,18 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetTxnNull()
             Me(Me.tabledtPaymentList.TxnColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsORNumNull() As Boolean
+            Return Me.IsNull(Me.tabledtPaymentList.ORNumColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetORNumNull()
+            Me(Me.tabledtPaymentList.ORNumColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3257,6 +3310,21 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property ORNum() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtVoidedPaymentList.ORNumColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'ORNum' in table 'dtVoidedPaymentList' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtVoidedPaymentList.ORNumColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property AcctNo() As String
             Get
                 Try 
@@ -3367,6 +3435,18 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetTxnNull()
             Me(Me.tabledtVoidedPaymentList.TxnColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsORNumNull() As Boolean
+            Return Me.IsNull(Me.tabledtVoidedPaymentList.ORNumColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetORNumNull()
+            Me(Me.tabledtVoidedPaymentList.ORNumColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
