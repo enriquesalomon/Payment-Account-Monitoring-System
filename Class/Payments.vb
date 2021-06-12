@@ -282,7 +282,7 @@
 
 
     Sub loaddtgPaymentsReport()
-        frmReportPaymentList.dtgSales.ColumnCount = 9
+        frmReportPaymentList.dtgSales.ColumnCount = 10
 
         frmReportPaymentList.dtgSales.Columns(0).HeaderText = "NO."
         frmReportPaymentList.dtgSales.Columns(0).Width = 50
@@ -294,41 +294,48 @@
         frmReportPaymentList.dtgSales.Columns(1).Name = "txn"
         frmReportPaymentList.dtgSales.Columns(1).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
-        frmReportPaymentList.dtgSales.Columns(2).HeaderText = "ACCT#"
+
+        frmReportPaymentList.dtgSales.Columns(2).HeaderText = "OR#"
         frmReportPaymentList.dtgSales.Columns(2).Width = 100
-        frmReportPaymentList.dtgSales.Columns(2).Name = "acctno"
+        frmReportPaymentList.dtgSales.Columns(2).Name = "ornumber"
         frmReportPaymentList.dtgSales.Columns(2).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
-        frmReportPaymentList.dtgSales.Columns(3).HeaderText = "STUDENT ID"
+
+        frmReportPaymentList.dtgSales.Columns(3).HeaderText = "ACCT#"
         frmReportPaymentList.dtgSales.Columns(3).Width = 100
-        frmReportPaymentList.dtgSales.Columns(3).Name = "studId"
+        frmReportPaymentList.dtgSales.Columns(3).Name = "acctno"
         frmReportPaymentList.dtgSales.Columns(3).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
-        frmReportPaymentList.dtgSales.Columns(4).HeaderText = "STUDENT NAME"
-        frmReportPaymentList.dtgSales.Columns(4).Width = 250
-        frmReportPaymentList.dtgSales.Columns(4).Name = "fullname"
+        frmReportPaymentList.dtgSales.Columns(4).HeaderText = "STUDENT ID"
+        frmReportPaymentList.dtgSales.Columns(4).Width = 100
+        frmReportPaymentList.dtgSales.Columns(4).Name = "studId"
         frmReportPaymentList.dtgSales.Columns(4).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
-        frmReportPaymentList.dtgSales.Columns(5).HeaderText = "GENDER"
-        frmReportPaymentList.dtgSales.Columns(5).Width = 100
-        frmReportPaymentList.dtgSales.Columns(5).Name = "gender"
+        frmReportPaymentList.dtgSales.Columns(5).HeaderText = "STUDENT NAME"
+        frmReportPaymentList.dtgSales.Columns(5).Width = 250
+        frmReportPaymentList.dtgSales.Columns(5).Name = "fullname"
         frmReportPaymentList.dtgSales.Columns(5).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
-
-        frmReportPaymentList.dtgSales.Columns(6).HeaderText = "GRADE-SECTION"
-        frmReportPaymentList.dtgSales.Columns(6).Width = 150
-        frmReportPaymentList.dtgSales.Columns(6).Name = "gradesection"
+        frmReportPaymentList.dtgSales.Columns(6).HeaderText = "GENDER"
+        frmReportPaymentList.dtgSales.Columns(6).Width = 100
+        frmReportPaymentList.dtgSales.Columns(6).Name = "gender"
         frmReportPaymentList.dtgSales.Columns(6).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
-        frmReportPaymentList.dtgSales.Columns(7).HeaderText = "AMOUNT"
-        frmReportPaymentList.dtgSales.Columns(7).Width = 100
-        frmReportPaymentList.dtgSales.Columns(7).Name = "amountpaid"
+
+        frmReportPaymentList.dtgSales.Columns(7).HeaderText = "GRADE-SECTION"
+        frmReportPaymentList.dtgSales.Columns(7).Width = 150
+        frmReportPaymentList.dtgSales.Columns(7).Name = "gradesection"
         frmReportPaymentList.dtgSales.Columns(7).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
-        frmReportPaymentList.dtgSales.Columns(8).HeaderText = "DATE OF PAYMENT"
-        frmReportPaymentList.dtgSales.Columns(8).Width = 150
-        frmReportPaymentList.dtgSales.Columns(8).Name = "dateofpayment"
+        frmReportPaymentList.dtgSales.Columns(8).HeaderText = "AMOUNT"
+        frmReportPaymentList.dtgSales.Columns(8).Width = 100
+        frmReportPaymentList.dtgSales.Columns(8).Name = "amountpaid"
         frmReportPaymentList.dtgSales.Columns(8).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        frmReportPaymentList.dtgSales.Columns(9).HeaderText = "DATE OF PAYMENT"
+        frmReportPaymentList.dtgSales.Columns(9).Width = 150
+        frmReportPaymentList.dtgSales.Columns(9).Name = "dateofpayment"
+        frmReportPaymentList.dtgSales.Columns(9).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
     End Sub
 
@@ -392,7 +399,7 @@
                     xdataset.Clear()
 
                     nos += 1
-                    Dim nrow As String() = New String() {nos.ToString, mysqlreader("ID").ToString, mysqlreader("StudentAccountID").ToString, mysqlreader("StudentID").ToString, fname, gender, mysqlreader("GradeSection").ToString, mysqlreader("AmountPaid").ToString, mysqlreader("PaymentDate").ToString}
+                    Dim nrow As String() = New String() {nos.ToString, mysqlreader("ID").ToString, mysqlreader("ORNumber").ToString, mysqlreader("StudentAccountID").ToString, mysqlreader("StudentID").ToString, fname, gender, mysqlreader("GradeSection").ToString, mysqlreader("AmountPaid").ToString, mysqlreader("PaymentDate").ToString}
                     frmReportPaymentList.dtgSales.Rows.Add(nrow)
                 End While
 
@@ -430,48 +437,57 @@
 
 
     Sub loaddtgVoidedPaymentsReport()
-        frmReportVoidedPaymentList.dtgSales.ColumnCount = 8
+        frmReportVoidedPaymentList.dtgSales.ColumnCount = 9
 
         frmReportVoidedPaymentList.dtgSales.Columns(0).HeaderText = "NO."
         frmReportVoidedPaymentList.dtgSales.Columns(0).Width = 50
         frmReportVoidedPaymentList.dtgSales.Columns(0).Name = "no"
         frmReportVoidedPaymentList.dtgSales.Columns(0).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
+
+
         frmReportVoidedPaymentList.dtgSales.Columns(1).HeaderText = "TXN#"
         frmReportVoidedPaymentList.dtgSales.Columns(1).Width = 100
         frmReportVoidedPaymentList.dtgSales.Columns(1).Name = "txn"
         frmReportVoidedPaymentList.dtgSales.Columns(1).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
-        frmReportVoidedPaymentList.dtgSales.Columns(2).HeaderText = "ACCT#"
+        frmReportVoidedPaymentList.dtgSales.Columns(2).HeaderText = "OR#"
         frmReportVoidedPaymentList.dtgSales.Columns(2).Width = 100
-        frmReportVoidedPaymentList.dtgSales.Columns(2).Name = "acctno"
+        frmReportVoidedPaymentList.dtgSales.Columns(2).Name = "ornumber"
         frmReportVoidedPaymentList.dtgSales.Columns(2).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
-        frmReportVoidedPaymentList.dtgSales.Columns(3).HeaderText = "STUDENT ID"
+
+
+        frmReportVoidedPaymentList.dtgSales.Columns(3).HeaderText = "ACCT#"
         frmReportVoidedPaymentList.dtgSales.Columns(3).Width = 100
-        frmReportVoidedPaymentList.dtgSales.Columns(3).Name = "studId"
+        frmReportVoidedPaymentList.dtgSales.Columns(3).Name = "acctno"
         frmReportVoidedPaymentList.dtgSales.Columns(3).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
-        frmReportVoidedPaymentList.dtgSales.Columns(4).HeaderText = "STUDENT NAME"
-        frmReportVoidedPaymentList.dtgSales.Columns(4).Width = 250
-        frmReportVoidedPaymentList.dtgSales.Columns(4).Name = "fullname"
+        frmReportVoidedPaymentList.dtgSales.Columns(4).HeaderText = "STUDENT ID"
+        frmReportVoidedPaymentList.dtgSales.Columns(4).Width = 100
+        frmReportVoidedPaymentList.dtgSales.Columns(4).Name = "studId"
         frmReportVoidedPaymentList.dtgSales.Columns(4).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
-        frmReportVoidedPaymentList.dtgSales.Columns(5).HeaderText = "GENDER"
-        frmReportVoidedPaymentList.dtgSales.Columns(5).Width = 100
-        frmReportVoidedPaymentList.dtgSales.Columns(5).Name = "gender"
+        frmReportVoidedPaymentList.dtgSales.Columns(5).HeaderText = "STUDENT NAME"
+        frmReportVoidedPaymentList.dtgSales.Columns(5).Width = 250
+        frmReportVoidedPaymentList.dtgSales.Columns(5).Name = "fullname"
         frmReportVoidedPaymentList.dtgSales.Columns(5).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
-
-        frmReportVoidedPaymentList.dtgSales.Columns(6).HeaderText = "GRADE-SECTION"
-        frmReportVoidedPaymentList.dtgSales.Columns(6).Width = 150
-        frmReportVoidedPaymentList.dtgSales.Columns(6).Name = "gradesection"
+        frmReportVoidedPaymentList.dtgSales.Columns(6).HeaderText = "GENDER"
+        frmReportVoidedPaymentList.dtgSales.Columns(6).Width = 100
+        frmReportVoidedPaymentList.dtgSales.Columns(6).Name = "gender"
         frmReportVoidedPaymentList.dtgSales.Columns(6).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
-        frmReportVoidedPaymentList.dtgSales.Columns(7).HeaderText = "AMOUNT"
-        frmReportVoidedPaymentList.dtgSales.Columns(7).Width = 100
-        frmReportVoidedPaymentList.dtgSales.Columns(7).Name = "amountpaid"
+
+        frmReportVoidedPaymentList.dtgSales.Columns(7).HeaderText = "GRADE-SECTION"
+        frmReportVoidedPaymentList.dtgSales.Columns(7).Width = 150
+        frmReportVoidedPaymentList.dtgSales.Columns(7).Name = "gradesection"
         frmReportVoidedPaymentList.dtgSales.Columns(7).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        frmReportVoidedPaymentList.dtgSales.Columns(8).HeaderText = "AMOUNT"
+        frmReportVoidedPaymentList.dtgSales.Columns(8).Width = 100
+        frmReportVoidedPaymentList.dtgSales.Columns(8).Name = "amountpaid"
+        frmReportVoidedPaymentList.dtgSales.Columns(8).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
     End Sub
 
@@ -516,7 +532,7 @@
                     xdataset.Clear()
 
                     nos += 1
-                    Dim nrow As String() = New String() {nos.ToString, mysqlreader("ID").ToString, mysqlreader("StudentAccountID").ToString, mysqlreader("StudentID").ToString, fname, gender, mysqlreader("GradeSection").ToString, mysqlreader("AmountPaid").ToString, mysqlreader("PaymentDate").ToString}
+                    Dim nrow As String() = New String() {nos.ToString, mysqlreader("ID").ToString, mysqlreader("ORNumber").ToString, mysqlreader("StudentAccountID").ToString, mysqlreader("StudentID").ToString, fname, gender, mysqlreader("GradeSection").ToString, mysqlreader("AmountPaid").ToString, mysqlreader("PaymentDate").ToString}
                     frmReportVoidedPaymentList.dtgSales.Rows.Add(nrow)
                 End While
 
