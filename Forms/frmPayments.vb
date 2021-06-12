@@ -119,4 +119,8 @@
 
         End If
     End Sub
+
+    Private Sub lblOrNumber_Click(sender As Object, e As EventArgs) Handles lblOrNumber.Click
+
+    End Sub
 End Class

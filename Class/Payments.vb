@@ -1,6 +1,6 @@
 ﻿Public Class Payments
     Sub loaddtgTransactions()
-        frmPayments.dtgSales.ColumnCount = 9
+        frmPayments.dtgSales.ColumnCount = 10
 
         frmPayments.dtgSales.Columns(0).HeaderText = "NO."
         frmPayments.dtgSales.Columns(0).Width = 50
@@ -12,41 +12,46 @@
         frmPayments.dtgSales.Columns(1).Name = "txn"
         frmPayments.dtgSales.Columns(1).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
-        frmPayments.dtgSales.Columns(2).HeaderText = "ACCT#"
+        frmPayments.dtgSales.Columns(2).HeaderText = "OR#"
         frmPayments.dtgSales.Columns(2).Width = 100
-        frmPayments.dtgSales.Columns(2).Name = "acctno"
+        frmPayments.dtgSales.Columns(2).Name = "ornumber"
         frmPayments.dtgSales.Columns(2).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
-        frmPayments.dtgSales.Columns(3).HeaderText = "STUDENT ID"
+        frmPayments.dtgSales.Columns(3).HeaderText = "ACCT#"
         frmPayments.dtgSales.Columns(3).Width = 100
-        frmPayments.dtgSales.Columns(3).Name = "studId"
+        frmPayments.dtgSales.Columns(3).Name = "acctno"
         frmPayments.dtgSales.Columns(3).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
-        frmPayments.dtgSales.Columns(4).HeaderText = "STUDENT NAME"
-        frmPayments.dtgSales.Columns(4).Width = 250
-        frmPayments.dtgSales.Columns(4).Name = "fullname"
+        frmPayments.dtgSales.Columns(4).HeaderText = "STUDENT ID"
+        frmPayments.dtgSales.Columns(4).Width = 100
+        frmPayments.dtgSales.Columns(4).Name = "studId"
         frmPayments.dtgSales.Columns(4).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
-        frmPayments.dtgSales.Columns(5).HeaderText = "GENDER"
-        frmPayments.dtgSales.Columns(5).Width = 100
-        frmPayments.dtgSales.Columns(5).Name = "gender"
+        frmPayments.dtgSales.Columns(5).HeaderText = "STUDENT NAME"
+        frmPayments.dtgSales.Columns(5).Width = 250
+        frmPayments.dtgSales.Columns(5).Name = "fullname"
         frmPayments.dtgSales.Columns(5).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
-
-        frmPayments.dtgSales.Columns(6).HeaderText = "GRADE-SECTION"
-        frmPayments.dtgSales.Columns(6).Width = 150
-        frmPayments.dtgSales.Columns(6).Name = "gradesection"
+        frmPayments.dtgSales.Columns(6).HeaderText = "GENDER"
+        frmPayments.dtgSales.Columns(6).Width = 100
+        frmPayments.dtgSales.Columns(6).Name = "gender"
         frmPayments.dtgSales.Columns(6).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
-        frmPayments.dtgSales.Columns(7).HeaderText = "AMOUNT"
-        frmPayments.dtgSales.Columns(7).Width = 100
-        frmPayments.dtgSales.Columns(7).Name = "amountpaid"
+
+        frmPayments.dtgSales.Columns(7).HeaderText = "GRADE-SECTION"
+        frmPayments.dtgSales.Columns(7).Width = 150
+        frmPayments.dtgSales.Columns(7).Name = "gradesection"
         frmPayments.dtgSales.Columns(7).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
-        frmPayments.dtgSales.Columns(8).HeaderText = "DATE OF PAYMENT"
-        frmPayments.dtgSales.Columns(8).Width = 150
-        frmPayments.dtgSales.Columns(8).Name = "dateofpayment"
+        frmPayments.dtgSales.Columns(8).HeaderText = "AMOUNT"
+        frmPayments.dtgSales.Columns(8).Width = 100
+        frmPayments.dtgSales.Columns(8).Name = "amountpaid"
         frmPayments.dtgSales.Columns(8).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        frmPayments.dtgSales.Columns(9).HeaderText = "DATE OF PAYMENT"
+        frmPayments.dtgSales.Columns(9).Width = 150
+        frmPayments.dtgSales.Columns(9).Name = "dateofpayment"
+        frmPayments.dtgSales.Columns(9).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
     End Sub
     Sub LoadListTransaction()
@@ -88,7 +93,7 @@
                     xdataset.Clear()
 
                     nos += 1
-                    Dim nrow As String() = New String() {nos.ToString, mysqlreader("ID").ToString, mysqlreader("StudentAccountID").ToString, mysqlreader("StudentID").ToString, fname, gender, mysqlreader("GradeSection").ToString, mysqlreader("AmountPaid").ToString, mysqlreader("PaymentDate").ToString}
+                    Dim nrow As String() = New String() {nos.ToString, mysqlreader("ID").ToString, mysqlreader("ORNumber").ToString, mysqlreader("StudentAccountID").ToString, mysqlreader("StudentID").ToString, fname, gender, mysqlreader("GradeSection").ToString, mysqlreader("AmountPaid").ToString, mysqlreader("PaymentDate").ToString}
                     frmPayments.dtgSales.Rows.Add(nrow)
                 End While
 

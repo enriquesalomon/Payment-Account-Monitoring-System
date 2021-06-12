@@ -39,6 +39,7 @@ Partial Class frmPayments
         Me.btnNew = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.panelPayment = New System.Windows.Forms.Panel()
+        Me.lblOrNumber = New System.Windows.Forms.Label()
         Me.txtTransID = New System.Windows.Forms.TextBox()
         Me.btnBrowseStudent = New System.Windows.Forms.Button()
         Me.Label13 = New System.Windows.Forms.Label()
@@ -87,7 +88,6 @@ Partial Class frmPayments
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.txtsearch = New System.Windows.Forms.TextBox()
         Me.Label39 = New System.Windows.Forms.Label()
-        Me.lblOrNumber = New System.Windows.Forms.Label()
         Me.Panel4.SuspendLayout()
         CType(Me.dtgSales, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
@@ -186,13 +186,13 @@ Partial Class frmPayments
         Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DeleteMenuStrip})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(166, 30)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(165, 30)
         '
         'DeleteMenuStrip
         '
         Me.DeleteMenuStrip.Image = CType(resources.GetObject("DeleteMenuStrip.Image"), System.Drawing.Image)
         Me.DeleteMenuStrip.Name = "DeleteMenuStrip"
-        Me.DeleteMenuStrip.Size = New System.Drawing.Size(165, 26)
+        Me.DeleteMenuStrip.Size = New System.Drawing.Size(164, 26)
         Me.DeleteMenuStrip.Text = "Void Transaction"
         '
         'Panel2
@@ -283,6 +283,18 @@ Partial Class frmPayments
         Me.panelPayment.Size = New System.Drawing.Size(866, 588)
         Me.panelPayment.TabIndex = 717
         Me.panelPayment.Visible = False
+        '
+        'lblOrNumber
+        '
+        Me.lblOrNumber.AutoSize = True
+        Me.lblOrNumber.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblOrNumber.ForeColor = System.Drawing.Color.Red
+        Me.lblOrNumber.Location = New System.Drawing.Point(411, 286)
+        Me.lblOrNumber.Name = "lblOrNumber"
+        Me.lblOrNumber.Size = New System.Drawing.Size(78, 17)
+        Me.lblOrNumber.TabIndex = 752
+        Me.lblOrNumber.Text = "ORNUMBER"
+        Me.lblOrNumber.Visible = False
         '
         'txtTransID
         '
@@ -839,17 +851,6 @@ Partial Class frmPayments
         Me.Label39.Size = New System.Drawing.Size(169, 17)
         Me.Label39.TabIndex = 719
         Me.Label39.Text = "      Search TXN# / ACC#:"
-        '
-        'lblOrNumber
-        '
-        Me.lblOrNumber.AutoSize = True
-        Me.lblOrNumber.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblOrNumber.ForeColor = System.Drawing.Color.Red
-        Me.lblOrNumber.Location = New System.Drawing.Point(411, 286)
-        Me.lblOrNumber.Name = "lblOrNumber"
-        Me.lblOrNumber.Size = New System.Drawing.Size(78, 17)
-        Me.lblOrNumber.TabIndex = 752
-        Me.lblOrNumber.Text = "ORNUMBER"
         '
         'frmPayments
         '
