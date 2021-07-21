@@ -35,6 +35,8 @@ Partial Class frmSchoolExpenses
         Me.Label40 = New System.Windows.Forms.Label()
         Me.dtgList = New System.Windows.Forms.DataGridView()
         Me.panelExpenses = New System.Windows.Forms.Panel()
+        Me.dtExpenseDate = New System.Windows.Forms.DateTimePicker()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.cmbSY = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.cmbCategory = New System.Windows.Forms.ComboBox()
@@ -195,6 +197,8 @@ Partial Class frmSchoolExpenses
         '
         'panelExpenses
         '
+        Me.panelExpenses.Controls.Add(Me.dtExpenseDate)
+        Me.panelExpenses.Controls.Add(Me.Label6)
         Me.panelExpenses.Controls.Add(Me.cmbSY)
         Me.panelExpenses.Controls.Add(Me.Label3)
         Me.panelExpenses.Controls.Add(Me.cmbCategory)
@@ -208,9 +212,28 @@ Partial Class frmSchoolExpenses
         Me.panelExpenses.Controls.Add(Me.Label4)
         Me.panelExpenses.Location = New System.Drawing.Point(231, 156)
         Me.panelExpenses.Name = "panelExpenses"
-        Me.panelExpenses.Size = New System.Drawing.Size(334, 196)
+        Me.panelExpenses.Size = New System.Drawing.Size(334, 226)
         Me.panelExpenses.TabIndex = 611
         Me.panelExpenses.Visible = False
+        '
+        'dtExpenseDate
+        '
+        Me.dtExpenseDate.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtExpenseDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtExpenseDate.Location = New System.Drawing.Point(119, 151)
+        Me.dtExpenseDate.Name = "dtExpenseDate"
+        Me.dtExpenseDate.Size = New System.Drawing.Size(209, 23)
+        Me.dtExpenseDate.TabIndex = 723
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(3, 154)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(116, 17)
+        Me.Label6.TabIndex = 665
+        Me.Label6.Text = "Date of Expense:"
         '
         'cmbSY
         '
@@ -319,7 +342,7 @@ Partial Class frmSchoolExpenses
         Me.btnSave.Enabled = False
         Me.btnSave.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSave.Image = CType(resources.GetObject("btnSave.Image"), System.Drawing.Image)
-        Me.btnSave.Location = New System.Drawing.Point(128, 167)
+        Me.btnSave.Location = New System.Drawing.Point(128, 197)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(100, 26)
         Me.btnSave.TabIndex = 599
@@ -331,7 +354,7 @@ Partial Class frmSchoolExpenses
         '
         Me.bntClose.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bntClose.Image = CType(resources.GetObject("bntClose.Image"), System.Drawing.Image)
-        Me.bntClose.Location = New System.Drawing.Point(228, 167)
+        Me.bntClose.Location = New System.Drawing.Point(228, 197)
         Me.bntClose.Name = "bntClose"
         Me.bntClose.Size = New System.Drawing.Size(100, 26)
         Me.bntClose.TabIndex = 600
@@ -411,4 +434,6 @@ Partial Class frmSchoolExpenses
     Friend WithEvents bntClose As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents Label4 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents dtExpenseDate As DateTimePicker
 End Class

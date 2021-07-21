@@ -16,6 +16,10 @@
             MessageBox.Show("Please select Shool Year", "Validation Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Exit Sub
         End If
+        If frmSchoolExpenses.dtExpenseDate.Text = "" Then
+            MessageBox.Show("Please select Date of Expense", "Validation Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Exit Sub
+        End If
 
 
         If lsaving Then
@@ -25,7 +29,7 @@
                 getSchoolExpenseID(frmSchoolExpenses.lblCode.Text)
                 connect(condbPOS)
                 mycommand = mysqlconn.CreateCommand
-                mycommand.CommandText = "INSERT INTO SchoolExpenses VALUES ('" & frmSchoolExpenses.lblCode.Text & "','" & frmSchoolExpenses.txtParticular.Text & "','" & frmSchoolExpenses.cmbCategory.Text & "','" & frmSchoolExpenses.txtAmount.Text & "','" & frmSchoolExpenses.cmbSY.Text & "','" & Format(DateAndTime.Now, "Short Date") & "','" & Format(DateAndTime.Now, "Short Date") & "')"
+                mycommand.CommandText = "INSERT INTO SchoolExpenses VALUES ('" & frmSchoolExpenses.lblCode.Text & "','" & frmSchoolExpenses.txtParticular.Text & "','" & frmSchoolExpenses.cmbCategory.Text & "','" & frmSchoolExpenses.txtAmount.Text & "','" & frmSchoolExpenses.cmbSY.Text & "','" & Format(DateAndTime.Now, "Short Date") & "','" & Format(DateAndTime.Now, "Short Date") & "','" & frmSchoolExpenses.dtExpenseDate.Text & "')"
                 mycommand.ExecuteNonQuery()
                 LoadList()
                 frmSchoolExpenses.ClearMe()
@@ -46,7 +50,7 @@
                 Try
                     connect(condbPOS)
                     mycommand = mysqlconn.CreateCommand
-                    mycommand.CommandText = "UPDATE SchoolExpenses set Particular='" & frmSchoolExpenses.txtParticular.Text & "',Category='" & frmSchoolExpenses.cmbCategory.Text & "',Amount='" & frmSchoolExpenses.txtAmount.Text & "',SY='" & frmSchoolExpenses.cmbSY.Text & "',DateModified='" & Format(DateAndTime.Now, "Short Date") & "' where ID ='" & frmSchoolExpenses.lblCode.Text & "'"
+                    mycommand.CommandText = "UPDATE SchoolExpenses set Particular='" & frmSchoolExpenses.txtParticular.Text & "',Category='" & frmSchoolExpenses.cmbCategory.Text & "',Amount='" & frmSchoolExpenses.txtAmount.Text & "',SY='" & frmSchoolExpenses.cmbSY.Text & "',DateModified='" & Format(DateAndTime.Now, "Short Date") & "',ExpenseDate='" & frmSchoolExpenses.dtExpenseDate.Text & "' where ID ='" & frmSchoolExpenses.lblCode.Text & "'"
                     mycommand.ExecuteNonQuery()
                     LoadList()
                     frmSchoolExpenses.ClearMe()
@@ -108,7 +112,7 @@
         End If
     End Sub
     Sub loaddtg()
-        frmSchoolExpenses.dtgList.ColumnCount = 6
+        frmSchoolExpenses.dtgList.ColumnCount = 7
 
         frmSchoolExpenses.dtgList.Columns(0).HeaderText = "NO."
         frmSchoolExpenses.dtgList.Columns(0).Width = 50
@@ -140,6 +144,11 @@
         frmSchoolExpenses.dtgList.Columns(5).Name = "schoolyear"
         frmSchoolExpenses.dtgList.Columns(5).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
+        frmSchoolExpenses.dtgList.Columns(6).HeaderText = "Expense Date"
+        frmSchoolExpenses.dtgList.Columns(6).Width = 100
+        frmSchoolExpenses.dtgList.Columns(6).Name = "expensedate"
+        frmSchoolExpenses.dtgList.Columns(6).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
 
     End Sub
 
@@ -161,7 +170,7 @@
                 Dim nos As Integer = 0
                 While mysqlreader.Read
                     nos += 1
-                    Dim nrow As String() = New String() {nos.ToString, mysqlreader("ID").ToString, mysqlreader("Particular").ToString, mysqlreader("Category").ToString, mysqlreader("Amount").ToString, mysqlreader("SY").ToString}
+                    Dim nrow As String() = New String() {nos.ToString, mysqlreader("ID").ToString, mysqlreader("Particular").ToString, mysqlreader("Category").ToString, mysqlreader("Amount").ToString, mysqlreader("SY").ToString, mysqlreader("ExpenseDate").ToString}
                     frmSchoolExpenses.dtgList.Rows.Add(nrow)
                 End While
 
@@ -202,6 +211,7 @@
                     frmSchoolExpenses.cmbCategory.Text = xrow("Category").ToString
                     frmSchoolExpenses.txtAmount.Text = xrow("Amount").ToString
                     frmSchoolExpenses.cmbSY.Text = xrow("SY").ToString
+                    frmSchoolExpenses.dtExpenseDate.Text = xrow("ExpenseDate").ToString
                 Next
             End If
 
@@ -212,7 +222,7 @@
 
 
     Sub loaddtgReport()
-        frmReportExpensesList.dtgList.ColumnCount = 6
+        frmReportExpensesList.dtgList.ColumnCount = 7
 
         frmReportExpensesList.dtgList.Columns(0).HeaderText = "NO."
         frmReportExpensesList.dtgList.Columns(0).Width = 50
@@ -244,6 +254,11 @@
         frmReportExpensesList.dtgList.Columns(5).Name = "schoolyear"
         frmReportExpensesList.dtgList.Columns(5).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
+        frmReportExpensesList.dtgList.Columns(6).HeaderText = "Date of Expense"
+        frmReportExpensesList.dtgList.Columns(6).Width = 100
+        frmReportExpensesList.dtgList.Columns(6).Name = "expensedate"
+        frmReportExpensesList.dtgList.Columns(6).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
 
     End Sub
 
@@ -265,7 +280,7 @@
                 Dim nos As Integer = 0
                 While mysqlreader.Read
                     nos += 1
-                    Dim nrow As String() = New String() {nos.ToString, mysqlreader("ID").ToString, mysqlreader("Particular").ToString, mysqlreader("Category").ToString, mysqlreader("Amount").ToString, mysqlreader("SY").ToString}
+                    Dim nrow As String() = New String() {nos.ToString, mysqlreader("ID").ToString, mysqlreader("Particular").ToString, mysqlreader("Category").ToString, mysqlreader("Amount").ToString, mysqlreader("SY").ToString, mysqlreader("ExpenseDate").ToString}
                     frmReportExpensesList.dtgList.Rows.Add(nrow)
                 End While
 
