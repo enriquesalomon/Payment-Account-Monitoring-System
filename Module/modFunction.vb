@@ -46,7 +46,7 @@ Module modFunction
     Public printDoc, Str, receiptfocus As String
 
 
-    Public reportpath As String = "C:\Users\Home\Desktop\Payment System\Report"
+    Public reportpath As String = "C:\Users\1IPAY PAYMENT CENTER\Desktop\Payment System\Report"
 
     Public Function DBpath() As String
         Databasename = Application.StartupPath & "\PAMS_DB" & ".accdb"

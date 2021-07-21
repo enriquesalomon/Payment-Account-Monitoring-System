@@ -102,12 +102,12 @@ Public Class Report
                     .Columns.Add("Particular")
                     .Columns.Add("Category")
                     .Columns.Add("Amount")
-                    .Columns.Add("SchoolYear")
+                    .Columns.Add("DateExpense")
 
                 End With
 
                 For Each dr As DataGridViewRow In frmReportExpensesList.dtgList.Rows
-                    dtSchoolExpenseList.Rows.Add(dr.Cells("no").Value, dr.Cells("id").Value, dr.Cells("particular").Value, dr.Cells("category").Value, dr.Cells("amount").Value, dr.Cells("schoolyear").Value)
+                    dtSchoolExpenseList.Rows.Add(dr.Cells("no").Value, dr.Cells("id").Value, dr.Cells("particular").Value, dr.Cells("category").Value, dr.Cells("amount").Value, dr.Cells("dateexpense").Value)
                 Next
                 CrystalReportViewer1.Refresh()
                 rptSchoolExpenseList.SetDataSource(dtSchoolExpenseList)

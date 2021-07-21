@@ -1117,6 +1117,8 @@ Partial Public Class DataSet1
         
         Private columnSchoolYear As Global.System.Data.DataColumn
         
+        Private columnDateExpense As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -1201,6 +1203,14 @@ Partial Public Class DataSet1
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property DateExpenseColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDateExpense
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1237,9 +1247,9 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AdddtSchoolExpenseListRow(ByVal No As String, ByVal ID As String, ByVal Particular As String, ByVal Category As String, ByVal Amount As String, ByVal SchoolYear As String) As dtSchoolExpenseListRow
+        Public Overloads Function AdddtSchoolExpenseListRow(ByVal No As String, ByVal ID As String, ByVal Particular As String, ByVal Category As String, ByVal Amount As String, ByVal SchoolYear As String, ByVal DateExpense As String) As dtSchoolExpenseListRow
             Dim rowdtSchoolExpenseListRow As dtSchoolExpenseListRow = CType(Me.NewRow,dtSchoolExpenseListRow)
-            Dim columnValuesArray() As Object = New Object() {No, ID, Particular, Category, Amount, SchoolYear}
+            Dim columnValuesArray() As Object = New Object() {No, ID, Particular, Category, Amount, SchoolYear, DateExpense}
             rowdtSchoolExpenseListRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdtSchoolExpenseListRow)
             Return rowdtSchoolExpenseListRow
@@ -1268,6 +1278,7 @@ Partial Public Class DataSet1
             Me.columnCategory = MyBase.Columns("Category")
             Me.columnAmount = MyBase.Columns("Amount")
             Me.columnSchoolYear = MyBase.Columns("SchoolYear")
+            Me.columnDateExpense = MyBase.Columns("DateExpense")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1285,6 +1296,8 @@ Partial Public Class DataSet1
             MyBase.Columns.Add(Me.columnAmount)
             Me.columnSchoolYear = New Global.System.Data.DataColumn("SchoolYear", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnSchoolYear)
+            Me.columnDateExpense = New Global.System.Data.DataColumn("DateExpense", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDateExpense)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2933,6 +2946,21 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property DateExpense() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtSchoolExpenseList.DateExpenseColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'DateExpense' in table 'dtSchoolExpenseList' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtSchoolExpenseList.DateExpenseColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsNoNull() As Boolean
             Return Me.IsNull(Me.tabledtSchoolExpenseList.NoColumn)
         End Function
@@ -3001,6 +3029,18 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetSchoolYearNull()
             Me(Me.tabledtSchoolExpenseList.SchoolYearColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsDateExpenseNull() As Boolean
+            Return Me.IsNull(Me.tabledtSchoolExpenseList.DateExpenseColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetDateExpenseNull()
+            Me(Me.tabledtSchoolExpenseList.DateExpenseColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

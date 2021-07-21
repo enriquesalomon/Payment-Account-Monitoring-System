@@ -146,7 +146,7 @@
 
         frmSchoolExpenses.dtgList.Columns(6).HeaderText = "Expense Date"
         frmSchoolExpenses.dtgList.Columns(6).Width = 100
-        frmSchoolExpenses.dtgList.Columns(6).Name = "expensedate"
+        frmSchoolExpenses.dtgList.Columns(6).Name = "dateexpense"
         frmSchoolExpenses.dtgList.Columns(6).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
 
@@ -256,7 +256,7 @@
 
         frmReportExpensesList.dtgList.Columns(6).HeaderText = "Date of Expense"
         frmReportExpensesList.dtgList.Columns(6).Width = 100
-        frmReportExpensesList.dtgList.Columns(6).Name = "expensedate"
+        frmReportExpensesList.dtgList.Columns(6).Name = "dateexpense"
         frmReportExpensesList.dtgList.Columns(6).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
 
