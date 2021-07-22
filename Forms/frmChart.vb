@@ -30,24 +30,25 @@ Public Class frmChart
 
         Call connect(condbPOS)
         mycommand = mysqlconn.CreateCommand
-        mycommand.CommandText = "SELECT Year(ExpenseDate) as years,SUM(Amount) as Total FROM SchoolExpenses Group By Year(ExpenseDate) "
+        mycommand.CommandText = "SELECT MONTH(ExpenseDate) as months,SUM(Amount) as Total FROM SchoolExpenses Group By MONTH(ExpenseDate) "
         myadapter.SelectCommand = mycommand
         myadapter.Fill(mydataset, "ExpenseSummary")
         mydataTable = mydataset.Tables("ExpenseSummary")
         mysqlreader = mycommand.ExecuteReader()
         While mysqlreader.Read
-            Month.AddRange(New String() {mysqlreader("years")})
+            'Months.AddRange(New String() {month(mysqlreader("months"))})
+            Months.AddRange(New String() {mysqlreader("months")})
         End While
         mysqlreader.Close()
         mysqlconn.Close()
 
 
 
-        For i = 0 To Month.Count - 1
+        For i = 0 To Months.Count - 1
 
             Call connect(condbPOS)
             mycommand = mysqlconn.CreateCommand
-            mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE YEAR(ExpenseDate)  ='" & Year(i).ToString & "' AND category ='UTILITY BILL' "
+            mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE MONTH(ExpenseDate)  ='" & Months(i).ToString & "' AND category ='UTILITY BILL' "
             myadapter.SelectCommand = mycommand
             myadapter.Fill(mydataset, "ExpenseSummary")
             mydataTable = mydataset.Tables("ExpenseSummary")
@@ -66,7 +67,7 @@ Public Class frmChart
 
             Call connect(condbPOS)
             mycommand = mysqlconn.CreateCommand
-            mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE YEAR(ExpenseDate)  ='" & Year(i).ToString & "' AND category ='EQUIPMENT REPAIR' "
+            mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE MONTH(ExpenseDate)  ='" & Months(i).ToString & "' AND category ='EQUIPMENT REPAIR' "
             myadapter.SelectCommand = mycommand
             myadapter.Fill(mydataset, "ExpenseSummary")
             mydataTable = mydataset.Tables("ExpenseSummary")
@@ -86,7 +87,7 @@ Public Class frmChart
 
             Call connect(condbPOS)
             mycommand = mysqlconn.CreateCommand
-            mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE YEAR(ExpenseDate)  ='" & Year(i).ToString & "' AND category ='SCHOOL SUPPLIES' "
+            mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE MONTH(ExpenseDate)  ='" & Months(i).ToString & "' AND category ='SCHOOL SUPPLIES' "
             myadapter.SelectCommand = mycommand
             myadapter.Fill(mydataset, "ExpenseSummary")
             mydataTable = mydataset.Tables("ExpenseSummary")
@@ -105,7 +106,7 @@ Public Class frmChart
 
             Call connect(condbPOS)
             mycommand = mysqlconn.CreateCommand
-            mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE YEAR(ExpenseDate)  ='" & Year(i).ToString & "' AND category ='SCHOOL IMPROVEMENTS' "
+            mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE MONTH(ExpenseDate)  ='" & Months(i).ToString & "' AND category ='SCHOOL IMPROVEMENTS' "
             myadapter.SelectCommand = mycommand
             myadapter.Fill(mydataset, "ExpenseSummary")
             mydataTable = mydataset.Tables("ExpenseSummary")
@@ -124,7 +125,7 @@ Public Class frmChart
 
             Call connect(condbPOS)
             mycommand = mysqlconn.CreateCommand
-            mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE YEAR(ExpenseDate)  ='" & Year(i).ToString & "' AND category ='EVENTS' "
+            mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE MONTH(ExpenseDate)  ='" & Months(i).ToString & "' AND category ='EVENTS' "
             myadapter.SelectCommand = mycommand
             myadapter.Fill(mydataset, "ExpenseSummary")
             mydataTable = mydataset.Tables("ExpenseSummary")
@@ -147,34 +148,34 @@ Public Class frmChart
 
         'Next
 
-
+        'Months.AddRange(New String() {month(mysqlreader("months"))})
 
 
         Chart2.Series.Clear()
 
         Chart2.Series.Add("UTILITY BILL")
         For i = 0 To Months.Count - 1
-            Chart2.Series("UTILITY BILL").Points.AddXY(Months(i), UTILITYBILLtotal(i))
+            Chart2.Series("UTILITY BILL").Points.AddXY(month(Months(i)), UTILITYBILLtotal(i))
         Next
 
         Chart2.Series.Add("EVENTS")
         For i = 0 To Months.Count - 1
-            Chart2.Series("EVENTS").Points.AddXY(Months(i), EVENTStotal(i))
+            Chart2.Series("EVENTS").Points.AddXY(month(Months(i)), EVENTStotal(i))
         Next
 
         Chart2.Series.Add("EQUIPMENT REPAIR")
         For i = 0 To Months.Count - 1
-            Chart2.Series("EQUIPMENT REPAIR").Points.AddXY(Months(i), EQUIPtotal(i))
+            Chart2.Series("EQUIPMENT REPAIR").Points.AddXY(month(Months(i)), EQUIPtotal(i))
         Next
 
         Chart2.Series.Add("SCHOOL SUPPLIES")
         For i = 0 To Months.Count - 1
-            Chart2.Series("SCHOOL SUPPLIES").Points.AddXY(Months(i), SCHOOLSUPtotal(i))
+            Chart2.Series("SCHOOL SUPPLIES").Points.AddXY(month(Months(i)), SCHOOLSUPtotal(i))
         Next
 
         Chart2.Series.Add("SCHOOL IMPROVEMENTS")
         For i = 0 To Months.Count - 1
-            Chart2.Series("SCHOOL IMPROVEMENTS").Points.AddXY(Months(i), SCHOOLIMPtotal(i))
+            Chart2.Series("SCHOOL IMPROVEMENTS").Points.AddXY(month(Months(i)), SCHOOLIMPtotal(i))
         Next
         '        UTILITY BILL
         'EQUIPMENT REPAIR
