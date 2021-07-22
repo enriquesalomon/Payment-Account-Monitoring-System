@@ -4,15 +4,189 @@ Imports System.Data.OleDb
 Imports System.Windows.Forms.DataVisualization.Charting
 
 Public Class frmChart
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
         Me.Close()
     End Sub
 
     Private Sub frmChart_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        generateGraphSale3()
+        generateGraphYearly()
+        generateGraphMonthly()
+    End Sub
+    Sub generateGraphMonthly()
+        '        UTILITY BILL
+        'EQUIPMENT REPAIR
+        'SCHOOL SUPPLIES
+        'SCHOOL IMPROVEMENTS
+        'EVENTS
+
+
+        Dim Months As New List(Of String)
+        Dim UTILITYBILLtotal As New List(Of Double)
+        Dim EQUIPtotal As New List(Of Double)
+        Dim SCHOOLSUPtotal As New List(Of Double)
+        Dim SCHOOLIMPtotal As New List(Of Double)
+        Dim EVENTStotal As New List(Of Double)
+
+
+        Call connect(condbPOS)
+        mycommand = mysqlconn.CreateCommand
+        mycommand.CommandText = "SELECT Year(ExpenseDate) as years,SUM(Amount) as Total FROM SchoolExpenses Group By Year(ExpenseDate) "
+        myadapter.SelectCommand = mycommand
+        myadapter.Fill(mydataset, "ExpenseSummary")
+        mydataTable = mydataset.Tables("ExpenseSummary")
+        mysqlreader = mycommand.ExecuteReader()
+        While mysqlreader.Read
+            Month.AddRange(New String() {mysqlreader("years")})
+        End While
+        mysqlreader.Close()
+        mysqlconn.Close()
+
+
+
+        For i = 0 To Month.Count - 1
+
+            Call connect(condbPOS)
+            mycommand = mysqlconn.CreateCommand
+            mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE YEAR(ExpenseDate)  ='" & Year(i).ToString & "' AND category ='UTILITY BILL' "
+            myadapter.SelectCommand = mycommand
+            myadapter.Fill(mydataset, "ExpenseSummary")
+            mydataTable = mydataset.Tables("ExpenseSummary")
+            mysqlreader = mycommand.ExecuteReader()
+            While mysqlreader.Read
+                Dim tot As Double
+                If mysqlreader("Total").ToString = "" Then
+                    tot = 0.00
+                Else
+                    tot = mysqlreader("Total")
+                End If
+                UTILITYBILLtotal.AddRange(New Double() {tot})
+            End While
+            mysqlreader.Close()
+            mysqlconn.Close()
+
+            Call connect(condbPOS)
+            mycommand = mysqlconn.CreateCommand
+            mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE YEAR(ExpenseDate)  ='" & Year(i).ToString & "' AND category ='EQUIPMENT REPAIR' "
+            myadapter.SelectCommand = mycommand
+            myadapter.Fill(mydataset, "ExpenseSummary")
+            mydataTable = mydataset.Tables("ExpenseSummary")
+            mysqlreader = mycommand.ExecuteReader()
+            While mysqlreader.Read
+                Dim tot As Double
+                If mysqlreader("Total").ToString = "" Then
+                    tot = 0.00
+                Else
+                    tot = mysqlreader("Total")
+                End If
+                EQUIPtotal.AddRange(New Double() {tot})
+            End While
+            mysqlreader.Close()
+            mysqlconn.Close()
+
+
+            Call connect(condbPOS)
+            mycommand = mysqlconn.CreateCommand
+            mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE YEAR(ExpenseDate)  ='" & Year(i).ToString & "' AND category ='SCHOOL SUPPLIES' "
+            myadapter.SelectCommand = mycommand
+            myadapter.Fill(mydataset, "ExpenseSummary")
+            mydataTable = mydataset.Tables("ExpenseSummary")
+            mysqlreader = mycommand.ExecuteReader()
+            While mysqlreader.Read
+                Dim tot As Double
+                If mysqlreader("Total").ToString = "" Then
+                    tot = 0.00
+                Else
+                    tot = mysqlreader("Total")
+                End If
+                SCHOOLSUPtotal.AddRange(New Double() {tot})
+            End While
+            mysqlreader.Close()
+            mysqlconn.Close()
+
+            Call connect(condbPOS)
+            mycommand = mysqlconn.CreateCommand
+            mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE YEAR(ExpenseDate)  ='" & Year(i).ToString & "' AND category ='SCHOOL IMPROVEMENTS' "
+            myadapter.SelectCommand = mycommand
+            myadapter.Fill(mydataset, "ExpenseSummary")
+            mydataTable = mydataset.Tables("ExpenseSummary")
+            mysqlreader = mycommand.ExecuteReader()
+            While mysqlreader.Read
+                Dim tot As Double
+                If mysqlreader("Total").ToString = "" Then
+                    tot = 0.00
+                Else
+                    tot = mysqlreader("Total")
+                End If
+                SCHOOLIMPtotal.AddRange(New Double() {tot})
+            End While
+            mysqlreader.Close()
+            mysqlconn.Close()
+
+            Call connect(condbPOS)
+            mycommand = mysqlconn.CreateCommand
+            mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE YEAR(ExpenseDate)  ='" & Year(i).ToString & "' AND category ='EVENTS' "
+            myadapter.SelectCommand = mycommand
+            myadapter.Fill(mydataset, "ExpenseSummary")
+            mydataTable = mydataset.Tables("ExpenseSummary")
+            mysqlreader = mycommand.ExecuteReader()
+            While mysqlreader.Read
+                Dim tot As Double
+                If mysqlreader("Total").ToString = "" Then
+                    tot = 0.00
+                Else
+                    tot = mysqlreader("Total")
+                End If
+                EVENTStotal.AddRange(New Double() {tot})
+            End While
+            mysqlreader.Close()
+            mysqlconn.Close()
+        Next
+
+
+        'For i = 0 To Year.Count - 1
+
+        'Next
+
+
+
+
+        Chart2.Series.Clear()
+
+        Chart2.Series.Add("UTILITY BILL")
+        For i = 0 To Months.Count - 1
+            Chart2.Series("UTILITY BILL").Points.AddXY(Months(i), UTILITYBILLtotal(i))
+        Next
+
+        Chart2.Series.Add("EVENTS")
+        For i = 0 To Months.Count - 1
+            Chart2.Series("EVENTS").Points.AddXY(Months(i), EVENTStotal(i))
+        Next
+
+        Chart2.Series.Add("EQUIPMENT REPAIR")
+        For i = 0 To Months.Count - 1
+            Chart2.Series("EQUIPMENT REPAIR").Points.AddXY(Months(i), EQUIPtotal(i))
+        Next
+
+        Chart2.Series.Add("SCHOOL SUPPLIES")
+        For i = 0 To Months.Count - 1
+            Chart2.Series("SCHOOL SUPPLIES").Points.AddXY(Months(i), SCHOOLSUPtotal(i))
+        Next
+
+        Chart2.Series.Add("SCHOOL IMPROVEMENTS")
+        For i = 0 To Months.Count - 1
+            Chart2.Series("SCHOOL IMPROVEMENTS").Points.AddXY(Months(i), SCHOOLIMPtotal(i))
+        Next
+        '        UTILITY BILL
+        'EQUIPMENT REPAIR
+        'SCHOOL SUPPLIES
+        'SCHOOL IMPROVEMENTS
+        'Events
+        Chart2.Titles.Clear()
+        Chart2.Titles.Add("YEARLY SCHOOL EXPENSES")
+
     End Sub
 
-    Sub generateGraphSale3()
+    Sub generateGraphYearly()
         '        UTILITY BILL
         'EQUIPMENT REPAIR
         'SCHOOL SUPPLIES
@@ -149,7 +323,7 @@ Public Class frmChart
 
 
 
-        Chart1.Titles.Add("YEARLY SCHOOL EXPENSES")
+
         Chart1.Series.Clear()
 
         Chart1.Series.Add("UTILITY BILL")
@@ -181,7 +355,8 @@ Public Class frmChart
         'SCHOOL SUPPLIES
         'SCHOOL IMPROVEMENTS
         'Events
-
+        Chart1.Titles.Clear()
+        Chart1.Titles.Add("YEARLY SCHOOL EXPENSES")
 
     End Sub
     Sub generateGraphSale2()
@@ -287,7 +462,11 @@ Public Class frmChart
         'End Try
     End Sub
 
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+    Private Sub Label1_Click(sender As Object, e As EventArgs)
 
+    End Sub
+
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        Me.Close()
     End Sub
 End Class
