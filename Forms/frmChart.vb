@@ -9,6 +9,7 @@ Public Class frmChart
     End Sub
 
     Private Sub frmChart_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'loadcmbyear()
         generateGraphYearly()
         generateGraphMonthly()
     End Sub
@@ -183,9 +184,32 @@ Public Class frmChart
         'SCHOOL IMPROVEMENTS
         'Events
         Chart2.Titles.Clear()
-        Chart2.Titles.Add("YEARLY SCHOOL EXPENSES")
+        Chart2.Titles.Add("MONTHLY SCHOOL EXPENSES")
 
     End Sub
+    'Sub loadcmbyear()
+    '    Dim years As New List(Of String)
+
+    '    Call connect(condbPOS)
+    '    mycommand = mysqlconn.CreateCommand
+    '    mycommand.CommandText = "SELECT Year(ExpenseDate) as years,SUM(Amount) as Total FROM SchoolExpenses Group By Year(ExpenseDate) "
+    '    myadapter.SelectCommand = mycommand
+    '    myadapter.Fill(mydataset, "ExpenseSummary")
+    '    mydataTable = mydataset.Tables("ExpenseSummary")
+    '    mysqlreader = mycommand.ExecuteReader()
+    '    While mysqlreader.Read
+    '        '/// years = mysqlreader("years")
+    '        'cmbYear.Items.AddRange(mysqlreader("years"))
+    '        years.AddRange(New String() {mysqlreader("years")})
+    '    End While
+    '    mysqlreader.Close()
+    '    mysqlconn.Close()
+
+
+    '    cmbYear.MaxDropDownItems = years.ToString
+
+
+    'End Sub
 
     Sub generateGraphYearly()
         '        UTILITY BILL

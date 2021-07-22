@@ -146,4 +146,8 @@
     Private Sub VoidedTransactractionsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VoidedTransactractionsToolStripMenuItem.Click
         frmReportVoidedPaymentList.ShowDialog()
     End Sub
+
+    Private Sub YearlyChartToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles YearlyChartToolStripMenuItem.Click
+        frmChart.ShowDialog()
+    End Sub
 End Class

@@ -72,6 +72,10 @@ Partial Class frmMain
         Me.lblbranchName = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.DecisionSupportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SchoolExpensesChartToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MonthToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.YearlyChartToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.panelLogin.SuspendLayout()
@@ -286,7 +290,7 @@ Partial Class frmMain
         '
         'tsmenuReports
         '
-        Me.tsmenuReports.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem8, Me.ToolStripMenuItem10, Me.ToolStripMenuItem11, Me.SchoolExpensesToolStripMenuItem, Me.PaymentListToolStripMenuItem})
+        Me.tsmenuReports.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem8, Me.ToolStripMenuItem10, Me.ToolStripMenuItem11, Me.SchoolExpensesToolStripMenuItem, Me.PaymentListToolStripMenuItem, Me.DecisionSupportToolStripMenuItem})
         Me.tsmenuReports.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tsmenuReports.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.tsmenuReports.Image = CType(resources.GetObject("tsmenuReports.Image"), System.Drawing.Image)
@@ -566,6 +570,33 @@ Partial Class frmMain
         Me.PictureBox2.TabStop = False
         Me.PictureBox2.Visible = False
         '
+        'DecisionSupportToolStripMenuItem
+        '
+        Me.DecisionSupportToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SchoolExpensesChartToolStripMenuItem, Me.MonthToolStripMenuItem, Me.YearlyChartToolStripMenuItem})
+        Me.DecisionSupportToolStripMenuItem.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DecisionSupportToolStripMenuItem.Name = "DecisionSupportToolStripMenuItem"
+        Me.DecisionSupportToolStripMenuItem.Size = New System.Drawing.Size(277, 22)
+        Me.DecisionSupportToolStripMenuItem.Text = "Decision Support School Expenses"
+        '
+        'SchoolExpensesChartToolStripMenuItem
+        '
+        Me.SchoolExpensesChartToolStripMenuItem.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SchoolExpensesChartToolStripMenuItem.Name = "SchoolExpensesChartToolStripMenuItem"
+        Me.SchoolExpensesChartToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SchoolExpensesChartToolStripMenuItem.Text = "Weekly Chart"
+        '
+        'MonthToolStripMenuItem
+        '
+        Me.MonthToolStripMenuItem.Name = "MonthToolStripMenuItem"
+        Me.MonthToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.MonthToolStripMenuItem.Text = "Monthly Char"
+        '
+        'YearlyChartToolStripMenuItem
+        '
+        Me.YearlyChartToolStripMenuItem.Name = "YearlyChartToolStripMenuItem"
+        Me.YearlyChartToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.YearlyChartToolStripMenuItem.Text = "Yearly Chart"
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -647,4 +678,8 @@ Partial Class frmMain
     Friend WithEvents PaymentListToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents VoidedTransactractionsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents DecisionSupportToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SchoolExpensesChartToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents MonthToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents YearlyChartToolStripMenuItem As ToolStripMenuItem
 End Class
