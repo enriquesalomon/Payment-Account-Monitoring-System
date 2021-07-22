@@ -536,5 +536,21 @@ Module modFunction
     End Function
 
 
+    Public Function month(ByVal a As String) As String
+        If a = 1 Then Return "January"
+        If a = 2 Then Return "February"
+        If a = 3 Then Return "March"
+        If a = 4 Then Return "April"
+        If a = 5 Then Return "May"
+        If a = 6 Then Return "June"
+        If a = 7 Then Return "July"
+        If a = 8 Then Return "August"
+        If a = 9 Then Return "September"
+        If a = 10 Then Return "August"
+        If a = 11 Then Return "November"
+        If a = 12 Then Return "December"
+    End Function
+
+
 
 End Module

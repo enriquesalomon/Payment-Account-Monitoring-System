@@ -9,7 +9,209 @@ Public Class frmChart
     End Sub
 
     Private Sub frmChart_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        generateGraphSale()
+        generateGraphSale3()
+    End Sub
+
+    Sub generateGraphSale3()
+        '        UTILITY BILL
+        'EQUIPMENT REPAIR
+        'SCHOOL SUPPLIES
+        'SCHOOL IMPROVEMENTS
+        'EVENTS
+
+
+        Dim Year As New List(Of String)
+        Dim UTILITYBILLtotal As New List(Of Double)
+        Dim EQUIPtotal As New List(Of Double)
+        Dim SCHOOLSUPtotal As New List(Of Double)
+        Dim SCHOOLIMPtotal As New List(Of Double)
+        Dim EVENTStotal As New List(Of Double)
+
+
+        Call connect(condbPOS)
+        mycommand = mysqlconn.CreateCommand
+        mycommand.CommandText = "SELECT Year(ExpenseDate) as years,SUM(Amount) as Total FROM SchoolExpenses Group By Year(ExpenseDate) "
+        myadapter.SelectCommand = mycommand
+        myadapter.Fill(mydataset, "ExpenseSummary")
+        mydataTable = mydataset.Tables("ExpenseSummary")
+        mysqlreader = mycommand.ExecuteReader()
+        While mysqlreader.Read
+            Year.AddRange(New String() {mysqlreader("years")})
+        End While
+        mysqlreader.Close()
+        mysqlconn.Close()
+
+
+
+        For i = 0 To Year.Count - 1
+
+            Call connect(condbPOS)
+            mycommand = mysqlconn.CreateCommand
+            mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE YEAR(ExpenseDate)  ='" & Year(i).ToString & "' AND category ='UTILITY BILL' "
+            myadapter.SelectCommand = mycommand
+            myadapter.Fill(mydataset, "ExpenseSummary")
+            mydataTable = mydataset.Tables("ExpenseSummary")
+            mysqlreader = mycommand.ExecuteReader()
+            While mysqlreader.Read
+                Dim tot As Double
+                If mysqlreader("Total").ToString = "" Then
+                    tot = 0.00
+                Else
+                    tot = mysqlreader("Total")
+                End If
+                UTILITYBILLtotal.AddRange(New Double() {tot})
+            End While
+            mysqlreader.Close()
+            mysqlconn.Close()
+
+            Call connect(condbPOS)
+            mycommand = mysqlconn.CreateCommand
+            mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE YEAR(ExpenseDate)  ='" & Year(i).ToString & "' AND category ='EQUIPMENT REPAIR' "
+            myadapter.SelectCommand = mycommand
+            myadapter.Fill(mydataset, "ExpenseSummary")
+            mydataTable = mydataset.Tables("ExpenseSummary")
+            mysqlreader = mycommand.ExecuteReader()
+            While mysqlreader.Read
+                Dim tot As Double
+                If mysqlreader("Total").ToString = "" Then
+                    tot = 0.00
+                Else
+                    tot = mysqlreader("Total")
+                End If
+                EQUIPtotal.AddRange(New Double() {tot})
+            End While
+            mysqlreader.Close()
+            mysqlconn.Close()
+
+
+            Call connect(condbPOS)
+            mycommand = mysqlconn.CreateCommand
+            mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE YEAR(ExpenseDate)  ='" & Year(i).ToString & "' AND category ='SCHOOL SUPPLIES' "
+            myadapter.SelectCommand = mycommand
+            myadapter.Fill(mydataset, "ExpenseSummary")
+            mydataTable = mydataset.Tables("ExpenseSummary")
+            mysqlreader = mycommand.ExecuteReader()
+            While mysqlreader.Read
+                Dim tot As Double
+                If mysqlreader("Total").ToString = "" Then
+                    tot = 0.00
+                Else
+                    tot = mysqlreader("Total")
+                End If
+                SCHOOLSUPtotal.AddRange(New Double() {tot})
+            End While
+            mysqlreader.Close()
+            mysqlconn.Close()
+
+            Call connect(condbPOS)
+            mycommand = mysqlconn.CreateCommand
+            mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE YEAR(ExpenseDate)  ='" & Year(i).ToString & "' AND category ='SCHOOL IMPROVEMENTS' "
+            myadapter.SelectCommand = mycommand
+            myadapter.Fill(mydataset, "ExpenseSummary")
+            mydataTable = mydataset.Tables("ExpenseSummary")
+            mysqlreader = mycommand.ExecuteReader()
+            While mysqlreader.Read
+                Dim tot As Double
+                If mysqlreader("Total").ToString = "" Then
+                    tot = 0.00
+                Else
+                    tot = mysqlreader("Total")
+                End If
+                SCHOOLIMPtotal.AddRange(New Double() {tot})
+            End While
+            mysqlreader.Close()
+            mysqlconn.Close()
+
+            Call connect(condbPOS)
+            mycommand = mysqlconn.CreateCommand
+            mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE YEAR(ExpenseDate)  ='" & Year(i).ToString & "' AND category ='EVENTS' "
+            myadapter.SelectCommand = mycommand
+            myadapter.Fill(mydataset, "ExpenseSummary")
+            mydataTable = mydataset.Tables("ExpenseSummary")
+            mysqlreader = mycommand.ExecuteReader()
+            While mysqlreader.Read
+                Dim tot As Double
+                If mysqlreader("Total").ToString = "" Then
+                    tot = 0.00
+                Else
+                    tot = mysqlreader("Total")
+                End If
+                EVENTStotal.AddRange(New Double() {tot})
+            End While
+            mysqlreader.Close()
+            mysqlconn.Close()
+        Next
+
+
+        'For i = 0 To Year.Count - 1
+
+        'Next
+
+
+
+        Chart1.Titles.Add("YEARLY SCHOOL EXPENSES")
+        Chart1.Series.Clear()
+
+        Chart1.Series.Add("UTILITY BILL")
+        For i = 0 To Year.Count - 1
+            Chart1.Series("UTILITY BILL").Points.AddXY(Year(i), UTILITYBILLtotal(i))
+        Next
+
+        Chart1.Series.Add("EVENTS")
+        For i = 0 To Year.Count - 1
+            Chart1.Series("EVENTS").Points.AddXY(Year(i), EVENTStotal(i))
+        Next
+
+        Chart1.Series.Add("EQUIPMENT REPAIR")
+        For i = 0 To Year.Count - 1
+            Chart1.Series("EQUIPMENT REPAIR").Points.AddXY(Year(i), EQUIPtotal(i))
+        Next
+
+        Chart1.Series.Add("SCHOOL SUPPLIES")
+        For i = 0 To Year.Count - 1
+            Chart1.Series("SCHOOL SUPPLIES").Points.AddXY(Year(i), SCHOOLSUPtotal(i))
+        Next
+
+        Chart1.Series.Add("SCHOOL IMPROVEMENTS")
+        For i = 0 To Year.Count - 1
+            Chart1.Series("SCHOOL IMPROVEMENTS").Points.AddXY(Year(i), SCHOOLIMPtotal(i))
+        Next
+        '        UTILITY BILL
+        'EQUIPMENT REPAIR
+        'SCHOOL SUPPLIES
+        'SCHOOL IMPROVEMENTS
+        'Events
+
+
+    End Sub
+    Sub generateGraphSale2()
+        'Chart1.Series(0).Points.AddXY("A", 60)
+        'Chart1.Series(0).Points.AddXY("B", 50)
+        'Chart1.Series(0).Points.AddXY("C", 20)
+        'Chart1.Series(0).Points.AddXY("D", 35)
+        'Chart1.Series(0).Points.AddXY("E", 70)
+        'Chart1.Series(1).Points.AddXY("E", 70)
+
+
+        Call connect(condbPOS)
+        mycommand = mysqlconn.CreateCommand
+        mycommand.CommandText = "SELECT * from ExpenseSummary"
+        myadapter.SelectCommand = mycommand
+        myadapter.Fill(mydataset, "ExpenseSummary")
+        mydataTable = mydataset.Tables("ExpenseSummary")
+        mysqlreader = mycommand.ExecuteReader()
+        While mysqlreader.Read
+            Chart1.Series(0).Points.AddXY(mysqlreader("Month"), mysqlreader("Total"))
+            'Chart1.Series(1).Points.AddXY(mysqlreader("Month"), mysqlreader("Total"))
+
+        End While
+        mysqlreader.Close()
+        mysqlconn.Close()
+
+
+
+
+
     End Sub
     Sub generateGraphSale()
 
@@ -46,20 +248,22 @@ Public Class frmChart
         'mysqlreader.Close()
         'mysqlconn.Close()
 
-        Dim da As New OleDbDataAdapter("SELECT Year(ExpenseDate) as years,Category,Amount FROM SchoolExpenses Group By Category,Year(ExpenseDate),Amount", condbPOS)
+        Dim da As New OleDbDataAdapter("SELECT Year(ExpenseDate) as years,Category,SUM(Amount) as Total FROM SchoolExpenses WHERE category='WATER' Group By Category,Year(ExpenseDate) ", condbPOS)
         Dim ds As New DataSet
 
-
-        da.Fill(ds, "Category")
-        Chart1.DataSource = ds.Tables("Category")
+        da.Fill(ds, "SchoolExpenses")
+        Chart1.DataSource = ds.Tables("SchoolExpenses")
         Dim series1 As Series = Chart1.Series("Series1")
-        series1.ChartType = SeriesChartType.Pie
-        series1.Name = "CATEGORY"
+        'series1.ChartType = SeriesChartType.Pie
+        'series1.Name = "CATEGORY"
 
         With Chart1
             .Series(series1.Name).XValueMember = "Years"
-            .Series(series1.Name).YValueMembers = "Amount"
+            .Series(series1.Name).YValueMembers = "Total"
         End With
+
+
+
 
 
 

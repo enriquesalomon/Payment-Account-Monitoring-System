@@ -31,6 +31,8 @@
                 mycommand = mysqlconn.CreateCommand
                 mycommand.CommandText = "INSERT INTO SchoolExpenses VALUES ('" & frmSchoolExpenses.lblCode.Text & "','" & frmSchoolExpenses.txtParticular.Text & "','" & frmSchoolExpenses.cmbCategory.Text & "','" & frmSchoolExpenses.txtAmount.Text & "','" & frmSchoolExpenses.cmbSY.Text & "','" & Format(DateAndTime.Now, "Short Date") & "','" & Format(DateAndTime.Now, "Short Date") & "','" & frmSchoolExpenses.dtExpenseDate.Text & "')"
                 mycommand.ExecuteNonQuery()
+
+                saveSalesMonthly()
                 LoadList()
                 frmSchoolExpenses.ClearMe()
                 frmSchoolExpenses.txtParticular.Focus()
@@ -52,6 +54,7 @@
                     mycommand = mysqlconn.CreateCommand
                     mycommand.CommandText = "UPDATE SchoolExpenses set Particular='" & frmSchoolExpenses.txtParticular.Text & "',Category='" & frmSchoolExpenses.cmbCategory.Text & "',Amount='" & frmSchoolExpenses.txtAmount.Text & "',SY='" & frmSchoolExpenses.cmbSY.Text & "',DateModified='" & Format(DateAndTime.Now, "Short Date") & "',ExpenseDate='" & frmSchoolExpenses.dtExpenseDate.Text & "' where ID ='" & frmSchoolExpenses.lblCode.Text & "'"
                     mycommand.ExecuteNonQuery()
+                    saveSalesMonthly()
                     LoadList()
                     frmSchoolExpenses.ClearMe()
                     frmSchoolExpenses.txtParticular.Focus()
@@ -110,6 +113,72 @@
             End Try
 
         End If
+    End Sub
+
+
+    Sub saveSalesMonthly()
+        'Dim year, monthdt As Int32
+        'year = frmSchoolExpenses.dtExpenseDate.Value.Year
+        'monthdt = frmSchoolExpenses.dtExpenseDate.Value.Month
+        'MsgBox(year)
+        'MsgBox(monthdt)
+        'Dim query As String = ""
+        'connect(condbPOS) : mycommand = mysqlconn.CreateCommand
+        'mycommand.CommandText = "SELECT * FROM ExpenseSummary where Month ='" & month(monthdt) & "' and  Year ='" & (year).ToString & "'  "
+        'mycommand.ExecuteNonQuery()
+        'myadapter.SelectCommand = mycommand
+        'mysqlreader = mycommand.ExecuteReader
+        'If mydataTable.Rows.Count > 0 Then
+        '    Dim sales As Double
+        '    If mysqlreader.Read Then
+        '        sales = mysqlreader("Total")
+        '    End If
+        '    query = "UPDATE ExpenseSummary set Total ='" & sales + CDbl(frmSchoolExpenses.txtAmount.Text) & "'  where Month ='" & month(monthdt) & "'  and  Year ='" & (Now.Year).ToString & "'"
+        'Else
+        '    query = "INSERT INTO ExpenseSummary VALUES('" & month(monthdt) & "','" & (year).ToString & "','" & frmSchoolExpenses.txtAmount.Text & "')"
+
+        'End If
+
+        ''If mysqlreader.Read Then
+        ''    Dim sales As Double = mysqlreader("Total")
+        ''    query = "UPDATE ExpenseSummary set TotalSales ='" & sales + CDbl(frmSchoolExpenses.txtAmount.Text) & "'  where Month ='" & month(monthdt) & "'  and  Year ='" & (Now.Year).ToString & "'"
+        ''Else
+        ''    query = "INSERT INTO ExpenseSummary VALUES('" & month(monthdt) & "','" & (year).ToString & "','" & frmSchoolExpenses.txtAmount.Text & "')"
+
+        ''End If
+        'connect(condbPOS)
+        'mycommand = mysqlconn.CreateCommand
+        'mycommand.CommandText = query
+        'mycommand.ExecuteNonQuery()
+
+
+        Dim year, monthdt As Int32
+        year = frmSchoolExpenses.dtExpenseDate.Value.Year
+        monthdt = frmSchoolExpenses.dtExpenseDate.Value.Month
+        MsgBox(year)
+        MsgBox(monthdt)
+        Dim query As String = ""
+
+        connect(condbPOS)
+        mycommand = mysqlconn.CreateCommand
+        mycommand.CommandText = "SELECT * FROM ExpenseSummary where Month ='" & month(monthdt) & "' and  Year ='" & (year).ToString & "'  "
+        mycommand.ExecuteNonQuery()
+        myadapter.SelectCommand = mycommand
+        mysqlreader = mycommand.ExecuteReader
+
+        If mysqlreader.Read Then
+            Dim sales As Double = mysqlreader("Total")
+            query = "UPDATE ExpenseSummary set Total ='" & sales + CDbl(frmSchoolExpenses.txtAmount.Text) & "'  where Month ='" & month(monthdt) & "'  and  Year ='" & (Now.Year).ToString & "'"
+        Else
+            'query = "UPDATE ExpenseSummary set Total ='" & CDbl(frmSchoolExpenses.txtAmount.Text) & "'  where Month ='" & month(monthdt) & "'  and  Year ='" & (Now.Year).ToString & "'"
+
+            query = "INSERT INTO ExpenseSummary VALUES('" & month(monthdt) & "','" & (year).ToString & "','" & frmSchoolExpenses.txtAmount.Text & "')"
+
+        End If
+        connect(condbPOS)
+        mycommand = mysqlconn.CreateCommand
+        mycommand.CommandText = query
+        mycommand.ExecuteNonQuery()
     End Sub
     Sub loaddtg()
         frmSchoolExpenses.dtgList.ColumnCount = 7
