@@ -29,6 +29,8 @@ Public Class frmChart
         Dim EVENTStotal As New List(Of Double)
 
 
+
+
         Call connect(condbPOS)
         mycommand = mysqlconn.CreateCommand
         If cmbYear.Text = "" Then
@@ -54,13 +56,13 @@ Public Class frmChart
 
             Call connect(condbPOS)
             mycommand = mysqlconn.CreateCommand
-            mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE MONTH(ExpenseDate)  ='" & Months(i).ToString & "' AND category ='UTILITY BILL' "
+            mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE MONTH(ExpenseDate)  ='" & Months(i).ToString & "' AND YEAR(ExpenseDate) ='" & cmbYear.Text & "' AND category ='UTILITY BILL' "
             myadapter.SelectCommand = mycommand
             myadapter.Fill(mydataset, "ExpenseSummary")
             mydataTable = mydataset.Tables("ExpenseSummary")
             mysqlreader = mycommand.ExecuteReader()
             While mysqlreader.Read
-                Dim tot As Double
+                Dim tot As Double = 0
                 If mysqlreader("Total").ToString = "" Then
                     tot = 0.00
                 Else
@@ -73,13 +75,13 @@ Public Class frmChart
 
             Call connect(condbPOS)
             mycommand = mysqlconn.CreateCommand
-            mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE MONTH(ExpenseDate)  ='" & Months(i).ToString & "' AND category ='EQUIPMENT REPAIR' "
+            mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE MONTH(ExpenseDate)  ='" & Months(i).ToString & "'  AND YEAR(ExpenseDate) ='" & cmbYear.Text & "' AND category ='EQUIPMENT REPAIR' "
             myadapter.SelectCommand = mycommand
             myadapter.Fill(mydataset, "ExpenseSummary")
             mydataTable = mydataset.Tables("ExpenseSummary")
             mysqlreader = mycommand.ExecuteReader()
             While mysqlreader.Read
-                Dim tot As Double
+                Dim tot As Double = 0
                 If mysqlreader("Total").ToString = "" Then
                     tot = 0.00
                 Else
@@ -93,13 +95,13 @@ Public Class frmChart
 
             Call connect(condbPOS)
             mycommand = mysqlconn.CreateCommand
-            mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE MONTH(ExpenseDate)  ='" & Months(i).ToString & "' AND category ='SCHOOL SUPPLIES' "
+            mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE MONTH(ExpenseDate)  ='" & Months(i).ToString & "'  AND YEAR(ExpenseDate) ='" & cmbYear.Text & "' AND category ='SCHOOL SUPPLIES' "
             myadapter.SelectCommand = mycommand
             myadapter.Fill(mydataset, "ExpenseSummary")
             mydataTable = mydataset.Tables("ExpenseSummary")
             mysqlreader = mycommand.ExecuteReader()
             While mysqlreader.Read
-                Dim tot As Double
+                Dim tot As Double = 0
                 If mysqlreader("Total").ToString = "" Then
                     tot = 0.00
                 Else
@@ -112,13 +114,13 @@ Public Class frmChart
 
             Call connect(condbPOS)
             mycommand = mysqlconn.CreateCommand
-            mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE MONTH(ExpenseDate)  ='" & Months(i).ToString & "' AND category ='SCHOOL IMPROVEMENTS' "
+            mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE MONTH(ExpenseDate)  ='" & Months(i).ToString & "'  AND YEAR(ExpenseDate) ='" & cmbYear.Text & "' AND category ='SCHOOL IMPROVEMENTS' "
             myadapter.SelectCommand = mycommand
             myadapter.Fill(mydataset, "ExpenseSummary")
             mydataTable = mydataset.Tables("ExpenseSummary")
             mysqlreader = mycommand.ExecuteReader()
             While mysqlreader.Read
-                Dim tot As Double
+                Dim tot As Double = 0
                 If mysqlreader("Total").ToString = "" Then
                     tot = 0.00
                 Else
@@ -131,13 +133,13 @@ Public Class frmChart
 
             Call connect(condbPOS)
             mycommand = mysqlconn.CreateCommand
-            mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE MONTH(ExpenseDate)  ='" & Months(i).ToString & "' AND category ='EVENTS' "
+            mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE MONTH(ExpenseDate)  ='" & Months(i).ToString & "'  AND YEAR(ExpenseDate) ='" & cmbYear.Text & "' AND category ='EVENTS' "
             myadapter.SelectCommand = mycommand
             myadapter.Fill(mydataset, "ExpenseSummary")
             mydataTable = mydataset.Tables("ExpenseSummary")
             mysqlreader = mycommand.ExecuteReader()
             While mysqlreader.Read
-                Dim tot As Double
+                Dim tot As Double = 0
                 If mysqlreader("Total").ToString = "" Then
                     tot = 0.00
                 Else
@@ -212,6 +214,7 @@ Public Class frmChart
 
     End Sub
     Sub loadcmbyear()
+        cmbYear.Items.Clear()
         Call connect(condbPOS)
         mycommand = mysqlconn.CreateCommand
         mycommand.CommandText = "SELECT Year(ExpenseDate) as years,SUM(Amount) as Total FROM SchoolExpenses Group By Year(ExpenseDate) "

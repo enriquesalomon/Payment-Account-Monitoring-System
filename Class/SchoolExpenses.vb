@@ -32,7 +32,7 @@
                 getSchoolExpenseID(frmSchoolExpenses.lblCode.Text)
                 connect(condbPOS)
                 mycommand = mysqlconn.CreateCommand
-                mycommand.CommandText = "INSERT INTO SchoolExpenses VALUES ('" & frmSchoolExpenses.lblCode.Text & "','" & frmSchoolExpenses.txtParticular.Text & "','" & frmSchoolExpenses.cmbCategory.Text & "','" & frmSchoolExpenses.txtAmount.Text & "','" & frmSchoolExpenses.txtAmount.Text & "','" & Format(DateAndTime.Now, "Short Date") & "','" & Format(DateAndTime.Now, "Short Date") & "','" & frmSchoolExpenses.dtExpenseDate.Text & "')"
+                mycommand.CommandText = "INSERT INTO SchoolExpenses VALUES ('" & frmSchoolExpenses.lblCode.Text & "','" & frmSchoolExpenses.txtParticular.Text & "','" & frmSchoolExpenses.cmbCategory.Text & "','" & frmSchoolExpenses.txtAmount.Text & "','" & frmSchoolExpenses.cmbSY.Text & "','" & Format(DateAndTime.Now, "Short Date") & "','" & Format(DateAndTime.Now, "Short Date") & "','" & frmSchoolExpenses.dtExpenseDate.Text & "')"
                 mycommand.ExecuteNonQuery()
 
                 saveSalesMonthly()
