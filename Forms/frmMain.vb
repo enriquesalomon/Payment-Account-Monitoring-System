@@ -147,7 +147,11 @@
         frmReportVoidedPaymentList.ShowDialog()
     End Sub
 
-    Private Sub YearlyChartToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles YearlyChartToolStripMenuItem.Click
+    Private Sub YearlyChartToolStripMenuItem_Click(sender As Object, e As EventArgs)
+        frmChart.ShowDialog()
+    End Sub
+
+    Private Sub DecisionSupportToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DecisionSupportToolStripMenuItem.Click
         frmChart.ShowDialog()
     End Sub
 End Class

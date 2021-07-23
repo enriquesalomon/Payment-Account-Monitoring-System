@@ -30,24 +30,18 @@ Partial Class frmChart
         Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series6 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmChart))
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Chart2 = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.Chart3 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.btnrefresh = New System.Windows.Forms.Button()
         Me.cmbYear = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel4.SuspendLayout()
         CType(Me.Chart2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Chart3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Chart1
@@ -128,31 +122,9 @@ Partial Class frmChart
         Series4.Name = "Series2"
         Me.Chart2.Series.Add(Series3)
         Me.Chart2.Series.Add(Series4)
-        Me.Chart2.Size = New System.Drawing.Size(463, 270)
+        Me.Chart2.Size = New System.Drawing.Size(932, 270)
         Me.Chart2.TabIndex = 582
         Me.Chart2.Text = "Chart2"
-        '
-        'Chart3
-        '
-        ChartArea3.AxisX.Title = "Weekly"
-        ChartArea3.AxisY.Title = "Expense"
-        ChartArea3.Name = "ChartArea1"
-        Me.Chart3.ChartAreas.Add(ChartArea3)
-        Legend3.Name = "Legend1"
-        Me.Chart3.Legends.Add(Legend3)
-        Me.Chart3.Location = New System.Drawing.Point(478, 60)
-        Me.Chart3.Name = "Chart3"
-        Series5.ChartArea = "ChartArea1"
-        Series5.Legend = "Legend1"
-        Series5.Name = "Series1"
-        Series6.ChartArea = "ChartArea1"
-        Series6.Legend = "Legend1"
-        Series6.Name = "Series2"
-        Me.Chart3.Series.Add(Series5)
-        Me.Chart3.Series.Add(Series6)
-        Me.Chart3.Size = New System.Drawing.Size(463, 270)
-        Me.Chart3.TabIndex = 583
-        Me.Chart3.Text = "Chart3"
         '
         'btnrefresh
         '
@@ -197,7 +169,6 @@ Partial Class frmChart
         Me.Controls.Add(Me.btnrefresh)
         Me.Controls.Add(Me.cmbYear)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.Chart3)
         Me.Controls.Add(Me.Chart2)
         Me.Controls.Add(Me.Chart1)
         Me.Controls.Add(Me.Panel4)
@@ -209,7 +180,6 @@ Partial Class frmChart
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
         CType(Me.Chart2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Chart3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -220,7 +190,6 @@ Partial Class frmChart
     Friend WithEvents btnClose As Button
     Friend WithEvents Label5 As Label
     Friend WithEvents Chart2 As DataVisualization.Charting.Chart
-    Friend WithEvents Chart3 As DataVisualization.Charting.Chart
     Friend WithEvents Label1 As Label
     Friend WithEvents cmbYear As ComboBox
     Friend WithEvents btnrefresh As Button
