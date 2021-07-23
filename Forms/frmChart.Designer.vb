@@ -112,7 +112,7 @@ Partial Class frmChart
         '
         'Chart2
         '
-        ChartArea2.AxisX.Title = "Year"
+        ChartArea2.AxisX.Title = "Month"
         ChartArea2.AxisY.Title = "Expense"
         ChartArea2.Name = "ChartArea1"
         Me.Chart2.ChartAreas.Add(ChartArea2)
@@ -134,7 +134,7 @@ Partial Class frmChart
         '
         'Chart3
         '
-        ChartArea3.AxisX.Title = "Year"
+        ChartArea3.AxisX.Title = "Weekly"
         ChartArea3.AxisY.Title = "Expense"
         ChartArea3.Name = "ChartArea1"
         Me.Chart3.ChartAreas.Add(ChartArea3)

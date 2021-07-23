@@ -9,7 +9,7 @@ Public Class frmChart
     End Sub
 
     Private Sub frmChart_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'loadcmbyear()
+        loadcmbyear()
         generateGraphYearly()
         generateGraphMonthly()
     End Sub
@@ -31,7 +31,12 @@ Public Class frmChart
 
         Call connect(condbPOS)
         mycommand = mysqlconn.CreateCommand
-        mycommand.CommandText = "SELECT MONTH(ExpenseDate) as months,SUM(Amount) as Total FROM SchoolExpenses Group By MONTH(ExpenseDate) "
+        If cmbYear.Text = "" Then
+            mycommand.CommandText = "SELECT MONTH(ExpenseDate) as months,SUM(Amount) as Total FROM SchoolExpenses Group By MONTH(ExpenseDate) "
+        Else
+            mycommand.CommandText = "SELECT MONTH(ExpenseDate) as months,SUM(Amount) as Total FROM SchoolExpenses  where YEAR(ExpenseDate) ='" & cmbYear.Text & "' Group By MONTH(ExpenseDate) "
+        End If
+
         myadapter.SelectCommand = mycommand
         myadapter.Fill(mydataset, "ExpenseSummary")
         mydataTable = mydataset.Tables("ExpenseSummary")
@@ -157,26 +162,36 @@ Public Class frmChart
         Chart2.Series.Add("UTILITY BILL")
         For i = 0 To Months.Count - 1
             Chart2.Series("UTILITY BILL").Points.AddXY(month(Months(i)), UTILITYBILLtotal(i))
+            Chart2.Series("UTILITY BILL").IsValueShownAsLabel = True
+
         Next
 
         Chart2.Series.Add("EVENTS")
         For i = 0 To Months.Count - 1
             Chart2.Series("EVENTS").Points.AddXY(month(Months(i)), EVENTStotal(i))
+            Chart2.Series("EVENTS").IsValueShownAsLabel = True
+
         Next
 
         Chart2.Series.Add("EQUIPMENT REPAIR")
         For i = 0 To Months.Count - 1
             Chart2.Series("EQUIPMENT REPAIR").Points.AddXY(month(Months(i)), EQUIPtotal(i))
+            Chart2.Series("EQUIPMENT REPAIR").IsValueShownAsLabel = True
+
         Next
 
         Chart2.Series.Add("SCHOOL SUPPLIES")
         For i = 0 To Months.Count - 1
             Chart2.Series("SCHOOL SUPPLIES").Points.AddXY(month(Months(i)), SCHOOLSUPtotal(i))
+            Chart2.Series("SCHOOL SUPPLIES").IsValueShownAsLabel = True
+
         Next
 
         Chart2.Series.Add("SCHOOL IMPROVEMENTS")
         For i = 0 To Months.Count - 1
             Chart2.Series("SCHOOL IMPROVEMENTS").Points.AddXY(month(Months(i)), SCHOOLIMPtotal(i))
+            Chart2.Series("SCHOOL IMPROVEMENTS").IsValueShownAsLabel = True
+
         Next
         '        UTILITY BILL
         'EQUIPMENT REPAIR
@@ -186,30 +201,26 @@ Public Class frmChart
         Chart2.Titles.Clear()
         Chart2.Titles.Add("MONTHLY SCHOOL EXPENSES")
 
+
+
     End Sub
-    'Sub loadcmbyear()
-    '    Dim years As New List(Of String)
-
-    '    Call connect(condbPOS)
-    '    mycommand = mysqlconn.CreateCommand
-    '    mycommand.CommandText = "SELECT Year(ExpenseDate) as years,SUM(Amount) as Total FROM SchoolExpenses Group By Year(ExpenseDate) "
-    '    myadapter.SelectCommand = mycommand
-    '    myadapter.Fill(mydataset, "ExpenseSummary")
-    '    mydataTable = mydataset.Tables("ExpenseSummary")
-    '    mysqlreader = mycommand.ExecuteReader()
-    '    While mysqlreader.Read
-    '        '/// years = mysqlreader("years")
-    '        'cmbYear.Items.AddRange(mysqlreader("years"))
-    '        years.AddRange(New String() {mysqlreader("years")})
-    '    End While
-    '    mysqlreader.Close()
-    '    mysqlconn.Close()
+    Sub loadcmbyear()
+        Call connect(condbPOS)
+        mycommand = mysqlconn.CreateCommand
+        mycommand.CommandText = "SELECT Year(ExpenseDate) as years,SUM(Amount) as Total FROM SchoolExpenses Group By Year(ExpenseDate) "
+        myadapter.SelectCommand = mycommand
+        myadapter.Fill(mydataset, "ExpenseSummary")
+        mydataTable = mydataset.Tables("ExpenseSummary")
+        mysqlreader = mycommand.ExecuteReader()
+        While mysqlreader.Read
+            cmbYear.Items.Add(mysqlreader("years"))
+        End While
+        mysqlreader.Close()
+        mysqlconn.Close()
 
 
-    '    cmbYear.MaxDropDownItems = years.ToString
 
-
-    'End Sub
+    End Sub
 
     Sub generateGraphYearly()
         '        UTILITY BILL
@@ -354,26 +365,32 @@ Public Class frmChart
         Chart1.Series.Add("UTILITY BILL")
         For i = 0 To Year.Count - 1
             Chart1.Series("UTILITY BILL").Points.AddXY(Year(i), UTILITYBILLtotal(i))
+            Chart1.Series("UTILITY BILL").IsValueShownAsLabel = True
+
         Next
 
         Chart1.Series.Add("EVENTS")
         For i = 0 To Year.Count - 1
             Chart1.Series("EVENTS").Points.AddXY(Year(i), EVENTStotal(i))
+            Chart1.Series("EVENTS").IsValueShownAsLabel = True
         Next
 
         Chart1.Series.Add("EQUIPMENT REPAIR")
         For i = 0 To Year.Count - 1
             Chart1.Series("EQUIPMENT REPAIR").Points.AddXY(Year(i), EQUIPtotal(i))
+            Chart1.Series("EQUIPMENT REPAIR").IsValueShownAsLabel = True
         Next
 
         Chart1.Series.Add("SCHOOL SUPPLIES")
         For i = 0 To Year.Count - 1
             Chart1.Series("SCHOOL SUPPLIES").Points.AddXY(Year(i), SCHOOLSUPtotal(i))
+            Chart1.Series("SCHOOL SUPPLIES").IsValueShownAsLabel = True
         Next
 
         Chart1.Series.Add("SCHOOL IMPROVEMENTS")
         For i = 0 To Year.Count - 1
             Chart1.Series("SCHOOL IMPROVEMENTS").Points.AddXY(Year(i), SCHOOLIMPtotal(i))
+            Chart1.Series("SCHOOL IMPROVEMENTS").IsValueShownAsLabel = True
         Next
         '        UTILITY BILL
         'EQUIPMENT REPAIR
@@ -493,5 +510,10 @@ Public Class frmChart
 
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
         Me.Close()
+    End Sub
+
+    Private Sub btnrefresh_Click(sender As Object, e As EventArgs) Handles btnrefresh.Click
+
+        generateGraphMonthly()
     End Sub
 End Class
