@@ -49,7 +49,9 @@ Module modFunction
     Public reportpath As String = "C:\Users\1IPAY PAYMENT CENTER\Desktop\Payment System\Report"
 
     Public Function DBpath() As String
-        Databasename = Application.StartupPath & "\PAMS_DB" & ".accdb"
+        'Databasename = Application.StartupPath & "\PAMS_DB" & ".accdb"
+        Databasename = "C:\Users\1IPAY PAYMENT CENTER\Desktop\PAMS_DB" & ".accdb"
+
         DBpath = "provider=microsoft.ace.oledb.12.0;" & "data source=" & Databasename & ";Jet OLEDB:Database Password="
     End Function
 
