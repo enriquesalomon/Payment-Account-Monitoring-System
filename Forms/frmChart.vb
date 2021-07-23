@@ -28,13 +28,13 @@ Public Class frmChart
         Dim SCHOOLIMPtotal As New List(Of Double)
         Dim EVENTStotal As New List(Of Double)
 
-
+        Dim nowYear As Integer = Date.Now.Year
 
 
         Call connect(condbPOS)
         mycommand = mysqlconn.CreateCommand
         If cmbYear.Text = "" Then
-            mycommand.CommandText = "SELECT MONTH(ExpenseDate) as months,SUM(Amount) as Total FROM SchoolExpenses Group By MONTH(ExpenseDate) "
+            mycommand.CommandText = "SELECT MONTH(ExpenseDate) as months,SUM(Amount) as Total FROM SchoolExpenses where YEAR(ExpenseDate) ='" & nowYear & "' Group By MONTH(ExpenseDate) "
         Else
             mycommand.CommandText = "SELECT MONTH(ExpenseDate) as months,SUM(Amount) as Total FROM SchoolExpenses  where YEAR(ExpenseDate) ='" & cmbYear.Text & "' Group By MONTH(ExpenseDate) "
         End If
@@ -56,7 +56,13 @@ Public Class frmChart
 
             Call connect(condbPOS)
             mycommand = mysqlconn.CreateCommand
-            mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE MONTH(ExpenseDate)  ='" & Months(i).ToString & "' AND YEAR(ExpenseDate) ='" & cmbYear.Text & "' AND category ='UTILITY BILL' "
+            If cmbYear.Text = "" Then
+                mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE MONTH(ExpenseDate)  ='" & Months(i).ToString & "' AND YEAR(ExpenseDate) ='" & nowYear & "' AND category ='UTILITY BILL' "
+
+            Else
+                mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE MONTH(ExpenseDate)  ='" & Months(i).ToString & "' AND YEAR(ExpenseDate) ='" & cmbYear.Text & "' AND category ='UTILITY BILL' "
+
+            End If
             myadapter.SelectCommand = mycommand
             myadapter.Fill(mydataset, "ExpenseSummary")
             mydataTable = mydataset.Tables("ExpenseSummary")
@@ -75,7 +81,15 @@ Public Class frmChart
 
             Call connect(condbPOS)
             mycommand = mysqlconn.CreateCommand
-            mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE MONTH(ExpenseDate)  ='" & Months(i).ToString & "'  AND YEAR(ExpenseDate) ='" & cmbYear.Text & "' AND category ='EQUIPMENT REPAIR' "
+
+            If cmbYear.Text = "" Then
+                mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE MONTH(ExpenseDate)  ='" & Months(i).ToString & "'  AND YEAR(ExpenseDate) ='" & nowYear & "' AND category ='EQUIPMENT REPAIR' "
+
+            Else
+                mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE MONTH(ExpenseDate)  ='" & Months(i).ToString & "'  AND YEAR(ExpenseDate) ='" & cmbYear.Text & "' AND category ='EQUIPMENT REPAIR' "
+
+            End If
+
             myadapter.SelectCommand = mycommand
             myadapter.Fill(mydataset, "ExpenseSummary")
             mydataTable = mydataset.Tables("ExpenseSummary")
@@ -95,7 +109,13 @@ Public Class frmChart
 
             Call connect(condbPOS)
             mycommand = mysqlconn.CreateCommand
-            mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE MONTH(ExpenseDate)  ='" & Months(i).ToString & "'  AND YEAR(ExpenseDate) ='" & cmbYear.Text & "' AND category ='SCHOOL SUPPLIES' "
+
+            If cmbYear.Text = "" Then
+                mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE MONTH(ExpenseDate)  ='" & Months(i).ToString & "'  AND YEAR(ExpenseDate) ='" & nowYear & "' AND category ='SCHOOL SUPPLIES' "
+            Else
+                mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE MONTH(ExpenseDate)  ='" & Months(i).ToString & "'  AND YEAR(ExpenseDate) ='" & cmbYear.Text & "' AND category ='SCHOOL SUPPLIES' "
+            End If
+
             myadapter.SelectCommand = mycommand
             myadapter.Fill(mydataset, "ExpenseSummary")
             mydataTable = mydataset.Tables("ExpenseSummary")
@@ -114,7 +134,14 @@ Public Class frmChart
 
             Call connect(condbPOS)
             mycommand = mysqlconn.CreateCommand
-            mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE MONTH(ExpenseDate)  ='" & Months(i).ToString & "'  AND YEAR(ExpenseDate) ='" & cmbYear.Text & "' AND category ='SCHOOL IMPROVEMENTS' "
+            If cmbYear.Text = "" Then
+                mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE MONTH(ExpenseDate)  ='" & Months(i).ToString & "'  AND YEAR(ExpenseDate) ='" & nowYear & "' AND category ='SCHOOL IMPROVEMENTS' "
+
+            Else
+                mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE MONTH(ExpenseDate)  ='" & Months(i).ToString & "'  AND YEAR(ExpenseDate) ='" & cmbYear.Text & "' AND category ='SCHOOL IMPROVEMENTS' "
+            End If
+
+
             myadapter.SelectCommand = mycommand
             myadapter.Fill(mydataset, "ExpenseSummary")
             mydataTable = mydataset.Tables("ExpenseSummary")
@@ -133,7 +160,14 @@ Public Class frmChart
 
             Call connect(condbPOS)
             mycommand = mysqlconn.CreateCommand
-            mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE MONTH(ExpenseDate)  ='" & Months(i).ToString & "'  AND YEAR(ExpenseDate) ='" & cmbYear.Text & "' AND category ='EVENTS' "
+            If cmbYear.Text = "" Then
+                mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE MONTH(ExpenseDate)  ='" & Months(i).ToString & "'  AND YEAR(ExpenseDate) ='" & nowYear & "' AND category ='EVENTS' "
+
+            Else
+                mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE MONTH(ExpenseDate)  ='" & Months(i).ToString & "'  AND YEAR(ExpenseDate) ='" & cmbYear.Text & "' AND category ='EVENTS' "
+            End If
+
+
             myadapter.SelectCommand = mycommand
             myadapter.Fill(mydataset, "ExpenseSummary")
             mydataTable = mydataset.Tables("ExpenseSummary")
