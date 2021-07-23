@@ -23,12 +23,13 @@ Partial Class frmSchoolExpenses
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSchoolExpenses))
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.btnEdit = New System.Windows.Forms.Button()
         Me.btnNew = New System.Windows.Forms.Button()
         Me.btnDelete = New System.Windows.Forms.Button()
@@ -37,8 +38,6 @@ Partial Class frmSchoolExpenses
         Me.panelExpenses = New System.Windows.Forms.Panel()
         Me.dtExpenseDate = New System.Windows.Forms.DateTimePicker()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.cmbSY = New System.Windows.Forms.ComboBox()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.cmbCategory = New System.Windows.Forms.ComboBox()
         Me.txtAmount = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -50,7 +49,8 @@ Partial Class frmSchoolExpenses
         Me.bntClose = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.cmbSY = New System.Windows.Forms.ComboBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel4.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.dtgList, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -109,6 +109,18 @@ Partial Class frmSchoolExpenses
         Me.Panel1.Size = New System.Drawing.Size(831, 29)
         Me.Panel1.TabIndex = 586
         '
+        'Button1
+        '
+        Me.Button1.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Button1.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(731, 0)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(100, 29)
+        Me.Button1.TabIndex = 531
+        Me.Button1.Text = "View Chart"
+        Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'btnEdit
         '
         Me.btnEdit.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -164,14 +176,14 @@ Partial Class frmSchoolExpenses
         Me.dtgList.AllowUserToResizeRows = False
         Me.dtgList.BackgroundColor = System.Drawing.Color.Gainsboro
         Me.dtgList.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dtgList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dtgList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dtgList.ColumnHeadersHeight = 32
         Me.dtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dtgList.EnableHeadersVisualStyles = False
@@ -182,12 +194,12 @@ Partial Class frmSchoolExpenses
         Me.dtgList.ReadOnly = True
         Me.dtgList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         Me.dtgList.RowHeadersVisible = False
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White
-        Me.dtgList.RowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
+        Me.dtgList.RowsDefaultCellStyle = DataGridViewCellStyle2
         Me.dtgList.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtgList.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
         Me.dtgList.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.DodgerBlue
@@ -199,10 +211,10 @@ Partial Class frmSchoolExpenses
         '
         'panelExpenses
         '
-        Me.panelExpenses.Controls.Add(Me.dtExpenseDate)
-        Me.panelExpenses.Controls.Add(Me.Label6)
         Me.panelExpenses.Controls.Add(Me.cmbSY)
         Me.panelExpenses.Controls.Add(Me.Label3)
+        Me.panelExpenses.Controls.Add(Me.dtExpenseDate)
+        Me.panelExpenses.Controls.Add(Me.Label6)
         Me.panelExpenses.Controls.Add(Me.cmbCategory)
         Me.panelExpenses.Controls.Add(Me.txtAmount)
         Me.panelExpenses.Controls.Add(Me.Label2)
@@ -214,7 +226,7 @@ Partial Class frmSchoolExpenses
         Me.panelExpenses.Controls.Add(Me.Label4)
         Me.panelExpenses.Location = New System.Drawing.Point(231, 156)
         Me.panelExpenses.Name = "panelExpenses"
-        Me.panelExpenses.Size = New System.Drawing.Size(334, 226)
+        Me.panelExpenses.Size = New System.Drawing.Size(334, 231)
         Me.panelExpenses.TabIndex = 611
         Me.panelExpenses.Visible = False
         '
@@ -222,7 +234,7 @@ Partial Class frmSchoolExpenses
         '
         Me.dtExpenseDate.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtExpenseDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtExpenseDate.Location = New System.Drawing.Point(119, 151)
+        Me.dtExpenseDate.Location = New System.Drawing.Point(119, 150)
         Me.dtExpenseDate.Name = "dtExpenseDate"
         Me.dtExpenseDate.Size = New System.Drawing.Size(209, 23)
         Me.dtExpenseDate.TabIndex = 723
@@ -231,31 +243,11 @@ Partial Class frmSchoolExpenses
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(3, 154)
+        Me.Label6.Location = New System.Drawing.Point(3, 153)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(116, 17)
         Me.Label6.TabIndex = 665
         Me.Label6.Text = "Date of Expense:"
-        '
-        'cmbSY
-        '
-        Me.cmbSY.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbSY.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbSY.FormattingEnabled = True
-        Me.cmbSY.Location = New System.Drawing.Point(94, 122)
-        Me.cmbSY.Name = "cmbSY"
-        Me.cmbSY.Size = New System.Drawing.Size(124, 24)
-        Me.cmbSY.TabIndex = 664
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(3, 122)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(87, 17)
-        Me.Label3.TabIndex = 663
-        Me.Label3.Text = "School Year:"
         '
         'cmbCategory
         '
@@ -344,7 +336,7 @@ Partial Class frmSchoolExpenses
         Me.btnSave.Enabled = False
         Me.btnSave.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSave.Image = CType(resources.GetObject("btnSave.Image"), System.Drawing.Image)
-        Me.btnSave.Location = New System.Drawing.Point(128, 197)
+        Me.btnSave.Location = New System.Drawing.Point(128, 190)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(100, 26)
         Me.btnSave.TabIndex = 599
@@ -356,7 +348,7 @@ Partial Class frmSchoolExpenses
         '
         Me.bntClose.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bntClose.Image = CType(resources.GetObject("bntClose.Image"), System.Drawing.Image)
-        Me.bntClose.Location = New System.Drawing.Point(228, 197)
+        Me.bntClose.Location = New System.Drawing.Point(228, 190)
         Me.bntClose.Name = "bntClose"
         Me.bntClose.Size = New System.Drawing.Size(100, 26)
         Me.bntClose.TabIndex = 600
@@ -385,17 +377,26 @@ Partial Class frmSchoolExpenses
         Me.Label4.TabIndex = 596
         Me.Label4.Text = "Particular:"
         '
-        'Button1
+        'cmbSY
         '
-        Me.Button1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Button1.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(731, 0)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(100, 29)
-        Me.Button1.TabIndex = 531
-        Me.Button1.Text = "View Chart"
-        Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.cmbSY.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbSY.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbSY.FormattingEnabled = True
+        Me.cmbSY.Items.AddRange(New Object() {"UTILITY BILL", "EQUIPMENT REPAIR", "SCHOOL SUPPLIES", "SCHOOL IMPROVEMENTS", "EVENTS"})
+        Me.cmbSY.Location = New System.Drawing.Point(94, 122)
+        Me.cmbSY.Name = "cmbSY"
+        Me.cmbSY.Size = New System.Drawing.Size(234, 24)
+        Me.cmbSY.TabIndex = 725
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(4, 128)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(87, 17)
+        Me.Label3.TabIndex = 724
+        Me.Label3.Text = "School Year:"
         '
         'frmSchoolExpenses
         '
@@ -435,8 +436,6 @@ Partial Class frmSchoolExpenses
     Friend WithEvents Label40 As Label
     Friend WithEvents dtgList As DataGridView
     Friend WithEvents panelExpenses As Panel
-    Friend WithEvents cmbSY As ComboBox
-    Friend WithEvents Label3 As Label
     Friend WithEvents cmbCategory As ComboBox
     Friend WithEvents txtAmount As TextBox
     Friend WithEvents Label2 As Label
@@ -451,4 +450,6 @@ Partial Class frmSchoolExpenses
     Friend WithEvents Label6 As Label
     Friend WithEvents dtExpenseDate As DateTimePicker
     Friend WithEvents Button1 As Button
+    Friend WithEvents cmbSY As ComboBox
+    Friend WithEvents Label3 As Label
 End Class

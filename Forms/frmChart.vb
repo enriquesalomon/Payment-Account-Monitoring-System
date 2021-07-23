@@ -200,6 +200,13 @@ Public Class frmChart
         'Events
         Chart2.Titles.Clear()
         Chart2.Titles.Add("MONTHLY SCHOOL EXPENSES")
+        If cmbYear.Text = "" Then
+            Chart2.ChartAreas(0).AxisX.Title = "Months of " & Year(Date.Now.ToString)
+
+        Else
+            Chart2.ChartAreas(0).AxisX.Title = "Months of " & cmbYear.Text.ToString
+
+        End If
 
 
 

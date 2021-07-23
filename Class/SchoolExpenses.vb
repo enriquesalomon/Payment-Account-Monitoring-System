@@ -12,10 +12,13 @@
             MessageBox.Show("Please enter Amount!", "Validation Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Exit Sub
         End If
+
         If frmSchoolExpenses.cmbSY.Text = "" Then
-            MessageBox.Show("Please select Shool Year", "Validation Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show("Please select School Year", "Validation Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Exit Sub
         End If
+
+
         If frmSchoolExpenses.dtExpenseDate.Text = "" Then
             MessageBox.Show("Please select Date of Expense", "Validation Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Exit Sub
@@ -29,7 +32,7 @@
                 getSchoolExpenseID(frmSchoolExpenses.lblCode.Text)
                 connect(condbPOS)
                 mycommand = mysqlconn.CreateCommand
-                mycommand.CommandText = "INSERT INTO SchoolExpenses VALUES ('" & frmSchoolExpenses.lblCode.Text & "','" & frmSchoolExpenses.txtParticular.Text & "','" & frmSchoolExpenses.cmbCategory.Text & "','" & frmSchoolExpenses.txtAmount.Text & "','" & frmSchoolExpenses.cmbSY.Text & "','" & Format(DateAndTime.Now, "Short Date") & "','" & Format(DateAndTime.Now, "Short Date") & "','" & frmSchoolExpenses.dtExpenseDate.Text & "')"
+                mycommand.CommandText = "INSERT INTO SchoolExpenses VALUES ('" & frmSchoolExpenses.lblCode.Text & "','" & frmSchoolExpenses.txtParticular.Text & "','" & frmSchoolExpenses.cmbCategory.Text & "','" & frmSchoolExpenses.txtAmount.Text & "','" & frmSchoolExpenses.txtAmount.Text & "','" & Format(DateAndTime.Now, "Short Date") & "','" & Format(DateAndTime.Now, "Short Date") & "','" & frmSchoolExpenses.dtExpenseDate.Text & "')"
                 mycommand.ExecuteNonQuery()
 
                 saveSalesMonthly()
@@ -155,8 +158,6 @@
         Dim year, monthdt As Int32
         year = frmSchoolExpenses.dtExpenseDate.Value.Year
         monthdt = frmSchoolExpenses.dtExpenseDate.Value.Month
-        MsgBox(year)
-        MsgBox(monthdt)
         Dim query As String = ""
 
         connect(condbPOS)
@@ -181,7 +182,7 @@
         mycommand.ExecuteNonQuery()
     End Sub
     Sub loaddtg()
-        frmSchoolExpenses.dtgList.ColumnCount = 7
+        frmSchoolExpenses.dtgList.ColumnCount = 6
 
         frmSchoolExpenses.dtgList.Columns(0).HeaderText = "NO."
         frmSchoolExpenses.dtgList.Columns(0).Width = 50
@@ -208,15 +209,10 @@
         frmSchoolExpenses.dtgList.Columns(4).Name = "amount"
         frmSchoolExpenses.dtgList.Columns(4).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
-        frmSchoolExpenses.dtgList.Columns(5).HeaderText = "School Year"
-        frmSchoolExpenses.dtgList.Columns(5).Width = 100
-        frmSchoolExpenses.dtgList.Columns(5).Name = "schoolyear"
+        frmSchoolExpenses.dtgList.Columns(5).HeaderText = "Expense Date"
+        frmSchoolExpenses.dtgList.Columns(5).Width = 70
+        frmSchoolExpenses.dtgList.Columns(5).Name = "dateexpense"
         frmSchoolExpenses.dtgList.Columns(5).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
-
-        frmSchoolExpenses.dtgList.Columns(6).HeaderText = "Expense Date"
-        frmSchoolExpenses.dtgList.Columns(6).Width = 100
-        frmSchoolExpenses.dtgList.Columns(6).Name = "dateexpense"
-        frmSchoolExpenses.dtgList.Columns(6).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
 
 
     End Sub
@@ -239,7 +235,7 @@
                 Dim nos As Integer = 0
                 While mysqlreader.Read
                     nos += 1
-                    Dim nrow As String() = New String() {nos.ToString, mysqlreader("ID").ToString, mysqlreader("Particular").ToString, mysqlreader("Category").ToString, mysqlreader("Amount").ToString, mysqlreader("SY").ToString, mysqlreader("ExpenseDate").ToString}
+                    Dim nrow As String() = New String() {nos.ToString, mysqlreader("ID").ToString, mysqlreader("Particular").ToString, mysqlreader("Category").ToString, mysqlreader("Amount").ToString, mysqlreader("ExpenseDate").ToString}
                     frmSchoolExpenses.dtgList.Rows.Add(nrow)
                 End While
 
@@ -279,7 +275,7 @@
                     frmSchoolExpenses.txtParticular.Text = xrow("Particular").ToString
                     frmSchoolExpenses.cmbCategory.Text = xrow("Category").ToString
                     frmSchoolExpenses.txtAmount.Text = xrow("Amount").ToString
-                    frmSchoolExpenses.cmbSY.Text = xrow("SY").ToString
+                    'frmSchoolExpenses.cmbSY.Text = xrow("SY").ToString
                     frmSchoolExpenses.dtExpenseDate.Text = xrow("ExpenseDate").ToString
                 Next
             End If

@@ -7,7 +7,6 @@
         txtParticular.Text = ""
         txtAmount.Text = ""
         cmbCategory.Text = Nothing
-        cmbSY.Text = Nothing
     End Sub
     Private Sub ClosePanel()
         panelExpenses.Visible = False
@@ -104,10 +103,6 @@
         Catch ex As Exception
 
         End Try
-    End Sub
-
-    Private Sub cmbSY_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbSY.SelectedIndexChanged
-
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
