@@ -2,13 +2,24 @@
 
 Imports System.Data.OleDb
 Imports System.Windows.Forms.DataVisualization.Charting
+Imports System.Globalization
+
 
 Public Class frmChart
     Private Sub Button1_Click(sender As Object, e As EventArgs)
         Me.Close()
     End Sub
+    Public Sub test()
+        Dim dayOfWeek = CInt(DateTime.Today.DayOfWeek)
+        Dim startOfWeek = DateTime.Today.AddDays(-1 * dayOfWeek)
+        Dim endOfWeek = DateTime.Today.AddDays(7 - dayOfWeek).AddSeconds(-1)
+        Console.WriteLine(startOfWeek)
+        Console.WriteLine(endOfWeek)
+    End Sub
 
     Private Sub frmChart_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'test()
+        'MsgBox(DateDiff(DateInterval.Day, Now.Date, Now.AddDays(4).Date))
         loadcmbyear()
         generateGraphYearly()
         generateGraphMonthly()
