@@ -9,21 +9,85 @@ Public Class frmChart
     Private Sub Button1_Click(sender As Object, e As EventArgs)
         Me.Close()
     End Sub
-    Public Sub test()
-        Dim dayOfWeek = CInt(DateTime.Today.DayOfWeek)
-        Dim startOfWeek = DateTime.Today.AddDays(-1 * dayOfWeek)
-        Dim endOfWeek = DateTime.Today.AddDays(7 - dayOfWeek).AddSeconds(-1)
-        Console.WriteLine(startOfWeek)
-        Console.WriteLine(endOfWeek)
+    'Public Sub test()
+    '    Dim dayOfWeek = CInt(DateTime.Today.DayOfWeek)
+    '    Dim startOfWeek = DateTime.Today.AddDays(-1 * dayOfWeek)
+    '    Dim endOfWeek = DateTime.Today.AddDays(7 - dayOfWeek).AddSeconds(-1)
+    '    Console.WriteLine(startOfWeek)
+    '    Console.WriteLine(endOfWeek)
+    'End Sub
+
+
+    'Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+    '    Call connect(condbPOS)
+    '    mycommand = mysqlconn.CreateCommand
+    '    'mycommand.CommandText = "Select * from POS_Transaction  WHERE TransDate between '" & CDate(frmTransactions_in_POS.dtrangeFrom.Text) & "' and '" & CDate(frmTransactions_in_POS.dtrangeTo.Text) & "' order by TxnID ASC"
+
+    '    mycommand.CommandText = "SELECT * FROM SchoolExpenses WHERE ExpenseDate between '" & CDate(dtp1.Text) & "' and '" & CDate(dtp2.Text) & "' order by ExpenseDate DESC "
+    '    myadapter.SelectCommand = mycommand
+    '    myadapter.Fill(mydataset, "SchoolExpenses")
+    '    mydataTable = mydataset.Tables("SchoolExpenses")
+    '    mysqlreader = mycommand.ExecuteReader()
+
+    '    While mysqlreader.Read()
+    '        MsgBox(mysqlreader("Amount").ToString)
+    '        MsgBox(mysqlreader("ID").ToString)
+    '        'Months.AddRange(New String() {month(mysqlreader("months"))})
+    '        'Months.AddRange(New String() {mysqlreader("months")})
+    '    End While
+    '    mysqlreader.Close()
+    '    mysqlconn.Close()
+    'End Sub
+    Sub generateGraphWeekly()
+        Dim lastdate As Date
+        Call connect(condbPOS)
+        mycommand = mysqlconn.CreateCommand
+        mycommand.CommandText = "Select Top 1  * from SchoolExpenses order by ExpenseDate DESC"
+        myadapter.SelectCommand = mycommand
+        myadapter.Fill(mydataset, "SchoolExpenses")
+        mydataTable = mydataset.Tables("SchoolExpenses")
+        mysqlreader = mycommand.ExecuteReader()
+        While mysqlreader.Read
+            lastdate = mysqlreader("ExpenseDate")
+            MsgBox(lastdate)
+        End While
+        mysqlreader.Close()
+        mysqlconn.Close()
+
+
+        Dim dayOfWeek = CInt(DateTime.Parse(lastdate).DayOfWeek)
+        Dim startOfWeek As String = Date.Parse(lastdate).AddDays(-1 * dayOfWeek)
+        'Dim endOfWeek As String = Date.Parse(lastdate).AddDays(7 - dayOfWeek).AddSeconds(-1)
+        Dim endOfWeek As String = Date.Parse(lastdate).AddDays(6 - dayOfWeek)
+
+        Call connect(condbPOS)
+        mycommand = mysqlconn.CreateCommand
+        mycommand.CommandText = "SELECT  * FROM SchoolExpenses WHERE ExpenseDate between #" & startOfWeek & "# and #" & endOfWeek & "#"
+        myadapter.SelectCommand = mycommand
+        myadapter.Fill(mydataset, "SchoolExpenses")
+        mydataTable = mydataset.Tables("SchoolExpenses")
+        mysqlreader = mycommand.ExecuteReader
+        If mydataTable.Rows.Count > 0 Then
+            While mysqlreader.Read
+                MsgBox(mysqlreader("Amount").ToString)
+                MsgBox(mysqlreader("ID").ToString)
+            End While
+
+        End If
+        mysqlreader.Close()
+        mydataTable.Rows.Clear()
+        mydataset.Clear()
+
     End Sub
 
     Private Sub frmChart_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'test()
-        'MsgBox(DateDiff(DateInterval.Day, Now.Date, Now.AddDays(4).Date))
-        loadcmbyear()
-        generateGraphYearly()
-        generateGraphMonthly()
+        'loadcmbyear()
+        'generateGraphYearly()
+        'generateGraphMonthly()
+        generateGraphWeekly()
     End Sub
+
+
     Sub generateGraphMonthly()
         '        UTILITY BILL
         'EQUIPMENT REPAIR
@@ -51,8 +115,8 @@ Public Class frmChart
         End If
 
         myadapter.SelectCommand = mycommand
-        myadapter.Fill(mydataset, "ExpenseSummary")
-        mydataTable = mydataset.Tables("ExpenseSummary")
+        myadapter.Fill(mydataset, "SchoolExpenses")
+        mydataTable = mydataset.Tables("SchoolExpenses")
         mysqlreader = mycommand.ExecuteReader()
         While mysqlreader.Read
             'Months.AddRange(New String() {month(mysqlreader("months"))})
@@ -75,8 +139,8 @@ Public Class frmChart
 
             End If
             myadapter.SelectCommand = mycommand
-            myadapter.Fill(mydataset, "ExpenseSummary")
-            mydataTable = mydataset.Tables("ExpenseSummary")
+            myadapter.Fill(mydataset, "SchoolExpenses")
+            mydataTable = mydataset.Tables("SchoolExpenses")
             mysqlreader = mycommand.ExecuteReader()
             While mysqlreader.Read
                 Dim tot As Double = 0
@@ -128,8 +192,8 @@ Public Class frmChart
             End If
 
             myadapter.SelectCommand = mycommand
-            myadapter.Fill(mydataset, "ExpenseSummary")
-            mydataTable = mydataset.Tables("ExpenseSummary")
+            myadapter.Fill(mydataset, "SchoolExpenses")
+            mydataTable = mydataset.Tables("SchoolExpenses")
             mysqlreader = mycommand.ExecuteReader()
             While mysqlreader.Read
                 Dim tot As Double = 0
@@ -154,8 +218,8 @@ Public Class frmChart
 
 
             myadapter.SelectCommand = mycommand
-            myadapter.Fill(mydataset, "ExpenseSummary")
-            mydataTable = mydataset.Tables("ExpenseSummary")
+            myadapter.Fill(mydataset, "SchoolExpenses")
+            mydataTable = mydataset.Tables("SchoolExpenses")
             mysqlreader = mycommand.ExecuteReader()
             While mysqlreader.Read
                 Dim tot As Double = 0
@@ -180,8 +244,8 @@ Public Class frmChart
 
 
             myadapter.SelectCommand = mycommand
-            myadapter.Fill(mydataset, "ExpenseSummary")
-            mydataTable = mydataset.Tables("ExpenseSummary")
+            myadapter.Fill(mydataset, "SchoolExpenses")
+            mydataTable = mydataset.Tables("SchoolExpenses")
             mysqlreader = mycommand.ExecuteReader()
             While mysqlreader.Read
                 Dim tot As Double = 0
@@ -264,8 +328,8 @@ Public Class frmChart
         mycommand = mysqlconn.CreateCommand
         mycommand.CommandText = "SELECT Year(ExpenseDate) as years,SUM(Amount) as Total FROM SchoolExpenses Group By Year(ExpenseDate) "
         myadapter.SelectCommand = mycommand
-        myadapter.Fill(mydataset, "ExpenseSummary")
-        mydataTable = mydataset.Tables("ExpenseSummary")
+        myadapter.Fill(mydataset, "SchoolExpenses")
+        mydataTable = mydataset.Tables("SchoolExpenses")
         mysqlreader = mycommand.ExecuteReader()
         While mysqlreader.Read
             cmbYear.Items.Add(mysqlreader("years"))
@@ -297,8 +361,8 @@ Public Class frmChart
         mycommand = mysqlconn.CreateCommand
         mycommand.CommandText = "SELECT Year(ExpenseDate) as years,SUM(Amount) as Total FROM SchoolExpenses Group By Year(ExpenseDate) "
         myadapter.SelectCommand = mycommand
-        myadapter.Fill(mydataset, "ExpenseSummary")
-        mydataTable = mydataset.Tables("ExpenseSummary")
+        myadapter.Fill(mydataset, "SchoolExpenses")
+        mydataTable = mydataset.Tables("SchoolExpenses")
         mysqlreader = mycommand.ExecuteReader()
         While mysqlreader.Read
             Year.AddRange(New String() {mysqlreader("years")})
@@ -314,8 +378,8 @@ Public Class frmChart
             mycommand = mysqlconn.CreateCommand
             mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE YEAR(ExpenseDate)  ='" & Year(i).ToString & "' AND category ='UTILITY BILL' "
             myadapter.SelectCommand = mycommand
-            myadapter.Fill(mydataset, "ExpenseSummary")
-            mydataTable = mydataset.Tables("ExpenseSummary")
+            myadapter.Fill(mydataset, "SchoolExpenses")
+            mydataTable = mydataset.Tables("SchoolExpenses")
             mysqlreader = mycommand.ExecuteReader()
             While mysqlreader.Read
                 Dim tot As Double
@@ -333,8 +397,8 @@ Public Class frmChart
             mycommand = mysqlconn.CreateCommand
             mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE YEAR(ExpenseDate)  ='" & Year(i).ToString & "' AND category ='EQUIPMENT REPAIR' "
             myadapter.SelectCommand = mycommand
-            myadapter.Fill(mydataset, "ExpenseSummary")
-            mydataTable = mydataset.Tables("ExpenseSummary")
+            myadapter.Fill(mydataset, "SchoolExpenses")
+            mydataTable = mydataset.Tables("SchoolExpenses")
             mysqlreader = mycommand.ExecuteReader()
             While mysqlreader.Read
                 Dim tot As Double
@@ -353,8 +417,8 @@ Public Class frmChart
             mycommand = mysqlconn.CreateCommand
             mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE YEAR(ExpenseDate)  ='" & Year(i).ToString & "' AND category ='SCHOOL SUPPLIES' "
             myadapter.SelectCommand = mycommand
-            myadapter.Fill(mydataset, "ExpenseSummary")
-            mydataTable = mydataset.Tables("ExpenseSummary")
+            myadapter.Fill(mydataset, "SchoolExpenses")
+            mydataTable = mydataset.Tables("SchoolExpenses")
             mysqlreader = mycommand.ExecuteReader()
             While mysqlreader.Read
                 Dim tot As Double
@@ -372,8 +436,8 @@ Public Class frmChart
             mycommand = mysqlconn.CreateCommand
             mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE YEAR(ExpenseDate)  ='" & Year(i).ToString & "' AND category ='SCHOOL IMPROVEMENTS' "
             myadapter.SelectCommand = mycommand
-            myadapter.Fill(mydataset, "ExpenseSummary")
-            mydataTable = mydataset.Tables("ExpenseSummary")
+            myadapter.Fill(mydataset, "SchoolExpenses")
+            mydataTable = mydataset.Tables("SchoolExpenses")
             mysqlreader = mycommand.ExecuteReader()
             While mysqlreader.Read
                 Dim tot As Double
@@ -391,8 +455,8 @@ Public Class frmChart
             mycommand = mysqlconn.CreateCommand
             mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses WHERE YEAR(ExpenseDate)  ='" & Year(i).ToString & "' AND category ='EVENTS' "
             myadapter.SelectCommand = mycommand
-            myadapter.Fill(mydataset, "ExpenseSummary")
-            mydataTable = mydataset.Tables("ExpenseSummary")
+            myadapter.Fill(mydataset, "SchoolExpenses")
+            mydataTable = mydataset.Tables("SchoolExpenses")
             mysqlreader = mycommand.ExecuteReader()
             While mysqlreader.Read
                 Dim tot As Double
@@ -571,4 +635,5 @@ Public Class frmChart
 
         generateGraphMonthly()
     End Sub
+
 End Class

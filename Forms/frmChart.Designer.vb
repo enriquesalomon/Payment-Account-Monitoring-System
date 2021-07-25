@@ -31,6 +31,10 @@ Partial Class frmChart
         Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmChart))
+        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series6 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.btnClose = New System.Windows.Forms.Button()
@@ -39,9 +43,14 @@ Partial Class frmChart
         Me.btnrefresh = New System.Windows.Forms.Button()
         Me.cmbYear = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Chart3 = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.dtp1 = New System.Windows.Forms.DateTimePicker()
+        Me.dtp2 = New System.Windows.Forms.DateTimePicker()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel4.SuspendLayout()
         CType(Me.Chart2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Chart3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Chart1
@@ -62,7 +71,7 @@ Partial Class frmChart
         Series2.Name = "Series2"
         Me.Chart1.Series.Add(Series1)
         Me.Chart1.Series.Add(Series2)
-        Me.Chart1.Size = New System.Drawing.Size(932, 332)
+        Me.Chart1.Size = New System.Drawing.Size(330, 332)
         Me.Chart1.TabIndex = 0
         Me.Chart1.Text = "Chart1"
         '
@@ -161,11 +170,60 @@ Partial Class frmChart
         Me.Label1.TabIndex = 137
         Me.Label1.Text = "FILTER BY YEAR"
         '
+        'Chart3
+        '
+        ChartArea3.AxisX.Title = "Year"
+        ChartArea3.AxisY.Title = "Expense"
+        ChartArea3.Name = "ChartArea1"
+        Me.Chart3.ChartAreas.Add(ChartArea3)
+        Legend3.Name = "Legend1"
+        Me.Chart3.Legends.Add(Legend3)
+        Me.Chart3.Location = New System.Drawing.Point(468, 336)
+        Me.Chart3.Name = "Chart3"
+        Series5.ChartArea = "ChartArea1"
+        Series5.Legend = "Legend1"
+        Series5.Name = "Series1"
+        Series6.ChartArea = "ChartArea1"
+        Series6.Legend = "Legend1"
+        Series6.Name = "Series2"
+        Me.Chart3.Series.Add(Series5)
+        Me.Chart3.Series.Add(Series6)
+        Me.Chart3.Size = New System.Drawing.Size(426, 332)
+        Me.Chart3.TabIndex = 665
+        Me.Chart3.Text = "Chart3"
+        '
+        'dtp1
+        '
+        Me.dtp1.Location = New System.Drawing.Point(483, 32)
+        Me.dtp1.Name = "dtp1"
+        Me.dtp1.Size = New System.Drawing.Size(200, 20)
+        Me.dtp1.TabIndex = 666
+        '
+        'dtp2
+        '
+        Me.dtp2.Location = New System.Drawing.Point(689, 31)
+        Me.dtp2.Name = "dtp2"
+        Me.dtp2.Size = New System.Drawing.Size(200, 20)
+        Me.dtp2.TabIndex = 667
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(894, 28)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(47, 23)
+        Me.Button1.TabIndex = 668
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'frmChart
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(954, 680)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.dtp2)
+        Me.Controls.Add(Me.dtp1)
+        Me.Controls.Add(Me.Chart3)
         Me.Controls.Add(Me.btnrefresh)
         Me.Controls.Add(Me.cmbYear)
         Me.Controls.Add(Me.Label1)
@@ -180,6 +238,7 @@ Partial Class frmChart
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
         CType(Me.Chart2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Chart3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -193,4 +252,8 @@ Partial Class frmChart
     Friend WithEvents Label1 As Label
     Friend WithEvents cmbYear As ComboBox
     Friend WithEvents btnrefresh As Button
+    Friend WithEvents Chart3 As DataVisualization.Charting.Chart
+    Friend WithEvents dtp1 As DateTimePicker
+    Friend WithEvents dtp2 As DateTimePicker
+    Friend WithEvents Button1 As Button
 End Class
