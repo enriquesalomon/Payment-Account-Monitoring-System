@@ -54,11 +54,17 @@ Public Class frmChart
         mysqlreader.Close()
         mysqlconn.Close()
 
+        Dim DayOfWeek As Integer
+        Dim hasExpense As Boolean = False
 
-        Dim dayOfWeek = CInt(DateTime.Parse(lastdate).DayOfWeek)
+
+
+        DayOfWeek = CInt(DateTime.Parse(lastdate).DayOfWeek)
         Dim startOfWeek As String = Date.Parse(lastdate).AddDays(-1 * dayOfWeek)
         'Dim endOfWeek As String = Date.Parse(lastdate).AddDays(7 - dayOfWeek).AddSeconds(-1)
-        Dim endOfWeek As String = Date.Parse(lastdate).AddDays(6 - dayOfWeek)
+        Dim endOfWeek As String = Date.Parse(lastdate).AddDays(7 - DayOfWeek).AddSeconds(-1)
+
+
 
         Call connect(condbPOS)
         mycommand = mysqlconn.CreateCommand
@@ -71,7 +77,11 @@ Public Class frmChart
             While mysqlreader.Read
                 MsgBox(mysqlreader("Amount").ToString)
                 MsgBox(mysqlreader("ID").ToString)
+                'hasExpense = True
+
             End While
+        Else
+            MsgBox("Wala")
 
         End If
         mysqlreader.Close()
