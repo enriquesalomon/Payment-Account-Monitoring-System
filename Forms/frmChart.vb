@@ -38,63 +38,82 @@ Public Class frmChart
     '    mysqlreader.Close()
     '    mysqlconn.Close()
     'End Sub
-    Sub generateGraphWeekly()
-        Dim lastdate As Date
-        Call connect(condbPOS)
-        mycommand = mysqlconn.CreateCommand
-        mycommand.CommandText = "Select Top 1  * from SchoolExpenses order by ExpenseDate DESC"
-        myadapter.SelectCommand = mycommand
-        myadapter.Fill(mydataset, "SchoolExpenses")
-        mydataTable = mydataset.Tables("SchoolExpenses")
-        mysqlreader = mycommand.ExecuteReader()
-        While mysqlreader.Read
-            lastdate = mysqlreader("ExpenseDate")
-            MsgBox(lastdate)
-        End While
-        mysqlreader.Close()
-        mysqlconn.Close()
+    'Sub generateGraphWeekly()
+    '    Dim Months As New List(Of String)
+    '    Dim UTILITYBILLtotal As New List(Of Double)
+    '    Dim EQUIPtotal As New List(Of Double)
+    '    Dim SCHOOLSUPtotal As New List(Of Double)
+    '    Dim SCHOOLIMPtotal As New List(Of Double)
+    '    Dim EVENTStotal As New List(Of Double)
 
-        Dim DayOfWeek As Integer
-        Dim hasExpense As Boolean = False
+    '    Dim nowYear As Integer = Date.Now.Year
 
 
 
-        DayOfWeek = CInt(DateTime.Parse(lastdate).DayOfWeek)
-        Dim startOfWeek As String = Date.Parse(lastdate).AddDays(-1 * dayOfWeek)
-        'Dim endOfWeek As String = Date.Parse(lastdate).AddDays(7 - dayOfWeek).AddSeconds(-1)
-        Dim endOfWeek As String = Date.Parse(lastdate).AddDays(7 - DayOfWeek).AddSeconds(-1)
+    '    Dim lastdate As Date
+    '    Call connect(condbPOS)
+    '    mycommand = mysqlconn.CreateCommand
+    '    mycommand.CommandText = "Select Top 1  * from SchoolExpenses order by ExpenseDate DESC"
+    '    myadapter.SelectCommand = mycommand
+    '    myadapter.Fill(mydataset, "SchoolExpenses")
+    '    mydataTable = mydataset.Tables("SchoolExpenses")
+    '    mysqlreader = mycommand.ExecuteReader()
+    '    While mysqlreader.Read
+    '        lastdate = mysqlreader("ExpenseDate")
+    '        MsgBox(lastdate)
+    '    End While
+    '    mysqlreader.Close()
+    '    mysqlconn.Close()
+
+    '    Dim DayOfWeek As Integer
+    '    Dim hasExpense As Boolean = False
 
 
 
-        Call connect(condbPOS)
-        mycommand = mysqlconn.CreateCommand
-        mycommand.CommandText = "SELECT  * FROM SchoolExpenses WHERE ExpenseDate between #" & startOfWeek & "# and #" & endOfWeek & "#"
-        myadapter.SelectCommand = mycommand
-        myadapter.Fill(mydataset, "SchoolExpenses")
-        mydataTable = mydataset.Tables("SchoolExpenses")
-        mysqlreader = mycommand.ExecuteReader
-        If mydataTable.Rows.Count > 0 Then
-            While mysqlreader.Read
-                MsgBox(mysqlreader("Amount").ToString)
-                MsgBox(mysqlreader("ID").ToString)
-                'hasExpense = True
+    '    DayOfWeek = CInt(DateTime.Parse(lastdate).DayOfWeek)
+    '    Dim startOfWeek As String = Date.Parse(lastdate).AddDays(-1 * DayOfWeek)
+    '    'Dim endOfWeek As String = Date.Parse(lastdate).AddDays(7 - dayOfWeek).AddSeconds(-1)
+    '    Dim endOfWeek As String = Date.Parse(lastdate).AddDays(7 - DayOfWeek).AddSeconds(-1)
 
-            End While
-        Else
-            MsgBox("Wala")
 
-        End If
-        mysqlreader.Close()
-        mydataTable.Rows.Clear()
-        mydataset.Clear()
 
-    End Sub
+    '    Call connect(condbPOS)
+    '    mycommand = mysqlconn.CreateCommand
+    '    mycommand.CommandText = "SELECT  * FROM SchoolExpenses WHERE ExpenseDate between #" & startOfWeek & "# and #" & endOfWeek & "#"
+    '    myadapter.SelectCommand = mycommand
+    '    myadapter.Fill(mydataset, "SchoolExpenses")
+    '    mydataTable = mydataset.Tables("SchoolExpenses")
+    '    mysqlreader = mycommand.ExecuteReader
+    '    If mydataTable.Rows.Count > 0 Then
+    '        Dim tot As Double = 0
+    '        While mysqlreader.Read
+    '            tot += CDbl(mysqlreader("Amount"))
+    '        End While
+    '        EVENTStotal.AddRange(New Double() {tot})
+    '    Else
+    '        MsgBox("Wala")
+
+    '    End If
+    '    mysqlreader.Close()
+    '    mydataTable.Rows.Clear()
+    '    mydataset.Clear()
+
+
+    '    Chart3.Series.Clear()
+
+    '    Chart3.Series.Add("EVENTS")
+    '    Chart3.Series("EVENTS").Points.AddXY(month(startOfWeek.ToString), EVENTStotal)
+    '    Chart3.Series("EVENTS").IsValueShownAsLabel = True
+
+
+
+    'End Sub
 
     Private Sub frmChart_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'loadcmbyear()
-        'generateGraphYearly()
-        'generateGraphMonthly()
-        generateGraphWeekly()
+        loadcmbyear()
+        generateGraphYearly()
+        generateGraphMonthly()
+        'generateGraphWeekly()
     End Sub
 
 
