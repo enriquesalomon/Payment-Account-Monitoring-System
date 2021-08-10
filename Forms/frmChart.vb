@@ -115,7 +115,55 @@ Public Class frmChart
         generateGraphMonthly()
         'generateGraphWeekly()
     End Sub
+    Sub generateGraphWeekly()
 
+
+        Dim Months As New List(Of String)
+        Dim UTILITYBILLtotal As New List(Of Double)
+        Dim EQUIPtotal As New List(Of Double)
+        Dim SCHOOLSUPtotal As New List(Of Double)
+        Dim SCHOOLIMPtotal As New List(Of Double)
+        Dim EVENTStotal As New List(Of Double)
+
+        Dim nowYear As Integer = Date.Now.Year
+
+
+
+
+        Call connect(condbPOS)
+        mycommand = mysqlconn.CreateCommand
+        mycommand.CommandText = "SELECT SUM(Amount) as Total FROM SchoolExpenses where ExpenseDate between '" & dtp1.Text & "' and '" & dtp2.Text & "'"
+
+
+        myadapter.SelectCommand = mycommand
+            myadapter.Fill(mydataset, "SchoolExpenses")
+            mydataTable = mydataset.Tables("SchoolExpenses")
+            mysqlreader = mycommand.ExecuteReader()
+            While mysqlreader.Read
+                Dim tot As Double = 0
+                If mysqlreader("Total").ToString = "" Then
+                    tot = 0.00
+                Else
+                    tot = mysqlreader("Total")
+                End If
+            'UTILITYBILLtotal.AddRange(New Double() {tot})
+            MsgBox(tot.ToString)
+        End While
+            mysqlreader.Close()
+            mysqlconn.Close()
+
+
+
+        'Chart2.Series.Clear()
+
+        'Chart2.Series.Add("UTILITY BILL")
+        'Chart2.Series("UTILITY BILL").Points.AddXY(month(Months(i)), UTILITYBILLtotal(i))
+        'Chart2.Series("UTILITY BILL").IsValueShownAsLabel = True
+
+
+
+
+    End Sub
 
     Sub generateGraphMonthly()
         '        UTILITY BILL
@@ -665,4 +713,8 @@ Public Class frmChart
         generateGraphMonthly()
     End Sub
 
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+        generateGraphWeekly()
+
+    End Sub
 End Class
